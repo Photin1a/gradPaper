@@ -8,4 +8,4 @@ with open('C:\\Users\\photinia\\Desktop\\毕业论文\\document.tex', 'r', encod
 chinese_chars = re.findall(r'[\u4e00-\u9fa5]', text)
 
 # 输出中文字符的数量
-print(f"中文字符数量: {len(chinese_chars)-1500}")
+print(f"中文字符数量: {len(chinese_chars)-300}")

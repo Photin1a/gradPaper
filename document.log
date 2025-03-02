@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  2 MAR 2025 12:33
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  2 MAR 2025 20:09
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1692,13 +1692,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [3
 
-])
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[4])
 \tf@toc=\write4
 \openout4 = `document.toc'.
 
 
 
-[4]
+[5]
+
+[6
+
+
+]
 第1章
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1706,8 +1716,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [1
-
-
 
 ]
 Missing character: There is no ① in font Times New Roman/OT:script=latn;languag
@@ -1779,11 +1787,11 @@ File: fig/铰接车简易模型.png Graphic file (type bmp)
 [9
 
 ]
-Overfull \hbox (14.06462pt too wide) in paragraph at lines 159--161
+Overfull \hbox (18.68214pt too wide) in paragraph at lines 159--161
 \TU/SimSun(1)/m/n/12.045 以 前 桥 为 参 考 点，|  定 义 $\LMS/ntxsy/m/n/12.045 ¹\OML/ntxm
 i/m/it/12.045 x; y; theta; gamma\LMS/ntxsy/m/n/12.045 º$ \TU/SimSun(1)/m/n/12.0
-45 为 铰 接 车 的 位 姿，|  他 们 分 别 代 表 着 $\OML/ntxmi/m/it/12.045 x[]; y[]; ^^R; ^^M$\T
-U/SimSun(1)/m/n/12.045 。|
+45 为 铰 接 车 的 位 姿，|  他 们 分 别 代 表 着 $\OML/ntxmi/m/it/12.045 x[]; y[]; ^^R[]; ^^M$
+\TU/SimSun(1)/m/n/12.045 。|
  []
 
 
@@ -1807,126 +1815,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [13]
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-File: fig/ysu_logo.png Graphic file (type bmp)
-<fig/ysu_logo.png>
-File: fig/ysu_logo.png Graphic file (type bmp)
-<fig/ysu_logo.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-LaTeX Warning: Reference `fig_ysunationalbase' on page 14 undefined on input li
-ne 261.
-
-
-LaTeX Warning: Reference `fig_ysunationalbase' on page 14 undefined on input li
-ne 261.
-
-
-LaTeX Warning: Hyper reference `fig_mmst' on page 14 undefined on input line 26
-1.
-
-
-LaTeX Warning: Reference `sub@fig_mmst' on page 14 undefined on input line 261.
-
-
-
-LaTeX Warning: Reference `fig_ysunationalbase' on page 14 undefined on input li
-ne 261.
-
-
-LaTeX Warning: Hyper reference `fig_finesteel' on page 14 undefined on input li
-ne 261.
-
-
-LaTeX Warning: Reference `sub@fig_finesteel' on page 14 undefined on input line
- 261.
-
-
-LaTeX Warning: Reference `fig_ysunationalbase' on page 14 undefined on input li
-ne 261.
-
-
-LaTeX Warning: Hyper reference `fig_innovativetalents' on page 14 undefined on 
-input line 261.
-
-
-LaTeX Warning: Reference `sub@fig_innovativetalents' on page 14 undefined on in
-put line 261.
-
-
-LaTeX Warning: Reference `fig_ysunationalbase' on page 14 undefined on input li
-ne 261.
-
-
-LaTeX Warning: Hyper reference `fig_coldrolledstrip' on page 14 undefined on in
-put line 261.
-
-
-LaTeX Warning: Reference `sub@fig_coldrolledstrip' on page 14 undefined on inpu
-t line 261.
-
-File: fig/亚稳材料制备技术与科学国家重点实验室.pdf Graphic file (type pdf)
-<use fig/亚稳材料制备技术与科学国家重点实验室.pdf>
-File: fig/精品钢铁生产工艺装备智能化省部共建协同创新中心.pdf Graphic file (type pdf)
-<use fig/精品钢铁生产工艺装备智能化省部共建协同创新中心.pdf>
-File: fig/国家创新人才培养示范基地.pdf Graphic file (type pdf)
-<use fig/国家创新人才培养示范基地.pdf>
-File: fig/国家冷轧板带装备及工艺工程技术研究中心.pdf Graphic file (type pdf)
-<use fig/国家冷轧板带装备及工艺工程技术研究中心.pdf>
 
 
 [14]
+File: fig/不同初解.png Graphic file (type bmp)
+<fig/不同初解.png>
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [15]
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 315.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 315.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 315.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 315.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 315.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 315.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 315.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 315.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 315.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 315.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 315.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 315.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 315.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 315.
-
 
 [16]
 第3章
@@ -1947,6 +1848,24 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [19]
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -2013,7 +1932,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [26]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 696.
+put line 647.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2143,52 +2062,52 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ] (document.bbl
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.53937pt on input line 21.
+(Font)              scaled to size 10.53937pt on input line 20.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 7.0pt on input line 21.
+(Font)              scaled to size 7.0pt on input line 20.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 5.0pt on input line 21.
+(Font)              scaled to size 5.0pt on input line 20.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 21.
+(Font)              scaled to size 10.53937pt on input line 20.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.0pt on input line 21.
+(Font)              scaled to size 7.0pt on input line 20.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.0pt on input line 21.
+(Font)              scaled to size 5.0pt on input line 20.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 21.
+(Font)              scaled to size 10.53937pt on input line 20.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.0pt on input line 21.
+(Font)              scaled to size 7.0pt on input line 20.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.0pt on input line 21.
+(Font)              scaled to size 5.0pt on input line 20.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 21.
+(Font)              size <10.95> substituted on input line 20.
 
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.53937pt on input line 21.
+(Font)              scaled to size 10.53937pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.0pt on input line 21.
+(Font)              scaled to size 7.0pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.0pt on input line 21.
+(Font)              scaled to size 5.0pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 21.
+(Font)              scaled to size 10.53937pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.0pt on input line 21.
+(Font)              scaled to size 7.0pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.0pt on input line 21.
+(Font)              scaled to size 5.0pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 21.
+(Font)              scaled to size 10.53937pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.0pt on input line 21.
+(Font)              scaled to size 7.0pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.0pt on input line 21.
+(Font)              scaled to size 5.0pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 21.
+(Font)              scaled to size 10.53937pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.0pt on input line 21.
+(Font)              scaled to size 7.0pt on input line 20.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.0pt on input line 21.
+(Font)              scaled to size 5.0pt on input line 20.
 )
 
 [48
@@ -2224,25 +2143,16 @@ L3 programming layer <2022/07/14>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.34248pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
-
-Package rerunfilecheck Warning: File `document.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `document.out':
-(rerunfilecheck)             Before: 3A09D600929F9D6865EE836D5AB0FDEF;9156
-(rerunfilecheck)             After:  7586A18AF8755852051772B3A7F5C944;9172.
+Package rerunfilecheck Info: File `document.out' has not changed.
+(rerunfilecheck)             Checksum: 621A82991DD0F49AFAC8CE8B1AB10E33;10458.
  ) 
 Here is how much of TeX's memory you used:
- 27161 strings out of 408789
- 554641 string characters out of 5748080
- 958549 words of memory out of 5000000
- 49634 multiletter control sequences out of 15000+600000
- 693861 words of font info for 310 fonts, out of 8000000 for 9000
+ 27010 strings out of 408789
+ 550459 string characters out of 5748080
+ 958256 words of memory out of 5000000
+ 49486 multiletter control sequences out of 15000+600000
+ 678893 words of font info for 284 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,17n,145p,3346b,791s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on document.pdf (64 pages).
+Output written on document.pdf (66 pages).

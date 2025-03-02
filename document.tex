@@ -157,7 +157,7 @@
 			&\theta _2=\theta _1-\gamma 
 		\end{aligned}
 	\end{equation}
-	以前桥为参考点，定义$(x,y,theta,gamma)$为铰接车的位姿，他们分别代表着$x_f,y_f,\theta,\gamma$。在我们的研究中铰接车的前桥和后桥相等，即$lf=lr=L=1.3m$。联合上式我们可以得到铰接车的运动学方程为:
+	以前桥为参考点，定义$(x,y,theta,gamma)$为铰接车的位姿，他们分别代表着$x_f,y_f,\theta_1,\gamma$。在我们的研究中铰接车的前桥和后桥相等，即$lf=lr=L=1.3m$。联合上式我们可以得到铰接车的运动学方程为:
 	\begin{equation}
 		\begin{aligned}
 			\frac{d}{dt}\left[ \begin{array}{c}
@@ -174,17 +174,35 @@
 		\end{aligned}
 	\end{equation}
 	其中$v,w$是输入量，分别代表这前轴速度和铰接角速度。
+	其次我们可以推导出铰接车的转弯半径为：
+	\begin{equation}
+		\begin{aligned}
+			R = \frac{v}{\theta} = v\cdot L \frac{1+cos\gamma}{vsin\gamma+L\omega }
+		\end{aligned}
+	\end{equation}
+	特别的，日过我们忽略铰接车的动态转向，只保留静态转向，即$\omega=0$：
+	\begin{equation}
+		\begin{aligned}
+			R_{steady} = \frac{L}{tan(\gamma/2)} 
+		\end{aligned}
+	\end{equation}
 
 		
 		
 	\section{基于最优控制的运动规划问题建模}
-	最优控制侧重于得到系统的最优控制量，轨迹规划与之不同，它侧重于得到系统的状态量，即最优轨线。轨迹规划在最优控制的表述下属于代价函数是综合型或鲍尔扎型的性能指标，它通常包括能量消耗和终点代价两个部分。对于连续系统的鲍尔扎最优控制代价可以描述如下：
+	本文设计的全局和局部规划器都使用了基于优化的方法，将问题构建在最优控制的框架下求解。最优控制的一大特点就是可以清晰的把各种约束表示在问题里，例如运动学方程约束、状态受限约束和执行器受限约束，因此最优控制在轨迹规划中被广泛关注。假设系统状态方程为$\dot{x(t)}=f(x(t),u(t))$，最优控制就是从可选择的容许控制集$U$中，找到一个控制矢量$u(t)$，使得系统到终端时刻时，性能指标$J$取最小值，满足条件的控制成为最优控制$u^{*}(t)$，对应的状态方程的解成为最优轨线$x^{*}(t)$。最优控制侧重于得到系统的最优控制量，轨迹规划与之不同，它侧重于得到系统的状态量，即最优轨线。轨迹规划在最优控制的表述下属于代价函数是综合型或鲍尔扎型的性能指标，它通常包括能量消耗和终点代价两个部分。
+	
+	基于连续系统的鲍尔扎型最优控制可以将轨迹规划表述为如下：
 	\begin{equation}
 		\begin{aligned}
-			J = \Phi[x(t_f)]+\int_{t_0}^{t_f}L[x(t),u(t),t]dt
+			\min_{x(t),u(t),t} &J = \Phi[x(t_f)]+\int_{t_0}^{t_f}L[x(t),u(t),t]dt\\
+			s.t. \ \ \ &\dot{x} = f(x(t),u(t))\\
+			&x_{min}\le x(t) \le x_{max},u_{min}\le u(t) \le u_{max},t \in{t_0,t_f}\\
+			&x(t_0)=x_{start},x(t_f)=x_{goal},\\
+			&h(x(t))\cap C_{occ}=\varnothing 
 		\end{aligned}
 	\end{equation}
-	其中$t_f$是终端时刻，$\Phi[x(t_f)]$是终端代价，也就是对目标的偏差。$x(t)$和$u(t)$分别代表状态量和控制量，$L[x(t),u(t),t]$表示过程代价，在轨迹优化中可以是能量消耗，也就是对控制量的代价。假设系统状态方程为$\dot{x(t)}=f(x(t),u(t))$，最优控制就是从可选择的容许控制集$U$中，找到一个控制矢量$u(t)$，使得系统到终端时刻时，性能指标$J$取最小值，满足条件的控制成为最优控制$u^{*}(t)$，对应的状态方程的解成为最优轨线$x^{*}(t)$。
+	其中$t_f$是终端时刻，$\Phi[x(t_f)]$是终端代价，也就是对目标的偏差。$x(t)$和$u(t)$分别代表状态量和控制量，$L[x(t),u(t),t]$表示过程代价，在轨迹优化中可以是能量消耗，也就是对控制量的代价。
 	
 	对于离散系统，一般代价泛函可以表示为：
 	\begin{equation}
@@ -193,17 +211,7 @@
 		\end{aligned}
 	\end{equation}
 
-	点到点的轨迹规划用最优控制的框架可以被描述为：
-	\begin{equation}
-		\begin{aligned}
-			\min_{x(t),u(t),t} &J(x(t),u(t))\\
-			s.t. \ \ \ &\dot{x} = f(x(t),u(t))\\
-			&x_{min}\le x(t) \le x_{max},u_{min}\le u(t) \le u_{max},t \in{t_0,t_f}\\
-			&x(t_0)=x_{start},x(t_f)=x_{goal},\\
-			&h(x(t))\cap C_{occ}=\varnothing 
-		\end{aligned}
-	\end{equation}
-	$x(t)$和$u(t)$表示车辆的状态量和控制量，$J$是最优控制的目标函数。在约束中，$\dot{x(t)}=f(x(t),u(t))$是车辆的运动学方程，$x_{min}\le x(t) \le x_{max},u_{min}\le u(t) \le u_{max}$分别代表系统的状态受限和输入受限，$x(t_0)=x_{start},x(t_f)=x_{goal}$表示起点和终点约束。$h(x(t))\cap C_{occ}=\varnothing$表示车辆的避障约束。其中$C_{occ}$表示障碍物区域。下面将详细介绍铰接车·轨迹规划中的各个组成部分。
+	$x(t)$和$u(t)$表示车辆的状态量和控制量，$J$是最优控制的目标函数。在约束中，$\dot{x(t)}=f(x(t),u(t))$是车辆的运动学方程，$x_{min}\le x(t) \le x_{max},u_{min}\le u(t) \le u_{max}$分别代表系统的状态受限和输入受限，$x(t_0)=x_{start},x(t_f)=x_{goal}$表示起点和终点约束。$h(x(t))\cap C_{occ}=\varnothing$表示车辆的避障约束。其中$C_{occ}$表示障碍物区域。下面将详细介绍铰接车轨迹规划中的各个组成部分。
 
 	\section{最优控制问题的解法}
 	最优控制问题的求解方法主要可分为两类。一类是​解析解法，基于变分法原理与极小值原理的经典分析方法。这类方法能够通过严格的数学推导获得控制律的显式解析解，具有理论完备性强的特点。然而其应用范围受限于问题复杂度——当系统动力学方程非线性程度加剧或路径约束增多时，解析解的推导将面临难以逾越的数学障碍，导致方法失效。另一类是​数值解法，采用离散化策略将连续最优控制问题转化为非线性规划问题求解。此类方法虽能处理复杂约束条件与非线性系统，但随着精度要求的提升（包括时间离散密度与状态量精度），会导致优化变量维度呈指数级增长。由此产生的计算复杂度将显著延长求解时间，严重影响控制系统的实时性表现。这两类方法呈现不同的特性，解析解法在简单场景中具有理论优势却缺乏工程适用性。而数值解法具广泛适应性但受制于“维度灾难”带来的计算瓶颈。
@@ -217,7 +225,7 @@
 	\begin{equation}
 	\begin{aligned}
 		\min_{u_0,...,u_N} & J(u_0,u_1,\ldots,u_N,x_1,x_2,\ldots,x_N) \\
-		& x_{k+1}=x_k+f(x_k,u_k)\cdot h,\quad k=0,\ldots,N \\
+		& x_{k+1}=x_k+f(x_k,u_k)\cdot \Delta t,\quad k=0,\ldots,N \\
 		& x_{0}=x_{start}
 	\end{aligned}
 	\end{equation}
@@ -225,114 +233,57 @@
 	下一小节我将介绍一种更为直接的数值方法，它可以直接获得系统的状态，也就是轨迹。
 	
 	\subsection{基于配点法的数值求解}
-	与打靶法不同，打靶法只离散控制量，而配点法通过离散控制量和状态量将连续最优控制问题转化为非线性规划问题，其数值鲁棒性在工程领域广受认可。由于直接将状态量纳入到优化变量，所以配点法相较于打靶法更适合用来做轨迹规划。这种方法在配置节点处要求满足动力学方程约束，配点之间使用多项式或者其他曲线进行差值。当配点较为密集时，配点之间也可以近似用直线连接。
+	与打靶法不同，打靶法只离散控制量，而配点法通过离散控制量和状态量将连续最优控制问题转化为非线性规划问题（nonlinear programming problem，NLP），其数值鲁棒性在工程领域广受认可。由于直接将状态量纳入到优化变量，所以配点法相较于打靶法更适合用来做轨迹规划。这种方法在配置节点处要求满足动力学方程约束，配点之间使用多项式或者其他曲线进行差值。当配点较为密集时，配点之间也可以近似用直线连接。
+
+	本次设计中我们使用配点法求解，所以我们先对连续最优控制问题进行离散化，离散化后可以表示如下：
 	\begin{equation}
 	\begin{aligned}
-		\min_{x_1,...,x_N,u_0,...,u_N} & J(u_0,u_1,\ldots,u_N,x_1,x_2,\ldots,x_N) \\
-		& x_{k+1}=x_k+f(x_k,u_k)\cdot h,\quad k=0,\ldots,N \\
-		& x_{0}=x_{start}
+		\min_{x(t),u(t),t} &J = \Phi[x(N)]+\sum_{k=0}^{N-1}L[x(k),u(k),k]\\
+			s.t. \ \ \ &x(k+1) = x(k)+ \Delta t \cdot f(x(k),u(k))\\
+			&x_{min}\le x(k) \le x_{max},u_{min}\le u(k) \le u_{max},k \in{0,N-1}\\
+			&x(0)=x_{start},x(N)=x_{goal},\\
+			&h(x(k))\cap C_{occ}=\varnothing 
 	\end{aligned}
 	\end{equation}
+	上述式子中约束条件依次为系统动力学约束、状态受限约束、输入受限约束、起点终点约束和路径约束（安全避障约束）。
+
+	第三章和第四章中我们会分别针对全局规划和局部规划对【公式】设计各自的具体目标函数和约束形式，并使用非线性优化求解器进行求解。非线性优化求解器我们将在【下一节】中介绍。
 
 	\section{非线性规划问题的求解}
+	在上一节中我们把最优控制离散化为了一个非线性规划（NLP）问题，这个问题一般具有很强的非线性和非凸性。一般处理NLP问题的求解方法有很多，包含增广拉格朗日乘子法（ALM）、交叉方向乘子法（ADMM）、罚函数法、有效集法和可行方向法等。这些所有的方法都假设了问题和约束都是凸的，目前对于非凸问题还没有有效的求解方法。由于罚函数在工程中表现优异，在本设计中也将使用罚函数。
+		\subsection{罚函数法}
+		无约束问题的求解有梯度一类的方法和牛顿法一类的方法，这些方法被公认可以有效解决无约束优化问题。所以对于带约束的优化问题我们一般可以使用罚函数把它化为无约束优化问题。
+		罚函数有内罚函数和外罚函数两种，其代表性求解器分别是IPOPT和G2O。考虑如下一般的优化问题：
+		\begin{equation}
+			\begin{aligned}
+				\min_{x} &J(x)\\
+					s.t. &g(x)<0\\
+					&h(x)=0
+			\end{aligned}
+		\end{equation}
+		公式【】中包含通用的两种约束，等式约束和不等式约束。我们可以直接把这两种约束使用罚函数加到代价函数中：
+		\begin{equation}
+			\begin{aligned}
+				\min_{x} &J(x)+Pen1(g(x))+Pen2(h(x))
+			\end{aligned}
+		\end{equation}
+		罚函数Pen1针对于处理不等式约束，它必须具有的特性是在可行域外时代价尽量大，在可行域内时代价尽量小。罚函数Pen2针对于处理等式约束，它必须具有的特性是在可行点外时代价尽量大，在可行点内时代价尽量小。在大多数时候，我们其实并不关心使用内罚还是外罚，我们更关心的是找到两个合适的罚函数来使得问题求解起来更加的鲁棒。
+		\subsection{非线性规划问题的初始解}
+		罚函数仅仅是将带约束的问题转化为了无约束优化问题，求解这么一个无约束优化问题还需要一个迭代初始解。在凸优化中，迭代初始解我们是很关心它的质量，凸特性会使得初始解迫向最优解迭代，初始解的不同只是影响收敛快慢而已。但是在我们的非线性规划问题中，问题是强非凸的，所以不同的初始解可能最终收敛到的极值并不一样。所以找到一个优秀的初始解往往可以使得最终的求解结果接近最优解。
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.8\textwidth]{不同初解.png}
+			\caption{不同初解}
+			\label{fig:不同初解}
+		\end{figure}
+		如图【】所示，非线性规划算法处理初始轨迹A1后将迭代优化至轨迹A2，而选取初始方案B1时则会收敛于轨迹B2。通过图示对比可明显观察到，采用初始轨迹A1能使系统收敛至路径长度更优的局部极小值。该现象验证了初始参数设定对优化结果具有决定性作用，因此初始解的获取策略是极为关键的。
+
 	\section{本章总结}
+	本章系统构建了铰接车运动规划的理论框架与求解体系。通过全局-局部分层规划架构实现任务解耦：全局层基于搜索算法生成粗解路径，结合能量最优模型进行平滑优化；局部层通过改进型Hybrid A*算法生成满足运动学约束的轨迹初值，并利用非线性模型预测控制（NMPC）进行时空联合优化，辅以动态安全走廊技术实时更新安全边界，兼顾规划效率与安全性。
 
+	针对铰接车运动学特性，建立低速非侧滑条件下的四维状态模型，推导了前/后桥坐标变换关系与瞬时转向半径方程，为轨迹优化提供核心动力学约束。基于最优控制理论，将轨迹规划问题转化为多约束非线性规划问题，对比解析解法与数值解法的适用性，提出采用配点法直接优化状态/控制变量，并通过罚函数法处理非凸约束，解决了传统方法在复杂场景下的维度灾难与收敛性问题。
 
-		文献\cite{SikangLiu:2017}为参考文献示例\upcite{SikangLiu:2017}。
-
-		图\ref{fig:ysu_logo}为插入单张图片示例。
-
-		%-------------------插入单张图片示例开始-------------------
-			\begin{figure}[!ht]
-				\centering
-				\includegraphics[width=2.79in]{ysu_logo}
-				\caption{硕士论文图形}
-				\label{fig:ysu_logo}
-			\end{figure}
-		%-------------------插入单张图片示例结束-------------------
-			\begin{figure}[!ht]
-				\centering
-				\includegraphics[width=0.6\textwidth]{ysu_logo}
-				\bicaption{博士论文图形}{A single center graphics A single center graphics }
-				\label{ysulogo}
-            \end{figure}
-
-
-		图\ref{fig_ysunationalbase}、图\ref{fig_ysunationalbase}\subref{fig_mmst}、图\ref{fig_ysunationalbase}\subref{fig_finesteel}、图\ref{fig_ysunationalbase}\subref{fig_innovativetalents}和图\ref{fig_ysunationalbase}\subref{fig_coldrolledstrip}为插入多张图片示例。
-
-		%-------------------插入多张图片示例开始-------------------
-			\begin{figure}[!ht]
-				\centering
-				\bisubcaptionbox{亚稳材料制备技术与科学国家重点实验室\label{fig_bi_mmst}}{State Key Laboratory of Metastable Materials Science and Technology}[0.49\textwidth]{\includegraphics[scale=0.25]{亚稳材料制备技术与科学国家重点实验室.pdf}}
-				\bisubcaptionbox{精品钢铁生产工艺装备智能化省部共建协同创新中心\label{fig_bi_finesteel}}{High-quality iron and steel production process equipment intelligence, the Ministry of Chemical Cooperation and Innovation Center}[0.49\textwidth]{\includegraphics[scale=0.25]{精品钢铁生产工艺装备智能化省部共建协同创新中心.pdf}}
-				\bisubcaptionbox{国家创新人才培养示范基地\label{fig_bi_innovativetalents}}{National Demonstration Base for training innovative talents}[0.49\textwidth]{\includegraphics[scale=0.25]{国家创新人才培养示范基地.pdf}}
-				\bisubcaptionbox{国家冷轧板带装备及工艺工程技术研究中心\label{fig_bi_coldrolledstrip}}{National Research Center for cold-rolled strip equipment and technology}[0.49\textwidth]{\includegraphics[scale=0.25]{国家冷轧板带装备及工艺工程技术研究中心.pdf}}
-				\bicaption{燕山大学国家基地}{The national base of Yanshan University}
-				\label{fig_bi_ysunationalbase}
-			\end{figure}
-		%-------------------插入多张图片示例结束-------------------
-
-
-		下面是插入行内公式的示例。
-
-		勾股定理$a^2+b^2=c^2$也被称为商高定理。
-
-		下面是插入行间公式的示例。
-
-		公式\eqref{eq:a^2+b^2}可以根据公式\eqref{eq:a}和\eqref{eq:b}得到。
-
-		\begin{align}
-			\theta&=\omega t\notag\\
-			a&=\cos\theta \label{eq:a}\\
-			b&=\sin\theta \label{eq:b}\\
-			a^2+b^2&=1
-			\label{eq:a^2+b^2}
-		\end{align}
-
-		式\eqref{eq2:a^2+b^2}可由式\eqref{eq2:identity_a_b}得出。
-		\begin{subequations}
-			\label{eq2:identity_a_b}
-			\begin{align}
-				\theta&=\omega t\notag\\
-				a&=\cos\theta \label{eq2:a}\\
-				b&=\sin\theta \label{eq2:b}\\
-				a^2+b^2&=1
-				\label{eq2:a^2+b^2}
-			\end{align}
-		\end{subequations}
-
-		表\ref{tab_para1}~为插入表格示例。
-
-		%--------------插表示例开始--------------
-		\begin{table}[!ht]
-			\caption{System Parameters}
-			\label{tab_para1}
-			\centering
-			\begin{tabular}{CLR}
-				\toprule
-				Parameter & Description & Value \\
-				\midrule
-				$L$ & filter inductance & $2\mathrm{mH}$ \\
-				$C$ & filter capacitance & $100\mu\mathrm{F}$ \\
-				$R$ & load resistance & $10\Omega$ \\
-				\bottomrule
-			\end{tabular}
-		\end{table}
-		%--------------插表示例结束--------------
-		\begin{table}[!ht]
-			\bicaption{博士中文表题}{System Parameters}
-			\label{tab_para2}
-			\centering
-			\begin{tabular}{CLR}
-				\toprule
-				Parameter & Description & Value \\
-				\midrule
-				$L$ & filter inductance & $2\mathrm{mH}$ \\
-				$C$ & filter capacitance & $100\mu\mathrm{F}$ \\
-				$R$ & load resistance & $10\Omega$ \\
-				\bottomrule
-			\end{tabular}
-		\end{table}
+	本章创新性体现于：1）分层规划架构实现复杂场景的快速响应；2）运动学模型与NMPC框架的深度耦合，强化了铰接车运动约束的表达能力；3）基于配点法的离散化建模与初始解优化策略，为后续章节的实时轨迹生成奠定了理论与方法基础。
 
 	\chapter{无人铰接车微分平坦全局轨迹规划方法}
 
@@ -1093,19 +1044,17 @@
 
 	通过本章的研究，我们不仅改进了传统轨迹规划算法以适应铰接车的特殊运动特性，还设计了高效的碰撞检测与轨迹优化方案，为无人铰接车在复杂环境中的局部路径规划提供了有效的解决方案。
 	
-	\chapter{结论}
-		论文的结论部分是整个研究的归纳和总结，也是对研究问题的回答和对结果的解释。在这一部分中，研究者应该系统性地总结研究的主要发现，并就这些发现的意义进行讨论。同时，应该指出研究的局限性，并提出未来研究的方向。
-
-		首先，结论部分应该对研究的核心发现进行简要总结，强调这些发现与研究问题之间的关系。然后，研究者需要讨论这些发现的意义，包括对理论、实践或政策的影响，并强调研究的贡献。此外，应该指出研究的局限性，即研究所面临的限制和可能存在的偏差，并提出改进方法。最后，结论部分应该提出未来研究的方向或建议，以便激发读者的兴趣，并为后续研究提供参考。
-
-		总之，结论部分是整个论文的重要组成部分，需要深入总结研究的主要发现，并就这些发现的意义进行深入讨论，同时指出研究的局限性并提出未来研究的方向。
+	\chapter{无人铰接车运动规划系统仿真实验}
+	\section{系统集成}
+		\subsection{仿真环境介绍}
+		\subsection{自主导航系统框架介绍}
+	\section{长远距离自主避障实验}
+	\section{自主泊车和侧方位停车实验}
+	\section{本章总结}
 
 	\reference{ref.bib}
 
 	\customizedappendix{
-		%如无附录，可删除此部分内容。
-		论文的附录通常包括一些额外的材料，用于补充和支持主体文本，但不适合直接放在正文中。以下是一些可能包含在附录中的内容。
-		
 		\begin{align}
 			\theta&=\omega t\notag\\
 			a&=\cos\theta \label{eq:appendix1_a}\\
@@ -1127,9 +1076,6 @@
 	}
 
 	\customizedappendix{
-		%如无附录，可删除此部分内容。
-		论文的附录通常包括一些额外的材料，用于补充和支持主体文本，但不适合直接放在正文中。以下是一些可能包含在附录中的内容。
-		
 		\begin{align}
 			\theta&=\omega t\notag\\
 			a&=\cos\theta \label{eq:appendix2_a}\\
@@ -1183,10 +1129,5 @@
 	}
 
 	\acknowledgement{
-		本论文的顺利完成，离不开导师XXX老师的悉心指导和教诲。在研究过程中，导师给予了我充分的自由空间和宝贵的建议，让我受益匪浅。
-
-		同时，我要感谢实验室的师兄师姐们，他们在实验设备的使用和数据分析方面给予了我大量的帮助。他们的热情和支持让我在科研道路上走得更远。
-
-		最后，我要特别感谢我的家人。是他们的无私支持和理解，让我能够全身心地投入到研究工作中，顺利完成了这篇论文。
 	}
 \end{document}

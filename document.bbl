@@ -11,15 +11,6 @@
   \let\eprint\href
 \fi
 
-\bibitem[Liu et~al.(2017)Liu, Watterson, Mohta, Sun, Bhattacharya, Taylor, and
-  Kumar]{SikangLiu:2017}
-LIU S, WATTERSON M, MOHTA K, et~al.
-\newblock Planning dynamically feasible trajectories for quadrotors using safe
-  flight corridors in 3-d complex environments\allowbreak[J/OL].
-\newblock IEEE Robotics and Automation Letters, 2017, 2\allowbreak (3):
-  1688-1695.
-\newblock DOI: \doi{10.1109/LRA.2017.2663526}.
-
 \bibitem[Gao et~al.(2018)Gao, Wu, Lin, and Shen]{Gao2018OnlineST}
 GAO F, WU W, LIN Y, et~al.
 \newblock Online safe trajectory generation for quadrotors using fast marching
@@ -44,5 +35,14 @@ DEITS R, TEDRAKE R.
   semidefinite programming\allowbreak[M/OL].
 \newblock Cham: Springer International Publishing, 2015: 109-124.
 \newblock \url{https://doi.org/10.1007/978-3-319-16595-0_7}.
+
+\bibitem[Liu et~al.(2017)Liu, Watterson, Mohta, Sun, Bhattacharya, Taylor, and
+  Kumar]{SikangLiu:2017}
+LIU S, WATTERSON M, MOHTA K, et~al.
+\newblock Planning dynamically feasible trajectories for quadrotors using safe
+  flight corridors in 3-d complex environments\allowbreak[J/OL].
+\newblock IEEE Robotics and Automation Letters, 2017, 2\allowbreak (3):
+  1688-1695.
+\newblock DOI: \doi{10.1109/LRA.2017.2663526}.
 
 \end{thebibliography}

@@ -19,7 +19,9 @@
 \contentsline {subsection}{\numberline {2.4.2}基于打靶法的数值求解}{13}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}基于配点法的数值求解}{14}{subsection.2.4.3}%
 \contentsline {section}{\numberline {2.5}非线性规划问题的求解}{14}{section.2.5}%
-\contentsline {section}{\numberline {2.6}本章总结}{14}{section.2.6}%
+\contentsline {subsection}{\numberline {2.5.1}罚函数法}{15}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}非线性规划问题的初始解}{15}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}本章总结}{16}{section.2.6}%
 \contentsline {chapter}{\numberline {第3章\hspace {.3em}}无人铰接车微分平坦全局轨迹规划方法}{17}{chapter.3}%
 \contentsline {section}{\numberline {3.1}铰接模型微分平坦性}{18}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}铰接车模型的平坦输出}{18}{subsection.3.1.1}%
@@ -52,10 +54,16 @@
 \contentsline {subsection}{\numberline {4.3.5}时间正则化约束}{44}{subsection.4.3.5}%
 \contentsline {subsection}{\numberline {4.3.6}迭代求解框架}{45}{subsection.4.3.6}%
 \contentsline {section}{\numberline {4.4}本章小结}{46}{section.4.4}%
-\contentsline {chapter}{\numberline {第5章\hspace {.3em}}结论}{47}{chapter.5}%
-\contentsline {chapter}{参考文献}{48}{chapter.5}%
+\contentsline {chapter}{\numberline {第5章\hspace {.3em}}无人铰接车运动规划系统仿真实验}{47}{chapter.5}%
+\contentsline {section}{\numberline {5.1}系统集成}{47}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}仿真环境介绍}{47}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}自主导航系统框架介绍}{47}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}长远距离自主避障实验}{47}{section.5.2}%
+\contentsline {section}{\numberline {5.3}自主泊车和侧方位停车实验}{47}{section.5.3}%
+\contentsline {section}{\numberline {5.4}本章总结}{47}{section.5.4}%
+\contentsline {chapter}{参考文献}{48}{section.5.4}%
 \contentsline {chapter}{\numberline {附录A\hspace {.3em}}}{49}{chapter.6}%
 \contentsline {chapter}{\numberline {附录B\hspace {.3em}}}{50}{chapter.7}%
-\contentsline {chapter}{攻读硕士学位期间取得的成果}{51}{chapter*.29}%
-\contentsline {chapter}{致谢}{52}{chapter*.30}%
+\contentsline {chapter}{攻读硕士学位期间取得的成果}{51}{chapter*.25}%
+\contentsline {chapter}{致谢}{52}{chapter*.26}%
 \contentsfinish 
