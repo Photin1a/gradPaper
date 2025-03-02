@@ -1,47 +1,332 @@
-@book{texbook,
-  author = {Donald E. Knuth},
-  year = {1986},
-  title = {The {\TeX} Book},
-  publisher = {Addison-Wesley Professional}
+% 刘思康2017-生成凸包的方法
+@ARTICLE{SikangLiu:2017,
+  author={Liu, Sikang and Watterson, Michael and Mohta, Kartik and Sun, Ke and Bhattacharya, Subhrajit and Taylor, Camillo J. and Kumar, Vijay},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={Planning Dynamically Feasible Trajectories for Quadrotors Using Safe Flight Corridors in 3-D Complex Environments}, 
+  year={2017},
+  volume={2},
+  number={3},
+  pages={1688-1695},
+  keywords={Trajectory;Ellipsoids;Planning;Robots;Navigation;Collision avoidance;Real-time systems;Aerial robotics;autonomous vehicle navigation;motion and path planning},
+  doi={10.1109/LRA.2017.2663526}
 }
 
-@book{latex:companion,
-  author = {Frank Mittelbach and Michel Gossens
-            and Johannes Braams and David Carlisle
-            and Chris Rowley},
-  year = {2004},
-  title = {The {\LaTeX} Companion},
-  publisher = {Addison-Wesley Professional},
-  edition = {2}
+%李柏2022-基于安全走廊的轨迹优化
+@ARTICLE{BaiLi:2022,
+  author={Li, Bai and Acarman, Tankut and Zhang, Youmin and Ouyang, Yakun and Yaman, Cagdas and Kong, Qi and Zhong, Xiang and Peng, Xiaoyan},
+  journal={IEEE Transactions on Intelligent Transportation Systems}, 
+  title={Optimization-Based Trajectory Planning for Autonomous Parking With Irregularly Placed Obstacles: A Lightweight Iterative Framework}, 
+  year={2022},
+  volume={23},
+  number={8},
+  pages={11970-11981},
+  keywords={Trajectory;Trajectory planning;Aerospace electronics;Planning;Kinematics;Optimal control;Numerical models;Autonomous parking;trajectory planning;collision avoidance;numerical optimal control;optimization},
+  doi={10.1109/TITS.2021.3109011}
 }
 
-@book{latex2e,
-  author = {Leslie Lamport},
-  year = {1994},
-  title = {{\LaTeX}: a Document Preparation System},
-  publisher = {Addison Wesley},
-  address = {Massachusetts},
-  edition = {2}
+%Deits2015-凸包生成方法
+@Inbook{Deits:2015,
+author="Deits, Robin
+and Tedrake, Russ",
+editor="Akin, H. Levent
+and Amato, Nancy M.
+and Isler, Volkan
+and van der Stappen, A. Frank",
+title="Computing Large Convex Regions of Obstacle-Free Space Through Semidefinite Programming",
+bookTitle="Algorithmic Foundations of Robotics XI: Selected Contributions of the Eleventh International Workshop on the Algorithmic Foundations of Robotics",
+year="2015",
+publisher="Springer International Publishing",
+address="Cham",
+pages="109--124",
+abstract="This paper presents iris (IterativeDeits, RobinRegionalTedrake, RussInflation by Semidefinite programming), a new method for quickly computing large polytopic and ellipsoidal regions of obstacle-free space through a series of convex optimizationsSequential convex optimization. These regions can be used, for example, to efficiently optimize an objective over collision-free positions in space for a robot manipulator. The algorithm alternates between two convex optimizations: (1) a quadratic program that generates a set of hyperplanes to separate a convex region of space from the set of obstacles and (2) a semidefinite programSemidefinite programmingthat finds a maximum-volume ellipsoid inside the polytope intersection of the obstacle-free half-spaces defined by those hyperplanes. Both the hyperplanes and the ellipsoid are refined over several iterations to monotonically increase the volume of the inscribed ellipsoid, resulting in a large polytope and ellipsoid of obstacle-free space. Practical applications of the algorithm are presented in 2D and 3D, and extensions to {\$}{\$}N{\$}{\$}N-dimensional configuration spaces are discussed. Experiments demonstrate that the algorithm has a computation time which is linear in the number of obstacles, and our matlab [18] implementation converges in seconds for environments with millions of obstacles.",
+isbn="978-3-319-16595-0",
+doi="10.1007/978-3-319-16595-0_7",
+url="https://doi.org/10.1007/978-3-319-16595-0_7"
 }
 
-@article{knuth:1984,
-  title={Literate Programming},
-  author={Donald E. Knuth},
-  journal={The Computer Journal},
-  volume={27},
+//高飞2018-固定朝向长方形安全走廊-轨迹优化
+@article{Gao2018OnlineST,
+  title={Online Safe Trajectory Generation for Quadrotors Using Fast Marching Method and Bernstein Basis Polynomial},
+  author={Fei Gao and William Wu and Yi Lin and Shaojie Shen},
+  journal={2018 IEEE International Conference on Robotics and Automation (ICRA)},
+  year={2018},
+  pages={344-351},
+  url={https://api.semanticscholar.org/CorpusID:52283216}
+}
+
+//Dijstra1959
+@article{Dijstra1959,
+author = {Dijkstra, E. W.},
+title = {A note on two problems in connexion with graphs},
+year = {1959},
+issue_date = {December  1959},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+volume = {1},
+number = {1},
+issn = {0029-599X},
+url = {https://doi.org/10.1007/BF01386390},
+doi = {10.1007/BF01386390},
+journal = {Numer. Math.},
+month = dec,
+pages = {269–271},
+numpages = {3}
+}
+
+// A-star1968
+@article{hart1968formal,
+  title={A formal basis for the heuristic determination of minimum cost paths},
+  author={Hart, Peter E and Nilsson, Nils J and Raphael, Bertram},
+  journal={IEEE transactions on Systems Science and Cybernetics},
+  volume={4},
   number={2},
-  pages={97--111},
-  year={1984},
-  publisher={Oxford University Press}
+  pages={100--107},
+  year={1968},
+  publisher={IEEE}
 }
 
-@inproceedings{lesk:1977,
-  title={Computer Typesetting of Technical Journals on {UNIX}},
-  author={Michael Lesk and Brian Kernighan},
-  booktitle={Proceedings of American Federation of
-             Information Processing Societies: 1977
-             National Computer Conference},
-  pages={879--888},
-  year={1977},
-  address={Dallas, Texas}
+// JPS2011
+@inproceedings{harabor2011online,
+  title={Online graph pruning for pathfinding on grid maps},
+  author={Harabor, Daniel and Grastien, Alban},
+  booktitle={Proceedings of the AAAI conference on artificial intelligence},
+  volume={25},
+  number={1},
+  pages={1114--1119},
+  year={2011}
 }
+
+//LRTAstar2006
+@article{bulitko2006learning,
+  title={Learning in real-time search: A unifying framework},
+  author={Bulitko, Vadim and Lee, Greg},
+  journal={Journal of Artificial Intelligence Research},
+  volume={25},
+  pages={119--157},
+  year={2006}
+}
+
+//RTA-Astar2006
+@inproceedings{koenig2006real,
+  title={Real-time adaptive A},
+  author={Koenig, Sven and Likhachev, Maxim},
+  booktitle={Proceedings of the fifth international joint conference on Autonomous agents and multiagent systems},
+  pages={281--288},
+  year={2006}
+}
+
+//LP-Astar
+@article{koenig2004lifelong,
+  title={Lifelong planning A∗},
+  author={Koenig, Sven and Likhachev, Maxim and Furcy, David},
+  journal={Artificial Intelligence},
+  volume={155},
+  number={1-2},
+  pages={93--146},
+  year={2004},
+  publisher={Elsevier}
+}
+
+//ARA-star2003
+@article{likhachev2003ara,
+  title={ARA*: Anytime A* with provable bounds on sub-optimality},
+  author={Likhachev, Maxim and Gordon, Geoffrey J and Thrun, Sebastian},
+  journal={Advances in neural information processing systems},
+  volume={16},
+  year={2003}
+}
+
+//D-star
+@inproceedings{stentz1994optimal,
+  title={Optimal and efficient path planning for partially-known environments},
+  author={Stentz, Anthony},
+  booktitle={Proceedings of the 1994 IEEE international conference on robotics and automation},
+  pages={3310--3317},
+  year={1994},
+  organization={IEEE}
+}
+
+//anytime-Dstar
+@inproceedings{likhachev2005anytime,
+  title={Anytime dynamic A*: An anytime, replanning algorithm.},
+  author={Likhachev, Maxim and Ferguson, David I and Gordon, Geoffrey J and Stentz, Anthony and Thrun, Sebastian},
+  booktitle={ICAPS},
+  volume={5},
+  pages={262--271},
+  year={2005}
+}
+
+//RRT1998
+@article{lavalle1998rapidly,
+  title={Rapidly-exploring random trees: A new tool for path planning},
+  author={LaValle, Steven},
+  journal={Research Report 9811},
+  year={1998},
+  publisher={Department of Computer Science, Iowa State University}
+}
+
+//RRT-connect2000
+@inproceedings{kuffner2000rrt,
+  title={RRT-connect: An efficient approach to single-query path planning},
+  author={Kuffner, James J and LaValle, Steven M},
+  booktitle={Proceedings 2000 ICRA. Millennium conference. IEEE international conference on robotics and automation. Symposia proceedings (Cat. No. 00CH37065)},
+  volume={2},
+  pages={995--1001},
+  year={2000},
+  organization={IEEE}
+}
+
+//extended-RRT
+@inproceedings{bruce2002real,
+  title={Real-time randomized path planning for robot navigation},
+  author={Bruce, James and Veloso, Manuela},
+  booktitle={IEEE/RSJ international conference on intelligent robots and systems},
+  volume={3},
+  pages={2383--2388},
+  year={2002},
+  organization={IEEE}
+}
+
+//RRT-star
+@article{karaman2011sampling,
+  title={Sampling-based algorithms for optimal motion planning},
+  author={Karaman, Sertac and Frazzoli, Emilio},
+  journal={The international journal of robotics research},
+  volume={30},
+  number={7},
+  pages={846--894},
+  year={2011},
+  publisher={Sage Publications Sage UK: London, England}
+}
+
+//informed-RRT
+@INPROCEEDINGS{6942976,
+  author={Gammell, Jonathan D. and Srinivasa, Siddhartha S. and Barfoot, Timothy D.},
+  booktitle={2014 IEEE/RSJ International Conference on Intelligent Robots and Systems}, 
+  title={Informed RRT*: Optimal sampling-based path planning focused via direct sampling of an admissible ellipsoidal heuristic}, 
+  year={2014},
+  volume={},
+  number={},
+  pages={2997-3004},
+  keywords={Planning;Search problems;Matrix decomposition;Convergence;Probabilistic logic;Heuristic algorithms;Smoothing methods},
+  doi={10.1109/IROS.2014.6942976}}
+
+//BITstar
+@INPROCEEDINGS{7139620,
+  author={Gammell, Jonathan D. and Srinivasa, Siddhartha S. and Barfoot, Timothy D.},
+  booktitle={2015 IEEE International Conference on Robotics and Automation (ICRA)}, 
+  title={Batch Informed Trees (BIT*): Sampling-based optimal planning via the heuristically guided search of implicit random geometric graphs}, 
+  year={2015},
+  volume={},
+  number={},
+  pages={3067-3074},
+  keywords={Planning;Probabilistic logic;Robots;Search problems;Heuristic algorithms;Convergence;Image edge detection},
+  doi={10.1109/ICRA.2015.7139620}}
+
+//B样条2023
+@INPROCEEDINGS{10160561,
+  author={Nguyen, Ngoc Thinh and Gangavarapu, Pranav Tej and Sahrhage, Arne and Schildbach, Georg and Ernst, Floris},
+  booktitle={2023 IEEE International Conference on Robotics and Automation (ICRA)}, 
+  title={Navigation with polytopes and B-spline path planner}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={5695-5701},
+  keywords={Automation;Navigation;Path planning;Planning;Splines (mathematics);Standards;Path planner;B-spline;Bézier;Polytopes},
+  doi={10.1109/ICRA48891.2023.10160561}}
+
+// RS曲线
+@article{reeds1990optimal,
+  title={Optimal paths for a car that goes both forwards and backwards},
+  author={Reeds, James and Shepp, Lawrence},
+  journal={Pacific journal of mathematics},
+  volume={145},
+  number={2},
+  pages={367--393},
+  year={1990},
+  publisher={Mathematical Sciences Publishers}
+}
+
+//apollo em-planner 五次多项式
+@article{fan2018baidu,
+  title={Baidu apollo em motion planner},
+  author={Fan, Haoyang and Zhu, Fan and Liu, Changchun and Zhang, Liangliang and Zhuang, Li and Li, Dong and Zhu, Weicheng and Hu, Jiangtao and Li, Hongye and Kong, Qi},
+  journal={arXiv preprint arXiv:1807.08048},
+  year={2018}
+}
+
+//Kondak2001-最优泊车
+@INPROCEEDINGS{933030,
+  author={Kondak, K. and Hommel, G.},
+  booktitle={Proceedings 2001 ICRA. IEEE International Conference on Robotics and Automation (Cat. No.01CH37164)}, 
+  title={Computation of time optimal movements for autonomous parking of non-holonomic mobile platforms}, 
+  year={2001},
+  volume={3},
+  number={},
+  pages={2698-2703 vol.3},
+  keywords={Mobile computing;Path planning;Motion planning;Robot kinematics;Orbital robotics;Nonlinear control systems;Control systems;Optimal control;Laser radar;Concurrent computing},
+  doi={10.1109/ROBOT.2001.933030}}
+
+//李柏2015-泊车优化
+@article{li2015unified,
+  title={A unified motion planning method for parking an autonomous vehicle in the presence of irregularly placed obstacles},
+  author={Li, Bai and Shao, Zhijiang},
+  journal={Knowledge-Based Systems},
+  volume={86},
+  pages={11--20},
+  year={2015},
+  publisher={Elsevier}
+}
+
+//OBCA2021
+@ARTICLE{9062306,
+  author={Zhang, Xiaojing and Liniger, Alexander and Borrelli, Francesco},
+  journal={IEEE Transactions on Control Systems Technology}, 
+  title={Optimization-Based Collision Avoidance}, 
+  year={2021},
+  volume={29},
+  number={3},
+  pages={972-983},
+  keywords={Collision avoidance;Trajectory;Optimization;Planning;Aerospace electronics;Robots;Navigation;Autonomous driving;collision avoidance;model predictive control (MPC);navigation in tight environments;nonlinear optimization;obstacle avoidance;path planning;trajectory optimization},
+  doi={10.1109/TCST.2019.2949540}}
+
+//优化避障2019
+@ARTICLE{8613017,
+  author={Arantes, Marcio da Silva and Toledo, Claudio Fabiano Motta and Williams, Brian Charles and Ono, Masahiro},
+  journal={IEEE Transactions on Robotics}, 
+  title={Collision-Free Encoding for Chance-Constrained Nonconvex Path Planning}, 
+  year={2019},
+  volume={35},
+  number={2},
+  pages={433-448},
+  keywords={Encoding;Uncertainty;Safety;Trajectory;Scalability;Stochastic processes;Autonomous agents;chance constraints;mixed-integer linear programming (MILP);optimization under uncertainty;probabilistic planning},
+  doi={10.1109/TRO.2018.2878996}}
+
+//优化避障-非凸-TRO2019
+@ARTICLE{8613017,
+  author={Arantes, Marcio da Silva and Toledo, Claudio Fabiano Motta and Williams, Brian Charles and Ono, Masahiro},
+  journal={IEEE Transactions on Robotics}, 
+  title={Collision-Free Encoding for Chance-Constrained Nonconvex Path Planning}, 
+  year={2019},
+  volume={35},
+  number={2},
+  pages={433-448},
+  keywords={Encoding;Uncertainty;Safety;Trajectory;Scalability;Stochastic processes;Autonomous agents;chance constraints;mixed-integer linear programming (MILP);optimization under uncertainty;probabilistic planning},
+  doi={10.1109/TRO.2018.2878996}}
+
+//HOBCA泊车2018
+@INPROCEEDINGS{8619433,
+  author={Zhang, Xiaojing and Liniger, Alexander and Sakai, Atsushi and Borrelli, Francesco},
+  booktitle={2018 IEEE Conference on Decision and Control (CDC)}, 
+  title={Autonomous Parking Using Optimization-Based Collision Avoidance}, 
+  year={2018},
+  volume={},
+  number={},
+  pages={4327-4332},
+  keywords={Collision avoidance;Optimization;Automobiles;Heuristic algorithms;Approximation algorithms;Computational modeling;Vehicle dynamics},
+  doi={10.1109/CDC.2018.8619433}}
+
+
+
+
+

@@ -1,0 +1,48 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Liu et~al.(2017)Liu, Watterson, Mohta, Sun, Bhattacharya, Taylor, and
+  Kumar]{SikangLiu:2017}
+LIU S, WATTERSON M, MOHTA K, et~al.
+\newblock Planning dynamically feasible trajectories for quadrotors using safe
+  flight corridors in 3-d complex environments\allowbreak[J/OL].
+\newblock IEEE Robotics and Automation Letters, 2017, 2\allowbreak (3):
+  1688-1695.
+\newblock DOI: \doi{10.1109/LRA.2017.2663526}.
+
+\bibitem[Gao et~al.(2018)Gao, Wu, Lin, and Shen]{Gao2018OnlineST}
+GAO F, WU W, LIN Y, et~al.
+\newblock Online safe trajectory generation for quadrotors using fast marching
+  method and bernstein basis polynomial\allowbreak[J/OL].
+\newblock 2018 IEEE International Conference on Robotics and Automation (ICRA),
+  2018: 344-351.
+\newblock \url{https://api.semanticscholar.org/CorpusID:52283216}.
+
+\bibitem[Li et~al.(2022)Li, Acarman, Zhang, Ouyang, Yaman, Kong, Zhong, and
+  Peng]{BaiLi:2022}
+LI B, ACARMAN T, ZHANG Y, et~al.
+\newblock Optimization-based trajectory planning for autonomous parking with
+  irregularly placed obstacles: A lightweight iterative
+  framework\allowbreak[J/OL].
+\newblock IEEE Transactions on Intelligent Transportation Systems, 2022,
+  23\allowbreak (8): 11970-11981.
+\newblock DOI: \doi{10.1109/TITS.2021.3109011}.
+
+\bibitem[Deits et~al.(2015)Deits and Tedrake]{Deits:2015}
+DEITS R, TEDRAKE R.
+\newblock Computing large convex regions of obstacle-free space through
+  semidefinite programming\allowbreak[M/OL].
+\newblock Cham: Springer International Publishing, 2015: 109-124.
+\newblock \url{https://doi.org/10.1007/978-3-319-16595-0_7}.
+
+\end{thebibliography}

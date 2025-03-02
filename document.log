@@ -1,9 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  21 FEB 2025 17:33
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  2 MAR 2025 12:33
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**./document.tex
-(document.tex
+**c:/Users/photinia/Desktop/毕业论文/document.tex
+(c:/Users/photinia/Desktop/毕业论文/document.tex
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
 (ysuthesis.cls
@@ -1619,7 +1620,7 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 51.
+(hyperref)                removing `\heiti' on input line 42.
 
 
 
@@ -1685,6 +1686,9 @@ Package microtype Info: Character `textquotedblright ' is missing
 [2
 
 ] (document.toc
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [3
 
@@ -1697,181 +1701,85 @@ Package microtype Info: Character `textquotedblright ' is missing
 [4]
 第1章
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [1
 
 
 
 ]
-第2章
+Missing character: There is no ① in font Times New Roman/OT:script=latn;languag
+e=dflt;mapping=tex-text;!
+Missing character: There is no ② in font Times New Roman/OT:script=latn;languag
+e=dflt;mapping=tex-text;!
+Missing character: There is no ③ in font Times New Roman/OT:script=latn;languag
+e=dflt;mapping=tex-text;!
+Missing character: There is no ④ in font Times New Roman/OT:script=latn;languag
+e=dflt;mapping=tex-text;!
 
-Package natbib Warning: Citation `texbook' on page 2 undefined on input line 85
-.
-
-
-Package natbib Warning: Citation `latex:companion' on page 2 undefined on input
- line 85.
-
-
-Package natbib Warning: Citation `latex2e' on page 2 undefined on input line 85
-.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Package natbib Warning: Citation `knuth:1984' on page 2 undefined on input line
- 85.
 
+[2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package natbib Warning: Citation `lesk:1977' on page 2 undefined on input line 
-85.
-
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/b/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-
-Package natbib Warning: Citation `texbook' on page 2 undefined on input line 85
-.
-
-
-Package natbib Warning: Citation `latex:companion' on page 2 undefined on input
- line 85.
-
-
-Package natbib Warning: Citation `latex2e' on page 2 undefined on input line 85
-.
-
-
-Package natbib Warning: Citation `knuth:1984' on page 2 undefined on input line
- 85.
-
-
-Package natbib Warning: Citation `lesk:1977' on page 2 undefined on input line 
-85.
-
-File: fig/ysu_logo.png Graphic file (type bmp)
-<fig/ysu_logo.png>
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-File: fig/ysu_logo.png Graphic file (type bmp)
-<fig/ysu_logo.png>
-File: fig/亚稳材料制备技术与科学国家重点实验室.pdf Graphic file (type pdf)
-<use fig/亚稳材料制备技术与科学国家重点实验室.pdf>
-File: fig/精品钢铁生产工艺装备智能化省部共建协同创新中心.pdf Graphic file (type pdf)
-<use fig/精品钢铁生产工艺装备智能化省部共建协同创新中心.pdf>
-File: fig/国家创新人才培养示范基地.pdf Graphic file (type pdf)
-<use fig/国家创新人才培养示范基地.pdf>
-File: fig/国家冷轧板带装备及工艺工程技术研究中心.pdf Graphic file (type pdf)
-<use fig/国家冷轧板带装备及工艺工程技术研究中心.pdf>
-File: fig/亚稳材料制备技术与科学国家重点实验室.pdf Graphic file (type pdf)
-<use fig/亚稳材料制备技术与科学国家重点实验室.pdf>
-File: fig/精品钢铁生产工艺装备智能化省部共建协同创新中心.pdf Graphic file (type pdf)
-<use fig/精品钢铁生产工艺装备智能化省部共建协同创新中心.pdf>
-File: fig/国家创新人才培养示范基地.pdf Graphic file (type pdf)
-<use fig/国家创新人才培养示范基地.pdf>
-File: fig/国家冷轧板带装备及工艺工程技术研究中心.pdf Graphic file (type pdf)
-<use fig/国家冷轧板带装备及工艺工程技术研究中心.pdf>
-
-
-[2
-
-]
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 169.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 169.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 169.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 169.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 169.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 169.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 169.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 169.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 169.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 169.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 169.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 169.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 169.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 169.
 
 
 [3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [5]
-第3章
-File: fig/路径规划算法特例.png Graphic file (type bmp)
-<fig/路径规划算法特例.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-[6
 
-]
+[6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[7]
+
+[8]
+第2章
+File: fig/运动规划算法框架.png Graphic file (type bmp)
+<fig/运动规划算法框架.png>
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
 File: fig/铰接车简易模型.png Graphic file (type bmp)
 <fig/铰接车简易模型.png>
 
 
-[7]
-Overfull \hbox (14.06462pt too wide) in paragraph at lines 233--235
+[9
+
+]
+Overfull \hbox (14.06462pt too wide) in paragraph at lines 159--161
 \TU/SimSun(1)/m/n/12.045 以 前 桥 为 参 考 点，|  定 义 $\LMS/ntxsy/m/n/12.045 ¹\OML/ntxm
 i/m/it/12.045 x; y; theta; gamma\LMS/ntxsy/m/n/12.045 º$ \TU/SimSun(1)/m/n/12.0
 45 为 铰 接 车 的 位 姿，|  他 们 分 别 代 表 着 $\OML/ntxmi/m/it/12.045 x[]; y[]; ^^R; ^^M$\T
@@ -1883,12 +1791,162 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[8]
+[10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[9]
+[11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[12]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[13]
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+File: fig/ysu_logo.png Graphic file (type bmp)
+<fig/ysu_logo.png>
+File: fig/ysu_logo.png Graphic file (type bmp)
+<fig/ysu_logo.png>
+
+
+LaTeX Warning: Reference `fig_ysunationalbase' on page 14 undefined on input li
+ne 261.
+
+
+LaTeX Warning: Reference `fig_ysunationalbase' on page 14 undefined on input li
+ne 261.
+
+
+LaTeX Warning: Hyper reference `fig_mmst' on page 14 undefined on input line 26
+1.
+
+
+LaTeX Warning: Reference `sub@fig_mmst' on page 14 undefined on input line 261.
+
+
+
+LaTeX Warning: Reference `fig_ysunationalbase' on page 14 undefined on input li
+ne 261.
+
+
+LaTeX Warning: Hyper reference `fig_finesteel' on page 14 undefined on input li
+ne 261.
+
+
+LaTeX Warning: Reference `sub@fig_finesteel' on page 14 undefined on input line
+ 261.
+
+
+LaTeX Warning: Reference `fig_ysunationalbase' on page 14 undefined on input li
+ne 261.
+
+
+LaTeX Warning: Hyper reference `fig_innovativetalents' on page 14 undefined on 
+input line 261.
+
+
+LaTeX Warning: Reference `sub@fig_innovativetalents' on page 14 undefined on in
+put line 261.
+
+
+LaTeX Warning: Reference `fig_ysunationalbase' on page 14 undefined on input li
+ne 261.
+
+
+LaTeX Warning: Hyper reference `fig_coldrolledstrip' on page 14 undefined on in
+put line 261.
+
+
+LaTeX Warning: Reference `sub@fig_coldrolledstrip' on page 14 undefined on inpu
+t line 261.
+
+File: fig/亚稳材料制备技术与科学国家重点实验室.pdf Graphic file (type pdf)
+<use fig/亚稳材料制备技术与科学国家重点实验室.pdf>
+File: fig/精品钢铁生产工艺装备智能化省部共建协同创新中心.pdf Graphic file (type pdf)
+<use fig/精品钢铁生产工艺装备智能化省部共建协同创新中心.pdf>
+File: fig/国家创新人才培养示范基地.pdf Graphic file (type pdf)
+<use fig/国家创新人才培养示范基地.pdf>
+File: fig/国家冷轧板带装备及工艺工程技术研究中心.pdf Graphic file (type pdf)
+<use fig/国家冷轧板带装备及工艺工程技术研究中心.pdf>
+
+
+[14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[15]
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 10.95pt on input line 315.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 6.1pt on input line 315.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 10.95pt on input line 315.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 6.1pt on input line 315.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 10.95pt on input line 315.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 6.1pt on input line 315.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 10.95pt on input line 315.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 6.1pt on input line 315.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 10.95pt on input line 315.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 6.1pt on input line 315.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 10.95pt on input line 315.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 6.1pt on input line 315.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 10.95pt on input line 315.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 6.1pt on input line 315.
+
+
+[16]
+第3章
+File: fig/路径规划算法特例.png Graphic file (type bmp)
+<fig/路径规划算法特例.png>
+
+
+[17
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[19]
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1910,82 +1968,82 @@ Package microtype Info: Character `textquotedblright ' is missing
 File: fig/minco.png Graphic file (type bmp)
 <fig/minco.png>
 
+Underfull \vbox (badness 3895) has occurred while \output is active []
+
+
+
+[20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[10]
+[21]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[12]
-File: fig/凸包1.png Graphic file (type bmp)
-<fig/凸包1.png>
-File: fig/凸包2.png Graphic file (type bmp)
-<fig/凸包2.png>
+[22]
+File: fig/安全走廊比较矩形1.png Graphic file (type bmp)
+<fig/安全走廊比较矩形1.png>
+File: fig/安全走廊比较多边形2.png Graphic file (type bmp)
+<fig/安全走廊比较多边形2.png>
+File: fig/凸包矩阵.png Graphic file (type bmp)
+<fig/凸包矩阵.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[13]
+[23]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[14]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[15]
+[24]
 File: fig/松弛函数.png Graphic file (type bmp)
 <fig/松弛函数.png>
 File: fig/松弛导数.png Graphic file (type bmp)
 <fig/松弛导数.png>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[16]
+
+
+[25]
+
+[26]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 571.
+put line 696.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[17]
+[27]
 File: fig/单轨迹2.png Graphic file (type bmp)
 <fig/单轨迹2.png>
 File: fig/全局规划.png Graphic file (type bmp)
 <fig/全局规划.png>
 
 
-[18]
+[28]
+Underfull \vbox (badness 3068) has occurred while \output is active []
 
-[19]
+
+
+[29]
 File: fig/换向1.png Graphic file (type bmp)
 <fig/换向1.png>
 File: fig/换向2.png Graphic file (type bmp)
 <fig/换向2.png>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-[20]
+[30]
 File: fig/多阶段轨迹s.png Graphic file (type bmp)
 <fig/多阶段轨迹s.png>
 
 
-[21]
-
-[22]
+[31]
 第4章
 File: fig/ppi.png Graphic file (type bmp)
 <fig/ppi.png>
@@ -1994,14 +2052,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[23
+[32
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[24]
+[33]
 File: fig/hybrid采样.png Graphic file (type bmp)
 <fig/hybrid采样.png>
 
@@ -2009,7 +2067,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[25]
+[34]
 File: fig/hybrid采样改进剪枝.png Graphic file (type bmp)
 <fig/hybrid采样改进剪枝.png>
 
@@ -2017,12 +2075,12 @@ Underfull \vbox (badness 3333) has occurred while \output is active []
 
 
 
-[26]
+[35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[27]
+[36]
 File: fig/bresham_free.png Graphic file (type bmp)
 <fig/bresham_free.png>
 File: fig/bresham_colli.png Graphic file (type bmp)
@@ -2032,102 +2090,129 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[28]
+[37]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[29]
+[38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[30]
+[39]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[31]
+[40]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[32]
+
+
+[41]
+File: fig/安全走廊.png Graphic file (type bmp)
+<fig/安全走廊.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[42]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[43]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[44]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[45]
+
+[46]
 第5章
 
 
-[33
+[47
+
+] (document.bbl
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 10.53937pt on input line 21.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 7.0pt on input line 21.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 5.0pt on input line 21.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 21.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 7.0pt on input line 21.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 5.0pt on input line 21.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 21.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 7.0pt on input line 21.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 5.0pt on input line 21.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 21.
+
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 10.53937pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 7.0pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 5.0pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 7.0pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 5.0pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 7.0pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 5.0pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 7.0pt on input line 21.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 5.0pt on input line 21.
+)
+
+[48
+
 
 ]
-No file document.bbl.
 附录A
 
 
-[34
-
+[49
 
 ]
 附录B
 
 
-[35
-
-]
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.53937pt on input line 952.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 7.0pt on input line 952.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 5.0pt on input line 952.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 952.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.0pt on input line 952.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.0pt on input line 952.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 952.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.0pt on input line 952.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.0pt on input line 952.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 952.
-
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.53937pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.0pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.0pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.0pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.0pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.0pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.0pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.0pt on input line 952.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.0pt on input line 952.
-
-
-[36
+[50
 
 ]
 
-Package natbib Warning: There were undefined citations.
+[51
 
+]
 
-
-[37
+[52
 
 ] (document.aux)
  ***********
@@ -2139,16 +2224,25 @@ L3 programming layer <2022/07/14>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.34248pt have occurred.
 
-Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: D3C05E0DCDCB6D645A58FD95BEE1992A;6825.
+
+LaTeX Warning: There were undefined references.
+
+
+Package rerunfilecheck Warning: File `document.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `document.out':
+(rerunfilecheck)             Before: 3A09D600929F9D6865EE836D5AB0FDEF;9156
+(rerunfilecheck)             After:  7586A18AF8755852051772B3A7F5C944;9172.
  ) 
 Here is how much of TeX's memory you used:
- 27074 strings out of 408789
- 551571 string characters out of 5748080
- 957038 words of memory out of 5000000
- 49553 multiletter control sequences out of 15000+600000
- 693869 words of font info for 311 fonts, out of 8000000 for 9000
+ 27161 strings out of 408789
+ 554641 string characters out of 5748080
+ 958549 words of memory out of 5000000
+ 49634 multiletter control sequences out of 15000+600000
+ 693861 words of font info for 310 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 107i,17n,145p,3317b,792s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,17n,145p,3346b,791s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on document.pdf (49 pages).
+Output written on document.pdf (64 pages).
