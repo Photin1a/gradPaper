@@ -1,0 +1,45 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Knuth(1986)]{texbook}
+KNUTH D~E.
+\newblock The {\TeX} book\allowbreak[M].
+\newblock Addison-Wesley Professional, 1986.
+
+\bibitem[Mittelbach et~al.(2004)Mittelbach, Gossens, Braams, Carlisle, and
+  Rowley]{latex:companion}
+MITTELBACH F, GOSSENS M, BRAAMS J, et~al.
+\newblock The {\LaTeX} companion\allowbreak[M].
+\newblock 2nd ed.
+\newblock Addison-Wesley Professional, 2004.
+
+\bibitem[Lamport(1994)]{latex2e}
+LAMPORT L.
+\newblock {\LaTeX}: a document preparation system\allowbreak[M].
+\newblock 2nd ed.
+\newblock Massachusetts: Addison Wesley, 1994.
+
+\bibitem[Knuth(1984)]{knuth:1984}
+KNUTH D~E.
+\newblock Literate programming\allowbreak[J].
+\newblock The Computer Journal, 1984, 27\allowbreak (2): 97-111.
+
+\bibitem[Lesk et~al.(1977)Lesk and Kernighan]{lesk:1977}
+LESK M, KERNIGHAN B.
+\newblock Computer typesetting of technical journals on
+  {UNIX}\allowbreak[C]//\allowbreak
+Proceedings of American Federation of Information Processing Societies: 1977
+  National Computer Conference.
+\newblock Dallas, Texas, 1977: 879-888.
+
+\end{thebibliography}

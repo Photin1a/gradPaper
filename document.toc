@@ -5,10 +5,10 @@
 \contentsline {section}{\numberline {1.2}运动规划技术国内外研究现状}{2}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}基于图搜索的运动规划方法}{2}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}基于采样的运动规划方法}{3}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}基于曲线插值的运动规划方法}{4}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}基于优化的运动规划方法}{5}{subsection.1.2.4}%
-\contentsline {section}{\numberline {1.3}铰接车运动规划技术国内外研究现状}{6}{section.1.3}%
-\contentsline {section}{\numberline {1.4}本文研究目标和主要内容}{6}{section.1.4}%
+\contentsline {subsection}{\numberline {1.2.3}基于曲线插值的运动规划方法}{3}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}基于优化的运动规划方法}{4}{subsection.1.2.4}%
+\contentsline {section}{\numberline {1.3}铰接车运动规划技术国内外研究现状}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}本文研究的主要内容}{6}{section.1.4}%
 \contentsline {section}{\numberline {1.5}本文结构安排}{7}{section.1.5}%
 \contentsline {chapter}{\numberline {第2章\hspace {.3em}}铰接车建模与运动规划系统设计}{9}{chapter.2}%
 \contentsline {section}{\numberline {2.1}运动规划系统总体方案设计}{9}{section.2.1}%
@@ -55,15 +55,18 @@
 \contentsline {subsection}{\numberline {4.3.6}迭代求解框架}{45}{subsection.4.3.6}%
 \contentsline {section}{\numberline {4.4}本章小结}{46}{section.4.4}%
 \contentsline {chapter}{\numberline {第5章\hspace {.3em}}无人铰接车运动规划系统仿真实验}{47}{chapter.5}%
-\contentsline {section}{\numberline {5.1}系统集成}{47}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}仿真环境介绍}{47}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}自主导航系统框架介绍}{47}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}长远距离自主避障实验}{47}{section.5.2}%
-\contentsline {section}{\numberline {5.3}自主泊车和侧方位停车实验}{47}{section.5.3}%
-\contentsline {section}{\numberline {5.4}本章总结}{47}{section.5.4}%
-\contentsline {chapter}{参考文献}{48}{section.5.4}%
-\contentsline {chapter}{\numberline {附录A\hspace {.3em}}}{49}{chapter.6}%
-\contentsline {chapter}{\numberline {附录B\hspace {.3em}}}{50}{chapter.7}%
-\contentsline {chapter}{攻读硕士学位期间取得的成果}{51}{chapter*.25}%
-\contentsline {chapter}{致谢}{52}{chapter*.26}%
+\contentsline {section}{\numberline {5.1}仿真环境介绍}{47}{section.5.1}%
+\contentsline {section}{\numberline {5.2}全局规划算法测验}{49}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}点到点路径规划}{49}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}多点路径规划测试}{50}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}局部规划算法测验}{52}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}自主泊车场景}{52}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}侧方位停车场景}{54}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}穿越复杂地形实验}{55}{section.5.4}%
+\contentsline {section}{\numberline {5.5}本章总结}{55}{section.5.5}%
+\contentsline {chapter}{参考文献}{59}{section.5.5}%
+\contentsline {chapter}{\numberline {附录A\hspace {.3em}}}{60}{chapter.6}%
+\contentsline {chapter}{\numberline {附录B\hspace {.3em}}}{61}{chapter.7}%
+\contentsline {chapter}{攻读硕士学位期间取得的成果}{62}{chapter*.38}%
+\contentsline {chapter}{致谢}{63}{chapter*.39}%
 \contentsfinish 
