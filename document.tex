@@ -306,20 +306,29 @@
 		
 	\section{铰接模型微分平坦性}
 		\subsection{铰接车模型的平坦输出}
-		在实际场景中情况是非常复杂的，全局的轨迹规划中我们不需要用精确的运动学模型。在这里我们忽略动态转向，只保留静态转向模型。假设 为系统输入，静态转向模型为：
+		微分平坦性为非线性控制提供了一种“捷径”，通过平坦输出的参数化，可以将复杂的轨迹优化问题转化为简单的代数计算。它在机器人、航空航天和自动化领域有广泛应用，是现代控制理论中连接几何方法与实际工程的重要工具。下面给出微分平坦的定义：
+
+		微分平坦系统：对于一个非线性系统，如果能找一组输出变量，使得所有的状态变量输出变量都可以用这组输出变量及其多阶导数所表示，则称这个系统为微分平坦系统。
+
+		对于铰接车来说，实际工作环境往往非常复杂（比如障碍物多、空间狭窄）。这时候做全局路径规划，不需要用特别精确的运动学模型——因为模型太精确反而会增加计算量，影响实时性。我们完全可以把需要精细调整的部分交给局部规划来处理，这样既省资源又合理。在这里我们忽略动态转向，只保留静态转向模型。令$v$和$\gamma$为系统输入，简化的系统模型为：
 		\begin{equation}
 			\begin{aligned}
-				\dot{\theta}=v\frac{tan( \gamma /2 )}{L}
+				\dot{x} &= vcos\theta\\
+				\dot{y} &= vsin\theta\\
+				\dot{\theta} &= vtan( \gamma /2 ) /L\\
+				\dot{\gamma} &= \omega
 			\end{aligned}
 		\end{equation}
-		对于一个非线性系统的动态方程具有如下一般的表达形式：
-		\begin{equation}
-			\begin{aligned}
-				\dot{x}&=f( x,u ) ,x\in R^n,u\in R^m\\
-			\end{aligned}
-		\end{equation}
-		其中$x$是状态变量，$f(x,u)$是系统的非线性函数。对于一个非线性系统，如果能找一组输出变量，使得所有的状态变量输出变量都可以用这组输出变量及其多阶导数所表示，则称这个系统为微分平坦系统。
-		对于微分平坦的运动学模型，其平坦输出一般具有实际的物理意义往往会给问题带来很好的可表征性。对于铰接车的运动模型，我们选择$x,y$作为平坦输出，这在轨迹规划中可以带来很好的性质。
+	
+		% 对于一个非线性系统的动态方程具有如下一般的表达形式：
+		% \begin{equation}
+		% 	\begin{aligned}
+		% 		\dot{x}&=f( x,u ) ,x\in R^n,u\in R^m\\
+		% 	\end{aligned}
+		% \end{equation}
+		% 其中$x$是状态变量，$f(x,u)$是系统的非线性系统函数。
+
+		对于上述的铰接车的运动模型，我们选择$x,y$作为平坦输出，这在轨迹规划中可以带来很好的性质。因为$x,y$就是我们需要的轨迹，是具有实际的物理意义的。
 		下面我们给出装载机的微分平坦系统：
 		\begin{equation}
 			\begin{aligned}
@@ -329,27 +338,39 @@
 				k&=( \dot{x}\ddot{y}-\dot{y}\ddot{x} ) /( \dot{x}^2+\dot{y}^2 ) ^{\frac{3}{2}}.\\
 			\end{aligned}
 		\end{equation}
-	其中$x,y$是系统的平坦输出变量，$(v,theta,gamma,k)$是我们选取的状态变量。k为轨迹的曲率，值得指出的是曲率其实也是铰接角的函数，但是这里只在路径层面说明。$n\in{1,-1}$是车辆运动的方向，分别代表前进和后退两种情况。
-	\section{参数化轨迹表达形式}
+	其中$x,y$是系统的平坦输出变量，$(v,theta,gamma,k)$是我们选取的状态变量。k为轨迹的曲率，值得指出的是曲率其实也是铰接角的函数，但是这里只在路径层面表示。$n\in\{-1,1\}$是车辆运动的方向，分别代表前进和后退两种情况。
+
+	\section{轨迹的参数化表达形式}
 	在自动驾驶中参数化曲线的方法有很多，例如五次多项式、贝塞尔曲线、B样条、螺旋线、Dubin曲线和RS曲线。MINCO曲线作为是一种基于五次多项式的曲线类型，它在处理微分平坦系统上有着天然的优势【文献】。我们这一小节将介绍minco曲线的原理，并且运用它处理我们的铰接模型运动规划问题。
-		\subsection{MINCO曲线轨迹原理}
-		铰接车在静态转向时表现出微分平坦性，这意味着其运动学微分约束可以通过一组平坦变量及其多阶导数来表示。在多项式规划中一个典型的BVP问题可以表示为：
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{minco.png}
+		\caption{minco}
+		\label{fig:minco}
+	\end{figure}
+		\subsection{MINCO样条曲线基本原理}
+		在【3.1】节中我们给出了铰接式车辆模型的平坦系统和平坦输出$x(t),y(t)$， 在这一小节中我们将详细介绍在平坦输出下的两种轨迹优化形式——BVP和BIVP。
+
+		（1）BVP（Boundary Value Problem）
+
+		在多项式规划中一个典型的BVP（Boundary Value Problem）问题可以表示为：
 		\begin{equation}
 			\begin{aligned}
-				min\int_0^T{v}(t) ^TWv(t) dt\\
-				s.t. \ \ \ z^s(t) =v(t) ,\forall t\in \left[ 0,T \right] ,\\
-				z^{\left[ s-1 \right]}( t_0 ) =\bar{z}_o,z^{\left[ s-1 \right]}( t_M ) =\bar{z}_f.
+				&min\int_0^T{u}(t) ^TWu(t) dt\\
+				s.t. \ \ \ &z^s(t) =u(t) ,\forall t\in \left[ 0,T \right] ,\\
+				&z^{\left[ s-1 \right]}( t_0 ) =\bar{z}_s,z^{\left[ s-1 \right]}( t_M ) =\bar{z}_e.
 			\end{aligned}
 		\end{equation}
-		其中$z(t)$是参数曲线，$v(t)$是$z(t)$关于时间的$s$阶导数，$z_0$和$z_f$分别是起点和终点。对于以上最小控制输入问题，若系统是微分平坦的，且最小控制量是平坦变量的$s$阶次导数，则BVP问题的最优解是一个$2s-1$次多项式【文献】。特殊的，当$s=3$时这是一个minimumJerk（最小化加加速度代价）问题，他的最优解是一个五次多项式。 
-		综上，轨迹曲线$z(t)$可以被表示为关于时间$t$多项式函数$\beta(t)$：
+		其中$z(t)$是样条曲线，它可以是我们上述提到的贝塞尔曲线、B样条或者者多项式形式。$u(t)$是系统的输入，它是$z(t)$关于时间的$s$阶导数。$\bar{z}_s$和$\bar{z}_e$分别是起点状态和终点状态。对于以上最小控制输入问题，控制量$u(t)$是平坦变量的$s$阶次导数，则BVP问题的最优解是一个$2s-1$次多项式【文献】。
+
+		当$s=3$时这是一个minimumJerk（最小化加加速度代价）问题，他的最优解是一个五次多项式【】。轨迹曲线$z(t)$可以被表示为关于时间$t$多项式函数$\beta(t)$：
 		\begin{equation}
 			\begin{aligned}
-				z=\beta (t) =\lambda ^T(t) c=c_0+c_1t+c_2t^2+c_3t^3+c_4t^4+c_5t^5\\
-				=\left[ 1\,\,t\,\,\,\,t^2\,\,t^3\,\,t^4\,\,t^5 \right] \cdot \left[ c_0\,\,c_1\,\,c_2\,\,c_3\,\,c_4\,\,c_5 \right] ^T
+				z&=\beta (t) =\lambda ^T(t) c=c_0+c_1t+c_2t^2+c_3t^3+c_4t^4+c_5t^5\\
+				&=\left[ 1\,\,t\,\,\,\,t^2\,\,t^3\,\,t^4\,\,t^5 \right] \cdot \left[ c_0\,\,c_1\,\,c_2\,\,c_3\,\,c_4\,\,c_5 \right] ^T
 			\end{aligned}
 		\end{equation}
-		其中$c$是多项式的系数向量。这个多项式由起点和终点的各阶状态量解出。假设轨迹的时间段是$T$，写成矩阵形式：
+		其中$c$是多项式的系数向量，可以由起点和终点的各阶状态解出。假设轨迹的时间段是$T$，起点和终点带来的约束可以写为：
 		\begin{equation}
 			\begin{aligned}
 				\left[ \begin{array}{c}
@@ -359,7 +380,8 @@
 				x_e\\
 				v_e\\
 				a_e\\
-				\end{array} \right] =\left[ \begin{matrix}
+				\end{array} \right] 
+				&=\left[ \begin{matrix}
 				1&		0&		0&		0&		0&		0\\
 				0&		1&		0&		0&		0&		0\\
 				0&		0&		2&		0&		0&		0\\
@@ -372,150 +394,179 @@
 				c_2\\
 				c_3\\
 				c_4\\
-				\end{array} \right] ==>d=A_F(t) c
+				\end{array} \right] \\
+				&=A_F(t) c
 			\end{aligned}
+			\label{eq:BVP}
 		\end{equation}
-		在上式中，$x_s,v_s,a_s$分别是轨迹起点的位置、速度和加速度，$x_e,v_e,a_e$对应为终点的状态。在实际的规划问题中为了保证轨迹的灵活性，轨迹规划被表述为多个BVP的总和，即BIVP问题：
+		在上式中，$x_s,v_s,a_s$分别是轨迹起点的位置、速度和加速度，$x_e,v_e,a_e$对应为终点的状态。需要说明的是，上述讨论的边值问题（BVP）仅针对一维情况。而实际应用中，平坦变量通常是二维的（如平面坐标系中的x和y方向），此时可以将其分解为两个独立的一维BVP的组合——即分别在x和y方向求解对应的边界条件，最终通过坐标合成得到二维轨迹。这种解耦方法的核心假设是两个维度在平坦域内无耦合约束。
+		
+		（2）BIVP 
+		
+		为了保证轨迹的灵活性，在实际的规划问题中轨迹规划被表述为多个BVP的统一形式，即BIVP问题：
 		\begin{equation}
 			\begin{aligned}
-				\min_{z(t)}\int_{t_0}^{t_M}&v^T(t)\mathbf{W}v(t)dt\\
-				\text{s.t}.z^{( s )}(t) &=v(t) \quad \forall t\in \left[ t_0,t_M \right]\\
-				z^{\left[ s-1 \right]}( t_0 ) &=\bar{z}_o,z^{\left[ s-1 \right]}( t_M ) =\bar{z}_f\\
+				\min_{z(t)}\int_{t_0}^{t_M}&u^T(t)\mathbf{W}u(t)dt\\
+				\text{s.t}.z^{( s )}(t) &=u(t) \quad \forall t\in \left[ t_0,t_M \right]\\
+				z^{\left[ s-1 \right]}( t_0 ) &=\bar{z}_s,z^{\left[ s-1 \right]}( t_M ) =\bar{z}_e\\
 				z^{\left[ d_i-1 \right]}( t_i ) &=\bar{z}_i,1\leq i<M\\
 				t_{i-1}&<t_i,1\leq i\leq M.\\
 			\end{aligned}
 		\end{equation}
-		MINCO给出了这个BIVP问题的最优解形式，其最优性条件指出：对与最小化$s$阶导数的BIVP问题，他的最优解的单段轨迹一定是一个$2s-1$次多项式，且这个解具有$s+1$阶导数的连续性【文献】。这意味着我们在处理minimumJerk(s = 3)的轨迹时，这个轨迹具有snap阶（s = 4）阶的连续性，则BIVP问题的闭式解完全可以由起点状态、终点状态和中间位置所得到，如图..。
-		\begin{figure}[!ht]
-			\centering
-			\includegraphics[width=0.8\textwidth]{minco.png}
-			\caption{minco}
-			\label{fig:minco}
-		\end{figure}
+		对于以上问题，其最优性条件指出：对与最小化$s$阶导数的BIVP问题，他的最优解的单段轨迹一定是一个$2s-1$次多项式，且这个解具有$s+1$阶导数的连续性【文献】。这意味着我们在处理minimumJerk（s = 3）的轨迹时，这个轨迹具有snap阶（s = 4）阶的连续性。因此BIVP问题的闭式解完全可以由起点状态、终点状态、中间位置和中间变量的连续性约束所得到。如图\ref{fig:minco}，由$M+1$个航点可以生成M段五次多项式轨迹，每个多项式有6个系数，一共有6M个系数。这意味着我们需要6M个约束才能唯一确定这个轨迹。
 	
-		\subsection{轨迹参数化过程}
-		假设我们共有$M+1$个航点$q_0~q_M$，其中起点$q_0=[x_s,y_s,v_{sx},v_{sy},a_{sx},a_{sy}]$和终点$q_M=x_e=[x_e,y_e,v_{ex},v_{ey},a_{ex},a_{ey}]$完全已知，需要求出M段多项式轨迹的表达式。  
-		   
-			A、起点和终点约束    
-			  
-			我们假设s=3，一个规划问题的起点和终点是已知的，起点和终点可以得到一共可以得到2s=6个约束方程，起点的约束方程为：
-			\begin{equation}
-				\begin{aligned}
-				\left[ \begin{matrix}
-					p_{0x}&		p_{0y}\\
-					v_{0x}&		v_{0y}\\
-					a_{0x}&		a_{0_y}\\
-				\end{matrix} \right] =\left[ \begin{matrix}
-					1&		0&		0&		0&		0&		0\\
-					0&		1&		0&		0&		0&		0\\
-					0&		0&		2&		0&		0&		0\\
-				\end{matrix} \right] \left[ \begin{matrix}
-					c_{0x}^{0}&		c_{0y}^{0}\\
-					c_{1x}^{0}&		c_{1y}^{0}\\
-					c_{2x}^{0}&		c_{2y}^{0}\\
-					c_{3x}^{0}&		c_{3y}^{0}\\
-					c_{4x}^{0}&		c_{4y}^{0}\\
-					c_{5x}^{0}&		c_{5y}^{0}\\
-				\end{matrix} \right] ==>b_0=F_0\cdot c_0
-				\end{aligned}
-			\end{equation}
-			
-			B、航点的连续性约束
-			
-			除了已知起点和终点之外，我们还必须保证BIVP问题中间航点的连续性。根据Minco的理论，minimumJerk问题（s=3）具有snap阶的连续性：
-			\begin{equation}
-				\begin{aligned}
-					\left[ \begin{array}{c}
-						\beta(t)\\
-						\beta^{'}(t)\\
-						\beta^{''}(t)\\
-						\beta^{'''}(t)\\
-						\beta^{''''}(t)\\
-					\end{array} \right] &=\left[ \begin{array}{c}
-						x(t)\\
-						v(t)\\
-						a(t)\\
-						jerk(t)\\
-						snap(t)\\
-					\end{array} \right] =\left[ \begin{array}{c}
-						\lambda_{t}^{T}\\
-						\lambda_{t}^{( 1 ) T}\\
-						\lambda_{t}^{( 2 ) T}\\
-						\lambda_{t}^{( 3 ) T}\\
-						\lambda_{t}^{( 4 ) T}\\
-					\end{array} \right] \cdot \mathbf{c}=\left[ \begin{matrix}
-						1&		t&		t^2&		t^3&		t^4&		t^5\\
-						0&		1&		2t&		3t^2&		4t^3&		5t^4\\
-						0&		0&		2&		6t&		12t^2&		20t^3\\
-						0&		0&		0&		6&		24t&		60t^2\\
-						0&		0&		0&		0&		24&		120t\\
-					\end{matrix} \right] \cdot \mathbf{c}\\
-					&\Longrightarrow G(t) \mathbf{c}=\mathbf{b}(t) 
-				\end{aligned}
-			\end{equation}
-			因此第$i$段轨迹和第$i+1$段轨迹的连续性约束方程可以写为：
-			\begin{equation}
-				\begin{aligned}
-					\left[ \begin{matrix}
-						\beta ( T_i )&		0\\
-						G( T_i )&		-G( 0 )\\
-					\end{matrix} \right] \cdot \left[ \begin{array}{c}
-						\mathbf{c}( i )\\
-						\mathbf{c}( i+1 )\\
-					\end{array} \right] =\left[ \begin{array}{c}
-						\mathbf{b}( T_i )\\
-						0\\
-					\end{array} \right] \\
-					\Longrightarrow \left[ E_i,F_i \right] \cdot \left[ \begin{array}{c}
-						\mathbf{c}( i )\\
-						\mathbf{c}( i+1 )\\
-					\end{array} \right] =\left[ \begin{array}{c}
-						\mathbf{b}( i )\\
-						0\\
-					\end{array} \right] 
-				\end{aligned}
-			\end{equation}
-			综合起点、终点和航点的约束我们可以得到$2Ms$个约束方程，系数矩阵我们表示为M，由$M$和$b$可以唯一确定一组多项式系数$c$，即轨迹的参数形式。
-			\begin{equation}
-				\begin{aligned}
-					M_{2Ms\cdot2Ms}\mathbf{c}=b\Longrightarrow ( \begin{matrix}
-						\mathbf{F}_0&		0&		0&		\cdots&		0\\
-						\mathbf{E}_1&		\mathbf{F}_1&		0&		\cdots&		0\\
-						0&		\mathbf{E}_2&		\mathbf{F}_2&		\cdots&		0\\
-						\vdots&		\vdots&		\vdots&		\ddots&		\vdots\\
-						0&		0&		0&		\cdots&		\mathbf{F}_{M-1}\\
-						0&		0&		0&		\cdots&		\mathbf{E}_M\\
-					\end{matrix} ) \cdot \left[ \begin{array}{c}
-						\mathbf{c}_1\\
-						\mathbf{c}_2\\
-						\mathbf{c}_3\\
-						\vdots\\
-						\mathbf{c}_{M-1}\\
-						\mathbf{c}_M\\
-					\end{array} \right] =\left[ \begin{array}{c}
-						b_0\\
-						b( 1 )\\
-						0\\
-						\vdots\\
-						0\\
-						b_M\\
-					\end{array} \right] 
-				\end{aligned}
-			\end{equation}
-			值得一提的是，在$M$矩阵中$T_i$是第$i$段多项式的总时间，它可以提前由一些其他的算法来给出，这样M就是完全已知的矩阵了。由于我们做的是路径规划，所以我们把$T_i$都归一化处理作为常数。
-			
-		\subsection{轨迹平滑与优化}
-		常见的路径规划算法得到的路径是有拐角的，对于具有转向半径约束的车辆来说并不能完全的跟踪。因此在进行轨迹规划时必须考虑最大曲率的约束条件：
+		\subsection{起点和终点约束方程} 
+		假设我们共有$M+1$个航点$q_0,...,q_M$，其中起点$q_0=[x_s,y_s,v_{sx},v_{sy},a_{sx},a_{sy}]$和终点$q_M=[x_e,y_e,v_{ex},v_{ey},a_{ex},a_{ey}]$完全已知。由此，一共可以得到6个约束方程，起点的约束方程为：
 		\begin{equation}
 			\begin{aligned}
-				k_{max}=\frac{1}{R_{max}}=\frac{tan( \gamma _{max}/2 )}{L}
+			\begin{bmatrix}
+				x_0&		y_0\\
+				v_{0x}&		v_{0y}\\
+				a_{0x}&		a_{0y}\\
+			\end{bmatrix} =\begin{bmatrix}
+				1&		0&		0&		0&		0&		0\\
+				0&		1&		0&		0&		0&		0\\
+				0&		0&		2&		0&		0&		0\\
+			\end{bmatrix} \begin{bmatrix}
+				c_{0x}^{1}&		c_{0y}^{1}\\
+				c_{1x}^{1}&		c_{1y}^{1}\\
+				c_{2x}^{1}&		c_{2y}^{1}\\
+				c_{3x}^{1}&		c_{3y}^{1}\\
+				c_{4x}^{1}&		c_{4y}^{1}\\
+				c_{5x}^{1}&		c_{5y}^{1}\\
+			\end{bmatrix} \Longrightarrow b_0=F_0\cdot c_1
 			\end{aligned}
 		\end{equation}
+
+		终点的约束方程为：
+		\begin{equation}
+			\begin{aligned}
+			\begin{bmatrix}
+				x_M&		y_M\\
+				v_{Mx}&		v_{My}\\
+				a_{Mx}&		a_{My}\\
+			\end{bmatrix} =\begin{bmatrix}
+				1&		T_M&		T_M^2&		T_M^3&		T_M^4&    	T_M^5\\
+				0&		1&		2T_M&		3T_M^2&		4T_M^3&		5T_M^4\\
+				0&		0&		2&		6T_M&		12T_M^2&		20T_M^3\\
+			\end{bmatrix} \begin{bmatrix}
+				c_{0x}^{M}&		c_{0y}^{M}\\
+				c_{1x}^{M}&		c_{1y}^{M}\\
+				c_{2x}^{M}&		c_{2y}^{M}\\
+				c_{3x}^{M}&		c_{3y}^{M}\\
+				c_{4x}^{M}&		c_{4y}^{M}\\
+				c_{5x}^{M}&		c_{5y}^{M}\\
+			\end{bmatrix} \Longrightarrow b_M=F_M\cdot c_M
+			\end{aligned}
+		\end{equation}
+		
+		\subsection{航点的连续性约束方程} 
+		除了已知起点和终点之外，我们还必须保证BIVP问题M-1个中间航点的连续性。根据Minco的理论，minimumJerk问题（s=3）具有snap阶的连续性。对于每一段多项式轨迹，我们可以求出它的各阶导数为：
+		\begin{equation}
+			\begin{aligned}
+				\begin{bmatrix}
+					x(t)& y(t)\\
+					v_x(t)& v_y(t)\\
+					a_x(t)& a_y(t)\\
+					jerk_x(t)& jerk_y(t)\\
+					snap_x(t)& snap_y(t)\\
+				\end{bmatrix}
+					= \begin{bmatrix}
+					1&		t&		t^2&		t^3&		t^4&		t^5\\
+					0&		1&		2t&		3t^2&		4t^3&		5t^4\\
+					0&		0&		2&		6t&		12t^2&		20t^3\\
+					0&		0&		0&		6&		24t&		60t^2\\
+					0&		0&		0&		0&		24&		120t\\
+				\end{bmatrix}  \begin{bmatrix}
+					c_{0x}^{i}&		c_{0y}^{i}\\
+					c_{1x}^{i}&		c_{1y}^{i}\\
+					c_{2x}^{i}&		c_{2y}^{i}\\
+					c_{3x}^{i}&		c_{3y}^{i}\\
+					c_{4x}^{i}&		c_{4y}^{i}\\
+					c_{5x}^{i}&		c_{5y}^{i}\\
+				\end{bmatrix}
+				&\Longrightarrow G(t) c_i=\mathbf{b}(t) 
+			\end{aligned}
+		\end{equation}
+		
+		则第$i$段轨迹和第$i+1$段轨迹的连续性约束方程可以写为：
+		\begin{equation}
+			\begin{aligned}
+				G(T_i)c_i-G(0)c_{i+1} = 0
+			\end{aligned}
+		\end{equation}
+		由于一共有M-1个中间航点，每一个航点带来5个约束，所以连续性约束一共有5M-5个。
+		
+		\subsection{轨迹的闭式解} 
+		令中间航点为$q_1(x_1,y_1),q_2(x_2,y_2),...,q_{M-1}(x_{M-1},y_{M-1})$。如果中间航点是已知的，则可以带来M-1个航点的位置约束：
+		\begin{equation}
+			\begin{aligned}
+				q_i = \begin{bmatrix}
+					x(T_i)& y(T_i)
+				\end{bmatrix} = \beta(T_i)c_i
+			\end{aligned}
+		\end{equation}
+		
+		现在我们将中间航点位置约束和连续性约束写在一起：
+		\begin{equation}
+			\begin{aligned}
+				\left[ \begin{matrix}
+					\beta ( T_i )&		0\\
+					G( T_i )&		-G( 0 )\\
+				\end{matrix} \right] \cdot \begin{bmatrix}
+					c_i \\
+					c_{i+1}
+				\end{bmatrix}
+				= \begin{bmatrix}
+					x(T_i) &y(T_i)\\
+					0& 0
+				\end{bmatrix} \\
+				\Longrightarrow \begin{bmatrix} E_i,F_i \end{bmatrix} \cdot \begin{bmatrix}
+					c_i \\
+					c_{i+1}
+				\end{bmatrix} =\begin{bmatrix}
+					q_i\\
+					0
+				\end{bmatrix}
+			\end{aligned}
+		\end{equation}
+		综合起点、终点和航点的约束我们可以得到$6M$个约束方程：
+		\begin{equation}
+			\begin{aligned}
+				\begin{bmatrix}
+					F_0&		0&		0&		\cdots&		0\\
+					E_1&		F_1&		0&		\cdots&		0\\
+					0&		E_2&		F_2&		\cdots&		0\\
+					\vdots&		\vdots&		\vdots&		\ddots&		\vdots\\
+					0&		0&		0&		\cdots&		F_{M-1}\\
+					0&		0&		0&		\cdots&		E_M\\
+				\end{bmatrix} \cdot \begin{bmatrix}
+					c_1\\
+					c_2\\
+					c_3\\
+					\vdots\\
+					c_{M-1}\\
+					c_M\\
+				\end{bmatrix} =\begin{bmatrix}
+					b_0\\
+					q_1\\
+					0\\
+					\vdots\\
+					0\\
+					b_M\\
+				\end{bmatrix} \\
+				\Longrightarrow M_{2Ms\cdot2Ms}\mathbf{c}=\mathbf{b}
+			\end{aligned}
+			\label{eq:minco参数化}
+		\end{equation}
+		系数矩阵我们表示为M，由$M$和$b$可以唯一确定一组多项式系数$c$，即轨迹的参数形式。
+
+		值得一提的是，在$M$矩阵中$T_i$是第$i$段多项式的总时间，它可以提前由一些其他的算法来给出，这样$M$就是完全已知的矩阵了。由于我们做的是路径规划，所以我们把$T_i$都归一化处理作为常数。
 	
 	\section{基于安全走廊的安全约束分析}
 	在上一节中我们已经对铰接车的轨迹进行了参数化，这样就自然的处理了微分方程带来的约束问题，保证了轨迹的平滑性。但是在路径规划中还有一个典型的问题需要处理，那就是障碍物躲避。无人车辆在非结构或半结构的场景中还需要面临安全性带来的种种挑战，包括避开其他工程机械车辆和环境中的种种障碍物。
 
-	无人车的避障和地图的表示形式是分不开的，选择恰当的地图表示形式往往可以让避障算法发挥到很好的性能。常见的地图表示方法有占据栅格地图、点云地图、距离场、特征地图、拓扑地图、场图以及语义地图。规划算法中的避障部分一般根据地图的表示差异而有所不同。对于栅格地图而言，由于其均匀的栅格大小和快速的索引方式，使得它在几乎所有的避障算法中首当其冲，例如ROS(robot Operte sys。。)框架中就实现了基于栅格地图搜索的A*算法和Dijstra算法。点云地图是对空间中障碍物的直接表示，常见的激光slam算法建立的地图一般都是这种类型，基于此种地图的规划器一般需要结合KDTree(最近邻)搜索离当前位置最近的障碍物并避开。其次是特征地图，特征地图并不对整个地图空间进行离散，而是在地图上仅仅保留稀疏的特征。这些地图类型在不同的场景下有着不同的优势，针对某种类型的地图往往需要选择行之有效的规划器，减小规划的空间和时间复杂度。
+	无人车的避障和地图的表示形式是分不开的，选择恰当的地图表示形式往往可以让避障算法发挥到很好的性能。常见的地图表示方法有占据栅格地图、点云地图、距离场、特征地图、拓扑地图、场图以及语义地图。规划算法中的避障部分一般根据地图的表示差异而有所不同。对于栅格地图而言，由于其均匀的栅格大小和快速的索引方式，使得它在几乎所有的避障算法中首当其冲，例如ROS（Robot Operating System）框架中就实现了基于栅格地图搜索的A*算法和Dijstra算法。点云地图是对空间中障碍物的直接表示，常见的激光slam算法建立的地图一般都是这种类型，基于此种地图的规划器一般需要结合KDTree(最近邻)搜索离当前位置最近的障碍物并避开。其次是特征地图，特征地图并不对整个地图空间进行离散，而是在地图上仅仅保留稀疏的特征。这些地图类型在不同的场景下有着不同的优势，针对某种类型的地图往往需要选择行之有效的规划器，减小规划的空间和时间复杂度。
 	
 	考虑到施工现场的结构不确定，往往地面上会有各种各样的杂物，为了充分利用栅格地图的快速索引能力并提高通用性，我们选择使用2维空间下的占据栅格地图作为规划的地图类型。
 		\subsection{凸多边形约束的数学表达}
@@ -544,38 +595,35 @@
 			\caption{安全走廊的比较}
 			\label{安全走廊比较}
 		\end{figure}
-		
-		凸多边形的区域由一组半空间交集组成。对应2D场景凸包就是由一组直线围成的。如图\ref{fig:凸包矩阵}所示。
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.4\textwidth]{凸包矩阵.png}
+			\includegraphics[width=0.3\textwidth]{凸包矩阵.png}
 			\caption{凸包的数学表达关系}
 			\label{fig:凸包矩阵}
 		\end{figure}
+		
+		凸多边形的区域由一组半空间交集组成。对应2D场景凸包就是由一组直线围成的。如图\ref{fig:凸包矩阵}所示。
 		因此，在封闭区域内的点必然满足以下不等式约束：
 		\begin{equation}
 			\begin{aligned}
 				H_z&=\{p\mid Ap<b\},\\
 				A&=\left[ a_0,...,a_z,...a_{n_z-1} \right]^T_{(n_z-1)\times 2},b=\left[ b_0,...,b_z,...,b_{n_z-1} \right]^T_{(n_z-1)\times 1}.
 			\end{aligned}
+			\label{eq:走廊约束}
 		\end{equation}
-		其中$a_i$是第$i$个半空间的法向量，$a_i$和$b_i$唯一去确定一个超平面约束。对于任意在多边形内的点应当满足【等式】带来的不等式约束。多边形的生成方法参考文献【】。
+		其中$a_i$是第$i$个半空间的法向量，$a_i$和$b_i$唯一去确定一个超平面约束。对于任意在多边形内的点应当满足公式\ref{eq:走廊约束}带来的不等式约束。多边形的生成方法参考文献【】。
 	
 	\section{单阶段无约束轨迹规划}
-	在3.2中我们介绍了MINCO曲线的参数化形式。由于我们在这一章介绍的全局的路劲规划，所以我们只关心路径层面信息包括曲率和避障。路径的最大曲率，这由装载机的最大转向角推导得到。避障我们在3.3节我们已近介绍。
-		\subsection{优化问题的建立}
-		针对于这个问题我们使用优化的方法解决，我们把曲率和安全约束离散化的施加在问题中，当离散化的点足够多时轨迹就是足够安全的。我们可以得到以下优化问题的表达形式：
+	在3.2节中，我们介绍了MINCO曲线的参数化方法。针对全局路径规划并不需要时间维度的信息，我们重点关注路径层面的两个核心约束条件：首先是路径曲率必须满足由铰接车最大转向角推导出的最小曲率，其次是路径须满足避障要求。关于避障约束的实现细节，已在3.3节通过安全走廊构造方法进行了系统阐述。
+		\subsection{铰接车的最大曲率}
+		常见的路径规划算法得到的路径是有拐角的，对于具有转向半径约束的车辆来说并不能完全的跟踪。忽略动态转向带来的曲率影响，铰接式车辆的最大曲率由静态转向模型确定。因此在进行轨迹规划时必须考虑最大曲率的约束条件：
 		\begin{equation}
 			\begin{aligned}
-				&\min J( c )=0 \\
-				s.t.\,\,&-k_{max}\le k_{ij}\le k_{max} \\
-				&A_ip_{ij}<b_i,\ \ i\in \left[ 1,N \right] ,j\in \left[ 1,m_i \right] 
+				k_{max}=\frac{1}{R_{max}}=\frac{tan( \gamma _{max}/2 )}{L}
 			\end{aligned}
 		\end{equation}
-		其中$c$轨迹多项式是系数矩阵，$K_{max}$是最大曲率，$N$是轨迹的段数，$m_i$是第$i$段轨迹的离散点数，$p_{ij}$是第$i$点轨迹的第$j$个点。
-		\subsection{曲率约束和避障约束的消除}
-		忽略动态转向带来的曲率影响，铰接式车辆的最大曲率由静态转向模型确定。本次设计中我们的最大转向角度为30度，轴距$L$为1.3，即最大转向半径为4.85m，最大曲率为0.2。
-		曲率在二维平面上的公式为：
+		本次设计中我们的最大转向角度为30度，轴距$L$为1.3m，即最大转向半径为4.85m，最大曲率为0.2。
+		曲线曲率的计算公式为：
 		\begin{equation}
 			\begin{aligned}
 				k=( \dot{x}\ddot{y}-\dot{y}\ddot{x} ) /( \dot{x}^2+\dot{y}^2 ) ^{\frac{3}{2}}
@@ -589,13 +637,26 @@
 					1&		0\\
 				\end{matrix} \right] .
 			\end{aligned}
+			\label{eq:曲线曲率k}
 		\end{equation}
 		\begin{equation}
 			\begin{aligned}
 				\frac{\partial k}{\partial \dot{p}}\,\,=\,\,\frac{B^T\ddot{p}}{||\dot{p}||_{2}^{3}}-3\frac{\ddot{p}^TB\dot{p}}{||\dot{p}||_{2}^{5}}\dot{p},\frac{\partial k}{\partial \ddot{p}}=\frac{B\dot{p}}{||\dot{p}||_{2}^{3}}
 			\end{aligned}
 		\end{equation}
-		针对于曲率和安全这两个不等式约束，我们引入一个松弛函数将它们最为软约束加入到代价中，松弛函数为：
+
+		\subsection{优化问题的建立}
+		根据公式\ref{eq:minco参数化}，轨迹的参数可以由两个要素唯一确定：航点向量$\mathbf{b}$与系数矩阵$M$。由于这两个参数能够唯一表征整条轨迹，在构建优化问题时，将航点向量$\mathbf{b}$直接做为优化变量是很自然的选择。我们把曲率和安全约束离散化的施加在问题中，当离散化的点足够多时轨迹就是足够安全的。于是可以得到以下优化问题的表达形式：
+		\begin{equation}
+			\begin{aligned}
+				&\min_{q_1,q_2,...,q_{M-1}} J( q ) \\
+				s.t.&-k_{m}-k_{ij}\le 0\\
+				&k_{ij}-k_{m}\le 0 \\
+				&A_ip_{ij}-b_i<0,\ \ i\in \left[ 1,N \right] ,j\in \left[ 1,m_i \right] 
+			\end{aligned}
+		\end{equation}
+		其中$c$轨迹多项式是系数矩阵，$k_{ij}$的计算方法见公式\ref{eq:曲线曲率k}。如图$k_{m}$是最大曲率，$N$是轨迹的段数，$m_i$是第$i$段轨迹的离散点数。$p_{ij}=\beta^T(\frac{T_i}{m_i}\cdot j)\cdot c_i$，是第$i$段多项式轨迹的第$j$个点，$c_i$通过$\mathbf{c} = M^{-1}\mathbf{b}$计算得到。
+		针对于曲率和安全这两个不等式约束，我们引入一个松弛函数将它们作为软约束加入到代价中，松弛函数为：
 		\begin{equation}
 			\begin{aligned}
 				S( x ) =\left\{ \begin{matrix}
@@ -610,25 +671,22 @@
 				\end{matrix}\right.
 			\end{aligned}
 		\end{equation}
-		其中a是一个参数，我们一般选取为优化问题迭代的停止条件值。下面是这个分段函数的图像信息，【函数、导数图像】。
+		其中$a$是一个已知参数，我们一般选取为优化问题迭代的停止条件值。如图\ref{fig:松弛函数图}，是该松弛函数图。
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.8\textwidth]{松弛函数.png}
+			\subcaptionbox{松弛函数\label{松弛函数}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{松弛函数.png}}
+			\subcaptionbox{松弛导数\label{松弛导数}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{松弛导数.png}}
 			\caption{松弛函数}
-			\label{fig:松弛函数}
+			\label{fig:松弛函数图}
 		\end{figure}
-		\begin{figure}[!ht]
-			\centering
-			\includegraphics[width=0.8\textwidth]{松弛导数.png}
-			\caption{松弛导数}
-			\label{fig:松弛导数}
-		\end{figure}
-		我们设置的a=0.05。可以看出这个函数在x的负半轴的值为0，也就意味着不等式约束的代价为0。在0<x<=a时代价以一个四次函数上升，越靠近原点代价越小。当x>a时代价值以斜率为1直线上升。另外这个分段函数还有非常好的一个特性，在定义域上市C2微分同胚的。这就意味着它的梯度和Hessian矩阵是完全连续的，在优化时我们不必考虑额外的光滑函数。
-		综上，问题被化简成了一个无约束的优化问题：
+
+		在本课题实验中，我们设置的$a$为0.05。这个松弛函数在$x$的负半轴的值为0，也就意味着不等式约束的代价为0。在$0<x \le a$时，代价以一个四次函数上升，越靠近原点代价越小。当$x>a$时代价值以斜率为1直线上升。另外这个分段函数还有非常好的一个特性，在定义域上是$C_2$微分同胚的。这就意味着它的梯度和Hessian矩阵是完全连续的，在优化时我们不必考虑额外的光滑函数。
+		综上，问题被转化成了一个无约束的优化问题：
 		\begin{equation}
 			\begin{aligned}
-				\min\text{\ }J( q ) \ =\ \sum_{i=1}^N{\sum_{j=1}^{m_i}{S( -k_m-k_{ij} ) +S( -k_m+k_{ij} ) +S( A_ip_{ij}-b_i )}}
+				\min_{q_1,q_2,...,q_{M-1}}  J( q ) = \sum_{i=1}^N{\sum_{j=1}^{m_i}{S( -k_m-k_{ij} ) +S( -k_m+k_{ij} ) +S( A_ip_{ij}-b_i )}}
 			\end{aligned}
+			\label{eq:单阶无约束优化代价}
 		\end{equation}
 		利用矩阵求导的链式法则我们可以求得各个部分的梯度信息，需要指出的是我们矩阵求导遵循分母布局。
 		\begin{equation}
@@ -638,16 +696,60 @@
 				\frac{\partial S( A_ip_{ij}-b_i )}{\partial c_i}&=\frac{\partial p_{ij}}{\partial c_i}A_{i}^{T}S^{'}( A_ip_{ij}-b_i ) 
 			\end{aligned}
 		\end{equation}
-		我们利用上式求出了$J$关于$c$的梯度$\frac{\partial J}{\partial q}=\frac{\partial c}{\partial q}\frac{\partial J}{\partial c}$，于是由$b = Mc$,可以推导出：$\frac{\partial b}{\partial q}M^{-T}=\frac{\partial c}{\partial q}$ ，因此$J$关于$q$的梯度为：
+		我们利用上式求出了$J$关于$c$的梯度，于是由$b = Mc$,可以推导出：$\frac{\partial b}{\partial q}M^{-T}=\frac{\partial c}{\partial q}$ ，因此$J$关于$q$的梯度为：
 		\begin{equation}
 			\frac{\partial J}{\partial q}=\frac{\partial c}{\partial q}\frac{\partial J}{\partial c}
 		\end{equation}
+
+		\subsection{起点和终点航向角保证}
+		我们使用Minco样条对轨迹的x和y方向分别规划，然后再合成一个轨迹。同样对于给定起点$start(x_s,y_s,v_s,a_s)$和终点$end(x_e,y_e,v_e,a_e)$，需要计算出$x$和$y$两个方向上的初始状态分量。对应为起点$q_0=[x_0,y_0,v_{0x},v_{0y},a_{0x},a_{0y}]$和终点$q_M=[x_M,y_M,v_{Mx},v_{My},a_{Mx},a_{My}]$。 其中，加速度的分解值我们令其为0，这在路径规划中是合理的。但是对于速度的分解我们还需要详细讨论，因为其涉及到航向角$\theta$。
+
+		由运动学模型我们可以求得两个方向上的速度：
+		\begin{equation}
+			\begin{aligned}
+				v_{0x}=v_scos\theta _s\\
+				v_{0y}=v_ssin\theta _s\\
+			\end{aligned}
+		\end{equation}
+		对于初始速度$v_s$不为零的情况，$v_{0x},v_{0y}$都不等于零，我们带入优化问题就可以直接保证车辆初始朝向和轨迹的起点切向在一条直线上。但是当$v_{s}=0$时，得到$v_{0x}=0,v_{0y}=0$。此时用平坦模型计算$\theta_s$：
+		\begin{equation}
+			\theta_s=\text{atan}2\left( v_{sy},v_{sx} \right) =\text{atan}2\left( 0,0 \right) 
+		\end{equation}
+		这时发现其实当$v_{s}=0$时轨迹曲线的切线方向是没有定义的，这是一个奇异点。为了处理这种奇异情况，我们给当$v_{s}$加上一个微小正量保证它的有效性：
+		\begin{equation}
+			\begin{aligned}
+			v_{sx}&=\left( v_s+\epsilon \right) cos\theta_s\\
+			v_{sy}&=\left( v_s+\epsilon \right) sin\theta_s,0<\epsilon <1e-5.
+			\end{aligned}
+		\end{equation}
+		这样就可以保证车辆的起点朝向施加在轨迹上，同样由于$\epsilon$是一个极小量，它几乎不会影响轨迹起点的初始速度。对于终点的处理方法和起点一样。
+
+		\subsection{初始解的构造}
+		由于使用优化的方法生成轨迹，所以我们需要一个快速生成航点的路径规划算法，为我们的优化算法提供软起动初值。我们不关心这个算法是否路径最优，但是它需要以较低的时间复杂度运行，因为我们的优化过程可以带来足够的最优性。我们推荐使用RRTConnect或者JPS算法，这两者都具有快速生成路径的能力。在本课题中使用RRTConnect生成路径。区别于传统的RRT算法，RRTConnect同时从起点和终点搜索路径，可以显著提高搜索的效率，减少搜索的次数。下面介绍优化问题的求解步骤。
 		
+		第一，我们使用RRTConnect算法搜索出从起点到终点的一条路径$path$，路径点也称为航点：
+		\begin{equation}
+			\begin{aligned}
+				path = \begin{bmatrix}
+					x_0 &y_0\\
+					x_1&y_1\\
+					...\\
+					x_M,y_M
+				\end{bmatrix}
+			\end{aligned}
+		\end{equation}
+
+		第二，
+
+		\subsection{优化问题求解}
+		对于如式\ref{eq:单阶无约束优化代价}的无约束优化问题，有很多成熟的算法可以求解，例如最速下降法、牛顿法、共轭梯度法等。一般的优化算法总体上可以分为两类，一类是基于一阶信息的梯度法，另一类是基于二阶信息的牛顿法。牛顿法除了需要提供代价函数的梯度信息以外，还需要提供代价函数的Hessian矩阵。对于复杂优化问题而言解析计算Hessian是非常困难的。
 		
-		\subsection{优化结果的分析}
-		通过上一小节我们推出了路径优化问题的代价函数和梯度信息，这是很关键的。求解无约束优化问题的优化方法有很多，例如最速下降法、牛顿法、共轭梯度法等。对于一般的优化算法而言总体上可以分为两类，一类是基于一阶信息的梯度法，另一类是基于二阶信息的牛顿法。牛顿法除了需要提供代价函数的梯度信息以外，还需要提供代价函数的Hessian矩阵。对于复杂优化问题而言解析计算Hessian是极为复杂的。综合众多因素我们选择使用lbfgs优化算法最为本优化问题的优化求解算法。
-		LBFGS算法作为一种高效的拟牛顿优化方法，在优化过程中会不断地迭代逼近出一个Hessian矩阵，省去了手动推导的难度。在大规模无约束优化问题中展现出显著的优势。其核心优势在于内存效率和计算效率，仅存储最近的迭代信息，有效处理高维问题，同时快速收敛于最优解。LBFGS算法的适用性广泛，覆盖机器学习、统计学和工程优化等多个领域，尤其在大规模数据处理中表现出色。
-		由于使用优化的方法生成轨迹，所以我们需要一个快速生成航点的路径规划算法，为我们的优化算法提供软起动初值。我们不关心这个算法是否路径最优，但是它需要以较低的时间复杂度运行，因为我们的优化过程可以带来足够的最优性。下面给出我们算法的伪代码:
+		LBFGS算法作为一种高效的拟牛顿优化方法，在优化过程中会不断地迭代逼近出一个Hessian矩阵，省去了手动推导的难度。在大规模无约束优化问题中有显著的优势。其核心优势在于内存效率和计算效率，仅存储最近的迭代信息，有效处理高维问题，同时快速收敛于最优解。综合众多因素我们选择使用LBFGS优化算法最为本优化问题的优化求解算法。
+
+
+		第二，通过起点$q_0$、终点$q_M$和路径$path$构造系数矩阵$M$和
+		
+		下面给出我们算法的伪代码:
 		 \begin{algorithm}[H]  
 		 	\caption{Global Planning}  
 		 	\label{Planning}  
@@ -664,17 +766,9 @@
 		 		\RETURN $\mathbf{path} \leftarrow \mathbf{lbfgs}(costFcn,grad)$
 		 	\end{algorithmic}  
 		 \end{algorithm}
-		 在这里我们推荐使用RRTConnect或者JPS算法，这两者都具有快速生成路径的能力。以下介绍的所有例子都是用RRTConnect生成路径。区别于传统的RRT算法，RRTConnect同时从起点和终点搜索路径，可以显著提高搜索的效率，减少搜索的次数。
-		 \begin{figure}[!ht]
-		 	\centering
-		 	\includegraphics[width=0.8\textwidth]{单轨迹2.png}
-		 	\caption{单轨迹2}
-		 	\label{fig:单轨迹2}
-		 \end{figure}
-		 图。。。。是的算法运行的仿真，其中浅紫色那条路径是RRTConnect搜索出的初始路径，他在全局范围内是无碰撞的。沿着初始路径我们生成了如图蓝色的安全走廊，用来表示路径周围的FreeSpace。绿色的点是优化后的航点。红色的是我们优化之后的轨迹，可以看出它严格符合事先给出的曲率约束，并且在完全处于安全走廊内。
 		
 	\section{多阶段全局轨迹规划案例}
-	在上一节中我们描述了一个完整的全局轨迹规划算法，可以完成一个点对点的路径规划问题。对于一些更加复杂的场景，例如码头搬运、舱体清卸、矿山运料等多种复杂的工况下，铰接车需要依次去往各个区域规定完成卸货。这样的场景往往需要面向任务设计一个框架。因为这些场景需要更灵活的运动模式，例如倒车。这一节我们将针对码头搬运场景设计一个周期性的规划流程。
+	在上一节中我们描述了完整的算法结构和细节，可以完成一个点对点的路径规划问题。对于一些更加复杂的场景，例如码头搬运、舱体清卸、矿山运料等多种复杂的工况下，铰接车需要依次去往各个区域规定完成卸货。这样的场景往往需要面向任务设计一个框架。因为这些场景需要更灵活的运动模式，例如倒车。这一节我们将针对码头搬运场景设计一个周期性的规划流程。
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=0.8\textwidth]{全局规划.png}
@@ -682,32 +776,11 @@
 		\label{fig:全局规划}
 	\end{figure}
 		\subsection{多阶段规划的问题描述}
-		考虑【如图】的搬运问题，我们需要铰接车从起点码头装货完成去往A点进行卸货，然后去往B点，再去C点，最后回到码头重新装货。这个搬运周期一共需要四次规划，且搬运过程中由于环境等因素规划过程需要倒车。
-		\subsection{航点过渡策略}
-		在整个规划周期中铰接车一共需要经过四个航点，分别为码头、A站点、B站点和C站点。在整个过程中受到路径受到两个方面的限制。第一，每一段轨迹的起点的切线方向必须和铰接车保持一致，这可以由曲率约束所保证。第二，如果在航点处需要求车辆发生换向，则换向后的轨迹的航向和换向前应该相反。 
+		考虑【如图】的搬运问题，我们需要铰接车从码头出发，装货完成去往A点进行卸货，然后去往B点，再去C点，最后回到码头重新装货。这个搬运周期一共需要四次规划，且搬运过程中由于环境等因素规划过程需要倒车。在整个规划周期中铰接车一共需要经过四个站点，分别为码头、A站点、B站点和C站点。在整个过程中受到路径受到两个方面的限制。第一，每一段轨迹的起点的切线方向必须和铰接车保持一致，这就是车辆的非完整约束，这在上一节中已经处理。第二，如果在站点处需要求车辆发生换向，则换向后的轨迹的航向和换向前应该相反。 
+
+		\subsection{站点的换向处理}
 		
-		A、轨迹起点和初始位姿一致性保证
-		由于我们使用minco对x和y方向分开规划，所以铰接车的初始位姿要同时作用在x和y两个方向上。记初始的姿态为$\theta_s$ ，由运动学模型我们可以求得：
-		\begin{equation}
-			v_{sx}=v_scos\theta _s\\
-			v_{sy}=v_ssin\theta _s
-		\end{equation}
-		对于初始速度$v_s$不为零的情况，$v_{sx},v_{sy}$都不等于零，我们带入优化问题就可以直接保证车辆初始朝向和轨迹的起点切向在一条直线上。但是当$v_{s}=0$时，推出$v_{sx}=0,v_{sy}=0$。此时用平坦模型计算$\theta_s$：
-		\begin{equation}
-			\theta_s=\text{atan}2\left( v_{sy},v_{sx} \right) =\text{atan}2\left( 0,0 \right) 
-		\end{equation}
-		我们发现其实当$v_{s}=0$时曲线的切线方向是没有定义的，这是一个奇异点。为了处理这种奇异情况，我们给当$v_{s}$加上一个微小正量保证它的有效性：
-		\begin{equation}
-			\begin{aligned}
-			v_{sx}&=\left( v_s+\epsilon \right) cos\theta_s\\
-			v_{sy}&=\left( v_s+\epsilon \right) sin\theta_s,0<\epsilon <1e-5.
-			\end{aligned}
-		\end{equation}
-		这样就可以保证车辆的起点朝向施加在轨迹上，同样由于$\epsilon$是一个极小量，它几乎不会影响轨迹起点的初始速度。对于终点的处理方法和起点一样。
-		
-		B、航点的换向处理
-		
-		在中间航点处的是否换向包含两种情况，一种是航点前的车辆运动方向和航点后运动方向相同，则不需要换向。另一种是航点前的车辆运动方向和航点后运动方向相反，则需要换向，此航点也被称为换向点。
+		在中间站点处的是否换向包含两种情况，一种是站点前的车辆运动方向和站点后运动方向相同，则不需要换向。另一种是站点前的车辆运动方向和站点后运动方向相反，则需要换向，此站点也被称为换向点。
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.8\textwidth]{换向1.png}
@@ -720,7 +793,7 @@
 			\caption{换向2}
 			\label{fig:换向2}
 		\end{figure}
-		图【】是表示的是车正向行驶穿越航点的情况，经过航点时不用倒车。我们在规划AB段路径时B点作为终点，在规划BC段路径时B点作为起点车辆的运动方向和车辆的朝向相同。图【】是表示的是车正向行驶到达航点，再反向倒车。与图【】不同的是，在规划BC段路径时B点作为起点车辆的运动方向和车辆的朝向相反，而AB段相同，因此规划BC段时B点作为起点需要反向。
+		图【】是表示的是车正向行驶穿越站点的情况，经过站点时不用倒车。我们在规划AB段路径时B点作为终点，在规划BC段路径时B点作为起点车辆的运动方向和车辆的朝向相同。图【】是表示的是车正向行驶到达站点，再反向倒车。与图【】不同的是，在规划BC段路径时B点作为起点车辆的运动方向和车辆的朝向相反，而AB段相同，因此规划BC段时B点作为起点需要反向。
 		\subsection{规划结果展示}
 		下面是我们算法在码头地图中的多阶段规划例子：
 		\begin{figure}[!ht]
@@ -842,7 +915,7 @@
 			\label{fig:bresham_colli}
 		\end{figure}
 	\section{基于NMPC和安全走廊的轨迹规划}
-	在4.2节中我们针对铰接车对hybridAstar算法进行了改进，它将作为我们轨迹规划的热启动算法。本节中将介绍如何构建一个基于NMPC的轨迹规划算法，这是一个典型的OCP最优控制框架。
+	在4.2节中我们针对铰接车对hybrid A*算法进行了改进，它将作为我们轨迹规划的热启动算法。本节中将介绍如何构建一个基于NMPC的轨迹规划算法，这是一个典型的OCP最优控制框架。
 		\subsection{NMPC问题构建}
 		铰接式车辆运动规划的最优控制问题可以表示为其一般形式，包括成本函数以及多个等式或不等式约束。与典型的优化问题不同，基于最优控制的轨迹规划还受到一组动态微分方程的约束。一般能耗和时间最优的代价函数定义如下：
 		\begin{equation}
@@ -985,7 +1058,7 @@
 			\end{aligned}
 		\end{equation}
 
-		对于上述走廊的不等式约束，我们使用罚函数将约束加入到代价函数中。罚函数依旧使用公式【】。为了方便表达，我们定义 \([]\) 为逐元素运算符，例如 \([\cdot]\) 表示逐元素乘法，\(S[x]\) 表示对$x$的所有元素进行函数 \(S\)运算 。得到以下结果，其表达为：
+		对于上述走廊的不等式约束，我们使用罚函数将约束加入到代价函数中。罚函数依旧使用公式【】。为了方便表达，我们定义 \([]\) 为逐元素运算符，例如 \([\cdot]\) 表示逐元素乘法，\(S[x]\) 表示对$x$的所有元素进行函数 \(S\)运算。得到以下结果，其表达为：
 		\begin{equation}
 			\mathcal{G}_c =\mathcal{G}_{f}+\mathcal{G}_{r}=w_{c}\cdot \sum_{k=1}^{N-2}\sum_{i=0}^{d-1}(S[g_f(k)] + S[g_r(k)]).\label{20}
 		\end{equation}
