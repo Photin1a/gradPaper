@@ -1,7 +1,7 @@
 import re
 
 # 打开文件并读取内容
-with open('C:\\Users\\photinia\\Desktop\\毕业论文\\document.tex', 'r', encoding='utf-8') as file:
+with open('./document.tex', 'r', encoding='utf-8') as file:
     text = file.read()
 
 # 使用正则表达式匹配中文字符
