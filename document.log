@@ -1,6 +1,6 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  14 MAR 2025 09:50
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  16 MAR 2025 02:13
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **c:/Users/photinia/Desktop/毕业论文/document.tex
@@ -1816,7 +1816,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [14]
 
-Package natbib Warning: Citation `优化问题' on page 15 undefined on input line 273.
+Package natbib Warning: Citation `优化问题' on page 15 undefined on input line 274.
 
 
 File: fig/不同初解.png Graphic file (type bmp)
@@ -1907,11 +1907,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [23]
+
+Package natbib Warning: Citation `Gao2018OnlineST' on page 24 undefined on inpu
+t line 589.
+
+
+Package natbib Warning: Citation `BaiLi:2022' on page 24 undefined on input lin
+e 589.
+
+
+Package natbib Warning: Citation `Deits:2015' on page 24 undefined on input lin
+e 589.
+
+
+Package natbib Warning: Citation `SikangLiu:2017' on page 24 undefined on input
+ line 589.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [24]
+
+Package natbib Warning: Citation `SikangLiu:2017' on page 25 undefined on input
+ line 591.
+
 File: fig/安全走廊比较矩形1.png Graphic file (type bmp)
 <fig/安全走廊比较矩形1.png>
 File: fig/安全走廊比较多边形2.png Graphic file (type bmp)
@@ -1947,9 +1968,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [29]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 754.
+put line 764.
 File: fig/全局规划.png Graphic file (type bmp)
 <fig/全局规划.png>
+
+Underfull \vbox (badness 4429) has occurred while \output is active []
+
 
 
 [30]
@@ -1958,11 +1982,11 @@ File: fig/换向1.png Graphic file (type bmp)
 File: fig/换向2.png Graphic file (type bmp)
 <fig/换向2.png>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [31]
-File: fig/多阶段轨迹s.png Graphic file (type bmp)
-<fig/多阶段轨迹s.png>
-
 
 [32]
 第4章
@@ -1983,16 +2007,20 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [34]
 File: fig/hybrid采样.png Graphic file (type bmp)
 <fig/hybrid采样.png>
+File: fig/hybrid采样改进剪枝.png Graphic file (type bmp)
+<fig/hybrid采样改进剪枝.png>
+
+Overfull \hbox (4.37932pt too wide) in paragraph at lines 870--870
+ [][] 
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [35]
-File: fig/hybrid采样改进剪枝.png Graphic file (type bmp)
-<fig/hybrid采样改进剪枝.png>
-
-Underfull \vbox (badness 3333) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -2027,14 +2055,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [41]
+File: fig/安全走廊.png Graphic file (type bmp)
+<fig/安全走廊.png>
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [42]
-File: fig/安全走廊.png Graphic file (type bmp)
-<fig/安全走廊.png>
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2050,96 +2078,101 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [45]
+
+[46]
+第5章
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 10.95pt on input line 1159.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 6.1pt on input line 1159.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 10.95pt on input line 1159.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 6.1pt on input line 1159.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 10.95pt on input line 1159.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 6.1pt on input line 1159.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 10.95pt on input line 1159.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 6.1pt on input line 1159.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 10.95pt on input line 1159.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 6.1pt on input line 1159.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 10.95pt on input line 1159.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 6.1pt on input line 1159.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 10.95pt on input line 1159.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 6.1pt on input line 1159.
+File: fig/多阶段轨迹s.png Graphic file (type bmp)
+<fig/多阶段轨迹s.png>
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[46]
-
-[47]
-第5章
-File: fig/多阶段轨迹s.png Graphic file (type bmp)
-<fig/多阶段轨迹s.png>
-
-
-[48
+[47
 
 ]
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 1157.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 1157.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1157.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1157.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1157.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1157.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 1157.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 1157.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1157.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1157.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1157.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1157.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1157.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1157.
+
+[48]
+File: fig/navigation规划框架.png Graphic file (type bmp)
+<fig/navigation规划框架.png>
+File: fig/我的规划框架.png Graphic file (type bmp)
+<fig/我的规划框架.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 [49]
-
-Package natbib Warning: Citation `fig:single' on page 50 undefined on input lin
-e 1188.
-
 File: fig/single.png Graphic file (type bmp)
 <fig/single.png>
-File: fig/datasingle.png Graphic file (type bmp)
-<fig/datasingle.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 [50]
-File: fig/muti.png Graphic file (type bmp)
-<fig/muti.png>
+File: fig/datasingle.png Graphic file (type bmp)
+<fig/datasingle.png>
+
+Underfull \vbox (badness 1478) has occurred while \output is active []
+
 
 
 [51]
-File: fig/datamuti.png Graphic file (type bmp)
-<fig/datamuti.png>
-
-Underfull \vbox (badness 2556) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [52]
-File: fig/boche.png Graphic file (type bmp)
-<fig/boche.png>
-File: fig/databochestate.png Graphic file (type bmp)
-<fig/databochestate.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+File: fig/muti.png Graphic file (type bmp)
+<fig/muti.png>
+File: fig/datamuti.png Graphic file (type bmp)
+<fig/datamuti.png>
 
 
 [53]
-File: fig/databocheinput.png Graphic file (type bmp)
-<fig/databocheinput.png>
-File: fig/cebianboche.png Graphic file (type bmp)
-<fig/cebianboche.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+File: fig/boche.png Graphic file (type bmp)
+<fig/boche.png>
 
 
 [54]
+File: fig/databochestate.png Graphic file (type bmp)
+<fig/databochestate.png>
+File: fig/databocheinput.png Graphic file (type bmp)
+<fig/databocheinput.png>
+
+
+[55]
+File: fig/cebianboche.png Graphic file (type bmp)
+<fig/cebianboche.png>
 File: fig/datacebianstate.png Graphic file (type bmp)
 <fig/datacebianstate.png>
 
@@ -2147,85 +2180,80 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[55]
+[56]
 File: fig/dataminco.png Graphic file (type bmp)
 <fig/dataminco.png>
 
-
-[56]
 
 [57]
 
 [58]
 
-[59] (document.bbl
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.53937pt on input line 20.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 7.0pt on input line 20.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 5.0pt on input line 20.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 20.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.0pt on input line 20.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 20.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.0pt on input line 20.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
+[59]
+No file document.bbl.
+附录A
 
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 20.
-
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.53937pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.0pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.0pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.0pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.0pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.0pt on input line 20.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
-)
 
 [60
 
 
 ]
-附录A
+附录B
 
 
 [61
 
 ]
-附录B
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 10.53937pt on input line 1445.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 7.0pt on input line 1445.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 5.0pt on input line 1445.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 1445.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 7.0pt on input line 1445.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1445.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 1445.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 7.0pt on input line 1445.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1445.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 1445.
+
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 10.53937pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 7.0pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 5.0pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 7.0pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 7.0pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 7.0pt on input line 1445.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1445.
 
 
 [62
-
-]
-
-[63
 
 ]
 
@@ -2233,7 +2261,7 @@ Package natbib Warning: There were undefined citations.
 
 
 
-[64
+[63
 
 ] (document.aux)
  ***********
@@ -2245,16 +2273,19 @@ L3 programming layer <2022/07/14>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.34248pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 7FB60476901778B9D2597957F1889D2F;11331.
+(rerunfilecheck)             Checksum: E4602BCF928561D70706675D591E6C23;11322.
  ) 
 Here is how much of TeX's memory you used:
- 27212 strings out of 408789
- 554234 string characters out of 5748080
- 963112 words of memory out of 5000000
- 49679 multiletter control sequences out of 15000+600000
+ 27229 strings out of 408789
+ 553811 string characters out of 5748080
+ 964259 words of memory out of 5000000
+ 49697 multiletter control sequences out of 15000+600000
  699763 words of font info for 312 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,17n,145p,3346b,791s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on document.pdf (78 pages).
+Output written on document.pdf (77 pages).
