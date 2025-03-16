@@ -18,10 +18,9 @@ Reallocating 'global_strs' (item size: 1) to 4000000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: ref.bib
 Warning--I didn't find a database entry for "优化问题"
-Warning--I didn't find a database entry for "fig:single"
 You've used 4 entries,
             5374 wiz_defined-function locations,
-            1084 strings with 9201 characters,
+            1083 strings with 9191 characters,
 and the built_in function-call counts, 42784 in all, are:
 = -- 918
 > -- 4907
@@ -60,4 +59,4 @@ warning$ -- 0
 while$ -- 114
 width$ -- 0
 write$ -- 77
-(There were 2 warnings)
+(There was 1 warning)

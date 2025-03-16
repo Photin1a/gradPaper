@@ -195,6 +195,9 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.5}时间正则化约束}{44}{subsection.4.3.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.6}迭代求解框架}{45}{subsection.4.3.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.4}本章小结}{45}{section.4.4}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Local Planning}}{46}{algorithm.2}\protected@file@percent }
+\newlabel{alg:local_planning}{{2}{46}{Local Planning}{algorithm.2}{}}
+\newlabel{alg:local_planning@cref}{{[algorithm][2][]2}{[1][46][]46}{}{}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {第5章\hspace  {.3em}}无人铰接车运动规划系统仿真实验}{47}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10.0pt}}
 \@writefile{lot}{\addvspace {10.0pt}}
@@ -206,7 +209,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {5-1}{\ignorespaces rviz仿真界面}}{48}{figure.caption.20}\protected@file@percent }
 \newlabel{fig:rviz仿真界面}{{5-1}{48}{rviz仿真界面}{figure.caption.20}{}}
 \newlabel{fig:rviz仿真界面@cref}{{[figure][1][5]5-1}{[1][47][]48}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}导航软件框架涉设计}{49}{subsection.5.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}运动规划软件框架设计}{49}{subsection.5.1.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5-2}{\ignorespaces navigation规划框架图}}{50}{figure.caption.21}\protected@file@percent }
 \newlabel{fig:navigation规划框架图}{{5-2}{50}{navigation规划框架图}{figure.caption.21}{}}
 \newlabel{fig:navigation规划框架图@cref}{{[figure][2][5]5-2}{[1][49][]50}{}{}{}}
@@ -218,82 +221,135 @@
 \newlabel{tab:全局规划仿真参数}{{5-2}{51}{Global Planner Parameters}{table.caption.23}{}}
 \newlabel{tab:全局规划仿真参数@cref}{{[table][2][5]5-2}{[1][49][]51}{}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}点到点路径规划}{51}{subsection.5.2.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5-3}{\ignorespaces 全局规划算法运行时间}}{51}{table.caption.26}\protected@file@percent }
-\newlabel{tab:global_planning_time}{{5-3}{51}{全局规划算法运行时间}{table.caption.26}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5-3}{\ignorespaces 全局规划算法运行时间}}{51}{table.caption.27}\protected@file@percent }
+\newlabel{tab:global_planning_time}{{5-3}{51}{全局规划算法运行时间}{table.caption.27}{}}
 \newlabel{tab:global_planning_time@cref}{{[table][3][5]5-3}{[1][51][]51}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-4}{\ignorespaces single}}{52}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:single}{{5-4}{52}{single}{figure.caption.24}{}}
-\newlabel{fig:single@cref}{{[figure][4][5]5-4}{[1][50][]52}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-5}{\ignorespaces datasingle}}{52}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:datasingle}{{5-5}{52}{datasingle}{figure.caption.25}{}}
-\newlabel{fig:datasingle@cref}{{[figure][5][5]5-5}{[1][51][]52}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}多点路径规划测试}{53}{subsection.5.2.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-6}{\ignorespaces muti}}{53}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:muti}{{5-6}{53}{muti}{figure.caption.27}{}}
-\newlabel{fig:muti@cref}{{[figure][6][5]5-6}{[1][53][]53}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-7}{\ignorespaces datamuti}}{54}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:datamuti}{{5-7}{54}{datamuti}{figure.caption.28}{}}
-\newlabel{fig:datamuti@cref}{{[figure][7][5]5-7}{[1][53][]54}{}{}{}}
+\newlabel{fig:single_1}{{5-4a}{52}{single1}{figure.caption.24}{}}
+\newlabel{fig:single_1@cref}{{[subfigure][1][5,4]5-4a}{[1][51][]52}{}{}{}}
+\newlabel{sub@fig:single_1}{{a}{52}{single1}{figure.caption.24}{}}
+\newlabel{sub@fig:single_1@cref}{{[subfigure][1][5,4]5-4a}{[1][51][]52}{}{}{}}
+\newlabel{fig:single_2}{{5-4b}{52}{single2}{figure.caption.24}{}}
+\newlabel{fig:single_2@cref}{{[subfigure][2][5,4]5-4b}{[1][51][]52}{}{}{}}
+\newlabel{sub@fig:single_2}{{b}{52}{single2}{figure.caption.24}{}}
+\newlabel{sub@fig:single_2@cref}{{[subfigure][2][5,4]5-4b}{[1][51][]52}{}{}{}}
+\newlabel{fig:single_3}{{5-4c}{52}{single3}{figure.caption.24}{}}
+\newlabel{fig:single_3@cref}{{[subfigure][3][5,4]5-4c}{[1][51][]52}{}{}{}}
+\newlabel{sub@fig:single_3}{{c}{52}{single3}{figure.caption.24}{}}
+\newlabel{sub@fig:single_3@cref}{{[subfigure][3][5,4]5-4c}{[1][51][]52}{}{}{}}
+\newlabel{fig:single_4}{{5-4d}{52}{single4}{figure.caption.24}{}}
+\newlabel{fig:single_4@cref}{{[subfigure][4][5,4]5-4d}{[1][51][]52}{}{}{}}
+\newlabel{sub@fig:single_4}{{d}{52}{single4}{figure.caption.24}{}}
+\newlabel{sub@fig:single_4@cref}{{[subfigure][4][5,4]5-4d}{[1][51][]52}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-4}{\ignorespaces 点到点路径规划仿真案例}}{52}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:点到点路径规划仿真案例}{{5-4}{52}{点到点路径规划仿真案例}{figure.caption.24}{}}
+\newlabel{fig:点到点路径规划仿真案例@cref}{{[figure][4][5]5-4}{[1][51][]52}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}多点路径规划测试}{52}{subsection.5.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-5}{\ignorespaces single}}{53}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:single}{{5-5}{53}{single}{figure.caption.25}{}}
+\newlabel{fig:single@cref}{{[figure][5][5]5-5}{[1][51][]53}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-6}{\ignorespaces datasingle}}{53}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:datasingle}{{5-6}{53}{datasingle}{figure.caption.26}{}}
+\newlabel{fig:datasingle@cref}{{[figure][6][5]5-6}{[1][51][]53}{}{}{}}
+\newlabel{fig:muti}{{5-7a}{54}{muti}{figure.caption.28}{}}
+\newlabel{fig:muti@cref}{{[subfigure][1][5,7]5-7a}{[1][52][]54}{}{}{}}
+\newlabel{sub@fig:muti}{{a}{54}{muti}{figure.caption.28}{}}
+\newlabel{sub@fig:muti@cref}{{[subfigure][1][5,7]5-7a}{[1][52][]54}{}{}{}}
+\newlabel{fig:dataminco}{{5-7b}{54}{dataminco}{figure.caption.28}{}}
+\newlabel{fig:dataminco@cref}{{[subfigure][2][5,7]5-7b}{[1][52][]54}{}{}{}}
+\newlabel{sub@fig:dataminco}{{b}{54}{dataminco}{figure.caption.28}{}}
+\newlabel{sub@fig:dataminco@cref}{{[subfigure][2][5,7]5-7b}{[1][52][]54}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-7}{\ignorespaces 多点路径规划仿真案例}}{54}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:多点路径规划仿真案例}{{5-7}{54}{多点路径规划仿真案例}{figure.caption.28}{}}
+\newlabel{fig:多点路径规划仿真案例@cref}{{[figure][7][5]5-7}{[1][52][]54}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-8}{\ignorespaces datamuti}}{54}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:datamuti}{{5-8}{54}{datamuti}{figure.caption.29}{}}
+\newlabel{fig:datamuti@cref}{{[figure][8][5]5-8}{[1][52][]54}{}{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.3}局部规划算法测验}{54}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}自主泊车场景}{54}{subsection.5.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-8}{\ignorespaces boche}}{55}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:boche}{{5-8}{55}{boche}{figure.caption.29}{}}
-\newlabel{fig:boche@cref}{{[figure][8][5]5-8}{[1][54][]55}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-9}{\ignorespaces databochestate}}{56}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:databochestate}{{5-9}{56}{databochestate}{figure.caption.30}{}}
-\newlabel{fig:databochestate@cref}{{[figure][9][5]5-9}{[1][55][]56}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}侧方位停车场景}{56}{subsection.5.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-10}{\ignorespaces databocheinput}}{57}{figure.caption.31}\protected@file@percent }
-\newlabel{fig:databocheinput}{{5-10}{57}{databocheinput}{figure.caption.31}{}}
-\newlabel{fig:databocheinput@cref}{{[figure][10][5]5-10}{[1][55][]57}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}穿越复杂地形实验}{57}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}本章总结}{57}{section.5.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5-11}{\ignorespaces cebianboche}}{58}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:cebianboche}{{5-11}{58}{cebianboche}{figure.caption.32}{}}
-\newlabel{fig:cebianboche@cref}{{[figure][11][5]5-11}{[1][56][]58}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-12}{\ignorespaces datacebianstate}}{58}{figure.caption.33}\protected@file@percent }
-\newlabel{fig:datacebianstate}{{5-12}{58}{datacebianstate}{figure.caption.33}{}}
-\newlabel{fig:datacebianstate@cref}{{[figure][12][5]5-12}{[1][56][]58}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-13}{\ignorespaces dataminco}}{59}{figure.caption.34}\protected@file@percent }
-\newlabel{fig:dataminco}{{5-13}{59}{dataminco}{figure.caption.34}{}}
-\newlabel{fig:dataminco@cref}{{[figure][13][5]5-13}{[1][57][]59}{}{}{}}
+\newlabel{fig:s1}{{5-9a}{55}{s1}{figure.caption.30}{}}
+\newlabel{fig:s1@cref}{{[subfigure][1][5,9]5-9a}{[1][54][]55}{}{}{}}
+\newlabel{sub@fig:s1}{{a}{55}{s1}{figure.caption.30}{}}
+\newlabel{sub@fig:s1@cref}{{[subfigure][1][5,9]5-9a}{[1][54][]55}{}{}{}}
+\newlabel{fig:s2}{{5-9b}{55}{s2}{figure.caption.30}{}}
+\newlabel{fig:s2@cref}{{[subfigure][2][5,9]5-9b}{[1][54][]55}{}{}{}}
+\newlabel{sub@fig:s2}{{b}{55}{s2}{figure.caption.30}{}}
+\newlabel{sub@fig:s2@cref}{{[subfigure][2][5,9]5-9b}{[1][54][]55}{}{}{}}
+\newlabel{fig:s3}{{5-9c}{55}{s3}{figure.caption.30}{}}
+\newlabel{fig:s3@cref}{{[subfigure][3][5,9]5-9c}{[1][54][]55}{}{}{}}
+\newlabel{sub@fig:s3}{{c}{55}{s3}{figure.caption.30}{}}
+\newlabel{sub@fig:s3@cref}{{[subfigure][3][5,9]5-9c}{[1][54][]55}{}{}{}}
+\newlabel{fig:s4}{{5-9d}{55}{s4}{figure.caption.30}{}}
+\newlabel{fig:s4@cref}{{[subfigure][4][5,9]5-9d}{[1][54][]55}{}{}{}}
+\newlabel{sub@fig:s4}{{d}{55}{s4}{figure.caption.30}{}}
+\newlabel{sub@fig:s4@cref}{{[subfigure][4][5,9]5-9d}{[1][54][]55}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-9}{\ignorespaces 局部规划仿真案例}}{55}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:局部规划仿真案例}{{5-9}{55}{局部规划仿真案例}{figure.caption.30}{}}
+\newlabel{fig:局部规划仿真案例@cref}{{[figure][9][5]5-9}{[1][54][]55}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}自主泊车场景}{55}{subsection.5.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-10}{\ignorespaces nmpcyuewa1}}{56}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:nmpcyuewa1}{{5-10}{56}{nmpcyuewa1}{figure.caption.31}{}}
+\newlabel{fig:nmpcyuewa1@cref}{{[figure][10][5]5-10}{[1][54][]56}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-11}{\ignorespaces boche}}{56}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:boche}{{5-11}{56}{boche}{figure.caption.32}{}}
+\newlabel{fig:boche@cref}{{[figure][11][5]5-11}{[1][54][]56}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-12}{\ignorespaces databochestate}}{57}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:databochestate}{{5-12}{57}{databochestate}{figure.caption.33}{}}
+\newlabel{fig:databochestate@cref}{{[figure][12][5]5-12}{[1][56][]57}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-13}{\ignorespaces databocheinput}}{58}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:databocheinput}{{5-13}{58}{databocheinput}{figure.caption.34}{}}
+\newlabel{fig:databocheinput@cref}{{[figure][13][5]5-13}{[1][57][]58}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5-4}{\ignorespaces 局部规划算法运行时间}}{58}{table.caption.35}\protected@file@percent }
+\newlabel{tab:local_planning_boche_time}{{5-4}{58}{局部规划算法运行时间}{table.caption.35}{}}
+\newlabel{tab:local_planning_boche_time@cref}{{[table][4][5]5-4}{[1][58][]58}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}侧方位停车场景}{58}{subsection.5.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-14}{\ignorespaces cebianboche}}{59}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:cebianboche}{{5-14}{59}{cebianboche}{figure.caption.36}{}}
+\newlabel{fig:cebianboche@cref}{{[figure][14][5]5-14}{[1][58][]59}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}穿越复杂地形实验}{59}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}本章总结}{59}{section.5.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-15}{\ignorespaces datacebianstate}}{60}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:datacebianstate}{{5-15}{60}{datacebianstate}{figure.caption.37}{}}
+\newlabel{fig:datacebianstate@cref}{{[figure][15][5]5-15}{[1][59][]60}{}{}{}}
 \bibdata{ref.bib}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{60}{section.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {附录A\hspace  {.3em}}}{60}{chapter.6}\protected@file@percent }
+\bibcite{Gao2018OnlineST}{{1}{2018}{{Gao et~al.}}{{Gao, Wu, Lin, and Shen}}}
+\bibcite{BaiLi:2022}{{2}{2022}{{Li et~al.}}{{Li, Acarman, Zhang, Ouyang, Yaman, Kong, Zhong, and Peng}}}
+\bibcite{Deits:2015}{{3}{2015}{{Deits et~al.}}{{Deits and Tedrake}}}
+\bibcite{SikangLiu:2017}{{4}{2017}{{Liu et~al.}}{{Liu, Watterson, Mohta, Sun, Bhattacharya, Taylor, and Kumar}}}
+\@writefile{toc}{\contentsline {chapter}{参考文献}{61}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {附录A\hspace  {.3em}}}{62}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10.0pt}}
 \@writefile{lot}{\addvspace {10.0pt}}
-\newlabel{eq:appendix1_a}{{A-1}{60}{}{equation.6.1}{}}
-\newlabel{eq:appendix1_a@cref}{{[equation][1][6]A-1}{[1][60][]60}{}{}{}}
-\newlabel{eq:appendix1_b}{{A-2}{60}{}{equation.6.2}{}}
-\newlabel{eq:appendix1_b@cref}{{[equation][2][6]A-2}{[1][60][]60}{}{}{}}
-\newlabel{eq:appendix1_a^2+b^2}{{A-3}{60}{}{equation.6.3}{}}
-\newlabel{eq:appendix1_a^2+b^2@cref}{{[equation][3][6]A-3}{[1][60][]60}{}{}{}}
-\newlabel{eq2:appendix1_identity_a_b}{{A-4}{60}{}{equation.6.4}{}}
-\newlabel{eq2:appendix1_identity_a_b@cref}{{[subequation][0][6,4]A-4}{[1][60][]60}{}{}{}}
-\newlabel{eq2:appendix1_a}{{A-4a}{60}{}{equation.6.4a}{}}
-\newlabel{eq2:appendix1_a@cref}{{[subequation][1][6,4]A-4a}{[1][60][]60}{}{}{}}
-\newlabel{eq2:appendix1_b}{{A-4b}{60}{}{equation.6.4b}{}}
-\newlabel{eq2:appendix1_b@cref}{{[subequation][2][6,4]A-4b}{[1][60][]60}{}{}{}}
-\newlabel{eq2:appendix1_a^2+b^2}{{A-4c}{60}{}{equation.6.4c}{}}
-\newlabel{eq2:appendix1_a^2+b^2@cref}{{[subequation][3][6,4]A-4c}{[1][60][]60}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {附录B\hspace  {.3em}}}{61}{chapter.7}\protected@file@percent }
+\newlabel{eq:appendix1_a}{{A-1}{62}{}{equation.6.1}{}}
+\newlabel{eq:appendix1_a@cref}{{[equation][1][6]A-1}{[1][62][]62}{}{}{}}
+\newlabel{eq:appendix1_b}{{A-2}{62}{}{equation.6.2}{}}
+\newlabel{eq:appendix1_b@cref}{{[equation][2][6]A-2}{[1][62][]62}{}{}{}}
+\newlabel{eq:appendix1_a^2+b^2}{{A-3}{62}{}{equation.6.3}{}}
+\newlabel{eq:appendix1_a^2+b^2@cref}{{[equation][3][6]A-3}{[1][62][]62}{}{}{}}
+\newlabel{eq2:appendix1_identity_a_b}{{A-4}{62}{}{equation.6.4}{}}
+\newlabel{eq2:appendix1_identity_a_b@cref}{{[subequation][0][6,4]A-4}{[1][62][]62}{}{}{}}
+\newlabel{eq2:appendix1_a}{{A-4a}{62}{}{equation.6.4a}{}}
+\newlabel{eq2:appendix1_a@cref}{{[subequation][1][6,4]A-4a}{[1][62][]62}{}{}{}}
+\newlabel{eq2:appendix1_b}{{A-4b}{62}{}{equation.6.4b}{}}
+\newlabel{eq2:appendix1_b@cref}{{[subequation][2][6,4]A-4b}{[1][62][]62}{}{}{}}
+\newlabel{eq2:appendix1_a^2+b^2}{{A-4c}{62}{}{equation.6.4c}{}}
+\newlabel{eq2:appendix1_a^2+b^2@cref}{{[subequation][3][6,4]A-4c}{[1][62][]62}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {附录B\hspace  {.3em}}}{63}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10.0pt}}
 \@writefile{lot}{\addvspace {10.0pt}}
-\newlabel{eq:appendix2_a}{{B-1}{61}{}{equation.7.1}{}}
-\newlabel{eq:appendix2_a@cref}{{[equation][1][7]B-1}{[1][61][]61}{}{}{}}
-\newlabel{eq:appendix2_b}{{B-2}{61}{}{equation.7.2}{}}
-\newlabel{eq:appendix2_b@cref}{{[equation][2][7]B-2}{[1][61][]61}{}{}{}}
-\newlabel{eq:appendix2_a^2+b^2}{{B-3}{61}{}{equation.7.3}{}}
-\newlabel{eq:appendix2_a^2+b^2@cref}{{[equation][3][7]B-3}{[1][61][]61}{}{}{}}
-\newlabel{eq2:appendix2_identity_a_b}{{B-4}{61}{}{equation.7.4}{}}
-\newlabel{eq2:appendix2_identity_a_b@cref}{{[subequation][0][7,4]B-4}{[1][61][]61}{}{}{}}
-\newlabel{eq2:appendix2_a}{{B-4a}{61}{}{equation.7.4a}{}}
-\newlabel{eq2:appendix2_a@cref}{{[subequation][1][7,4]B-4a}{[1][61][]61}{}{}{}}
-\newlabel{eq2:appendix2_b}{{B-4b}{61}{}{equation.7.4b}{}}
-\newlabel{eq2:appendix2_b@cref}{{[subequation][2][7,4]B-4b}{[1][61][]61}{}{}{}}
-\newlabel{eq2:appendix2_a^2+b^2}{{B-4c}{61}{}{equation.7.4c}{}}
-\newlabel{eq2:appendix2_a^2+b^2@cref}{{[subequation][3][7,4]B-4c}{[1][61][]61}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{攻读硕士学位期间取得的成果}{62}{chapter*.35}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{致谢}{63}{chapter*.36}\protected@file@percent }
+\newlabel{eq:appendix2_a}{{B-1}{63}{}{equation.7.1}{}}
+\newlabel{eq:appendix2_a@cref}{{[equation][1][7]B-1}{[1][63][]63}{}{}{}}
+\newlabel{eq:appendix2_b}{{B-2}{63}{}{equation.7.2}{}}
+\newlabel{eq:appendix2_b@cref}{{[equation][2][7]B-2}{[1][63][]63}{}{}{}}
+\newlabel{eq:appendix2_a^2+b^2}{{B-3}{63}{}{equation.7.3}{}}
+\newlabel{eq:appendix2_a^2+b^2@cref}{{[equation][3][7]B-3}{[1][63][]63}{}{}{}}
+\newlabel{eq2:appendix2_identity_a_b}{{B-4}{63}{}{equation.7.4}{}}
+\newlabel{eq2:appendix2_identity_a_b@cref}{{[subequation][0][7,4]B-4}{[1][63][]63}{}{}{}}
+\newlabel{eq2:appendix2_a}{{B-4a}{63}{}{equation.7.4a}{}}
+\newlabel{eq2:appendix2_a@cref}{{[subequation][1][7,4]B-4a}{[1][63][]63}{}{}{}}
+\newlabel{eq2:appendix2_b}{{B-4b}{63}{}{equation.7.4b}{}}
+\newlabel{eq2:appendix2_b@cref}{{[subequation][2][7,4]B-4b}{[1][63][]63}{}{}{}}
+\newlabel{eq2:appendix2_a^2+b^2}{{B-4c}{63}{}{equation.7.4c}{}}
+\newlabel{eq2:appendix2_a^2+b^2@cref}{{[subequation][3][7,4]B-4c}{[1][63][]63}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{攻读硕士学位期间取得的成果}{64}{chapter*.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{致谢}{65}{chapter*.40}\protected@file@percent }
 \ttl@finishall
-\gdef \@abspage@last{77}
+\gdef \@abspage@last{79}

@@ -58,18 +58,18 @@
 \contentsline {chapter}{\numberline {第5章\hspace {.3em}}无人铰接车运动规划系统仿真实验}{47}{chapter.5}%
 \contentsline {section}{\numberline {5.1}仿真环境介绍}{48}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}ROS简介}{48}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}导航软件框架涉设计}{49}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.2}运动规划软件框架设计}{49}{subsection.5.1.2}%
 \contentsline {section}{\numberline {5.2}全局规划算法测验}{50}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}点到点路径规划}{51}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}多点路径规划测试}{53}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.2}多点路径规划测试}{52}{subsection.5.2.2}%
 \contentsline {section}{\numberline {5.3}局部规划算法测验}{54}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}自主泊车场景}{54}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}侧方位停车场景}{56}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}穿越复杂地形实验}{57}{section.5.4}%
-\contentsline {section}{\numberline {5.5}本章总结}{57}{section.5.5}%
-\contentsline {chapter}{参考文献}{60}{section.5.5}%
-\contentsline {chapter}{\numberline {附录A\hspace {.3em}}}{60}{chapter.6}%
-\contentsline {chapter}{\numberline {附录B\hspace {.3em}}}{61}{chapter.7}%
-\contentsline {chapter}{攻读硕士学位期间取得的成果}{62}{chapter*.35}%
-\contentsline {chapter}{致谢}{63}{chapter*.36}%
+\contentsline {subsection}{\numberline {5.3.1}自主泊车场景}{55}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}侧方位停车场景}{58}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}穿越复杂地形实验}{59}{section.5.4}%
+\contentsline {section}{\numberline {5.5}本章总结}{59}{section.5.5}%
+\contentsline {chapter}{参考文献}{61}{section.5.5}%
+\contentsline {chapter}{\numberline {附录A\hspace {.3em}}}{62}{chapter.6}%
+\contentsline {chapter}{\numberline {附录B\hspace {.3em}}}{63}{chapter.7}%
+\contentsline {chapter}{攻读硕士学位期间取得的成果}{64}{chapter*.39}%
+\contentsline {chapter}{致谢}{65}{chapter*.40}%
 \contentsfinish 

@@ -66,17 +66,17 @@
 		早期研究聚焦静态结构化环境中的最短路径求解。Dijkstra算法【】通过广度优先策略首次系统化解决带权图的最短路径问题，但其盲目搜索特性导致时间复杂度高达$O(n^2)$，难以应用于大规模场景。Hart等人【】提出的A*算法创新性地引入启发式函数$h(Xiaoming)$，将搜索方向引导至目标节点，在保证路径最优性的前提下将复杂度降低至$O(b^d)$（b为分支因子，d为搜索深度），奠定了启发式搜索的理论基础。然而，经典A*算法仍面临两个关键限制：一是内存占用随搜索空间指数增长，二是启发函数设计依赖先验环境知识，难以应对动态障碍物或未知地形。
 
 		动态环境下的增量式搜索技术突破解决了部分实时重规划难题。Stentz的D*算法【】采用反向搜索机制与增量更新策略，仅在环境变化时局部修正路径，将重规划耗时从$O(n^2)$降至$O(k)$（$k$为变化区域节点数），使机器人能在未知地形中实时避障。但D*算法仍存在路径振荡问题，且在复杂动态场景中频繁更新导致累积误差。Koenig等人提出的LPA*通过维护优先队列的键值一致性，实现历史搜索信息的智能复用，使得连续规划场景的搜索速度大幅度提升，但其内存管理机制仍无法有效应对长期运行中的状态爆炸问题。Likhachev团队同期提出的AD与ARA算法引入次优性容忍系数，允许算法在有限时间内输出渐进优化的路径，为实时性要求严苛的无人机导航提供了解决方案，但路径质量与计算速度的定量关系仍需人工调参，缺乏自适应能力。
-		\begin{figure}[!ht]
-			\centering
-			\subcaptionbox{Astar\label{fig:Astar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/A-search/Astar.png}}
-			\subcaptionbox{Dijstra\label{fig:Dijstra}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/A-search/Dijstra.png}}
-			\subcaptionbox{ARAstar\label{fig:ARAstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/A-search/ARAstar.png}}
-			\subcaptionbox{LPAstar\label{fig:LPAstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/A-search/LPAstar.png}}
-			\subcaptionbox{RTAAstar\label{fig:RTAAstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/A-search/RTAAstar.png}}
-			\subcaptionbox{Dstar\label{fig:Dstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/A-search/Dstar.png}}
-			\caption{基于搜索的路径规划}
-			\label{fig:基于搜索的路径规划}
-		\end{figure}
+		% \begin{figure}[!ht]
+		% 	\centering
+		% 	\subcaptionbox{Astar\label{fig:Astar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/A-search/Astar.png}}
+		% 	\subcaptionbox{Dijstra\label{fig:Dijstra}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/A-search/Dijstra.png}}
+		% 	\subcaptionbox{ARAstar\label{fig:ARAstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/A-search/ARAstar.png}}
+		% 	\subcaptionbox{LPAstar\label{fig:LPAstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/A-search/LPAstar.png}}
+		% 	\subcaptionbox{RTAAstar\label{fig:RTAAstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/A-search/RTAAstar.png}}
+		% 	\subcaptionbox{Dstar\label{fig:Dstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/A-search/Dstar.png}}
+		% 	\caption{基于搜索的路径规划}
+		% 	\label{fig:基于搜索的路径规划}
+		% \end{figure}
 
 		Bulitko的LRTS【】通过剪枝冗余状态与动态调整搜索深度，将实时启发式搜索的响应延迟控制在毫秒级，但其剪枝策略可能丢失潜在最优路径。Harabor的JPS算法【】针对栅格地图提出"跳跃点"理论，通过识别路径对称性跳过大量无效节点，在保持最优性的前提下将搜索速度提升10倍以上，但该方法仅适用于均匀网格环境，且无法处理动态障碍物。Koenig与Likhachev的RTAA*【】结合在线学习机制，利用实际移动代价动态更新启发函数，使智能体在未知地形中的路径收敛速度得到提升，但其学习过程需要大量交互数据，在稀疏奖励场景中表现受限。
 
@@ -86,29 +86,29 @@
 		LaValle提出的RRT（Rapidly-exploring Random Trees），首次将随机采样与树形结构结合，通过偏向未探索区域的生长策略有效应对高维构型空间和非完整约束问题。RRT的概率完备性​奠定了采样算法的理论基础，但其生成的路径质量无法保证最优。Kuffner与LaValle【】提出RRT-Connect，通过双向树生长与贪心连接策略显著提升单次查询效率，解决了传统RRT在复杂环境中收敛速度慢的问题，成为实时机器人导航的重要工具。然而，这一阶段的算法仍局限于可行解搜索，缺乏对路径最优性的理论保证。
 		针对动态环境下的实时规划需求，Bruce与Veloso【】提出ERRT（Execution-extended RRT），引入路径点缓存和自适应成本惩罚机制，在重规划中复用历史路径信息，解决了传统RRT在动态障碍物场景下的重复计算问题，首次实现了机器人系统的实时在线规划。然而，ERRT的路径优化依赖启发式规则，缺乏全局最优性保证。Gammell等人【】的Informed RRT​ 通过椭圆启发式采样将搜索空间限制在可能改进当前解的椭圆区域内，显著提升收敛速度与最终路径质量，首次在理论上证明采样算法可渐进趋近最优解。这一工作揭示了传统RRT因全局均匀采样导致的效率瓶颈，为后续最优性导向算法奠定了基础。
 		Gammell等人【】的BIT*（Batch Informed Trees）融合图搜索（A*启发式）与批处理采样，在隐式随机几何图（RGG）上执行增量搜索，解决了高维空间中传统算法收敛缓慢的问题。这些工作标志着采样算法从“可行解搜索”迈入“最优解保证”的新阶段，但其计算复杂度与高维场景的适应性仍面临挑战。
-		\begin{figure}[!ht]
-			\centering
-			\subcaptionbox{RRT\label{fig:RRT}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/rrt/RRT.png}}
-			\subcaptionbox{RRT_connect\label{fig:RRT_connect}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/rrt/RRT_connect.png}}
-			\subcaptionbox{informed_RRTstar\label{fig:informed_RRTstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/rrt/informed_RRTstar.png}}
-			\subcaptionbox{fast_matching_trees\label{fig:fast_matching_trees}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/rrt/fast_matching_trees.png}}
-			\subcaptionbox{extended_RRT\label{fig:extended_RRT}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/rrt/extended_RRT.png}}
-			\subcaptionbox{batch_informed_trees\label{fig:batch_informed_trees}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/rrt/batch_informed_trees.png}}
-			\caption{基于采样的路径规划}
-			\label{fig:基于采样的路径规划}
-		\end{figure}
+		% \begin{figure}[!ht]
+		% 	\centering
+		% 	\subcaptionbox{RRT\label{fig:RRT}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/rrt/RRT.png}}
+		% 	\subcaptionbox{RRT\_connect\label{fig:RRT_connect}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/rrt/RRT\_connect.png}}
+		% 	\subcaptionbox{informed\_RRTstar\label{fig:informed_RRTstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/rrt/informed\_RRTstar.png}}
+		% 	\subcaptionbox{fast\_matching\_trees\label{fig:fast_matching_trees}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/rrt/fast\_matching\_trees.png}}
+		% 	\subcaptionbox{extended\_RRT\label{fig:extended_RRT}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/rrt/extended\_RRT.png}}
+		% 	\subcaptionbox{batch\_informed\_trees\label{fig:batch_informed_trees}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/rrt/batch\_informed\_trees.png}}
+		% 	\caption{基于采样的路径规划}
+		% 	\label{fig:基于采样的路径规划}
+		% \end{figure}
 
 		\subsection{基于曲线插值的运动规划方法}
 		基于曲线插值的运动规划相比于基于图搜索和采样的规划方法，具有路径平滑性的特点。早期研究多集中于静态环境下的几何路径求解，RS曲线就是一个典型的工作，它奠定了车辆运动规划的理论基础。该研究在Dubins曲线基础上引入倒车机制，证明了包含至多两个尖点的CCSCC型路径（圆-圆-直线-圆-圆）即可构成最优解。通过构建48种候选路径形式，解决了双向行驶车辆在最小转弯半径约束下的最短路径问题。但该方法局限于二维平面几何推导，未考虑动态障碍物和实时计算需求，且候选路径的枚举式搜索在复杂场景下计算效率较低。 随着自动驾驶技术的发展，2017年百度Apollo团队在EM Motion Planner中提出分层运动规划框架，标志着路径规划开始向动态环境适应性和多约束协同优化方向演进。该系统采用Frenet坐标系下的路径-速度迭代优化，结合动态规划粗搜索与二次规划细优化，首次实现了交通规则、障碍物决策与运动平滑性的多目标协同。其创新性地将决策问题转化为可行轨迹生成，通过构建凸可行空间保障解的存在性。 Gao等人【】基于安全飞行走廊和贝塞尔曲线，使用优化的方法去构建时间最优轨迹，推动了无人机领域的实时规划进展。该方法创新性地将快速行进法(FMM)与ESDF距离场结合，构建速度自适应的时空索引路径，解决了传统方法时间分配不合理的痛点。通过贝塞尔曲线的凸包特性，首次实现了轨迹整体安全性和高阶动力学约束的严格保证。实验证明其能在未知环境中实时生成安全轨迹，但飞行走廊膨胀策略在狭窄空间可能过于保守，且未有效处理动态障碍物的预测与避让。 Nguyen团队提出多面体导航工具箱，将路径规划抽象为凸多面体序列内的B样条优化问题。通过将B样条转换为等效贝塞尔表示，显著提升了局部凸性约束的紧密度，使线性约束控制点即可保证全局安全性。该工作构建了从栅格地图到多面体地图的完整流程，支持最小控制点、代数解等多种优化模式。但多面体序列的构建依赖静态环境假设，在动态场景中需要频繁重规划，且高维凸优化问题的实时性仍有提升空间。
-		\begin{figure}[!ht]
-			\centering
-			\subcaptionbox{bezier\label{fig:bezier}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/curve/bezier.png}}
-			\subcaptionbox{bspline\label{fig:bspline}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/curve/bspline.png}}
-			\subcaptionbox{dubins_path\label{fig:dubins_path}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/curve/dubins_path.png}}
-			\subcaptionbox{reeds_shepp\label{fig:reeds_shepp}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/curve/reeds_shepp.png}}
-			\caption{基于曲线插值的路径规划}
-			\label{fig:基于曲线插值的路径规划}
-		\end{figure}
+		% \begin{figure}[!ht]
+		% 	\centering
+		% 	\subcaptionbox{bezier\label{fig:bezier}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/curve/bezier.png}}
+		% 	\subcaptionbox{bspline\label{fig:bspline}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/curve/bspline.png}}
+		% 	\subcaptionbox{dubins\_path\label{fig:dubins_path}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/curve/dubins\_path.png}}
+		% 	\subcaptionbox{reeds\_shepp\label{fig:reeds_shepp}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/curve/reeds\_shepp.png}}
+		% 	\caption{基于曲线插值的路径规划}
+		% 	\label{fig:基于曲线插值的路径规划}
+		% \end{figure}
 
 		\subsection{基于优化的运动规划方法}
 		2015年Li等人【】首次提出基于时间最优控制的动态优化框架，将平行、垂直等规则停车场景与不规则障碍物场景统一建模。该方法严格描述车辆运动学、机械约束与碰撞条件，通过内点法求解非线性优化问题。其创新性在于构建了开放框架，允许用户自定义约束与优化目标。但缺陷在于计算复杂度高，难以满足实时性需求。Kondak等【】提出将路径规划转化为非线性最优控制问题，利用序列二次规划（SQP）直接优化轨迹，引入人工势场处理障碍物碰撞，支持全维车辆模型。然而，其势场函数设计依赖经验参数，且未解决非凸优化对初值敏感的问题。 
@@ -117,15 +117,15 @@
 
 	\section{铰接车运动规划技术国内外研究现状}
 	铰接车路径规划的研究历程可追溯至2010年代初期的几何建模与静态环境规划阶段。早期的代表性工作如Choi与Huhtala提出基于Bézier曲线的分层规划框架，其核心贡献在于将参数化曲线与搜索算法结合，通过离线生成满足非完整约束的运动基元库（包含曲率连续的前进/倒车路径片段），再结合A*算法在线搜索全局路径，并引入非线性优化修正关节角度超限问题。紧随其后的Sarata团队针对轮式装载机的V型作业路径提出对称Clothoid曲线连接策略，通过数学证明得出Clothoid曲线的曲率线性变化特性可消除传统线-弧路径的曲率突变问题，但其固定路径模式依赖预设的装载点与卸载点位置，难以适应砂石堆形状动态变化的非结构化场景。 随着实时计算能力的提升，2010年研究重点转向动力学模型集成与在线优化算法。Nayl等（2017）首次将模型预测控制（MPC）与Bug算法结合，提出基于铰接车误差动力学模型的滚动优化框架，通过实时调整前轮转向角与车速实现动态避障。该方法在仿真中成功处理了突然出现的移动障碍物，路径跟踪误差控制在±0.15m以内，但未解决多周期任务的长时优化问题，且在狭窄通道中易因局部最优陷入死锁。Chen等对比了简化单车模型与双体铰接模型的规划效果，发现复杂模型在双向倒车场景中可生成更短的安全路径，但计算耗时增加，揭示了模型精度与实时性之间的固有矛盾。Hong团队进一步引入3D地形高程数据构建动力约束，提出动态规划（DP）与MPC结合的混合方法，在轮式装载机的崎岖地形实验中实现能耗降低，但其离散化状态变量导致高维空间下的计算复杂度呈指数级增长，难以扩展至多关节车辆。Kawabe等设计的分级优化框架将全局任务分解为铲取点选择、卸载点规划与局部路径生成子问题，并首次引入深度强化学习（DRL）实现动态砂石堆的自适应装载路径规划。Zhao等采用Chebyshev伪谱法对重型铰接车垂直泊车问题进行时间最优轨迹优化，通过精确建模非完整约束，使得求解的精度大幅提高。Shi团队提出的自适应MPC跟踪系统通过曲率扰动补偿机制，在非均匀路面下将路径跟踪的横向位移误差有所降低，但其依赖RTK-GPS的高精度定位信号，在卫星遮挡的室内仓储场景中性能显著下降。
-	\begin{figure}[!ht]
-		\centering
-		\subcaptionbox{loader_real\label{fig:loader_real}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/loader_real.png}}
-		\subcaptionbox{四驱铰接式叉车\label{fig:四驱铰接式叉车}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/四驱铰接式叉车.png}}
-		\subcaptionbox{沃尔沃A30F铰接式卡车\label{fig:沃尔沃A30F铰接式卡车}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/沃尔沃A30F铰接式卡车.png}}
-		\subcaptionbox{沃尔沃A35F铰接式卡车\label{fig:沃尔沃A35F铰接式卡车}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{插图/沃尔沃A35F铰接式卡车.png}}
-		\caption{几种典型的铰接车案例：铰接式叉车、轮式装载机、铰接式四驱卡车}
-		\label{fig:几种典型的铰接车案例}
-	\end{figure}
+	% \begin{figure}[!ht]
+	% 	\centering
+	% 	\subcaptionbox{loader\_real\label{fig:loader_real}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/loader\_real.png}}
+	% 	\subcaptionbox{四驱铰接式叉车\label{fig:四驱铰接式叉车}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/四驱铰接式叉车.jpg}}
+	% 	\subcaptionbox{沃尔沃A30F铰接式卡车\label{fig:沃尔沃A30F铰接式卡车}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/沃尔沃A30F铰接式卡车.png}}
+	% 	\subcaptionbox{沃尔沃A35F铰接式卡车\label{fig:沃尔沃A35F铰接式卡车}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/沃尔沃A35F铰接式卡车.png}}
+	% 	\caption{几种典型的铰接车案例：铰接式叉车、轮式装载机、铰接式四驱卡车}
+	% 	\label{fig:几种典型的铰接车案例}
+	% \end{figure}
 
 
 	不难看出，基于优化的运动规划算法在近期一直是研究的热点，原因在于其相较于基于搜索和采样的规划方法，能够求解出更加圆滑且满足各种约束的轨迹。其缺点是在大量约束的情况下求解会变得很困难。但是在当下计算机高速发展，优化问题的求解时间逐渐不再是问题的瓶颈。所以基于优化的轨迹规划方法是目前为止最值得研究的一个方向之一。
@@ -1301,6 +1301,16 @@
 		如图\ref{fig:single}是我们设置的障碍物场景，用来测试点到点的规划测试。图中黑色的细线是RRTconnect搜索出来的路径，蓝色的区域是沿着路径生成的安全走廊，红色的圆滑的路径则是我们优化算法优化出来的。可以看出我们优化出来的轨迹不仅是足够安全的和足够平滑的，同时转弯幅度（曲率）也在一定范围内，并且起点和终点都和车体的方向（图中箭头方向）一致。
 		\begin{figure}[!ht]
 			\centering
+			\subcaptionbox{single1\label{fig:single_1}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{single_1.png}}
+			\subcaptionbox{single2\label{fig:single_2}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{single_2.png}}
+			\subcaptionbox{single3\label{fig:single_3}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{single_3.png}}
+			\subcaptionbox{single4\label{fig:single_4}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{single_4.png}}
+			\caption{点到点路径规划仿真案例}
+			\label{fig:点到点路径规划仿真案例}
+		\end{figure}
+
+		\begin{figure}[!ht]
+			\centering
 			\includegraphics[width=0.75\textwidth]{single.png}
 			\caption{single}
 			\label{fig:single}
@@ -1315,11 +1325,12 @@
 		\end{figure}
 
 		由于本算法分为前端搜索和后端优化两个部分，因此我们将算法的运行时间记录在了表\ref{tab:global_planning_time}中，可以看出我们的优化算法在平均200米左右路程时，平均优化时间为10.14ms，完全满足高实时性的要求。前端RRTconnect算法我们使用ompl【参考文献】库提供，平均求解时间在6.07ms左右。算法总的求解时间平均在17.71ms左右。
+		
 		\begin{table}[!ht]
 			\caption{全局规划算法运行时间}
 			\label{tab:global_planning_time}
 			\centering
-			\begin{tabular}{l rrr}
+			\begin{tabular}{cccc}
 				\toprule
 				算法阶段   & 最小值 (ms) & 最大值 (ms) & 平均值 (ms) \\
 				\midrule
@@ -1336,9 +1347,10 @@
 		如图\ref{fig:muti}【图中标注换向点】是我们多点航行的小测试。我们手动给出了一共6个航点A、B、C、D、E和F，其中A、F是起点和终点，中间四个换向点。蓝色的区域是我们沿着前端搜索路径膨胀出来的安全走廊，红色的是我们优化出来的路径。可以看出，在换向点处连个路径的切线方向是相同，这意味车辆在该点处可以正常完成换向，即从正向到倒车或从倒车到唤醒的转换。这个第二章中我们介绍的算法理论是契合的。
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.75\textwidth]{muti.png}
-			\caption{muti}
-			\label{fig:muti}
+			\subcaptionbox{muti\label{fig:muti}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{muti.png}}
+			\subcaptionbox{dataminco\label{fig:dataminco}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{dataminco.png}}
+			\caption{多点路径规划仿真案例}
+			\label{fig:多点路径规划仿真案例}
 		\end{figure}
 
 		图\ref{fig:datamuti}是我们多航点路径的曲率曲线。和上一小节一样，我们重新把路径轨迹在图中画出，图\ref{fig:datamuti}中左子图是优化出来的全局路径，右子图是轨迹的曲率随路程S的曲线。可以看出在路程S=80米、S=140米和S=210米时的曲率曲率都接近0.1，但是始终未超出。曲率半径始终大于10，这和我们的优化参数设置是对应的。可见我们的算法的稳定性是很好的。
@@ -1351,6 +1363,25 @@
 
 	\section{局部规划算法测验}
 	本文局部规划算法我们主要设置了两个实用场景用于验证，分别是自主泊车场景和侧方位停车场景。下面将介绍上述两种场景的仿真结果，详细的算法理论部分参考第四章。
+
+	\begin{figure}[!ht]
+		\centering
+		\subcaptionbox{s1\label{fig:s1}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{s1.png}}
+		\subcaptionbox{s2\label{fig:s2}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{s2.png}}
+		\subcaptionbox{s3\label{fig:s3}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{s3.png}}
+		\subcaptionbox{s4\label{fig:s4}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{s4.png}}
+		% \subcaptionbox{s5\label{fig:s5}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{s5.png}}
+		\caption{局部规划仿真案例}
+		\label{fig:局部规划仿真案例}
+	\end{figure}
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{nmpcyuewa1.png}
+		\caption{nmpcyuewa1}
+		\label{fig:nmpcyuewa1}
+	\end{figure}
+
+
 		\subsection{自主泊车场景}
 		自主泊车类的算法要求车辆允许后退，一般的规划算法缺失前进和后退两种模式的区分，五次多项式等。但是我们的算法基于运动学模型，天然具备前进后退的切换能力。在泊车这种极为苛刻的条件仍然能够胜任。如图\ref{fig:boche}是我们测试的泊车场景，铰接将从绿色箭头处开始泊车到灰色箭头。在图中，深蓝色细的轨迹是我用改进Hybrid A*生成的，可以看出它在离终点近的时候进行三次换向才能成功完成泊车，蓝色的区域是我们沿着Hybrid A*生成的轨迹膨胀出来安全区域，也就是安全走廊，铰接车在这个区域内就是碰撞避免的。绿色轨迹的是我们局部规划算法规划出来的轨迹，可以看出它是十分圆滑的，而且距离终点近的时候只进行了一次换向就完成了泊车。值得指出的是，我们的算法虽然使用Hybrid A*生成的轨迹作为迭代粗解，但是我们的轨迹质量却远远优于Hybrid A*，换向点大大减少。这说明我们的轨迹规划算法并不很依赖于初始解的质量，即使初始解质量并不是很好，我们的算法仍然能将轨迹拉回到一个不错的水平。
 		\begin{figure}[!ht]
@@ -1360,7 +1391,7 @@
 			\label{fig:boche}
 		\end{figure}
 
-		上面我们对轨迹进行了可视化，下面我们来分析一下轨迹的仿真数据。如图\ref{fig:databochestate}是航向角、铰接角、车体速度和车体加速度随时间的变化图。从图中可以看出，我们的航向角和车速都是非常圆滑的，也就是可微的，这得益于我们的运动学约束。我们还可以发现一个小现象，对于铰接角和加速度它们只是连续的，有些时候他们的斜率仍然会发生小突变，这是因为他们和输入量铰接角速度和加加速度只保持有一阶导数的关系，由于输入量可以是不连续的，所以他们并不能保证是可微的。另外可以看出，铰接角范围在-0.5rad~0.5rad之间、车体速度保持在-1m/s~3m/s之间、加速度保持在-0.4m/s^2~0.4m/s^2之间，都在约束范围内。从速度曲线可以看出，在0s到26s之间铰接车速度为正，处于前进状态，在26s时速度减为0，此时铰接车到达换向点，对应可以看示意图\ref{fig:boche}。此时从铰接角曲线可以看出，铰接角此时也为0rad，也就是方向盘回正了。之后速度为负，一直倒车泊入车库。
+		上面我们对轨迹进行了可视化，下面我们来分析一下轨迹的仿真数据。如图\ref{fig:databochestate}是航向角、铰接角、车体速度和车体加速度随时间的变化图。从图中可以看出，我们的航向角和车速都是非常圆滑的，也就是可微的，这得益于我们的运动学约束。我们还可以发现一个小现象，对于铰接角和加速度它们只是连续的，有些时候他们的斜率仍然会发生小突变，这是因为他们和输入量铰接角速度和加加速度只保持有一阶导数的关系，由于输入量可以是不连续的，所以他们并不能保证是可微的。另外可以看出，铰接角范围在$-0.5rad~0.5rad$之间、车体速度保持在$-1m/s~3m/s$之间、加速度保持在$-0.4m/s^2~0.4m/s^2$之间，都在约束范围内。从速度曲线可以看出，在0s到26s之间铰接车速度为正，处于前进状态，在26s时速度减为$0m/s$，此时铰接车到达换向点，对应可以看示意图\ref{fig:boche}。此时从铰接角曲线可以看出，铰接角此时也为0rad，也就是方向盘回正了。之后速度为负，一直倒车泊入车库。
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=1\textwidth]{databochestate.png}
@@ -1415,12 +1446,6 @@
 	前面两节我们对全局规划和局部规划都做了详细的算法性能测试，为了多方面验证算法的性能，这一节我们将使用更真实的复杂地形来做一次仿真。
 	我们对一个大的车间进行了建图，得到一个栅格地图，用这个地图来验证我们的算法。地图的的像素是【】，分辨率是【】，长宽【】。图【很多图】是从不同的起点到到不同终点全局规划的路径。其中贴近障碍物的紫色区域是我们设置的膨胀层，目的是让前端RRTconnect算法搜索出的路径尽量远离障碍物，从而增大后端优化的成功率。
 
-	\begin{figure}[!ht]
-		\centering
-		\includegraphics[width=1\textwidth]{dataminco.png}
-		\caption{dataminco}
-		\label{fig:dataminco}
-	\end{figure}
 
 	\section{本章总结}
 																					  
