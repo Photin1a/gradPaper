@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  16 MAR 2025 16:31
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  17 MAR 2025 22:33
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1715,48 +1715,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [1
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[2]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[5]
-Overfull \hbox (3.1934pt too wide) in paragraph at lines 148--149
-[]\TU/SimSun(1)/m/n/12.045 第 一，|  在 优 化 的 框 架 下，|  我 们 将 轨 迹 规 划 问 题 建 模 为 非 线 
-性 模 型 预 测 控 制  |（\TU/TimesNewRoman(0)/m/n/12.045 NMPC\TU/SimSun(1)/m/n/12.045 ）
-|
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[7]
-
-[8]
-第2章
-File: fig/运动规划算法框架.png Graphic file (type bmp)
-<fig/运动规划算法框架.png>
+File: fig/插图/A-search/Astar.png Graphic file (type bmp)
+<fig/插图/A-search/Astar.png>
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1775,11 +1735,106 @@ Package microtype Info: Character `textquotedblleft ' is missing
 Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
+File: fig/插图/A-search/Dijstra.png Graphic file (type bmp)
+<fig/插图/A-search/Dijstra.png>
+File: fig/插图/A-search/ARAstar.png Graphic file (type bmp)
+<fig/插图/A-search/ARAstar.png>
+File: fig/插图/A-search/LPAstar.png Graphic file (type bmp)
+<fig/插图/A-search/LPAstar.png>
+File: fig/插图/A-search/RTAAstar.png Graphic file (type bmp)
+<fig/插图/A-search/RTAAstar.png>
+File: fig/插图/A-search/Dstar.png Graphic file (type bmp)
+<fig/插图/A-search/Dstar.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[3]
+File: fig/插图/rrt/RRT.png Graphic file (type bmp)
+<fig/插图/rrt/RRT.png>
+File: fig/插图/rrt/RRT_connect.png Graphic file (type bmp)
+<fig/插图/rrt/RRT_connect.png>
+File: fig/插图/rrt/informed_RRTstar.png Graphic file (type bmp)
+<fig/插图/rrt/informed_RRTstar.png>
+File: fig/插图/rrt/fast_matching_trees.png Graphic file (type bmp)
+<fig/插图/rrt/fast_matching_trees.png>
+File: fig/插图/rrt/extended_RRT.png Graphic file (type bmp)
+<fig/插图/rrt/extended_RRT.png>
+File: fig/插图/rrt/batch_informed_trees.png Graphic file (type bmp)
+<fig/插图/rrt/batch_informed_trees.png>
+File: fig/插图/curve/bezier.png Graphic file (type bmp)
+<fig/插图/curve/bezier.png>
+File: fig/插图/curve/bspline.png Graphic file (type bmp)
+<fig/插图/curve/bspline.png>
+File: fig/插图/curve/dubins_path.png Graphic file (type bmp)
+<fig/插图/curve/dubins_path.png>
+File: fig/插图/curve/reeds_shepp.png Graphic file (type bmp)
+<fig/插图/curve/reeds_shepp.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[5]
+
+[6]
+File: fig/插图/loader_real.png Graphic file (type bmp)
+<fig/插图/loader_real.png>
+File: fig/插图/四驱铰接式叉车.jpg Graphic file (type bmp)
+<fig/插图/四驱铰接式叉车.jpg>
+File: fig/插图/沃尔沃A30F铰接式卡车.png Graphic file (type bmp)
+<fig/插图/沃尔沃A30F铰接式卡车.png>
+File: fig/插图/沃尔沃A35F铰接式卡车.png Graphic file (type bmp)
+<fig/插图/沃尔沃A35F铰接式卡车.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[8]
+Overfull \hbox (3.1934pt too wide) in paragraph at lines 148--149
+[]\TU/SimSun(1)/m/n/12.045 第 一，|  在 优 化 的 框 架 下，|  我 们 将 轨 迹 规 划 问 题 建 模 为 非 线 
+性 模 型 预 测 控 制  |（\TU/TimesNewRoman(0)/m/n/12.045 NMPC\TU/SimSun(1)/m/n/12.045 ）
+|
+ []
+
+
+Underfull \vbox (badness 1394) has occurred while \output is active []
+
+
+
+[9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[10]
+
+[11]
+第2章
+File: fig/运动规划算法框架.png Graphic file (type bmp)
+<fig/运动规划算法框架.png>
 File: fig/铰接车简易模型.png Graphic file (type bmp)
 <fig/铰接车简易模型.png>
 
 
-[9
+[12
 
 ]
 Overfull \hbox (18.68214pt too wide) in paragraph at lines 207--209
@@ -1794,31 +1849,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[10]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[12]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
 [13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package natbib Warning: Citation `优化问题' on page 15 undefined on input line 315.
 
 
+[15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[16]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[17]
 File: fig/不同初解.png Graphic file (type bmp)
 <fig/不同初解.png>
 
@@ -1826,77 +1877,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[15]
+[18]
 
-[16]
+[19]
 第3章
 File: fig/路径规划算法特例.png Graphic file (type bmp)
 <fig/路径规划算法特例.png>
 
 
-[17
+[20
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[18]
+[21]
 File: fig/minco.png Graphic file (type bmp)
 <fig/minco.png>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[19]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[20]
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquoteright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblleft ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblright ' is missing
-(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
-(microtype)             Ignoring protrusion settings for this character.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[21]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1907,11 +1906,63 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [23]
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/6'.
+(microtype)             Ignoring protrusion settings for this character.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[25]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[26]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[27]
 File: fig/安全走廊比较矩形1.png Graphic file (type bmp)
 <fig/安全走廊比较矩形1.png>
 File: fig/安全走廊比较多边形2.png Graphic file (type bmp)
@@ -1923,29 +1974,29 @@ Underfull \vbox (badness 1931) has occurred while \output is active []
 
 
 
-[25]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[26]
-File: fig/松弛函数.png Graphic file (type bmp)
-<fig/松弛函数.png>
-File: fig/松弛导数.png Graphic file (type bmp)
-<fig/松弛导数.png>
-
-
-[27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
 [28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [29]
+File: fig/松弛函数.png Graphic file (type bmp)
+<fig/松弛函数.png>
+File: fig/松弛导数.png Graphic file (type bmp)
+<fig/松弛导数.png>
+
+
+[30]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[31]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[32]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 805.
 File: fig/全局规划.png Graphic file (type bmp)
@@ -1955,7 +2006,7 @@ Underfull \vbox (badness 4429) has occurred while \output is active []
 
 
 
-[30]
+[33]
 File: fig/换向1.png Graphic file (type bmp)
 <fig/换向1.png>
 File: fig/换向2.png Graphic file (type bmp)
@@ -1965,9 +2016,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[31]
+[34]
 
-[32]
+[35]
 第4章
 File: fig/ppi.png Graphic file (type bmp)
 <fig/ppi.png>
@@ -1976,14 +2027,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[33
+[36
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[34]
+[37]
 File: fig/hybrid采样.png Graphic file (type bmp)
 <fig/hybrid采样.png>
 File: fig/hybrid采样改进剪枝.png Graphic file (type bmp)
@@ -1993,26 +2044,6 @@ Overfull \hbox (4.37932pt too wide) in paragraph at lines 911--911
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[35]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[36]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[37]
-File: fig/bresham_free.png Graphic file (type bmp)
-<fig/bresham_free.png>
-File: fig/bresham_colli.png Graphic file (type bmp)
-<fig/bresham_colli.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2029,14 +2060,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [40]
+File: fig/bresham_free.png Graphic file (type bmp)
+<fig/bresham_free.png>
+File: fig/bresham_colli.png Graphic file (type bmp)
+<fig/bresham_colli.png>
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [41]
-File: fig/安全走廊.png Graphic file (type bmp)
-<fig/安全走廊.png>
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2052,13 +2085,31 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [44]
+File: fig/安全走廊.png Graphic file (type bmp)
+<fig/安全走廊.png>
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [45]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [46]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[47]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[48]
+
+[49]
 第5章
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
 (Font)              scaled to size 10.95pt on input line 1217.
@@ -2091,27 +2142,21 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 File: fig/rviz_view.png Graphic file (type bmp)
 <fig/rviz_view.png>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-[47
+[50
 
 ]
 
-[48]
+[51]
 File: fig/navigation规划框架.png Graphic file (type bmp)
 <fig/navigation规划框架.png>
 File: fig/我的规划框架.png Graphic file (type bmp)
 <fig/我的规划框架.png>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
+[52]
 
-
-[49]
-
-[50]
+[53]
 File: fig/single_1.png Graphic file (type bmp)
 <fig/single_1.png>
 File: fig/single_2.png Graphic file (type bmp)
@@ -2120,13 +2165,21 @@ File: fig/single_3.png Graphic file (type bmp)
 <fig/single_3.png>
 File: fig/single_4.png Graphic file (type bmp)
 <fig/single_4.png>
+
+
+[54]
 File: fig/single.png Graphic file (type bmp)
 <fig/single.png>
+
+
+[55]
 File: fig/datasingle.png Graphic file (type bmp)
 <fig/datasingle.png>
 
 
-[51]
+[56]
+
+[57]
 File: fig/muti.png Graphic file (type bmp)
 <fig/muti.png>
 File: fig/dataminco.png Graphic file (type bmp)
@@ -2135,12 +2188,7 @@ File: fig/datamuti.png Graphic file (type bmp)
 <fig/datamuti.png>
 
 
-[52]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[53]
+[58]
 File: fig/s1.png Graphic file (type bmp)
 <fig/s1.png>
 File: fig/s2.png Graphic file (type bmp)
@@ -2151,113 +2199,133 @@ File: fig/s4.png Graphic file (type bmp)
 <fig/s4.png>
 File: fig/nmpcyuewa1.png Graphic file (type bmp)
 <fig/nmpcyuewa1.png>
+
+
+[59]
 File: fig/boche.png Graphic file (type bmp)
 <fig/boche.png>
+
+
+[60]
+File: fig/databochestate.png Graphic file (type bmp)
+<fig/databochestate.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[54]
-
-[55]
-File: fig/databochestate.png Graphic file (type bmp)
-<fig/databochestate.png>
-
-
-[56]
+[61]
 File: fig/databocheinput.png Graphic file (type bmp)
 <fig/databocheinput.png>
-
-
-[57]
 File: fig/cebianboche.png Graphic file (type bmp)
 <fig/cebianboche.png>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[58]
+
+
+[62]
 File: fig/datacebianstate.png Graphic file (type bmp)
 <fig/datacebianstate.png>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[59]
 
-[60] (document.bbl
+
+[63]
+
+[64]
+
+[65]
+第6章
+
+
+[66
+
+] (document.bbl
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.53937pt on input line 20.
+(Font)              scaled to size 10.53937pt on input line 55.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 7.0pt on input line 20.
+(Font)              scaled to size 7.0pt on input line 55.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 5.0pt on input line 20.
+(Font)              scaled to size 5.0pt on input line 55.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 20.
+(Font)              scaled to size 10.53937pt on input line 55.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.0pt on input line 20.
+(Font)              scaled to size 7.0pt on input line 55.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
+(Font)              scaled to size 5.0pt on input line 55.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 20.
+(Font)              scaled to size 10.53937pt on input line 55.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.0pt on input line 20.
+(Font)              scaled to size 7.0pt on input line 55.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
+(Font)              scaled to size 5.0pt on input line 55.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 20.
+(Font)              size <10.95> substituted on input line 55.
 
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.53937pt on input line 20.
+(Font)              scaled to size 10.53937pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.0pt on input line 20.
+(Font)              scaled to size 7.0pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.0pt on input line 20.
+(Font)              scaled to size 5.0pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 20.
+(Font)              scaled to size 10.53937pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.0pt on input line 20.
+(Font)              scaled to size 7.0pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
+(Font)              scaled to size 5.0pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 20.
+(Font)              scaled to size 10.53937pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.0pt on input line 20.
+(Font)              scaled to size 7.0pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
+(Font)              scaled to size 5.0pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 20.
+(Font)              scaled to size 10.53937pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.0pt on input line 20.
+(Font)              scaled to size 7.0pt on input line 55.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
-)
+(Font)              scaled to size 5.0pt on input line 55.
+Missing character: There is no ∗ in font Times New Roman/OT:script=latn;languag
+e=dflt;mapping=tex-text;!
 
-[61
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[67
 
 
 ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[68])
+
+[69]
 附录A
 
 
-[62
+[70
 
 ]
 附录B
 
 
-[63
+[71
 
 ]
 
-[64
+[72
 
 ]
 
-Package natbib Warning: There were undefined citations.
-
-
-
-[65
+[73
 
 ] (document.aux)
  ***********
@@ -2270,15 +2338,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.34248pt have occurred.
 
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: FA75D8FA3692CC84EF9D8D2380970E5B;11330.
+(rerunfilecheck)             Checksum: 70AE330BCECDB9B564EEDEB0628E25DE;11283.
  ) 
 Here is how much of TeX's memory you used:
- 27397 strings out of 408789
- 556844 string characters out of 5748080
- 966568 words of memory out of 5000000
- 49853 multiletter control sequences out of 15000+600000
+ 27799 strings out of 408789
+ 568389 string characters out of 5748080
+ 979072 words of memory out of 5000000
+ 50231 multiletter control sequences out of 15000+600000
  699763 words of font info for 312 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 107i,17n,145p,3346b,795s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,17n,145p,3346b,799s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on document.pdf (79 pages).
+Output written on document.pdf (87 pages).
