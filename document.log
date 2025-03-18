@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  17 MAR 2025 22:33
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  18 MAR 2025 20:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1787,6 +1787,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [5]
+Underfull \vbox (badness 3250) has occurred while \output is active []
+
+
 
 [6]
 File: fig/插图/loader_real.png Graphic file (type bmp)
@@ -1808,7 +1811,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [8]
-Overfull \hbox (3.1934pt too wide) in paragraph at lines 148--149
+Overfull \hbox (3.1934pt too wide) in paragraph at lines 153--154
 []\TU/SimSun(1)/m/n/12.045 第 一，|  在 优 化 的 框 架 下，|  我 们 将 轨 迹 规 划 问 题 建 模 为 非 线 
 性 模 型 预 测 控 制  |（\TU/TimesNewRoman(0)/m/n/12.045 NMPC\TU/SimSun(1)/m/n/12.045 ）
 |
@@ -1837,12 +1840,9 @@ File: fig/铰接车简易模型.png Graphic file (type bmp)
 [12
 
 ]
-Overfull \hbox (18.68214pt too wide) in paragraph at lines 207--209
-\TU/SimSun(1)/m/n/12.045 以 前 桥 为 参 考 点，|  定 义 $\LMS/ntxsy/m/n/12.045 ¹\OML/ntxm
-i/m/it/12.045 x; y; theta; gamma\LMS/ntxsy/m/n/12.045 º$ \TU/SimSun(1)/m/n/12.0
-45 为 铰 接 车 的 位 姿，|  他 们 分 别 代 表 着 $\OML/ntxmi/m/it/12.045 x[]; y[]; ^^R[]; ^^M$
-\TU/SimSun(1)/m/n/12.045 。|
- []
+
+LaTeX Warning: Reference `corke2001steering' on page 13 undefined on input line
+ 213.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1998,7 +1998,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [32]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 805.
+put line 796.
 File: fig/全局规划.png Graphic file (type bmp)
 <fig/全局规划.png>
 
@@ -2040,7 +2040,7 @@ File: fig/hybrid采样.png Graphic file (type bmp)
 File: fig/hybrid采样改进剪枝.png Graphic file (type bmp)
 <fig/hybrid采样改进剪枝.png>
 
-Overfull \hbox (4.37932pt too wide) in paragraph at lines 911--911
+Overfull \hbox (4.37932pt too wide) in paragraph at lines 902--902
  [][] 
  []
 
@@ -2112,33 +2112,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [49]
 第5章
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 1217.
+(Font)              scaled to size 10.95pt on input line 1208.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 1217.
+(Font)              scaled to size 6.1pt on input line 1208.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1217.
+(Font)              scaled to size 10.95pt on input line 1208.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1217.
+(Font)              scaled to size 6.1pt on input line 1208.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1217.
+(Font)              scaled to size 10.95pt on input line 1208.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1217.
+(Font)              scaled to size 6.1pt on input line 1208.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 1217.
+(Font)              scaled to size 10.95pt on input line 1208.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 1217.
+(Font)              scaled to size 6.1pt on input line 1208.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1217.
+(Font)              scaled to size 10.95pt on input line 1208.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1217.
+(Font)              scaled to size 6.1pt on input line 1208.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1217.
+(Font)              scaled to size 10.95pt on input line 1208.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1217.
+(Font)              scaled to size 6.1pt on input line 1208.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1217.
+(Font)              scaled to size 10.95pt on input line 1208.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1217.
+(Font)              scaled to size 6.1pt on input line 1208.
 File: fig/rviz_view.png Graphic file (type bmp)
 <fig/rviz_view.png>
 
@@ -2153,10 +2153,18 @@ File: fig/navigation规划框架.png Graphic file (type bmp)
 File: fig/我的规划框架.png Graphic file (type bmp)
 <fig/我的规划框架.png>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [52]
+Underfull \vbox (badness 6658) has occurred while \output is active []
+
+
 
 [53]
+
+[54]
 File: fig/single_1.png Graphic file (type bmp)
 <fig/single_1.png>
 File: fig/single_2.png Graphic file (type bmp)
@@ -2165,19 +2173,21 @@ File: fig/single_3.png Graphic file (type bmp)
 <fig/single_3.png>
 File: fig/single_4.png Graphic file (type bmp)
 <fig/single_4.png>
-
-
-[54]
 File: fig/single.png Graphic file (type bmp)
 <fig/single.png>
-
-
-[55]
 File: fig/datasingle.png Graphic file (type bmp)
 <fig/datasingle.png>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[55]
 
 [56]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [57]
 File: fig/muti.png Graphic file (type bmp)
@@ -2205,16 +2215,15 @@ File: fig/nmpcyuewa1.png Graphic file (type bmp)
 File: fig/boche.png Graphic file (type bmp)
 <fig/boche.png>
 
-
-[60]
-File: fig/databochestate.png Graphic file (type bmp)
-<fig/databochestate.png>
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
+[60]
+
 [61]
+File: fig/databochestate.png Graphic file (type bmp)
+<fig/databochestate.png>
 File: fig/databocheinput.png Graphic file (type bmp)
 <fig/databocheinput.png>
 File: fig/cebianboche.png Graphic file (type bmp)
@@ -2239,10 +2248,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [65]
 第6章
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [66
 
-] (document.bbl
+]
+
+[67] (document.bbl
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
 (Font)              scaled to size 10.53937pt on input line 55.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
@@ -2297,7 +2311,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[67
+[68
 
 
 ]
@@ -2305,27 +2319,37 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[68])
-
 [69]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[70]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[71])
+
+[72]
 附录A
 
 
-[70
+[73
 
 ]
 附录B
 
 
-[71
+[74
 
 ]
 
-[72
+[75
 
 ]
 
-[73
+[76
 
 ] (document.aux)
  ***********
@@ -2337,16 +2361,19 @@ L3 programming layer <2022/07/14>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.34248pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 70AE330BCECDB9B564EEDEB0628E25DE;11283.
+(rerunfilecheck)             Checksum: 3828E3EF6AD8D59CF7733F478856F53D;11291.
  ) 
 Here is how much of TeX's memory you used:
- 27799 strings out of 408789
- 568389 string characters out of 5748080
- 979072 words of memory out of 5000000
- 50231 multiletter control sequences out of 15000+600000
+ 27863 strings out of 408789
+ 569513 string characters out of 5748080
+ 979351 words of memory out of 5000000
+ 50295 multiletter control sequences out of 15000+600000
  699763 words of font info for 312 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,17n,145p,3346b,799s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on document.pdf (87 pages).
+Output written on document.pdf (90 pages).

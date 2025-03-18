@@ -32,13 +32,13 @@
 \contentsline {subsection}{\numberline {3.2.4}轨迹的闭式解}{26}{subsection.3.2.4}%
 \contentsline {section}{\numberline {3.3}基于安全走廊的安全约束分析}{26}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}凸多边形约束的数学表达}{27}{subsection.3.3.1}%
-\contentsline {section}{\numberline {3.4}单阶段无约束轨迹规划}{29}{section.3.4}%
+\contentsline {section}{\numberline {3.4}点到点全局路径规划}{29}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}铰接车的最大曲率}{29}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}优化问题的建立}{29}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}起点和终点航向角保证}{31}{subsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.4.4}优化问题求解}{32}{subsection.3.4.4}%
-\contentsline {section}{\numberline {3.5}多阶段全局轨迹规划}{33}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}多阶段规划的问题描述}{34}{subsection.3.5.1}%
+\contentsline {section}{\numberline {3.5}多点航行全局路径规划}{33}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}多点航行规划的问题描述}{34}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}站点的换向处理}{34}{subsection.3.5.2}%
 \contentsline {section}{\numberline {3.6}本章总结}{35}{section.3.6}%
 \contentsline {chapter}{\numberline {第4章\hspace {.3em}}基于安全走廊的无人铰接车局部规划方法}{36}{chapter.4}%
@@ -61,15 +61,15 @@
 \contentsline {subsection}{\numberline {5.1.2}运动规划软件框架设计}{52}{subsection.5.1.2}%
 \contentsline {section}{\numberline {5.2}全局规划算法测验}{54}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}点到点路径规划}{55}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}多点路径规划测试}{57}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.2}多点路径规划测试}{56}{subsection.5.2.2}%
 \contentsline {section}{\numberline {5.3}局部规划算法测验}{59}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}自主泊车场景}{60}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}侧方位停车场景}{63}{subsection.5.3.2}%
 \contentsline {section}{\numberline {5.4}本章总结}{64}{section.5.4}%
 \contentsline {chapter}{\numberline {第6章\hspace {.3em}}结论}{66}{chapter.6}%
-\contentsline {chapter}{参考文献}{67}{chapter.6}%
-\contentsline {chapter}{\numberline {附录A\hspace {.3em}}}{70}{chapter.7}%
-\contentsline {chapter}{\numberline {附录B\hspace {.3em}}}{71}{chapter.8}%
-\contentsline {chapter}{攻读硕士学位期间取得的成果}{72}{chapter*.44}%
-\contentsline {chapter}{致谢}{73}{chapter*.45}%
+\contentsline {chapter}{参考文献}{68}{chapter.6}%
+\contentsline {chapter}{\numberline {附录A\hspace {.3em}}}{73}{chapter.7}%
+\contentsline {chapter}{\numberline {附录B\hspace {.3em}}}{74}{chapter.8}%
+\contentsline {chapter}{攻读硕士学位期间取得的成果}{75}{chapter*.44}%
+\contentsline {chapter}{致谢}{76}{chapter*.45}%
 \contentsfinish 

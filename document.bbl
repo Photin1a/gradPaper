@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{59}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -52,7 +52,7 @@ YANG Y, XIONG X, YAN Y.
 DIJKSTRA E~W.
 \newblock A note on two problems in connexion with graphs\allowbreak[J/OL].
 \newblock Numer. Math., 1959, 1\allowbreak (1): 269–271.
-\newblock \url{https://doi.org/10.1007/BF01386390}.
+\newblock \url{https:%doi.org/10.1007/BF01386390}.
 
 \bibitem[Hart et~al.(1968)Hart, Nilsson, and Raphael]{hart1968formal}
 HART P~E, NILSSON N~J, RAPHAEL B.
@@ -170,7 +170,7 @@ GAO F, WU W, LIN Y, et~al.
   method and bernstein basis polynomial\allowbreak[J/OL].
 \newblock 2018 IEEE International Conference on Robotics and Automation (ICRA),
   2018: 344-351.
-\newblock \url{https://api.semanticscholar.org/CorpusID:52283216}.
+\newblock \url{https:%api.semanticscholar.org/CorpusID:52283216}.
 
 \bibitem[Lee et~al.(2021)Lee and Kim]{lee2021optimal}
 LEE S, KIM Y.
@@ -231,6 +231,162 @@ CHANG T, TIAN G.
   and trichotomy\allowbreak[J].
 \newblock Applied Sciences, 2024, 14\allowbreak (13): 5582.
 
+\bibitem[Choi et~al.(2015)Choi and Huhtala]{choi2015constrained}
+CHOI J~W, HUHTALA K.
+\newblock Constrained global path optimization for articulated steering
+  vehicles\allowbreak[J].
+\newblock IEEE Transactions on Vehicular Technology, 2015, 65\allowbreak (4):
+  1868-1879.
+
+\bibitem[Yossawee et~al.(2002)Yossawee, Tsubouchi, Sarata, and
+  Yuta]{yossawee2002path}
+YOSSAWEE W, TSUBOUCHI T, SARATA S, et~al.
+\newblock Path generation for articulated steering type vehicle using
+  symmetrical clothoid\allowbreak[C]//\allowbreak
+2002 IEEE International Conference on Industrial Technology, 2002. IEEE
+  ICIT'02.: Vol.~1.
+\newblock IEEE, 2002: 187-192.
+
+\bibitem[Nayl et~al.(2013)Nayl, Nikolakopoulos, and Gustafsson]{nayl2013line}
+NAYL T, NIKOLAKOPOULOS G, GUSTAFSSON T.
+\newblock On-line path planning for an articulated vehicle based on model
+  predictive control\allowbreak[C]//\allowbreak
+2013 IEEE international conference on control applications (CCA).
+\newblock IEEE, 2013: 772-777.
+
+\bibitem[Chen et~al.(2020)Chen, Yang, Svensson, and Feng]{9216948}
+CHEN D, YANG Z, SVENSSON L, et~al.
+\newblock Optimization based path planning for a two-body articulated
+  vehicle\allowbreak[C/OL]//\allowbreak
+2020 IEEE 16th International Conference on Automation Science and Engineering
+  (CASE).
+\newblock 2020: 397-403.
+\newblock DOI: \doi{10.1109/CASE48305.2020.9216948}.
+
+\bibitem[Hong et~al.(2018)Hong and Ma]{8500447}
+HONG B, MA X.
+\newblock Path optimization for a wheel loader considering construction site
+  terrain\allowbreak[C/OL]//\allowbreak
+2018 IEEE Intelligent Vehicles Symposium (IV).
+\newblock 2018: 2098-2103.
+\newblock DOI: \doi{10.1109/IVS.2018.8500447}.
+
+\bibitem[Kawabe et~al.(2021)Kawabe, Takei, and and]{Kawabe02122021}
+KAWABE T, TAKEI T, AND E~I.
+\newblock Path planning to expedite the complete transfer of distributed gravel
+  piles with an automated wheel loader\allowbreak[J/OL].
+\newblock Advanced Robotics, 2021, 35\allowbreak (23): 1418-1437.
+\newblock \url{https://doi.org/10.1080/01691864.2021.2008488}.
+
+\bibitem[Zhao et~al.(2022)Zhao, Yin, Shen, Ren, Wang, and Zhang]{zhao2022time}
+ZHAO M, YIN G, SHEN T, et~al.
+\newblock Time optimal trajectory optimization for vertical parking of heavy
+  duty vehicle based on chebyshev pseudospectral
+  method\allowbreak[C]//\allowbreak
+2022 6th CAA International Conference on Vehicular Control and Intelligence
+  (CVCI).
+\newblock IEEE, 2022: 1-6.
+
+\bibitem[Shi et~al.(2020)Shi, Sun, Qin, Hu, Kan, Ma, and Chen]{shi2020planning}
+SHI J, SUN D, QIN D, et~al.
+\newblock Planning the trajectory of an autonomous wheel loader and tracking
+  its trajectory via adaptive model predictive control\allowbreak[J].
+\newblock Robotics and autonomous systems, 2020, 131: 103570.
+
+\bibitem[Anderson et~al.(2010)Anderson, Peters, Pilutti, and
+  Iagnemma]{anderson2010optimal}
+ANDERSON S~J, PETERS S~C, PILUTTI T~E, et~al.
+\newblock An optimal-control-based framework for trajectory planning, threat
+  assessment, and semi-autonomous control of passenger vehicles in hazard
+  avoidance scenarios\allowbreak[J].
+\newblock International Journal of Vehicle Autonomous Systems, 2010,
+  8\allowbreak (2-4): 190-216.
+
+\bibitem[Mehta et~al.(2009)Mehta and Meyn]{mehta2009q}
+MEHTA P, MEYN S.
+\newblock Q-learning and pontryagin's minimum
+  principle\allowbreak[C]//\allowbreak
+Proceedings of the 48h IEEE Conference on Decision and Control (CDC) held
+  jointly with 2009 28th Chinese Control Conference.
+\newblock IEEE, 2009: 3598-3605.
+
+\bibitem[Osborne(1969)]{osborne1969shooting}
+OSBORNE M~R.
+\newblock On shooting methods for boundary value problems\allowbreak[J].
+\newblock Journal of mathematical analysis and applications, 1969,
+  27\allowbreak (2): 417-433.
+
+\bibitem[Aluru(2000)]{aluru2000point}
+ALURU N.
+\newblock A point collocation method based on reproducing kernel
+  approximations\allowbreak[J].
+\newblock International Journal for Numerical Methods in Engineering, 2000,
+  47\allowbreak (6): 1083-1121.
+
+\bibitem[Rockafellar(1974)]{rockafellar1974augmented}
+ROCKAFELLAR R~T.
+\newblock Augmented lagrange multiplier functions and duality in nonconvex
+  programming\allowbreak[J].
+\newblock SIAM Journal on Control, 1974, 12\allowbreak (2): 268-285.
+
+\bibitem[Wei et~al.(2012)Wei and Ozdaglar]{wei2012distributed}
+WEI E, OZDAGLAR A.
+\newblock Distributed alternating direction method of
+  multipliers\allowbreak[C]//\allowbreak
+2012 IEEE 51st IEEE Conference on Decision and Control (CDC).
+\newblock IEEE, 2012: 5445-5450.
+
+\bibitem[Yeniay(2005)]{yeniay2005penalty}
+YENIAY {\"O}.
+\newblock Penalty function methods for constrained optimization with genetic
+  algorithms\allowbreak[J].
+\newblock Mathematical and computational Applications, 2005, 10\allowbreak (1):
+  45-56.
+
+\bibitem[Curtis et~al.(2010)Curtis, Schenk, and
+  W{\"a}chter]{curtis2010interior}
+CURTIS F~E, SCHENK O, W{\"A}CHTER A.
+\newblock An interior-point algorithm for large-scale nonlinear optimization
+  with inexact step computations\allowbreak[J].
+\newblock SIAM Journal on Scientific Computing, 2010, 32\allowbreak (6):
+  3447-3475.
+
+\bibitem[K{\"u}mmerle et~al.(2011)K{\"u}mmerle, Grisetti, Strasdat, Konolige,
+  and Burgard]{kummerle2011g}
+K{\"U}MMERLE R, GRISETTI G, STRASDAT H, et~al.
+\newblock g 2 o: A general framework for graph
+  optimization\allowbreak[C]//\allowbreak
+2011 IEEE international conference on robotics and automation.
+\newblock IEEE, 2011: 3607-3613.
+
+\bibitem[Mellinger et~al.(2011)Mellinger and Kumar]{mellinger2011minimum}
+MELLINGER D, KUMAR V.
+\newblock Minimum snap trajectory generation and control for
+  quadrotors\allowbreak[C]//\allowbreak
+2011 IEEE international conference on robotics and automation.
+\newblock IEEE, 2011: 2520-2525.
+
+\bibitem[Wang et~al.(2022)Wang, Zhou, Xu, and Gao]{wang2022geometrically}
+WANG Z, ZHOU X, XU C, et~al.
+\newblock Geometrically constrained trajectory optimization for
+  multicopters\allowbreak[J].
+\newblock IEEE Transactions on Robotics, 2022, 38\allowbreak (5): 3259-3278.
+
+\bibitem[Lewis et~al.(2012)Lewis, Vrabie, and Syrmos]{lewis2012optimal}
+LEWIS F~L, VRABIE D, SYRMOS V~L.
+\newblock Optimal control\allowbreak[M].
+\newblock John Wiley \& Sons, 2012.
+
+\bibitem[Vinter et~al.(2010)Vinter and Vinter]{vinter2010optimal}
+VINTER R~B, VINTER R.
+\newblock Optimal control: Vol.~2\allowbreak[M].
+\newblock Springer, 2010.
+
+\bibitem[Koubaa et~al.(2017)]{koubaa2017robot}
+KOUBAA A, et~al.
+\newblock Robot operating system (ros).: Vol.~1\allowbreak[M].
+\newblock Springer, 2017.
+
 \bibitem[Li et~al.(2022)Li, Acarman, Zhang, Ouyang, Yaman, Kong, Zhong, and
   Peng]{BaiLi:2022}
 LI B, ACARMAN T, ZHANG Y, et~al.
@@ -246,7 +402,7 @@ DEITS R, TEDRAKE R.
 \newblock Computing large convex regions of obstacle-free space through
   semidefinite programming\allowbreak[M/OL].
 \newblock Cham: Springer International Publishing, 2015: 109-124.
-\newblock \url{https://doi.org/10.1007/978-3-319-16595-0_7}.
+\newblock \url{https:%doi.org/10.1007/978-3-319-16595-0_7}.
 
 \bibitem[Liu et~al.(2017)Liu, Watterson, Mohta, Sun, Bhattacharya, Taylor, and
   Kumar]{SikangLiu:2017}
@@ -256,5 +412,17 @@ LIU S, WATTERSON M, MOHTA K, et~al.
 \newblock IEEE Robotics and Automation Letters, 2017, 2\allowbreak (3):
   1688-1695.
 \newblock DOI: \doi{10.1109/LRA.2017.2663526}.
+
+\bibitem[Liu et~al.(1989)Liu and Nocedal]{liu1989limited}
+LIU D~C, NOCEDAL J.
+\newblock On the limited memory bfgs method for large scale
+  optimization\allowbreak[J].
+\newblock Mathematical programming, 1989, 45\allowbreak (1): 503-528.
+
+\bibitem[Bresenham(1977)]{bresenham1977linear}
+BRESENHAM J.
+\newblock A linear algorithm for incremental digital display of circular
+  arcs\allowbreak[J].
+\newblock Communications of the ACM, 1977, 20\allowbreak (2): 100-106.
 
 \end{thebibliography}
