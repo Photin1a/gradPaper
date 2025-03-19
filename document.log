@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  18 MAR 2025 20:51
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  19 MAR 2025 21:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1620,7 +1620,7 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 42.
+(hyperref)                removing `\heiti' on input line 51.
 
 
 
@@ -1811,7 +1811,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [8]
-Overfull \hbox (3.1934pt too wide) in paragraph at lines 153--154
+Overfull \hbox (3.1934pt too wide) in paragraph at lines 167--168
 []\TU/SimSun(1)/m/n/12.045 第 一，|  在 优 化 的 框 架 下，|  我 们 将 轨 迹 规 划 问 题 建 模 为 非 线 
 性 模 型 预 测 控 制  |（\TU/TimesNewRoman(0)/m/n/12.045 NMPC\TU/SimSun(1)/m/n/12.045 ）
 |
@@ -1842,7 +1842,7 @@ File: fig/铰接车简易模型.png Graphic file (type bmp)
 ]
 
 LaTeX Warning: Reference `corke2001steering' on page 13 undefined on input line
- 213.
+ 227.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1998,7 +1998,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [32]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 796.
+put line 810.
 File: fig/全局规划.png Graphic file (type bmp)
 <fig/全局规划.png>
 
@@ -2040,7 +2040,7 @@ File: fig/hybrid采样.png Graphic file (type bmp)
 File: fig/hybrid采样改进剪枝.png Graphic file (type bmp)
 <fig/hybrid采样改进剪枝.png>
 
-Overfull \hbox (4.37932pt too wide) in paragraph at lines 902--902
+Overfull \hbox (4.37932pt too wide) in paragraph at lines 916--916
  [][] 
  []
 
@@ -2112,33 +2112,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [49]
 第5章
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 1208.
+(Font)              scaled to size 10.95pt on input line 1223.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 1208.
+(Font)              scaled to size 6.1pt on input line 1223.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1208.
+(Font)              scaled to size 10.95pt on input line 1223.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1208.
+(Font)              scaled to size 6.1pt on input line 1223.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1208.
+(Font)              scaled to size 10.95pt on input line 1223.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1208.
+(Font)              scaled to size 6.1pt on input line 1223.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 1208.
+(Font)              scaled to size 10.95pt on input line 1223.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 1208.
+(Font)              scaled to size 6.1pt on input line 1223.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1208.
+(Font)              scaled to size 10.95pt on input line 1223.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1208.
+(Font)              scaled to size 6.1pt on input line 1223.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1208.
+(Font)              scaled to size 10.95pt on input line 1223.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1208.
+(Font)              scaled to size 6.1pt on input line 1223.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1208.
+(Font)              scaled to size 10.95pt on input line 1223.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1208.
+(Font)              scaled to size 6.1pt on input line 1223.
 File: fig/rviz_view.png Graphic file (type bmp)
 <fig/rviz_view.png>
 
@@ -2332,24 +2332,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [71])
 
 [72]
-附录A
-
 
 [73
 
 ]
-附录B
-
 
 [74
-
-]
-
-[75
-
-]
-
-[76
 
 ] (document.aux)
  ***********
@@ -2365,15 +2353,15 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 3828E3EF6AD8D59CF7733F478856F53D;11291.
+(rerunfilecheck)             Checksum: 2060E4E95678BA48EF08099A95E5601E;11129.
  ) 
 Here is how much of TeX's memory you used:
- 27863 strings out of 408789
- 569513 string characters out of 5748080
- 979351 words of memory out of 5000000
- 50295 multiletter control sequences out of 15000+600000
+ 27767 strings out of 408789
+ 564632 string characters out of 5748080
+ 978098 words of memory out of 5000000
+ 50199 multiletter control sequences out of 15000+600000
  699763 words of font info for 312 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,17n,145p,3346b,799s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on document.pdf (90 pages).
+Output written on document.pdf (88 pages).

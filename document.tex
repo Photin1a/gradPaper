@@ -19,14 +19,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Document metadata
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{生物同步康复机制理论与应用}{Bio-Syncretic Rehabilitation Mechanism Theory and	Application}
-\author{张小明}{Zhang Xiaoming}
+\title{无人铰接车运动规划}{Motion Planning for Unmanned Articulated Vehicles}
+\author{杨远爽}{Yang Yuanshuang}
 \school{电气工程学院}{School of Electrical Engineering}
-\subject{电气工程}{Electrical Engineering}
+\subject{控制科学与工程}{Control Science and Engineering}
 \applydegree{工学}{Engineering}
-\supervisor{郭大师}{教授}{Guo Dashi}{Professor}
-\assosupervisor{吴高工}{高级工程师}{Wu Gaogong}{Senior Engineer}
-\date{2024年6月}{June, 2024}
+\supervisor{华长春}{教授}{Hua Changchun}{Professor}
+\assosupervisor{骆曦}{实验师}{Luo Xi}{Research Technician}
+\date{2025年6月}{June, 2025}
 \bookclassificationnumber{TM464}{621.3}
 \security{公开}
 \researchtype{产品研发}%产品研发、应用研究、工程设计、基础研究等，学术学位可忽略
@@ -39,16 +39,30 @@
 
 	\makecover
 
-	\cabstract{}
+	\cabstract{无人铰接车凭借其灵活的转向结构，被广泛应用于如路面清洁、矿山开采等领域。在进行物料搬运和障碍物躲避时，铰接车的有效操作高度依赖于运动规划。本研究专注于解决铰接车的运动规划问题，将其划分为两个阶段：第一阶段涉及大范围环境中的全局路径规划，旨在确立大致行进路线；第二阶段则聚焦于小范围环境内的局部轨迹规划，以实现精确的操作控制。具体研究内容如下：
 
-	\ckeywords{关键词1；关键词2；……；关键词8}
+		（1）对无侧滑情况下的铰接车运动学模型进行了分析，并在此基础上，利用最优控制框架对轨迹规划问题进行了建模，详细阐述该问题的求解方法。
 
-	\eabstract{The rehabilitation mechanism is the foundation for a rehabilitation robot to realize its motion, and the quality of the rehabilitation mechanism decides the rehabilitation effect of patients with the rehabilitation robot. The research of rehabilitation mechanism is the key content in rehabilitation engineering. The bio-syncretic rehabilitation mechanism (BSRM) is a new type of modern mechanism composed of human body and machine, and it can meet the design requirements of rehabilitation robot more effectively because of the interaction and harmonization between human body and machine during the rehabilitation exercise. This paper presents the relative systematic research on BSRM and its application. The main contents of this paper are as follows:
+		（2）针对于全局路径规划，提出一种基于铰接车微分平坦性的路径规划方法。该算法前端以RRT-Connect算法快速搜索航点，后端基于Minco样条曲线进行路径平滑优化，优化过程施加安全走廊约束和最大曲率约束。该算法解析传导梯度，以LBFGS算法求解。该算法在200米的路径规划中平均规划时间为17.71毫秒，表现出优异的性能。
 
-		The concept of rehabilitation mechanism is proposed based on the relationship between human body mechanism and mechanical mechanism in the rehabilitation kinematics system, and the characteristics, degree of freedom, classification and symbol representation of this new kind of mechanism is introduced. The approaches to type synthesis of parallel BSRM and series BSRM are developed based on screw theory and the characteristic of BSRM, and some parallel BSRMs for ankle joint rehabilitation and series BSRMs for knee joint rehabilitation are got.
+		（3）针对于局部轨迹规划，提出一种基于安全走廊的铰接车轨迹规划方法。该算法在规划时充分考虑铰接车前桥后桥的全尺寸，保证轨迹的安全性。该算法前端使用针对铰接车改进的Hybrid A*算法搜索路径，后端建立一个最优控制问题，利用惩罚函数、微分同胚等方法处理约束。该算法在狭窄避障和泊车等场景中表现优异，在30米以内的规划距离中平均规划时间为78.2毫秒。
+
+		（4）搭建仿真环境，设计有效的运动规划软件框架。经分析验证，两个算法均能事先预期的效果，可以认为本文成功完成铰接车的整个运动规划任务。
+	}
+	\ckeywords{铰接车；运动规划；全局规划；局部规划；最优控制；轨迹优化}
+
+	\eabstract{The unmanned articulated vehicle, thanks to its flexible steering structure, is widely used in areas such as road cleaning and mining. Effective operation during material handling and obstacle avoidance heavily depends on motion planning. This study addresses the motion planning challenges for articulated vehicles through a two-stage approach: global planning to establish a general travel route, and local trajectory planning for precise operational control.
+	
+	(1) We analyze the kinematic model of articulated vehicles under non-sliding conditions and formulate the trajectory planning problem using an optimal control framework, detailing the solution methodology.
+	
+	(2) For global planning, we introduce a method leveraging the differential flatness property of articulated vehicles. The algorithm employs RRT-Connect for rapid waypoint search and Minco spline curves for path smoothing, incorporating constraints for safety corridors and maximum curvature. Utilizing the LBFGS algorithm, it achieves an average planning time of 17.71 milliseconds over a 200-meter path.
+	
+	(3) For local planning, we propose a safety-corridor-based approach that considers the full dimensions. The algorithm uses a modified Hybrid A* for path searching and formulates an optimal control problem, applying penalty functions and diffeomorphisms to handle constraints. It performs exceptionally well in narrow obstacle avoidance and parking scenarios, with an average planning time of 78.2 milliseconds within a 30-meter range.
+	
+	(4) We construct a simulation environment and confirms that both algorithms meet expected performance criteria.
 	}
 
-	\ekeywords{keyword1; keyword2; ……; keyword8}
+	\ekeywords{Articulated Vehicle; Motion Planning; Global Planning; Local Planning; Optimal Control; Trajectory Optimization}
 
 	\customizedtableofcontents
 
@@ -161,7 +175,7 @@
 
 	第一章：绪论。本章节主要阐述无人铰接车在复杂环境（如港口、矿山）中的运动规划研究背景与意义，分析铰接车非完整约束带来的轨迹规划挑战。系统梳理国内外运动规划技术的研究现状，包括基于图搜索、采样、曲线插值与优化的方法，以及铰接车专用算法的进展与局限性。最后，明确本文研究目标与创新点，提出融合全局与局部规划的优化框架，并概述全文的章节安排。
 
-	第二章：无人铰接车运动学模型建立和运动规划系统设计​。本章节构建铰接车轨迹规划的数学模型，推导其运动学方程与转弯半径。将运动规划分为全局和局部两个部分，基于最优控制问对规划问题建模。阐述问题的求解方法，包括动态规划与模型预测控制（MPC）的结合策略，并将问题离散化为非线性规划（NLP）形式。
+	第二章：无人铰接车运动学模型建立和运动规划系统设计​。本章节构建铰接车轨迹规划的数学模型，推导其运动学方程与转弯半径。将运动规划分为全局和局部两个部分，基于最优控制问对规划问题建模。阐述问题的求解方法，并将问题离散化为非线性规划（NLP）形式。
 
 	第三章：无人铰接车微分平坦全局轨迹规划方法​。基于铰接车微分平坦特性，以Minco样条参数化轨迹，结合RRT-Connect生成初始路径；设计凸多边形安全走廊约束，通过松弛函数处理曲率与避障条件，利用L-BFGS算法实现高效优化。针对多阶段任务（如码头装卸），给出换向点处理机制，并通过仿真验证算法在复杂场景下的有效性。
 
@@ -172,7 +186,7 @@
 	第六章：总结​。本章节总结研究内容和研究成果，分析相应的创新点。对目前存在的问题进行讨论，对未来的研究工作进行展望。
 
 	\chapter{铰接车建模与运动规划系统设计}
-	本章节将首先我们的运动规划系统框架，它包括有全局规划和局部规划两个部分。然后基于最优控制问题框架给出轨迹规划问题的求解方法。介绍外点法和内点法在优化问题中的使用。
+	本章节将首先介绍运动规划系统框架，它包括有全局规划和局部规划两个部分。然后介绍铰接式车辆的运动学模型，并基于该模型构建最优控制问题。最后介绍外点法和内点法在优化问题中的使用。
 	\section{运动规划系统总体方案设计}
 	受开源机器人框架ROS的启发，我们的运动规划系统采用全局-局部双级递进架构实现任务分解。在全局层面，规划过程解耦为路径搜索与轨迹优化两个阶段：首先基于RRT、A*和JPS等前沿搜索算法快速生成无碰撞粗解路径，随后通过基于能量最优代价构建优化模型，在保障路径连续性的同时实现平滑性提升与运动学上的可行性。局部规划层面向实时运动控制需求，提出改进型Hybrid A*算法生成满足车辆运动学约束的可行路径，进而构建速度剖面作为轨迹优化初值。最终通过非线性模型预测控制（NMPC）框架实施时空联合优化，其安全边界通过动态安全走廊技术进行在线更新，确保规划结果同时满足实时性要求与严格的安全准则。运动规划系统的总体方案如下：
 		\begin{figure}[!ht]
@@ -1147,7 +1161,7 @@
 		\end{equation}
 		这里$-\infty <\tau <+\infty $，$0<\Delta t<\Delta t_{max}$。
 		
-		\subsection{迭代求解框架}
+		\subsection{优化问题求解}
 		在上面几个小节，利用惩罚函数来表示成本函数中的运动学约束，并使用松弛函数来表示成本函数中的走廊约束，对于时间正则化，我们将时间变量的取值范围转换为整个实数轴。
 		由于时间变量发生了转换，我们不妨重新表示以下优化变量。令最终的优化变量$\eta =\left[ \xi _{x}^{T},\xi _{y}^{T},\xi _{\theta}^{T},\xi _{\gamma}^{T},\xi _{v}^{T},\xi _{a}^{T},\xi _{\omega}^{T},\xi _{\text{jerk}}^{T},\xi _{\tau}^{T} \right] ^T$，在这里$\xi _{\tau}$和最初优化变量$\xi$中的$\xi _{t}$是微分同胚的。于是代价函数可以重新写为：
 		\begin{equation}
@@ -1168,6 +1182,7 @@
 			\end{aligned}
 		\end{equation}
 		其中$\mathcal{G}_{\text{kin}},\mathcal{G}_c,\mathcal{G}_b$由公式\ref{Gkin}，\ref{eq:走廊约束代价}、\ref{eq:Gb}提供。
+		综上所述，优化问题被转化为了一个无约束的形式，以次可以使用LBFGS对该问题求解。
 
 	\section{本章小结}
 	在本章中，我们提出了一种基于安全走廊的无人铰接车局部轨迹规划方法，并通过最优控制框架对其进行建模与求解。首先，我们对铰接车的外观进行了通用性的建模，并通过简化车辆形状为两个矩形的连接，转化了避障问题为几何碰撞问题。其次，提出了针对铰接车的Hybrid A*算法改进，通过调整节点拓展策略并结合铰接车的运动学特性，优化了路径规划的效率与准确性。我们还设计了适用于铰接车的碰撞检测算法，利用栅格地图与Bresenham算法进行高效的障碍物检测。
@@ -1499,47 +1514,11 @@
 																					  
 	\reference{ref.bib}
 
-	\customizedappendix{
-		\begin{align}
-			\theta&=\omega t\notag\\
-			a&=\cos\theta \label{eq:appendix1_a}\\
-			b&=\sin\theta \label{eq:appendix1_b}\\
-			a^2+b^2&=1
-			\label{eq:appendix1_a^2+b^2}
-		\end{align}
-		
-		\begin{subequations}
-			\label{eq2:appendix1_identity_a_b}
-			\begin{align}
-				\theta&=\omega t\notag\\
-				a&=\cos\theta \label{eq2:appendix1_a}\\
-				b&=\sin\theta \label{eq2:appendix1_b}\\
-				a^2+b^2&=1
-				\label{eq2:appendix1_a^2+b^2}
-			\end{align}
-		\end{subequations}
-	}
+	% \customizedappendix{
+	% }
 
-	\customizedappendix{
-		\begin{align}
-			\theta&=\omega t\notag\\
-			a&=\cos\theta \label{eq:appendix2_a}\\
-			b&=\sin\theta \label{eq:appendix2_b}\\
-			a^2+b^2&=1
-			\label{eq:appendix2_a^2+b^2}
-		\end{align}
-		
-		\begin{subequations}
-			\label{eq2:appendix2_identity_a_b}
-			\begin{align}
-				\theta&=\omega t\notag\\
-				a&=\cos\theta \label{eq2:appendix2_a}\\
-				b&=\sin\theta \label{eq2:appendix2_b}\\
-				a^2+b^2&=1
-				\label{eq2:appendix2_a^2+b^2}
-			\end{align}
-		\end{subequations}
-	}
+	% \customizedappendix{
+	% }
 
 
 	\achievement{
@@ -1550,26 +1529,6 @@
 			\item ×××, ×××. A sampling robot for high dust and strong corrosion environment[C]//International Conference on Robotic and Biomimetics, Tianjin, 2010: 828-832. (EI收录号: 20111313856140)
 			\item ×××, ×××. 双重驱动四自由度并联机构型综合[J]. 机械设计与研究, 2008, 24(1): 51-53.
 			\item $\cdots$要与参考文献格式一致！！！
-		\end{enumerate}
-
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%专著/译著
-		{\vspace{-0.44em}\noindent\textbf{\songtib\zihao{-4} 2.\enspace 发表的专著/译著（无著作时此项不必列出）}\vspace{-0.41em}}    % 无专著/译著时此项不必列出
-		\begin{enumerate}[leftmargin=1.52em,itemsep=-0.4em,label={[\arabic*]}]\zihao{5}%%%%%%% 这一行的设定不要修改！！！
-			\item ×××, ×××. 高等空间机构学 [M]. 北京: 机械工业出版社, 2010.
-			\item ×××, ×××. 空间并联机构导论 [M]. ×××, 译. 秦皇岛: 燕山大学出版社, 2020.
-		\end{enumerate}
-
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		{\vspace{-0.44em}\noindent\textbf{\songtib\zihao{-4} 3.\enspace 申请及已获得的专利（无专利时此项不必列出）}\vspace{-0.41em}}    % 无专利时此项不必列出
-		\begin{enumerate}[leftmargin=1.52em,itemsep=-0.4em,label={[\arabic*]}]\zihao{5}%%%%%%% 这一行的设定不要修改！！！
-			\item ×××, ×××. 具有远程运动中心的三自由度转动并联机构: 中国, 200910073844.8 [P]. 2011-01-05.
-			\item ×××, ×××. 五自由度双重驱动并联机构: 中国, 200910075071.7 [P]. 2011-01-05.
-		\end{enumerate}
-
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		{\vspace{-0.44em}\noindent\textbf{\songtib\zihao{-4} 4.\enspace 科研获奖（无奖励时此项不必列出）}\vspace{-0.41em}}    % 无奖励时此项不必列出
-		\begin{enumerate}[leftmargin=1.52em,itemsep=-0.4em,label={[\arabic*]}]\zihao{5}%%%%%%% 这一行的设定不要修改！！！
-			\item ×××, ×××. 机器人机型综合及结构分析理论. XX省科学技术二等奖, 2009.
 		\end{enumerate}
 	}
 
