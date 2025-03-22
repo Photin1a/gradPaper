@@ -1,4 +1,4 @@
-\begin{thebibliography}{59}
+\begin{thebibliography}{58}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -293,6 +293,13 @@ SHI J, SUN D, QIN D, et~al.
   its trajectory via adaptive model predictive control\allowbreak[J].
 \newblock Robotics and autonomous systems, 2020, 131: 103570.
 
+\bibitem[Corke et~al.(2001)Corke and Ridley]{corke2001steering}
+CORKE P~I, RIDLEY P.
+\newblock Steering kinematics for a center-articulated mobile
+  robot\allowbreak[J].
+\newblock IEEE Transactions on Robotics and Automation, 2001, 17\allowbreak
+  (2): 215-218.
+
 \bibitem[Anderson et~al.(2010)Anderson, Peters, Pilutti, and
   Iagnemma]{anderson2010optimal}
 ANDERSON S~J, PETERS S~C, PILUTTI T~E, et~al.
@@ -309,12 +316,6 @@ MEHTA P, MEYN S.
 Proceedings of the 48h IEEE Conference on Decision and Control (CDC) held
   jointly with 2009 28th Chinese Control Conference.
 \newblock IEEE, 2009: 3598-3605.
-
-\bibitem[Osborne(1969)]{osborne1969shooting}
-OSBORNE M~R.
-\newblock On shooting methods for boundary value problems\allowbreak[J].
-\newblock Journal of mathematical analysis and applications, 1969,
-  27\allowbreak (2): 417-433.
 
 \bibitem[Aluru(2000)]{aluru2000point}
 ALURU N.
@@ -381,11 +382,6 @@ LEWIS F~L, VRABIE D, SYRMOS V~L.
 VINTER R~B, VINTER R.
 \newblock Optimal control: Vol.~2\allowbreak[M].
 \newblock Springer, 2010.
-
-\bibitem[Koubaa et~al.(2017)]{koubaa2017robot}
-KOUBAA A, et~al.
-\newblock Robot operating system (ros).: Vol.~1\allowbreak[M].
-\newblock Springer, 2017.
 
 \bibitem[Li et~al.(2022)Li, Acarman, Zhang, Ouyang, Yaman, Kong, Zhong, and
   Peng]{BaiLi:2022}

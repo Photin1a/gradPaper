@@ -1,4 +1,4 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -10,6 +10,15 @@
   \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
   \let\eprint\href
 \fi
+
+\bibitem[Yang et~al.(2024)Yang, Luo, Chen, and Geng]{10900256}
+YANG Y, LUO X, CHEN K, et~al.
+\newblock A spatial-temporal trajectory planner for center-articulated
+  vehicles\allowbreak[C/OL]//\allowbreak
+2024 4th International Conference on Artificial Intelligence, Robotics, and
+  Communication (ICAIRC).
+\newblock 2024: 442-448.
+\newblock DOI: \doi{10.1109/ICAIRC64177.2024.10900256}.
 
 \bibitem[Knuth(1986)]{texbook}
 KNUTH D~E.
