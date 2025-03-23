@@ -5,10 +5,10 @@
 \contentsline {section}{\numberline {1.2}运动规划技术国内外研究现状}{2}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}基于图搜索的运动规划方法}{2}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}基于采样的运动规划方法}{3}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}基于曲线插值的运动规划方法}{4}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.3}基于曲线插值的运动规划方法}{5}{subsection.1.2.3}%
 \contentsline {subsection}{\numberline {1.2.4}基于优化的运动规划方法}{7}{subsection.1.2.4}%
 \contentsline {section}{\numberline {1.3}铰接车运动规划技术国内外研究现状}{7}{section.1.3}%
-\contentsline {section}{\numberline {1.4}本文研究的主要内容}{8}{section.1.4}%
+\contentsline {section}{\numberline {1.4}本文研究的主要内容}{9}{section.1.4}%
 \contentsline {section}{\numberline {1.5}本文结构安排}{10}{section.1.5}%
 \contentsline {chapter}{\numberline {第2章\hspace {.3em}}基于最优控制的铰接车运动规划问题建模}{12}{chapter.2}%
 \contentsline {section}{\numberline {2.1}铰接车运动学模型建立}{12}{section.2.1}%
@@ -56,12 +56,13 @@
 \contentsline {section}{\numberline {5.2}全局规划算法仿真}{53}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}点到点路径规划仿真}{54}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}多点路径规划仿真}{56}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}局部规划算法测验}{58}{section.5.3}%
+\contentsline {section}{\numberline {5.3}局部规划算法仿真}{58}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}自主泊车场景}{60}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}侧方位停车场景}{63}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}本章小结}{64}{section.5.4}%
-\contentsline {chapter}{\numberline {第6章\hspace {.3em}}结论}{66}{chapter.6}%
-\contentsline {chapter}{参考文献}{68}{chapter.6}%
-\contentsline {chapter}{攻读硕士学位期间取得的成果}{73}{chapter*.44}%
-\contentsline {chapter}{致谢}{74}{chapter*.45}%
+\contentsline {subsection}{\numberline {5.3.3}局部规划算法的性能对比}{64}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}本章小结}{66}{section.5.4}%
+\contentsline {chapter}{\numberline {第6章\hspace {.3em}}结论}{68}{chapter.6}%
+\contentsline {chapter}{参考文献}{70}{chapter.6}%
+\contentsline {chapter}{攻读硕士学位期间取得的成果}{75}{chapter*.46}%
+\contentsline {chapter}{致谢}{76}{chapter*.47}%
 \contentsfinish 
