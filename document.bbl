@@ -50,9 +50,8 @@ YANG Y, XIONG X, YAN Y.
 
 \bibitem[Dijkstra(1959)]{Dijstra1959}
 DIJKSTRA E~W.
-\newblock A note on two problems in connexion with graphs\allowbreak[J/OL].
+\newblock A note on two problems in connexion with graphs\allowbreak[J].
 \newblock Numer. Math., 1959, 1\allowbreak (1): 269–271.
-\newblock \url{https:%doi.org/10.1007/BF01386390}.
 
 \bibitem[Hart et~al.(1968)Hart, Nilsson, and Raphael]{hart1968formal}
 HART P~E, NILSSON N~J, RAPHAEL B.
@@ -130,19 +129,17 @@ KARAMAN S, FRAZZOLI E.
 GAMMELL J~D, SRINIVASA S~S, BARFOOT T~D.
 \newblock Informed rrt*: Optimal sampling-based path planning focused via
   direct sampling of an admissible ellipsoidal
-  heuristic\allowbreak[C/OL]//\allowbreak
+  heuristic\allowbreak[C]//\allowbreak
 2014 IEEE/RSJ International Conference on Intelligent Robots and Systems.
 \newblock 2014: 2997-3004.
-\newblock DOI: \doi{10.1109/IROS.2014.6942976}.
 
 \bibitem[Gammell et~al.(2015)Gammell, Srinivasa, and Barfoot]{7139620}
 GAMMELL J~D, SRINIVASA S~S, BARFOOT T~D.
 \newblock Batch informed trees (bit*): Sampling-based optimal planning via the
   heuristically guided search of implicit random geometric
-  graphs\allowbreak[C/OL]//\allowbreak
+  graphs\allowbreak[C]//\allowbreak
 2015 IEEE International Conference on Robotics and Automation (ICRA).
 \newblock 2015: 3067-3074.
-\newblock DOI: \doi{10.1109/ICRA.2015.7139620}.
 
 \bibitem[Reeds et~al.(1990)Reeds and Shepp]{reeds1990optimal}
 REEDS J, SHEPP L.
@@ -167,10 +164,9 @@ FAN H, ZHU F, LIU C, et~al.
 \bibitem[Gao et~al.(2018)Gao, Wu, Lin, and Shen]{Gao2018OnlineST}
 GAO F, WU W, LIN Y, et~al.
 \newblock Online safe trajectory generation for quadrotors using fast marching
-  method and bernstein basis polynomial\allowbreak[J/OL].
+  method and bernstein basis polynomial\allowbreak[J].
 \newblock 2018 IEEE International Conference on Robotics and Automation (ICRA),
   2018: 344-351.
-\newblock \url{https:%api.semanticscholar.org/CorpusID:52283216}.
 
 \bibitem[Lee et~al.(2021)Lee and Kim]{lee2021optimal}
 LEE S, KIM Y.
@@ -183,10 +179,9 @@ LEE S, KIM Y.
   Ernst]{10160561}
 NGUYEN N~T, GANGAVARAPU P~T, SAHRHAGE A, et~al.
 \newblock Navigation with polytopes and b-spline path
-  planner\allowbreak[C/OL]//\allowbreak
+  planner\allowbreak[C]//\allowbreak
 2023 IEEE International Conference on Robotics and Automation (ICRA).
 \newblock 2023: 5695-5701.
-\newblock DOI: \doi{10.1109/ICRA48891.2023.10160561}.
 
 \bibitem[Li et~al.(2015)Li and Shao]{li2015unified}
 LI B, SHAO Z.
@@ -197,33 +192,29 @@ LI B, SHAO Z.
 \bibitem[Kondak et~al.(2001)Kondak and Hommel]{933030}
 KONDAK K, HOMMEL G.
 \newblock Computation of time optimal movements for autonomous parking of
-  non-holonomic mobile platforms\allowbreak[C/OL]//\allowbreak
+  non-holonomic mobile platforms\allowbreak[C]//\allowbreak
 Proceedings 2001 ICRA. IEEE International Conference on Robotics and Automation
   (Cat. No.01CH37164): Vol.~3.
 \newblock 2001: 2698-2703 vol.3.
-\newblock DOI: \doi{10.1109/ROBOT.2001.933030}.
 
 \bibitem[Arantes et~al.(2019)Arantes, Toledo, Williams, and Ono]{8613017}
 ARANTES M~D~S, TOLEDO C~F~M, WILLIAMS B~C, et~al.
 \newblock Collision-free encoding for chance-constrained nonconvex path
-  planning\allowbreak[J/OL].
+  planning\allowbreak[J].
 \newblock IEEE Transactions on Robotics, 2019, 35\allowbreak (2): 433-448.
-\newblock DOI: \doi{10.1109/TRO.2018.2878996}.
 
 \bibitem[Zhang et~al.(2021)Zhang, Liniger, and Borrelli]{9062306}
 ZHANG X, LINIGER A, BORRELLI F.
-\newblock Optimization-based collision avoidance\allowbreak[J/OL].
+\newblock Optimization-based collision avoidance\allowbreak[J].
 \newblock IEEE Transactions on Control Systems Technology, 2021, 29\allowbreak
   (3): 972-983.
-\newblock DOI: \doi{10.1109/TCST.2019.2949540}.
 
 \bibitem[Zhang et~al.(2018)Zhang, Liniger, Sakai, and Borrelli]{8619433}
 ZHANG X, LINIGER A, SAKAI A, et~al.
 \newblock Autonomous parking using optimization-based collision
-  avoidance\allowbreak[C/OL]//\allowbreak
+  avoidance\allowbreak[C]//\allowbreak
 2018 IEEE Conference on Decision and Control (CDC).
 \newblock 2018: 4327-4332.
-\newblock DOI: \doi{10.1109/CDC.2018.8619433}.
 
 \bibitem[Chang et~al.(2024)Chang and Tian]{chang2024hybrid}
 CHANG T, TIAN G.
@@ -257,26 +248,23 @@ NAYL T, NIKOLAKOPOULOS G, GUSTAFSSON T.
 \bibitem[Chen et~al.(2020)Chen, Yang, Svensson, and Feng]{9216948}
 CHEN D, YANG Z, SVENSSON L, et~al.
 \newblock Optimization based path planning for a two-body articulated
-  vehicle\allowbreak[C/OL]//\allowbreak
+  vehicle\allowbreak[C]//\allowbreak
 2020 IEEE 16th International Conference on Automation Science and Engineering
   (CASE).
 \newblock 2020: 397-403.
-\newblock DOI: \doi{10.1109/CASE48305.2020.9216948}.
 
 \bibitem[Hong et~al.(2018)Hong and Ma]{8500447}
 HONG B, MA X.
 \newblock Path optimization for a wheel loader considering construction site
-  terrain\allowbreak[C/OL]//\allowbreak
+  terrain\allowbreak[C]//\allowbreak
 2018 IEEE Intelligent Vehicles Symposium (IV).
 \newblock 2018: 2098-2103.
-\newblock DOI: \doi{10.1109/IVS.2018.8500447}.
 
 \bibitem[Kawabe et~al.(2021)Kawabe, Takei, and and]{Kawabe02122021}
 KAWABE T, TAKEI T, AND E~I.
 \newblock Path planning to expedite the complete transfer of distributed gravel
-  piles with an automated wheel loader\allowbreak[J/OL].
+  piles with an automated wheel loader\allowbreak[J].
 \newblock Advanced Robotics, 2021, 35\allowbreak (23): 1418-1437.
-\newblock \url{https://doi.org/10.1080/01691864.2021.2008488}.
 
 \bibitem[Zhao et~al.(2022)Zhao, Yin, Shen, Ren, Wang, and Zhang]{zhao2022time}
 ZHAO M, YIN G, SHEN T, et~al.
@@ -388,26 +376,23 @@ VINTER R~B, VINTER R.
 LI B, ACARMAN T, ZHANG Y, et~al.
 \newblock Optimization-based trajectory planning for autonomous parking with
   irregularly placed obstacles: A lightweight iterative
-  framework\allowbreak[J/OL].
+  framework\allowbreak[J].
 \newblock IEEE Transactions on Intelligent Transportation Systems, 2022,
   23\allowbreak (8): 11970-11981.
-\newblock DOI: \doi{10.1109/TITS.2021.3109011}.
 
 \bibitem[Deits et~al.(2015)Deits and Tedrake]{Deits:2015}
 DEITS R, TEDRAKE R.
 \newblock Computing large convex regions of obstacle-free space through
-  semidefinite programming\allowbreak[M/OL].
+  semidefinite programming\allowbreak[M].
 \newblock Cham: Springer International Publishing, 2015: 109-124.
-\newblock \url{https:%doi.org/10.1007/978-3-319-16595-0_7}.
 
 \bibitem[Liu et~al.(2017)Liu, Watterson, Mohta, Sun, Bhattacharya, Taylor, and
   Kumar]{SikangLiu:2017}
 LIU S, WATTERSON M, MOHTA K, et~al.
 \newblock Planning dynamically feasible trajectories for quadrotors using safe
-  flight corridors in 3-d complex environments\allowbreak[J/OL].
+  flight corridors in 3-d complex environments\allowbreak[J].
 \newblock IEEE Robotics and Automation Letters, 2017, 2\allowbreak (3):
   1688-1695.
-\newblock DOI: \doi{10.1109/LRA.2017.2663526}.
 
 \bibitem[Liu et~al.(1989)Liu and Nocedal]{liu1989limited}
 LIU D~C, NOCEDAL J.

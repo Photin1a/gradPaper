@@ -27,42 +27,42 @@
 \contentsline {subsection}{\numberline {3.2.2}起点和终点约束方程}{23}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}航点的连续性约束方程}{24}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}轨迹的闭式解}{25}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}基于安全走廊的安全约束分析}{26}{section.3.3}%
-\contentsline {section}{\numberline {3.4}点到点全局路径规划}{28}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}铰接车的最大曲率}{28}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}优化问题的建立}{29}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.3}基于安全走廊的安全约束分析}{25}{section.3.3}%
+\contentsline {section}{\numberline {3.4}点到点全局路径规划}{27}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}铰接车的最大曲率}{27}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}优化问题的建立}{28}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}起点和终点航向角保证}{30}{subsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.4.4}优化问题求解}{31}{subsection.3.4.4}%
-\contentsline {section}{\numberline {3.5}多点航行全局路径规划}{33}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}多点航行规划的问题描述}{33}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}站点的换向处理}{34}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.5}多站点航行全局路径规划}{32}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}多站点航行规划的问题描述}{32}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}站点的换向处理}{33}{subsection.3.5.2}%
 \contentsline {section}{\numberline {3.6}本章小结}{34}{section.3.6}%
-\contentsline {chapter}{\numberline {第4章\hspace {.3em}}基于安全走廊的无人铰接车局部规划方法}{36}{chapter.4}%
-\contentsline {section}{\numberline {4.1}铰接车的几何结构建模}{36}{section.4.1}%
-\contentsline {section}{\numberline {4.2}铰接车Hybrid A*算法的改进}{37}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}节点拓展策略改进}{38}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}代价函数设计}{40}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}碰撞检测算法设计}{41}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}基于NMPC和安全走廊的轨迹规划}{42}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}NMPC问题构建}{42}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}运动学约束}{43}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}安全走廊的防碰撞约束处理}{45}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}变量的边界约束}{47}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}时间正则化约束}{47}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}优化问题求解}{48}{subsection.4.3.6}%
-\contentsline {section}{\numberline {4.4}本章小结}{49}{section.4.4}%
-\contentsline {chapter}{\numberline {第5章\hspace {.3em}}无人铰接车运动规划系统仿真}{50}{chapter.5}%
-\contentsline {section}{\numberline {5.1}仿真环境及运动规划软件架构设计}{50}{section.5.1}%
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}基于安全走廊的无人铰接车局部规划方法}{35}{chapter.4}%
+\contentsline {section}{\numberline {4.1}铰接车的几何结构建模}{35}{section.4.1}%
+\contentsline {section}{\numberline {4.2}铰接车Hybrid A*算法的改进}{36}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}节点拓展策略改进}{37}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}代价函数设计}{38}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}碰撞检测算法设计}{39}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}基于NMPC和安全走廊的轨迹规划}{40}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}NMPC问题构建}{40}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}运动学约束}{42}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}安全走廊的防碰撞约束处理}{43}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}变量的边界约束}{45}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}时间正则化约束}{46}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}优化问题求解}{46}{subsection.4.3.6}%
+\contentsline {section}{\numberline {4.4}本章小结}{47}{section.4.4}%
+\contentsline {chapter}{\numberline {第5章\hspace {.3em}}无人铰接车运动规划系统仿真}{49}{chapter.5}%
+\contentsline {section}{\numberline {5.1}仿真环境及运动规划软件架构设计}{49}{section.5.1}%
 \contentsline {section}{\numberline {5.2}全局规划算法仿真}{53}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}点到点路径规划仿真}{54}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}多点路径规划仿真}{56}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}局部规划算法仿真}{58}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}自主泊车场景}{60}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}侧方位停车场景}{63}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.2.1}点到点路径规划仿真}{53}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}多站点路径规划仿真}{56}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}局部规划算法仿真}{57}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}自主泊车场景}{59}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}侧方位停车场景}{62}{subsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.3.3}局部规划算法的性能对比}{64}{subsection.5.3.3}%
-\contentsline {section}{\numberline {5.4}本章小结}{66}{section.5.4}%
-\contentsline {chapter}{\numberline {第6章\hspace {.3em}}结论}{68}{chapter.6}%
-\contentsline {chapter}{参考文献}{70}{chapter.6}%
-\contentsline {chapter}{攻读硕士学位期间取得的成果}{75}{chapter*.46}%
-\contentsline {chapter}{致谢}{76}{chapter*.47}%
+\contentsline {section}{\numberline {5.4}本章小结}{65}{section.5.4}%
+\contentsline {chapter}{\numberline {第6章\hspace {.3em}}结论}{67}{chapter.6}%
+\contentsline {chapter}{参考文献}{69}{chapter.6}%
+\contentsline {chapter}{攻读硕士学位期间取得的成果}{74}{chapter*.47}%
+\contentsline {chapter}{致谢}{75}{chapter*.48}%
 \contentsfinish 

@@ -19,8 +19,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Document metadata
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{基于微分平坦性与安全走廊的无人铰接车运动规划算法研究
-}{Research on Motion Planning Algorithm for Unmanned Articulated Vehicles Based on Differential Flatness and Safety Corridors}
+\title{基于安全走廊的无人铰接车全局及局部规划方法研究
+}{Research on Global and Local Planning Methods for Unmanned Articulated Vehicles Based on Safety Corridors}
 \author{杨远爽}{Yang Yuanshuang}
 \school{电气工程学院}{School of Electrical Engineering}
 \subject{控制科学与工程}{Control Science and Engineering}
@@ -91,7 +91,7 @@
 			\subcaptionbox{LPAstar\label{fig:LPAstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/A-search/LPAstar.png}}
 			\subcaptionbox{RTAAstar\label{fig:RTAAstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/A-search/RTAAstar.png}}
 			\subcaptionbox{Dstar\label{fig:Dstar}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/A-search/Dstar.png}}
-			\caption{基于搜索的路径规划}
+			\caption{基于搜索的路径规划算法效果对比图}
 			\label{fig:基于搜索的路径规划}
 		\end{figure}
 
@@ -105,7 +105,7 @@
 			\subcaptionbox{Fast Matching Trees\label{fig:fast_matching_trees}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/rrt/fast\_matching\_trees.png}}
 			\subcaptionbox{Extended RRT\label{fig:extended_RRT}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/rrt/extended\_RRT.png}}
 			\subcaptionbox{Batch Informed Trees\label{fig:batch_informed_trees}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/rrt/batch\_informed\_trees.png}}
-			\caption{基于采样的路径规划}
+			\caption{基于采样的路径规划效果对比图}
 			\label{fig:基于采样的路径规划}
 		\end{figure}
 
@@ -127,7 +127,7 @@
 			\subcaptionbox{bspline\label{fig:bspline}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/curve/bspline.png}}
 			\subcaptionbox{dubins\_path\label{fig:dubins_path}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/curve/dubins\_path.png}}
 			\subcaptionbox{reeds\_shepp\label{fig:reeds_shepp}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/插图/curve/reeds\_shepp.png}}
-			\caption{基于曲线插值的路径规划}
+			\caption{基于曲线插值的路径规划效果对比图}
 			\label{fig:基于曲线插值的路径规划}
 		\end{figure}
 
@@ -199,7 +199,7 @@
 
 	\section{铰接车运动学模型建立}
 	铰接车结构上由前桥和后桥组成，中间通过液压或者舵机驱动铰接角完成转向。本文介绍的铰接车结构模型如图\ref{fig:铰接车简易模型}所示。 
-	\begin{figure}[!ht]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.6\textwidth]{铰接车简易模型.png}
 		\caption{铰接车简易模型}
@@ -219,7 +219,7 @@
 	\end{equation}
 	其中，$v$为车体前桥的参考点速度，$\dot{x}$和$\dot{y}$分别为铰接车位置$x$和$y$对时间的导数。
 
-	由于前桥和后桥通过铰接角刚性连接，可以推导出前桥参考点和后桥参考点的坐标变换公式如下：
+	由于前桥和后桥通过铰接角刚性连接，可以推导出前桥参考点和后桥参考点的坐标变换见式（\ref{model_2}）：
 	\begin{equation}
 		\begin{aligned}
 			&x=x_r+l_r\cos\theta _r+l_f\cos\theta\\
@@ -229,7 +229,7 @@
 		\label{model_2}
 	\end{equation}
 
-	在本文的研究中铰接车的前桥和后桥相等，即$L=l_f=l_r$。联合\ref{model_1}和\ref{model_2}可以得到铰接车的运动学模型，见公式\ref{eq:铰接车运动学模型}。
+	在本文的研究中铰接车的前桥和后桥相等，即$L=l_f=l_r$。联合式（\ref{model_1}）和式（\ref{model_2}）可以得到铰接车的运动学模型，见式（\ref{eq:铰接车运动学模型}）。
 	\begin{equation}
 		\begin{aligned}
 			\frac{d}{dt}\left[ \begin{array}{c}
@@ -257,7 +257,7 @@
 	\end{equation}
 
 
-	特别的，如果忽略铰接车的动态转向，只保留静态转向，即$\omega=0$，公式\ref{eq:转弯半径}可以重写为：
+	特别的，如果忽略铰接车的动态转向，只保留静态转向，即$\omega=0$，式（\ref{eq:转弯半径}）可以重写为：
 	\begin{equation}
 		\begin{aligned}
 			R_{steady} = \frac{L}{\tan(\gamma/2)} 
@@ -275,11 +275,11 @@
 			\min_{x(t),u(t),t} &J = \Phi[x(t_f)]+\int_{t_0}^{t_f}L[x(t),u(t),t]dt\\
 			s.t. \ \ \ &\dot{x} = f(x(t),u(t))\\
 			&x_{min}\le x(t) \le x_{max},u_{min}\le u(t) \le u_{max},t \in{t_0,t_f}\\
-			&x(t_0)=x_{start},x(t_f)=x_{goal},\\
+			&x(t_0)=x_{start},x(t_f)=x_{goal}\\
 			&h(x(t))\cap C_{occ}=\varnothing 
 		\end{aligned}
 	\end{equation}
-	其中，$\Phi[x(t_f)]$为终点$x(t_f)$的代价函数，$L[x(t),u(t),t]$为时间$t$时刻的过程代价函数。$\dot{x}(t)=f(x(t),u(t))$为车辆的运动学方程，$x_{min}$和$x_{max}$分别为状态变量的下边界和上边界。$u_{min}$和$u_{max}$分别为输入变量的下边界和上边界。$x(t_0)=x_{start},x(t_f)=x_{goal}$表示起点和终点约束。$h(x(t))\cap C_{occ}=\varnothing$表示车辆的避障约束，其中$C_{occ}$表示障碍物区域。
+	其中，$\Phi[x(t_f)]$为终点$x(t_f)$的代价，$L[x(t),u(t),t]$为时间$t$时刻的过程代价。$\dot{x}(t)=f(x(t),u(t))$为车辆的运动学方程，$x_{min}$和$x_{max}$分别为状态变量的下边界和上边界。$u_{min}$和$u_{max}$分别为输入变量的下边界和上边界。$x(t_0)=x_{start},x(t_f)=x_{goal}$表示起点和终点约束。$h(x(t))\cap C_{occ}=\varnothing$表示车辆的避障约束，其中$C_{occ}$表示障碍物区域。
 	
 	对于离散系统，一般代价泛函可以表示为：
 	\begin{equation}
@@ -303,14 +303,14 @@
 		\min_{x(k),u(k)} &J = \Phi[x(N)]+\sum_{k=0}^{N-1}L[x(k),u(k),k]\\
 			s.t. \ \ \ &x(k+1) = x(k)+ \Delta t \cdot f(x(k),u(k))\\
 			&x_{min}\le x(k) \le x_{max},u_{min}\le u(k) \le u_{max},k \in{0,N-1}\\
-			&x(0)=x_{start},x(N)=x_{goal},\\
+			&x(0)=x_{start},x(N)=x_{goal}\\
 			&h(x(k))\cap C_{occ}=\varnothing 
 	\end{aligned}
 	\label{最优控制优化问题}
 	\end{equation}
 	其中，$N$为离散化的区间数目。约束条件依次为系统动力学约束、状态受限约束、输入受限约束、起点终点约束和路径约束（安全避障约束）。
 
-	针对全局规划和局部规划对公式\ref{最优控制优化问题}设计各自的具体目标函数和约束形式会在第三章和第四章中详细介绍，并使用非线性优化求解器进行求解。非线性优化求解器将在下一节中介绍。
+	针对全局规划和局部规划对式（\ref{最优控制优化问题}）设计各自的具体目标函数和约束形式会在第三章和第四章中详细介绍，并使用非线性优化求解器进行求解。非线性优化求解器将在下一节中介绍。
 
 	\section{非线性规划问题的求解}
 	上一节中把最优控制离散化为了一个非线性规划（NLP）问题，这个问题具有很强的非线性和非凸性。一般处理NLP问题的求解方法有很多，包含增广拉格朗日乘子法（ALM）\upcite{rockafellar1974augmented}、交叉方向乘子法（ADMM）\upcite{wei2012distributed}和罚函数法\upcite{yeniay2005penalty}等。这些所有的方法都假设了问题和约束都是凸的，目前对于非凸问题还没有有效的求解方法。由于罚函数在工程中数值稳定性很高，下文设计中将使用罚函数。
@@ -333,14 +333,14 @@
 		\end{equation}
 		其中，罚函数$Pen1$针对于处理不等式约束，它必须具有的特性是在可行域外时代价尽量大，在可行域内时代价尽量小。罚函数$Pen2$针对于处理等式约束，它必须具有的特性是在可行点外时代价尽量大，在可行点内时代价尽量小。针对罚函数$Pen1$和$Pen2$的具体形式，会在后续文中进行合理设计。
 		\subsection{非线性规划问题的初始解}
-		罚函数是将带约束的问题转化为了无约束优化问题，求解无约束优化问题需要一个迭代初始解。在凸优化中，初始解的质量至关重要，问题的凸特性会使得初始解向最优解迭代，初始解的不同只是影响收敛快慢而已。但是在本文的非线性规划问题中，问题是强非凸的，所以不同的初始解可能最终收敛到的极值并不一样。所以找到一个优秀的初始解可以使得最终的求解结果接近最优解。图\ref{fig:不同初解}为不同初始轨迹与最后收敛的轨迹比较图。
-		\begin{figure}[!ht]
+		罚函数是将带约束的问题转化为了无约束优化问题，求解无约束优化问题需要一个迭代初始解。在凸优化中，初始解的质量至关重要，问题的凸特性会使得初始解向最优解迭代，初始解的不同只是影响收敛快慢而已。但是在本文的非线性规划问题中，问题是强非凸的，所以不同的初始解可能最终收敛到的极值并不一样。所以找到一个优秀的初始解可以使得最终的求解结果接近最优解。图\ref{fig:不同初解}为不同初始轨迹与最后收敛的轨迹比较图。图中灰色区域是设置的障碍物，虚线表示初始解，实线为优化后的局部最优轨迹。
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\textwidth]{不同初解.png}
 			\caption{不同初始轨迹与最后收敛的轨迹比较}
 			\label{fig:不同初解}
 		\end{figure}
-		如图\ref{fig:不同初解}所示，非线性规划算法处理初始轨迹A1后将迭代优化至轨迹A2，而选取初始方案B1时则会收敛于轨迹B2。通过图示对比可明显观察到，采用初始轨迹A1能使系统收敛至路径长度更优的局部极小值。该现象验证了初始参数设定对优化结果具有决定性作用，因此初始解的获取策略是极为关键的。
+		可以看出，非线性规划算法处理初始轨迹A1后将迭代优化至轨迹A2，而选取初始方案B1时则会收敛于轨迹B2。通过图示对比可明显观察到，采用初始轨迹A1能使系统收敛至路径长度更优的局部极小值。该现象验证了初始参数设定对优化结果具有决定性作用，因此初始解的获取策略是极为关键的。
 
 	\section{本章小结}
 	本章系统构建了铰接车运动规划的理论框架与求解体系，并通过全局-局部分层规划架构实现任务分解。
@@ -349,10 +349,10 @@
 
 	\chapter{基于微分平坦的无人铰接车全局轨迹规划方法}
 		在传统的全局规划问题中，目标是找到从起点到终点的最优路径，最优的指标一般是路径最短。例如A*算法和Dijstra算法可以在栅格地图中搜索出路径代价最小的路径，RRT*系列算法在概率完备下得到路径也是距离最短的。这些全局规划算法针对全向或者差速机器人会非常有效，然而，它们并不会考虑车身的朝向和曲率等信息。因此，面对具有强非完整性的机器人来说并不适合。如图\ref{fig:路径规划算法特例}，是期望路径和实际轨迹的对比图。
-		\begin{figure}[!ht]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\textwidth]{路径规划算法特例.png}
-			\caption{路径规划算法特例}
+			\caption{期望路径和实际轨迹对比图}
 			\label{fig:路径规划算法特例}
 		\end{figure}
 
@@ -363,7 +363,7 @@
 	\section{铰接模型微分平坦性}
 		微分平坦性为非线性控制提供了一种“捷径”，通过平坦输出的参数化，可以将复杂的轨迹优化问题转化为简单的代数计算。它在机器人、航空航天和自动化领域有广泛应用，是现代控制理论中连接几何方法与实际工程的重要工具。微分平坦系统具有如下特征\upcite{mellinger2011minimum}：对于一个非线性系统，如果能找一组输出变量，使得所有的状态变量输出变量都可以用这组输出变量及其多阶导数所表示，则这个系统为微分平坦系统。
 
-		对于铰接车而言，实际工作环境往往非常复杂（比如障碍物多、空间狭窄）。这时候做全局路径规划可以使用简化的运动学模型，把需要精细调整的部分交给局部规划来处理，以节省计算资源。在这里忽略动态转向，只保留静态转向模型。令$v$和$\gamma$为系统输入，系统模型\ref{eq:铰接车运动学模型}可以简化为：
+		对于铰接车而言，实际工作环境往往非常复杂（比如障碍物多、空间狭窄）。这时候做全局路径规划可以使用简化的运动学模型，把需要精细调整的部分交给局部规划来处理，以节省计算资源。在这里忽略动态转向，只保留静态转向模型。令$v$和$\gamma$为系统输入，运动学方程（\ref{eq:铰接车运动学模型}）可以简化为：
 		\begin{equation}
 			\begin{aligned}
 				\dot{x} &= v\cos\theta\\
@@ -373,7 +373,7 @@
 			\end{aligned}
 		\end{equation} 
 
-		对于上述的铰接车的运动模型，选择$x,y$作为平坦输出，这在轨迹规划中可以带来很好的性质。$x,y$也是需要的轨迹，具有实际的物理意义。
+		对于上述的铰接车的运动模型，选择$x$和$y$作为平坦输出，这在轨迹规划中可以带来很好的性质。$x$和$y$也是需要的轨迹，具有实际的物理意义。
 		下面给出铰接车的微分平坦系统：
 		\begin{equation}
 			\begin{aligned}
@@ -386,8 +386,8 @@
 	其中，$x$和$y$是系统的平坦输出变量，$\dot{x}$和$\dot{y}$是平坦输出变量关于时间的一阶导数，$\ddot{x}$和$\ddot{y}$是平坦输出变量关于时间的二阶导数。$(v,\theta,\gamma,k)$是选取的状态变量。$k$为轨迹的曲率，也是铰接角的函数。$n\in\{-1,1\}$是车辆运动的方向，分别代表后退和前进两种情况。
 
 	\section{轨迹的参数化表达形式}
-	在自动驾驶中参数化曲线的方法有很多，例如五次多项式、贝塞尔曲线、B样条、螺旋线、Dubin曲线和RS曲线。MINCO曲线作为是一种基于五次多项式的曲线类型，它在处理微分平坦系统上有着天然的优势\upcite{wang2022geometrically}。这一小节将介绍minco曲线的原理，并且运用它处理铰接车的运动规划问题。图\ref{fig:minco}为MINCO样条曲线的可视化图。图中$q_0,...,q_N$为轨迹航点，$\beta(ti)$为第$i$段轨迹多项式轨迹。
-	\begin{figure}[!ht]
+	在自动驾驶中参数化曲线的方法有很多，例如五次多项式、贝塞尔曲线、B样条、螺旋线、Dubin曲线和RS曲线。MINCO曲线作为是一种基于五次多项式的曲线类型，它在处理微分平坦系统上有着天然的优势\upcite{wang2022geometrically}。这一小节将介绍minco曲线的原理，并且运用它处理铰接车的运动规划问题。图\ref{fig:minco}为MINCO样条曲线的可视化图。图中$\bm{q}_{0},...,\bm{q}_{N}$为轨迹航点，$\bm{\beta}(t_i)$为第$i$段轨迹多项式轨迹。
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\textwidth]{minco.png}
 		\caption{minco样条曲线}
@@ -403,21 +403,21 @@
 		在多项式规划中一个典型的BVP问题可以表示为：
 		\begin{equation}
 			\begin{aligned}
-				&min\int_0^T{u}(t) ^TWu(t) dt\\
-				s.t. \ \ \ &z^s(t) =u(t) ,\forall t\in \left[ 0,T \right] ,\\
-				&z^{\left[ s-1 \right]}(0) =\bar{z}_s,z^{\left[ s-1 \right]}(T) =\bar{z}_e.
+				&min\int_0^T{u}(t) ^T\bm{W}u(t) dt\\
+				s.t. \ \ \ &z^s(t) =u(t) ,\forall t\in \left[ 0,T \right] \\
+				&z^{\left[ s-1 \right]}(0) =\bar{z}_s,z^{\left[ s-1 \right]}(T) =\bar{z}_e
 			\end{aligned}
 		\end{equation}
-		其中，$z(t)$是样条曲线，它可以是上述提到的贝塞尔曲线、B样条或者者多项式形式。$u(t)$是系统的输入，它是$z(t)$关于时间的$s$阶导数。$W$是输入代价的权重矩阵。$\bar{z}_s$和$\bar{z}_e$分别是起点状态和终点状态。对于以上最小控制输入问题，控制量$u(t)$是平坦变量的$s$阶次导数，则BVP问题的最优解是一个$2s-1$次多项式\upcite{wang2022geometrically}。
+		其中，$z(t)$是样条曲线，它可以是上述提到的贝塞尔曲线、B样条或者者多项式形式。$u(t)$是系统的输入，它是$z(t)$关于时间的$s$阶导数。$\bm{W}$是输入代价的权重矩阵。$\bar{z}_s$和$\bar{z}_e$分别是起点状态和终点状态。对于以上最小控制输入问题，控制量$u(t)$是平坦变量的$s$阶次导数，则BVP问题的最优解是一个$2s-1$次多项式\upcite{wang2022geometrically}。
 
 		当$s=3$时这是一个minimumJerk问题，它的最优解是一个五次多项式。轨迹曲线$z(t)$可以被表示为关于时间$t$多项式函数$\beta(t)$：
 		\begin{equation}
 			\begin{aligned}
-				z&=\beta (t) =\lambda ^T(t) c=c_0+c_1t+c_2t^2+c_3t^3+c_4t^4+c_5t^5=\\
+				z&=\beta (t) =\bm{\lambda} ^T(t) \bm{c} =c_0+c_1t+c_2t^2+c_3t^3+c_4t^4+c_5t^5=\\
 				&\left[ 1\,\,t\,\,\,\,t^2\,\,t^3\,\,t^4\,\,t^5 \right] \cdot \left[ c_0\,\,c_1\,\,c_2\,\,c_3\,\,c_4\,\,c_5 \right] ^T
 			\end{aligned}
 		\end{equation}
-		其中，$c=\left[ c_0\,\,c_1\,\,c_2\,\,c_3\,\,c_4\,\,c_5 \right] ^T$是多项式的系数向量，由各阶系数（$c_0,...,c_5$）组成。$\lambda(t)=\left[ 1\,\,t\,\,\,\,t^2\,\,t^3\,\,t^4\,\,t^5 \right]^T$。
+		其中，$\bm{c}=\left[ c_0\,\,c_1\,\,c_2\,\,c_3\,\,c_4\,\,c_5 \right] ^T$是多项式的系数向量，由各阶系数（$c_0,...,c_5$）组成。$\bm{\lambda}(t)=\left[ 1\,\,t\,\,\,\,t^2\,\,t^3\,\,t^4\,\,t^5 \right]^T$。
 		
 		假设轨迹的时间段是$T$，起点和终点带来的约束可以写为：
 		\begin{equation}
@@ -437,48 +437,48 @@
 					1&		T&		T^2&		T^3&		T^4&		T^4\\
 					0&		1&		2T&		3T^2&		4T^3&		5T^4\\
 					0&		0&		2&		6T&		12T^2&		20T^3\\
-					\end{bmatrix}}_{A_F(t)}  
+					\end{bmatrix}}_{\bm{A_F}(t)}  
 				\underbrace{\begin{bmatrix}
 				c_0\\
 				c_1\\
 				c_2\\
 				c_3\\
 				c_4\\
-				\end{bmatrix}}_{c} 
+				\end{bmatrix}}_{\bm{c}} 
 			\end{aligned}
 			\label{eq:BVP}
 		\end{equation}
-		其中，$x_s,v_s,a_s$分别是轨迹起点的位置、速度和加速度，$x_e,v_e,a_e$对应为终点的状态。需要说明的是，上述讨论的BVP仅针对一维情况。而实际应用中，平坦变量通常是二维的（如平面坐标系中的x和y方向），此时可以将其分解为两个独立的一维BVP的组合——即分别在x和y方向求解对应的边界条件，最终通过坐标合成得到二维轨迹。这种解耦方法的核心假设是两个维度在平坦域内无耦合约束。
+		其中，$x_s,v_s,a_s$分别是轨迹起点的位置、速度和加速度，$x_e,v_e,a_e$对应为终点的状态。需要说明的是，上述讨论的BVP仅针对一维情况。而实际应用中，平坦变量通常是二维的（如平面坐标系中的$x$和$y$方向），此时可以将其分解为两个独立的一维BVP的组合——即分别在$x$和$y$方向求解对应的边界条件，最终通过坐标合成得到二维轨迹。这种解耦方法的核心假设是两个维度在平坦域内无耦合约束。
 		
 		（2）BIVP 
 		
 		为了保证轨迹的灵活性，在实际的规划问题中轨迹规划被表述为多个BVP的统一形式，即BIVP问题：
 		\begin{equation}
 			\begin{aligned}
-				\min_{z(t)}\int_{t_0}^{t_N}&u^T(t)\mathbf{W}u(t)dt\\
+				\min_{z(t)}\int_{t_0}^{t_N}&u^T(t)\bm{W}u(t)dt\\
 				\text{s.t}.z^{( s )}(t) &=u(t) \quad \forall t\in \left[ t_0,t_N \right]\\
 				z^{\left[ s-1 \right]}( t_0 ) &=\bar{z}_s,z^{\left[ s-1 \right]}( t_N ) =\bar{z}_e\\
 				z^{\left[ d_i-1 \right]}( t_i ) &=\bar{z}_i,1\leq i<N\\
 				t_{i-1}&<t_i,1\leq i\leq N.\\
 			\end{aligned}
 		\end{equation}
-		其中，$t_i$为时间变量，$t_0$是起点时刻，$t_N$是终点时刻。$W$是输入代价的权重矩阵。$N$为BIVP的区间数目，也就是多项式轨迹的段数。其他变量和BVP中描述的一致。
-		对于以上问题，其最优性条件指出：对与最小化$s$阶导数的BIVP问题，他的最优解的单段轨迹一定是一个$2s-1$次多项式，且这个解具有$s+1$阶导数的连续性。例如，在处理minimumJerk（s = 3）的轨迹时，这个轨迹具有snap阶（s = 4）阶的连续性\upcite{wang2022geometrically}。因此BIVP问题的闭式解完全可以由起点状态、终点状态、中间位置和中间变量的连续性约束所得到。如图\ref{fig:minco}，由$N+1$个航点可以生成N段五次多项式轨迹，每个多项式有6个系数，一共有6N个系数。这意味着需要6N个约束才能唯一确定这个轨迹。
+		其中，$t_i$为时间变量，$t_0$是起点时刻，$t_N$是终点时刻。$\bm{W}$是输入代价的权重矩阵。$N$为BIVP的区间数目，也就是多项式轨迹的段数。其他变量和BVP中描述的一致。
+		对于以上问题，其最优性条件指出：对与最小化$s$阶导数的BIVP问题，他的最优解的单段轨迹一定是一个$2s-1$次多项式，且这个解具有$s+1$阶导数的连续性。例如，在处理minimumJerk（s = 3）的轨迹时，这个轨迹具有snap阶（s = 4）阶的连续性\upcite{wang2022geometrically}。因此BIVP问题的闭式解完全可以由起点状态、终点状态、中间位置和中间变量的连续性约束所得到。如图\ref{fig:minco}，由N+1个航点可以生成N段五次多项式轨迹，每个多项式有6个系数，一共有6N个系数。这意味着需要6N个约束才能唯一确定这个轨迹。
 	
 		\subsection{起点和终点约束方程} 
-		假设共有N+1个航点$q_0,...,q_N$，其中起点$q_0=[x_0,y_0,v_{0x},v_{0y},a_{0x},a_{0y}]$和终点$q_N=[x_N,y_N,v_{Nx},v_{Ny},a_{Nx},a_{Ny}]$完全已知。由此，一共可以得到6个约束方程，起点的约束方程为：
+		假设共有N+1个航点$\bm{q}_{0}$至$\bm{q}_{N}$，其中起点$\bm{q}_{0}=[x_0,y_0,v_{0x},v_{0y},a_{0x},a_{0y}]$和终点$\bm{q}_{N}=[x_N,y_N,v_{Nx},v_{Ny},a_{Nx},a_{Ny}]$完全已知。$\bm{q}_1 = [x_1,y_2]$，一直到$\bm{q}_{N-1} = [x_{N-1},y_{N-1}]$。由此，一共可以得到6个约束方程，起点的约束方程为：
 		\begin{equation}
 			\begin{aligned}
 			\underbrace{\begin{bmatrix}
 				x_0&		y_0\\
 				v_{0x}&		v_{0y}\\
 				a_{0x}&		a_{0y}\\
-			\end{bmatrix}}_{b_0} 
+			\end{bmatrix}}_{\bm{\alpha}_0} 
 			 = \underbrace{\begin{bmatrix}
 				1&		0&		0&		0&		0&		0\\
 				0&		1&		0&		0&		0&		0\\
 				0&		0&		2&		0&		0&		0\\
-			\end{bmatrix}}_{F_0}
+			\end{bmatrix}}_{\bm{F}_0}
 			\underbrace{\begin{bmatrix}
 				c_{0x}^{1}&		c_{0y}^{1}\\
 				c_{1x}^{1}&		c_{1y}^{1}\\
@@ -486,7 +486,7 @@
 				c_{3x}^{1}&		c_{3y}^{1}\\
 				c_{4x}^{1}&		c_{4y}^{1}\\
 				c_{5x}^{1}&		c_{5y}^{1}\\
-			\end{bmatrix}}_{c_1}
+			\end{bmatrix}}_{\bm{c}_1}
 			\end{aligned}
 		\end{equation}
 		其中，$c^1_{jx}$为$x$方向上第一段多项式轨迹的第$j$个系数，$c^1_{jy}$为$y$方向上第一段多项式轨迹的第$j$个系数。
@@ -498,12 +498,12 @@
 				x_N&		y_N\\
 				v_{Nx}&		v_{Ny}\\
 				a_{Nx}&		a_{Ny}\\
-			\end{bmatrix}}_{b_N} =
+			\end{bmatrix}}_{\bm{\alpha}_N} =
 			\underbrace{\begin{bmatrix}
 				1&		T_N&		T_N^2&		T_N^3&		T_N^4&    	T_N^5\\
 				0&		1&		2T_N&		3T_N^2&		4T_N^3&		5T_N^4\\
 				0&		0&		2&		6T_N&		12T_N^2&		20T_N^3\\
-			\end{bmatrix}}_{F_N} 
+			\end{bmatrix}}_{\bm{F}_N} 
 			\underbrace{\begin{bmatrix}
 				c_{0x}^{N}&		c_{0y}^{N}\\
 				c_{1x}^{N}&		c_{1y}^{N}\\
@@ -511,7 +511,7 @@
 				c_{3x}^{N}&		c_{3y}^{N}\\
 				c_{4x}^{N}&		c_{4y}^{N}\\
 				c_{5x}^{N}&		c_{5y}^{N}\\
-			\end{bmatrix}}_{c_N} 
+			\end{bmatrix}}_{\bm{c}_N} 
 			\end{aligned}
 		\end{equation}
 		其中，$c^N_{jx}$为$x$方向上第$N$段多项式轨迹的第$j$个系数，$c^N_{jy}$为$y$方向上第$N$段多项式轨迹的第$j$个系数。
@@ -526,14 +526,14 @@
 					a_x(t)& a_y(t)\\
 					jerk_x(t)& jerk_y(t)\\
 					snap_x(t)& snap_y(t)\\
-				\end{bmatrix}}_{\mathbf{b}(t) }
+				\end{bmatrix}}_{\bm{\alpha}(t) }
 					= \underbrace{\begin{bmatrix}
 						1&		t&		t^2&		t^3&		t^4&		t^5\\
 						0&		1&		2t&		3t^2&		4t^3&		5t^4\\
 						0&		0&		2&		6t&		12t^2&		20t^3\\
 						0&		0&		0&		6&		24t&		60t^2\\
 						0&		0&		0&		0&		24&		120t\\
-					\end{bmatrix}}_{G(t)}
+					\end{bmatrix}}_{\bm{G}(t)}
 					  \underbrace{\begin{bmatrix}
 						c_{0x}^{i}&		c_{0y}^{i}\\
 						c_{1x}^{i}&		c_{1y}^{i}\\
@@ -541,26 +541,26 @@
 						c_{3x}^{i}&		c_{3y}^{i}\\
 						c_{4x}^{i}&		c_{4y}^{i}\\
 						c_{5x}^{i}&		c_{5y}^{i}\\
-					\end{bmatrix}}_{c_i}
+					\end{bmatrix}}_{\bm{c}_i}
 			\end{aligned}
 		\end{equation}
 		
 		则第$i$段轨迹和第$i+1$段轨迹的连续性约束方程可以写为：
 		\begin{equation}
 			\begin{aligned}
-				G(T_i)c_i-G(0)c_{i+1} = 0
+				\bm{G}(T_i)\bm{c}_i-\bm{G}(0)\bm{c}_{i+1} = 0
 			\end{aligned}
 		\end{equation}
-		其中$T_i$为第$i$段多项式轨迹的时间区间，$c_i$为第$i$段多项式轨迹的系数向量。
+		其中$T_i$为第$i$段多项式轨迹的时间区间，$\bm{c}_i$为第$i$段多项式轨迹的系数向量。
 		由于一共有N-1个中间航点，每一个航点带来5个约束，所以连续性约束一共有5M-5个。
 		
 		\subsection{轨迹的闭式解} 
-		令中间航点为$q_1(x_1,y_1),q_2(x_2,y_2),...,q_{N-1}(x_{N-1},y_{N-1})$。如果中间航点是已知的，则可以带来N-1个航点的位置约束：
+		令中间航点为$\bm{q}_1(x_1,y_1),\bm{q}_2(x_2,y_2),...,\bm{q}_{N-1}(x_{N-1},y_{N-1})$。如果中间航点是已知的，则可以带来N-1个航点的位置约束：
 		\begin{equation}
 			\begin{aligned}
-				q_i = \begin{bmatrix}
+				\bm{q}_i = \begin{bmatrix}
 					x(T_i)& y(T_i)
-				\end{bmatrix} = \beta(T_i)c_i
+				\end{bmatrix} = \bm{\beta}(T_i)\bm{c}_i
 			\end{aligned}
 		\end{equation}
 		
@@ -568,13 +568,13 @@
 		\begin{equation}
 			\begin{aligned}
 				\begin{bmatrix}
-					E_i &F_i
+					\bm{E}_i &\bm{F}_i
 				\end{bmatrix}=
 				\begin{bmatrix}
-					\beta ( T_i )& G( T_i ) \\
-					0 & -G( 0 )
+					\bm{\beta} ( T_i )& \bm{G}( T_i ) \\
+					0 & -\bm{G}( 0 )
 				\end{bmatrix}  =\begin{bmatrix}
-					q_i\\
+					\bm{q}_i\\
 					0
 				\end{bmatrix}
 			\end{aligned}
@@ -583,35 +583,35 @@
 		\begin{equation}
 			\begin{aligned}
 				\underbrace{\begin{bmatrix}
-					F_0&		0&		0&		\cdots&		0\\
-					E_1&		F_1&		0&		\cdots&		0\\
-					0&		E_2&		F_2&		\cdots&		0\\
+					\bm{F}_0&		0&		0&		\cdots&		0\\
+					\bm{E}_1&		\bm{F}_1&		0&		\cdots&		0\\
+					0&		\bm{E}_2&		\bm{F}_2&		\cdots&		0\\
 					\vdots&		\vdots&		\vdots&		\ddots&		\vdots\\
-					0&		0&		0&		\cdots&		F_{N-1}\\
-					0&		0&		0&		\cdots&		E_N\\
-				\end{bmatrix}}_{M_{2Ns\cdot2Ns}}
+					0&		0&		0&		\cdots&		\bm{F}_{N-1}\\
+					0&		0&		0&		\cdots&		\bm{E}_N\\
+				\end{bmatrix}}_{\bm{M}}
 				\underbrace{ \begin{bmatrix}
-					c_1\\
-					c_2\\
-					c_3\\
+					\bm{c}_1\\
+					\bm{c}_2\\
+					\bm{c}_3\\
 					\vdots\\
-					c_{N-1}\\
-					c_N\\
-				\end{bmatrix}}_{\mathbf{c}} =
+					\bm{c}_{N-1}\\
+					\bm{c}_N\\
+				\end{bmatrix}}_{\bm{c}} =
 				\underbrace{\begin{bmatrix}
-					b_0\\
-					q_1\\
+					\bm{\alpha}_0\\
+					\bm{q}_1\\
 					0\\
 					\vdots\\
 					0\\
-					b_N\\
-				\end{bmatrix}}_{\mathbf{b}} 
+					\bm{\alpha_N}\\
+				\end{bmatrix}}_{\bm{\alpha}} 
 			\end{aligned}
 			\label{eq:minco参数化}
 		\end{equation}
-		其中，$M$为系数矩阵，由$M$和$\mathbf{b}$可以唯一确定一组多项式系数$\mathbf{c}$，即轨迹的参数形式。
+		其中，$\bm{M}$为维度为2Ns的系数方阵，由$\bm{M}$和$\bm{\alpha}$可以唯一确定一组多项式系数$\bm{c}$，即轨迹的参数形式。
 
-		值得一提的是，在$M$矩阵中$T_i$是第$i$段多项式的总时间，它可以提前由一些其他的算法来给出，这样$M$就是完全已知的矩阵了。由于本章聚焦于路径规划，所以把时间参数$T_i$都归一化处理作为常数。
+		值得一提的是，在$\bm{M}$矩阵中$T_i$是第$i$段多项式的总时间，它可以提前由一些其他的算法来给出，这样$\bm{M}$就是完全已知的矩阵了。由于本章聚焦于路径规划，所以把时间参数$T_i$都归一化处理作为常数。
 	
 	\section{基于安全走廊的安全约束分析}
 	在上一节中已经对铰接车的轨迹进行了参数化，这样就自然的处理了微分方程带来的约束问题，保证了轨迹的平滑性。但是在路径规划中还有一个典型的问题需要解决，就是障碍物躲避。
@@ -623,35 +623,37 @@
 	Gao等人\upcite{Gao2018OnlineST}使用固定方向的长方体安全走廊对轨迹进行优化，但是这种方法固定了安全走廊的拓展方向，在障碍物密集的环境中避障效果会大幅削弱。Li等人\upcite{BaiLi:2022}提出的STC（Safe Travel Corridors）算法基于当前路径段的方向进行矩形迭代扩展，生成方式更加灵活。Deits 等人\upcite{Deits:2015}提出了IRIS算法（Iterative Region Inflation by Semidefinite Programming），该方法通过不断膨胀椭球的长短半径，求得与障碍物的切平面，进而构造凸多面体。每次迭代使用最大体积内接椭球作为起始点，然而此过程需要多次求解半正定规划，计算开销较大。Liu 等人\upcite{SikangLiu:2017}提出了SFC算法（Safe Flight Corridors），该算法基于线段不断求解包含该线段且不与障碍物相交的最大椭球，并通过椭球与障碍物的切平面构建凸多面体，从而形成安全走廊。
 	
 	本文使用的空间表示体是不规则凸多边形，它的生成方法参考文献\cite{SikangLiu:2017}。它相较于矩形的可以把空间填充的更充实，更逼近于障碍物，从而带来更大的解空间。图\ref{安全走廊比较}是矩形走廊和不规则凸包走廊的对比图。图\ref{fig:凸包矩阵}描述了凸包的线性约束表示方法。
-	\begin{figure}[!ht]
+	\begin{figure}[H]
 		\centering
 		\subcaptionbox{矩形安全走廊\label{安全走廊比较矩形1}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{安全走廊比较矩形1.png}}
 		\subcaptionbox{凸多边形安全走廊\label{安全走廊比较多边形2}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{安全走廊比较多边形2.png}}
 		\caption{两种常见的安全走廊比较图}
 		\label{安全走廊比较}
 	\end{figure}
-	\begin{figure}[!ht]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.3\textwidth]{凸包矩阵.png}
 		\caption{凸包与半空间约束关系图}
 		\label{fig:凸包矩阵}
 	\end{figure}
 	
-	凸多边形的区域由一组半空间交集组成。对应2D场景凸包就是由一组直线围成的。如图\ref{fig:凸包矩阵}所示。
+	凸多边形的区域由一组半空间交集组成。对应2D场景凸包就是由一组直线围成的，如图\ref{fig:凸包矩阵}所示。
 	因此，在凸包内的点必然满足以下不等式约束：
 	\begin{equation}
 		\begin{aligned}
-			H_z&=\{p\mid Ap<b\},\\
-			A&=\left[ a_0,...,a_z,...a_{n_z-1} \right]^T_{(n_z-1)\times 2},b=\left[ b_0,...,b_z,...,b_{n_z-1} \right]^T_{(n_z-1)\times 1}.
+			H_z&=\{\bm{p}\mid \bm{A}\bm{p}<\bm{b}\},\\
+			\bm{A}&=\left[ \bm{a}_0,...,\bm{a}_z,...\bm{a}_{n_z-1} \right]^T_{(n_z-1)\times 2},\bm{b}=\left[ b_0,...,b_z,...,b_{n_z-1} \right]^T_{(n_z-1)\times 1}
 		\end{aligned}
 		\label{eq:走廊约束}
 	\end{equation}
-	其中，$p$为凸包内的点，$a_i$是第$i$个半空间的法向量，$a_i$和$b_i$唯一去确定一个超平面约束。对于任意在多边形内的点应当满足公式\ref{eq:走廊约束}带来的不等式约束。
+	其中，$\bm{p}$为凸包内的点，$\bm{a}_i$是第$i$个半空间的法向量，$\bm{a}_i$和$b_i$唯一去确定一个超平面约束。对于任意在多边形内的点应当满足式（\ref{eq:走廊约束}）带来的不等式约束。
 	
 	\section{点到点全局路径规划}
 	在3.2节中，介绍了MINCO曲线的参数化方法。针对全局路径规划并不需要时间维度的信息，重点关注路径层面的两个核心约束条件：首先是路径曲率必须满足由铰接车最大转向角推导出的最小曲率，其次是路径须满足避障要求。关于避障约束的实现细节，已在3.3节通过安全走廊构造方法进行了系统阐述。
 		\subsection{铰接车的最大曲率}
-		常见的路径规划算法得到的路径是有拐角的，对于具有转向半径约束的车辆来说并不能完全的跟踪。忽略动态转向带来的曲率影响，铰接式车辆的最大曲率由静态转向模型确定。因此在进行轨迹规划时必须考虑最大曲率的约束条件：
+		常见的路径规划算法生成的路径常常包含尖锐拐角，这对具有转向半径限制的车辆而言难以准确跟踪。因此，在进行轨迹规划时，必须充分考虑转向半径的约束条件。这样做不仅避免了路径中出现车辆无法执行的急转弯，还提升了路径的整体实用性和车辆运行的安全性，确保所规划的路径符合车辆的实际物理特性。
+
+		对于铰接式车辆来说，其最大曲率主要由静态转向模型决定，这意味着车辆能够达到的最大转向角度是可以精确计算出来的。忽略动态转向带来的曲率影响，铰接式车辆的最大曲率由静态转向模型确定。因此在进行轨迹规划时必须考虑最大曲率的约束条件：
 		\begin{equation}
 			\begin{aligned}
 				k_{max}=\frac{1}{R_{min}}=\frac{\tan( \gamma _{max}/2 )}{L}
@@ -664,52 +666,54 @@
 				k=( \dot{x}\ddot{y}-\dot{y}\ddot{x} ) /( \dot{x}^2+\dot{y}^2 ) ^{\frac{3}{2}}
 			\end{aligned}
 		\end{equation}
-		令$p =[x,y]^T$，则：
+		令$\bm{p} =[x,y]^T$，则：
 		\begin{equation}
 			\begin{aligned}
-				k\,\,=\,\,\frac{\ddot{p}^TB\dot{p}}{\lVert p \rVert _{2}^{3}},B\,\,=\,\,\left[ \begin{matrix}
+				k=\frac{\ddot{\bm{p}}^T\bm{B}\dot{\bm{p}}}{\lVert \bm{p} \rVert _{2}^{3}},\bm{B}=\left[ \begin{matrix}
 					0&		-1\\
 					1&		0\\
-				\end{matrix} \right] .
+				\end{matrix} \right]
 			\end{aligned}
 			\label{eq:曲线曲率k}
 		\end{equation}
 		\begin{equation}
 			\begin{aligned}
-				\frac{\partial k}{\partial \dot{p}}\,\,=\,\,\frac{B^T\ddot{p}}{||\dot{p}||_{2}^{3}}-3\frac{\ddot{p}^TB\dot{p}}{||\dot{p}||_{2}^{5}}\dot{p},\frac{\partial k}{\partial \ddot{p}}=\frac{B\dot{p}}{||\dot{p}||_{2}^{3}}
+				\frac{\partial k}{\partial \dot{\bm{p}}}&=\frac{\bm{B}^T\ddot{\bm{p}}}{||\dot{\bm{p}}||_{2}^{3}}-3\frac{\ddot{\bm{p}}^T\bm{B}\dot{\bm{p}}}{||\dot{\bm{p}}||_{2}^{5}}\dot{\bm{p}}\\
+				\frac{\partial k}{\partial \ddot{\bm{p}}}&=\frac{\bm{B}\dot{\bm{p}}}{||\dot{\bm{p}}||_{2}^{3}}
 			\end{aligned}
 		\end{equation}
 
 		\subsection{优化问题的建立}
-		根据公式\ref{eq:minco参数化}，轨迹的参数可以由两个要素唯一确定：航点向量$\mathbf{b}$与系数矩阵$M$。由于这两个参数能够唯一表征整条轨迹，在构建优化问题时，将航点向量$\mathbf{b}$直接做为优化变量是很自然的选择。同时把曲率和安全约束离散化的施加在问题中，当离散化的点足够多时轨迹就是足够安全的。于是可以得到以下优化问题的表达形式：
+		根据式（\ref{eq:minco参数化}），轨迹的参数可以由两个要素唯一确定：航点向量$\bm{\alpha}$与系数矩阵$\bm{M}$。由于这两个参数能够唯一表征整条轨迹，在构建优化问题时，将航点向量$\bm{\alpha}$直接做为优化变量是很自然的选择。同时把曲率和安全约束离散化的施加在问题中，当离散化的点足够多时轨迹就是足够安全的。于是可以得到以下优化问题的表达形式：
 		\begin{equation}
 			\begin{aligned}
-				&\min_{q_1,...,q_{N-1}} J( q ) \\
+				&\min_{\bm{q}_1,...,\bm{q}_{N-1}} J( \bm{q} ) \\
 				s.t.&-k_{m}-k_{ij}\le 0\\
 				&k_{ij}-k_{m}\le 0 \\
-				&A_ip_{ij}-b_i<0,\ \ i\in \left[ 1,N \right] ,j\in \left[ 1,m_i \right] 
+				&\bm{A}_i\bm{p}_{ij}-\bm{b}_{i}<0,\ \ i\in \left[ 1,N \right] ,j\in \left[ 1,m_i \right] 
 			\end{aligned}
 		\end{equation}
-		其中，$k_{m}$是最大曲率，$k_{ij}$的计算方法见公式\ref{eq:曲线曲率k}。$N$是轨迹的段数，$m_i$是第$i$段轨迹的离散点数。$p_{ij}=\beta^T(\frac{T_i}{m_i}\cdot j)\cdot c_i$，是第$i$段多项式轨迹的第$j$个点，$c_i$通过$\mathbf{c} = M^{-1}\mathbf{b}$计算得到。
+		其中，$k_{m}$是最大曲率，$k_{ij}$的计算方法见公式\ref{eq:曲线曲率k}。$N$是轨迹的段数，$m_i$是第$i$段轨迹的离散点数。$\bm{p}_{ij}=\bm{\beta}^T(\frac{T_i}{m_i}\cdot j)\cdot \bm{c}_i$，是第$i$段多项式轨迹的第$j$个点，$\bm{c}_i$通过$\bm{c} = \bm{M}^{-1}\bm{\alpha}$计算得到。
+
 
 		针对于曲率和安全这两个不等式约束，引入一个松弛函数将它们作为软约束加入到代价中，松弛函数为：
 		\begin{equation}
 			\begin{aligned}
 				S( x ) =\left\{ \begin{matrix}
-					0&		x\le 0,\\
+					0&		x\le 0\\
 					-\frac{1}{2a^3}x^4+\frac{1}{a^2}x^3&		0<x\le a\\
-					x-\frac{a}{2}&		a<x.\\
+					x-\frac{a}{2}&		a<x\\
 				\end{matrix} \right.  \\
 					S^{'}(x) = \left\{\begin{matrix}
-					0& x\le0, \\
+					0& x\le0 \\
 					-\frac{2}{a^3}x^3+\frac{3}{a^2}x^2& 0 < x \le a \\
-					1& a < x.
+					1& a < x
 				\end{matrix}\right.
 			\end{aligned}
 			\label{eq:松弛函数}
 		\end{equation}
-		其中，$a$是一个已知参数，一般选取为优化问题迭代的停止条件值。$S^{'}(x)$是$S(x)$的导数。如图\ref{fig:松弛函数图}，是该松弛函数图。
-		\begin{figure}[!ht]
+		其中，$a$是一个已知参数，一般选取为优化问题迭代的停止条件值，本文设置的$a$为0.05。$S^{'}(x)$是$S(x)$的导数。如图\ref{fig:松弛函数图}，是松弛函数和其导数图。
+		\begin{figure}[H]
 			\centering
 			\subcaptionbox{松弛函数曲线\label{松弛函数}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{松弛函数.png}}
 			\subcaptionbox{松弛函数导数曲线\label{松弛导数}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{松弛导数.png}}
@@ -717,31 +721,31 @@
 			\label{fig:松弛函数图}
 		\end{figure}
 
-		在本课题实验中，设置的$a$为0.05。这个松弛函数在$x$的负半轴的值为0，也就意味着不等式约束的代价为0。在$0<x \le a$时，代价以一个四次函数上升，越靠近原点代价越小。当$x>a$时代价值以斜率为1直线上升。另外这个分段函数还有非常好的一个特性，在定义域上是$C_2$微分同胚的。这就意味着它的梯度和Hessian矩阵是完全连续的，在优化时不必考虑额外的光滑函数。
+		松弛函数在$x$的负半轴的值为0，也就意味着不等式约束的代价为0。在$0<x \le a$时，代价以一个四次函数上升，越靠近原点代价越小。当$x>a$时代价值以斜率为1直线上升。另外这个分段函数还有非常好的一个特性，在定义域上是$C_2$微分同胚的。这就意味着它的梯度和Hessian矩阵是完全连续的，在优化时不必考虑额外的光滑函数。
 		综上，问题被转化成了一个无约束的优化问题：
 		\begin{equation}
 			\begin{aligned}
-				\min_{q_1,q_2,...,q_{N-1}}  J( q ) = \sum_{i=1}^N{\sum_{j=1}^{m_i}w_k\cdot{S( -k_m-k_{ij} ) +w_k\cdot S( -k_m+k_{ij} ) +w_c\cdot S( A_ip_{ij}-b_i )}}
+				\min_{\bm{q}_1,\bm{q_2},...,\bm{q}_{N-1}}  J( \bm{q} ) = \sum_{i=1}^N{\sum_{j=1}^{m_i}w_k\cdot{S( -k_m-k_{ij} ) +w_k\cdot S( -k_m+k_{ij} ) +w_c\cdot S( \bm{A}_i\bm{p}_{ij}-\bm{b}_{i})}}
 			\end{aligned}
 			\label{eq:单阶无约束优化代价}
 		\end{equation}
-		其中$w_k$为曲率约束违反的惩罚权重，$w_c$为走廊约束违反的惩罚权重。
+		其中，$w_k$为曲率约束违反的惩罚权重，$w_c$为走廊约束违反的惩罚权重。
 
 		利用矩阵求导的链式法则可以求得各个部分的梯度信息，注意本文矩阵求导法则遵循分母布局。
 		\begin{equation}
 			\begin{aligned}
-				\frac{\partial S( -k_m-k_{ij} )}{\partial c_i}&=-( \frac{\partial \dot{p}_{ij}}{\partial c_i}\frac{\partial k_{ij}}{\partial \dot{p}_{ij}}+\frac{\partial \ddot{p}_{ij}}{\partial c_i}\frac{\partial k_{ij}}{\partial \ddot{p}_{ij}} ) S^{'} ( -k_m-k_{ij} ) ,\\
-				\frac{\partial S( -k_m+k_{ij} )}{\partial c_i}&=( \frac{\partial \dot{p}_{ij}}{\partial c_i}\frac{\partial k_{ij}}{\partial \dot{p}_{ij}}+\frac{\partial \ddot{p}_{ij}}{\partial c_i}\frac{\partial k_{ij}}{\partial \ddot{p}_{ij}} ) S^{'} ( -k_m+k_{ij} ) \\
-				\frac{\partial S( A_ip_{ij}-b_i )}{\partial c_i}&=\frac{\partial p_{ij}}{\partial c_i}A_{i}^{T}S^{'}( A_ip_{ij}-b_i ) 
+				\frac{\partial S( -k_m-k_{ij} )}{\partial \bm{c}_i}&=-( \frac{\partial \dot{\bm{p}}_{ij}}{\partial \bm{c}_i}\frac{\partial k_{ij}}{\partial \bm{\dot{\bm{p}}_{ij}}}+\frac{\partial \ddot{\bm{p}}_{ij}}{\partial \bm{c}_i}\frac{\partial k_{ij}}{\partial \ddot{\bm{p}}_{ij}} ) S^{'} ( -k_m-k_{ij} ) \\
+				\frac{\partial S( -k_m+k_{ij} )}{\partial \bm{c}_i}&=( \frac{\partial \bm{\dot{\bm{p}}_{ij}}}{\partial \bm{c}_i}\frac{\partial k_{ij}}{\partial \bm{\dot{\bm{p}}_{ij}}}+\frac{\partial \ddot{\bm{p}}_{ij}}{\partial \bm{c}_i}\frac{\partial k_{ij}}{\partial \ddot{\bm{p}}_{ij}} ) S^{'} ( -k_m+k_{ij} ) \\
+				\frac{\partial S( \bm{A}_i\bm{p}_{ij}-\bm{b}_{i} )}{\partial \bm{c}_i}&=\frac{\partial \bm{p}_{ij}}{\partial \bm{c}_i}\bm{A}_{i}^{T}S^{'}( \bm{A}_i\bm{p}_{ij}-\bm{b}_{i} ) 
 			\end{aligned}
 		\end{equation}
-		其中$\dot{p},\ddot{p}$分别为$p$对时间的一阶、二阶导数。利用上式求出了$J$关于$\mathbf{c}$的梯度，于是由$\mathbf{b} = M\mathbf{c}$,可以推导出：$\frac{\partial \mathbf{b}}{\partial q}M^{-T}=\frac{\partial \mathbf{c}}{\partial q}$ ，因此$J$关于$q$的梯度为：
+		其中$\dot{\bm{p}}$和$\ddot{\bm{p}}$分别为$\bm{p}$对时间的一阶、二阶导数。利用上式求出了$J$关于$\bm{c}$的梯度，于是由$\bm{\alpha} = \bm{M}\bm{c}$,可以推导出：$\frac{\partial \bm{\alpha}}{\partial \bm{q}}\bm{M}^{-T}=\frac{\partial \bm{c}}{\partial \bm{q}}$ ，因此$J$关于$q$的梯度为：
 		\begin{equation}
-			\frac{\partial J}{\partial q}=\frac{\partial \mathbf{c}}{\partial q}\frac{\partial J}{\partial \mathbf{c}}
+			\frac{\partial J}{\partial \bm{q}}=\frac{\partial \bm{c}}{\partial \bm{q}}\frac{\partial J}{\partial \bm{c}}
 		\end{equation}
 
 		\subsection{起点和终点航向角保证}
-		同样对于给定起点$start(x_s,y_s,v_s,a_s)$和终点$end(x_e,y_e,v_e,a_e)$，需要计算出$x$和$y$两个方向上的初始状态分量。对应为起点$q_0=[x_0,y_0,v_{0x},v_{0y},a_{0x},a_{0y}]$和终点$q_N=[x_N,y_N,v_{Nx},v_{Ny},a_{Nx},a_{Ny}]$。 其中，加速度的分解值令其为0，这在路径规划中是合理的。但是对于速度的分解还需要详细讨论，因为其涉及到航向角$\theta$。
+		同样对于给定起点$start(x_s,y_s,v_s,a_s)$和终点$end(x_e,y_e,v_e,a_e)$，需要计算出$x$和$y$两个方向上的初始状态分量。对应为起点$\bm{q}_{0}=[x_0,y_0,v_{0x},v_{0y},a_{0x},a_{0y}]$和终点$\bm{q}_{N}=[x_N,y_N,v_{Nx},v_{Ny},a_{Nx},a_{Ny}]$。 其中，加速度的分解值令其为0，这在路径规划中是合理的。但是对于速度的分解还需要详细讨论，因为其涉及到航向角$\theta$。
 
 		由运动学模型可以求得$x$和$y$方向上的速度分量：
 		\begin{equation}
@@ -758,7 +762,7 @@
 		\begin{equation}
 			\begin{aligned}
 			v_{0x}&=\left( v_s+\epsilon \right) \cos\theta_s\\
-			v_{0y}&=\left( v_s+\epsilon \right) \sin\theta_s,0<\epsilon <1e-5.
+			v_{0y}&=\left( v_s+\epsilon \right) \sin\theta_s,0<\epsilon <1e-5
 			\end{aligned}
 		\end{equation}
 		这样就可以保证车辆的起点朝向施加在轨迹上，同样由于$\epsilon$是一个极小量，它几乎不会影响轨迹起点的初始速度。对于终点的处理方法和起点一样。
@@ -770,10 +774,10 @@
 
 		由于使用优化的方法生成轨迹，所以需要一个快速生成航点的路径规划算法，为算法提供软起动初值。对于这个路径规划算法一般并不会去关心是否最优，但是它需要以较低的时间复杂度运行，因为优化过程可以带来足够的最优性。在本文中使用RRT-Connect生成路径。区别于传统的RRT算法，RRT-Connect同时从起点和终点搜索路径，可以显著提高搜索的效率，减少搜索的次数。
 
-		第一，初始解的构造。使用RRT-Connect算法搜索出从起点到终点的一条路径$\hat{path}$，其中包含N+1个路径点。
+		第一，初始解的构造。使用RRT-Connect算法搜索出从起点到终点的一条路径$\bm{\hat{path}}$，其中包含N+1个路径点。
 		\begin{equation}
 			\begin{aligned}
-				\hat{path} = \begin{bmatrix}
+				\bm{\hat{path}} = \begin{bmatrix}
 					x_0 &y_0\\
 					x_1&y_1\\
 					...\\
@@ -781,142 +785,137 @@
 				\end{bmatrix} 
 			\end{aligned}
 		\end{equation}
-		由此可以构造初始解$\bar{q_{init}}
+		由此可以构造初始解$\bm{\bar{q}}_{init}
 		=\begin{bmatrix}
-			q_1& q_2& ...&q_{N-1}
+			\bm{q}_1& \bm{q}_2& ...&\bm{q}_{N-1}
 		\end{bmatrix}^T$。
 
-		第二，构造系数矩阵$M$。将时间变量$T_i$归一化，则$M$矩阵是完全一已知的。对于系$\mathbf{b}$中的$b_0$和$b_N$可以通过起点$q_0$和终点$q_N$构建。
+		第二，构造系数矩阵$\bm{M}$。将时间变量$T_i$归一化，则$\bm{M}$矩阵是完全一已知的。对于系$\bm{\alpha}$中的$\bm{\alpha}_0$和$\bm{\alpha}_N$可以通过起点$\bm{q}_0$和终点$\bm{q}_N$构建。
 		
-		第三，构造安全走廊。沿着路径$\hat{path}$膨胀出安全走廊。
+		第三，构造安全走廊。沿着路径$\bm{\hat{path}}$膨胀出安全走廊。
 
-		第四，构建代价函数、构建梯度函数，送入求解器求解得到最优解$q_{opt}$。
+		第四，构建代价函数、构建梯度函数，送入求解器求解得到最优解$\bm{q}_{opt}$。
 
-		第五，获取最优路径参数$\mathbf{c}$。通过$q_{opt}$构建$\mathbf{b}$，再通过$\mathbf{c} = M^{-1}\mathbf{b}$得到系数$\mathbf{c}$。
+		第五，获取最优路径参数$\bm{c}$。通过$\bm{q}_{opt}$构建$\bm{\alpha}$，再通过$\bm{c} = \bm{M}^{-1}\bm{\alpha}$得到系数$\bm{c}$。
 
-		第六，得到路径最优表达式。$path(t_i)=\beta(t_i)c_i$，其中$t_i$是第$i$条轨迹多项式中的时刻，$0 \le t_i \le 1$。通过这个公式采样可以得到离散的轨迹。
+		第六，得到路径最优表达式。$\bm{path}(t_i)=\bm{\beta}(t_i)\bm{c}_i$，其中$t_i$是第$i$条轨迹多项式中的时刻，$0 \le t_i \le 1$。通过这个公式采样可以得到离散的轨迹。
 		
-		下面给出全局规划算法的伪代码:
-		 \begin{algorithm}  
-		 	\caption{Global Planning}  
-		 	\label{alg:global_planning}  
-		 	\begin{algorithmic}[1]  
-		 		\REQUIRE  
-		 		$\mathbf{p_{start}},\mathbf{p_{end}},\mathbf{map}$
-		 		\ENSURE  
-		 		$\mathbf{path}$
-		 		\STATE $\hat{path},q_{init} \leftarrow RRT-Connect(\mathbf{p_{start}},\mathbf{p_{end}},\mathbf{map})$
-		 		\STATE $corridor \leftarrow getCorridor(\mathbf{map},\hat{path})$
-		 		\STATE $cons \leftarrow getConstraint(M,\kappa_{min,max},cors)$
-		 		\STATE $cosFcn \leftarrow getCost(cons)$
-		 		\STATE $grad \leftarrow getGrad(cons)$ \\
-		 		\STATE $q_{opt} \leftarrow \mathbf{lbfgs}(q_{init},cosFcn,grad)$
-				\STATE $\mathbf{c} = M^{-1}\mathbf{b}$, $\mathbf{b} \longleftarrow q_{opt}$
-				\RETURN $path(t_i)=\beta(t_i)c_i$
-		 	\end{algorithmic}  
-		 \end{algorithm}
+		% 下面给出全局规划算法的伪代码:
+		%  \begin{algorithm}  
+		%  	\caption{Global Planning}  
+		%  	\label{alg:global_planning}  
+		%  	\begin{algorithmic}[1]  
+		%  		\REQUIRE  
+		%  		$\bm{p}_{start},\bm{p}_{end},\bm{map}$
+		%  		\ENSURE  
+		%  		$\bm{path}$
+		%  		\STATE $\hat{\bm{path}},\bm{q}_{init} \leftarrow RRT-Connect(\bm{p}_{start},\bm{p}_{end},\bm{map})$
+		%  		\STATE $corridor \leftarrow getCorridor(\bm{map},\hat{\bm{path}})$
+		%  		\STATE $cons \leftarrow getConstraint(\bm{M},\kappa_{min,max},cors)$
+		%  		\STATE $cosFcn \leftarrow getCost(cons)$
+		%  		\STATE $grad \leftarrow getGrad(cons)$ \\
+		%  		\STATE $\bm{q}_{opt} \leftarrow \mathbf{lbfgs}(\bm{q}_{init},cosFcn,grad)$
+		% 		\STATE $\bm{c} = \bm{M}^{-1}\bm{\alpha}$, $\bm{\alpha} \longleftarrow \bm{q}_{opt}$
+		% 		\RETURN $\bm{path}(t_i)=\bm{\beta}(t_i)\bm{c}_i$
+		%  	\end{algorithmic}  
+		%  \end{algorithm}
 		
-	\section{多点航行全局路径规划}
-	在上一节中描述了完整的算法结构和细节，可以完成一个点对点的路径规划问题。对于一些更加复杂的场景，例如码头搬运、舱体清卸、矿山运料等多种复杂的工况下，铰接车需要依次去往各个区域规定完成卸货。这样的场景往往需要面向任务设计一个框架。因为这些场景需要更灵活的运动模式，例如倒车。这一节将针对码头搬运场景设计一个周期性的规划流程，也称多点航行全局路径规划。
+	\section{多站点航行全局路径规划}
+	在上一节中描述了完整的算法结构和细节，可以完成一个点对点的路径规划问题。对于一些更加复杂的场景，例如码头搬运、舱体清卸、矿山运料等多种复杂的工况下，铰接车需要依次去往各个区域规定完成卸货。这样的场景往往需要面向任务设计一个框架。因为这些场景需要更灵活的运动模式，例如倒车。这一节将针对码头搬运场景设计一个周期性的规划流程，也称多站点航行全局路径规划。
 
-		\subsection{多点航行规划的问题描述}
+		\subsection{多站点航行规划的问题描述}
 		考虑\ref{fig:全局规划}的搬运问题，需要铰接车从码头出发，装货完成去往A点进行卸货，然后去往B点，再去C点，最后回到码头重新装货。这个搬运周期一共需要四次规划，且搬运过程中由于环境等因素规划过程需要倒车。在整个规划周期中铰接车一共需要经过四个站点，分别为码头、A站点、B站点和C站点。在整个过程中受到路径受到两个方面的限制。第一，每一段轨迹的起点的切线方向必须和铰接车保持一致，这就是车辆的非完整约束，这在上一节中已经处理。第二，如果在站点处需要求车辆发生换向，则换向后的轨迹的航向和换向前应该相反。 
-		\begin{figure}[!ht]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\textwidth]{全局规划.png}
-			\caption{全局规划}
+			\caption{多站点场景下全局规划示意图}
 			\label{fig:全局规划}
 		\end{figure}
 
 		\subsection{站点的换向处理}
-		
-		在中间站点处的是否换向包含两种情况，一种是站点前的车辆运动方向和站点后运动方向相同，则不需要换向。另一种是站点前的车辆运动方向和站点后运动方向相反，则需要换向，此站点也被称为换向点。
-		\begin{figure}[!ht]
+		如图\ref{fig:换向1}和图\ref{fig:换向1}，在中间站点处的是否换向包含两种情况。
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\textwidth]{换向1.png}
 			\caption{B点不需要换向}
 			\label{fig:换向1}
 		\end{figure}
-		\begin{figure}[!ht]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\textwidth]{换向2.png}
 			\caption{B点完成换向}
 			\label{fig:换向2}
 		\end{figure}
-		图\ref{fig:换向1}是表示的是车正向行驶穿越站点的情况，经过站点时不用倒车。在规划AB段路径时B点作为终点，在规划BC段路径时B点作为起点车辆的运动方向和车辆的朝向相同。图\ref{fig:换向2}是表示的是车正向行驶到达站点，再反向倒车。与图\ref{fig:换向1}不同的是，在规划BC段路径时B点作为起点车辆的运动方向和车辆的朝向相反，而AB段相同，因此规划BC段时B点作为起点需要换向。
+
+		如上图，一种是站点前的车辆运动方向和站点后运动方向相同，则不需要换向。另一种是站点前的车辆运动方向和站点后运动方向相反，则需要换向，此站点也被称为换向点。图\ref{fig:换向1}是表示的是车正向行驶穿越站点的情况，经过站点时不用倒车。在规划AB段路径时B点作为终点，在规划BC段路径时B点作为起点车辆的运动方向和车辆的朝向相同。图\ref{fig:换向2}是表示的是车正向行驶到达站点，再反向倒车。与图\ref{fig:换向1}不同的是，在规划BC段路径时B点作为起点车辆的运动方向和车辆的朝向相反，而AB段相同，因此规划BC段时B点作为起点需要换向。
 
 	\section{本章小结}
-	本章针对无人铰接车辆的轨迹规划难题，提出了一种基于微分平坦理论与Minco样条的全局优化方法，通过多维度约束融合与高效求解策略，实现了符合运动学特性、安全避障与实时性的规划框架。首先基于铰接车简化运动学模型，选取笛卡尔坐标（x，y）作为微分平坦输出，推导出包含速度、航向角、铰接角及曲率的显式表达式，将非完整约束转化为平坦空间代数关系。其次，采用Minco样条对轨迹进行参数化建模，通过建立包含起点/终点状态、中间航点位置及高阶导数连续性的BIVP约束体系，得出基于航点向量的闭式解形式。针对避障需求，设计基于安全走廊的生成机制，通过凸多边形约束实现障碍物规避。进一步提出曲率约束松弛函数，将铰接角物理极限映射为轨迹曲率硬约束，构建包含安全走廊与运动学约束的非线性优化模型，利用LBFGS算法实现高效求解。在下一章中将针对精细化的避障，介绍局部规划方法。
+	本章针对无人铰接车辆的轨迹规划难题，提出了一种基于微分平坦理论与Minco样条的全局优化方法，通过多维度约束融合与高效求解策略，实现了符合运动学特性、安全避障与实时性的规划框架。首先基于铰接车简化运动学模型，选取笛卡尔坐标作为微分平坦输出，推导出包含速度、航向角、铰接角及曲率的显式表达式，将非完整约束转化为平坦空间代数关系。其次，采用Minco样条对轨迹进行参数化建模，通过建立包含起点/终点状态、中间航点位置及高阶导数连续性的BIVP约束体系，得出基于航点向量的闭式解形式。针对避障需求，设计基于安全走廊的生成机制，通过凸多边形约束实现障碍物规避。进一步提出曲率约束松弛函数，将铰接角物理极限映射为轨迹曲率硬约束，构建包含安全走廊与运动学约束的非线性优化模型，利用LBFGS算法实现高效求解。在下一章中将针对精细化的避障，介绍局部规划方法。
 	
 	\chapter{基于安全走廊的无人铰接车局部规划方法}
 	在这一章中提出一种基于安全走廊的时空联合局部轨迹规划方法，这种方法采用最优控制的框架对问题建模。首先，将对铰接车的几何结构进行建模，可以有效加强碰撞检测的速度。其次，针对铰接车提出一种改进的Hybrid A*算法，它将用于局部轨迹规划算法的热启动。接着，对规划问题中涉及到的所有约束并进行处理。最后，针对最终的优化问题进行求解。
 	\section{铰接车的几何结构建模}
 	为了保持优化问题的凸性，将车辆底盘形状建模为两个矩形的连接，从而将铰接车的避障问题转化为多边形几何碰撞问题。如图\ref{fig:铰接车外观结构建模}所示，车辆形状分为前轴和后轴两部分，共由九个顶点A、B、C、...、H和O1。
-	\begin{figure}[!ht]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\textwidth]{铰接车几何结构.png}
 		\caption{铰接式车辆结构建模}
 		\label{fig:铰接车外观结构建模}
 	\end{figure}
-	图中$\{f\}$、$\{r\}$和$\{g\}$分别为前桥坐标系、后桥坐标系和世界坐标系。
-
-	与动学模型相一致，选取前桥中点作为参考点$(x,y)$，沿着车体方向作为x轴正方向。则A、B、C、D、O1相对于前桥坐标系$\{f\}$和E、F、G、H的相对后桥坐标系$\{r\}$的坐标可以表示为：
+	图中$\{f\}$、$\{r\}$和$\{g\}$分别为前桥坐标系、后桥坐标系和世界坐标系。与动学模型相一致，选取前桥中点作为参考点$(x,y)$，沿着车体方向作为x轴正方向。则A、B、C、D、O1相对于前桥坐标系$\{f\}$和E、F、G、H的相对后桥坐标系$\{r\}$的坐标可以表示为：
 	\begin{equation}
 		\begin{aligned}
-			l_{A}^{T}&=( -d_1,-width/2 ) ,l_{B}^{T}=( L_1-L,-width/2 ) ,\\
-			l_{C}^{T}&=( L_1-L,width/2 ) ,l_{D}^{T}=( -d_1,width/2 ) ,\\
-			l_{E}^{T}&=( d_2-L,width/2 ) ,l_{F}^{T}=( -L_2,width/2 ) ,\\
-			l_{G}^{T}&=( -L_2,-width/2 ) ,l_{H}^{T}=( d_2-L,-width/2 ) ,\\
-			l_{O_1}^{T}&=( -L,0 ) .
+			\bm{l}_{A}^{T}&=( -d_1,-width/2 ) ,\bm{l}_{B}^{T}=( L_1-L,-width/2 ) \\
+			\bm{l}_{C}^{T}&=( L_1-L,width/2 ) ,\bm{l}_{D}^{T}=( -d_1,width/2 ) \\
+			\bm{l}_{E}^{T}&=( d_2-L,width/2 ) ,\bm{l}_{F}^{T}=( -L_2,width/2 ) \\
+			\bm{l}_{G}^{T}&=( -L_2,-width/2 ) ,\bm{l}_{H}^{T}=( d_2-L,-width/2 ) \\
+			\bm{l}_{O_1}^{T}&=( -L,0 ) 
 		\end{aligned}
 		\label{eq:铰接车顶点}
 	\end{equation}
-	其中，$width$为BC的长度。令$R_\theta$和$\sigma$为世界坐标系到车辆坐标系的旋转矩阵和平移向量，根据\ref{eq:铰接车顶点}，则前桥顶点在世界坐标系下表示为：
+	其中，$width$为BC的长度。令$\bm{R}_\theta$和$\bm{\sigma}$为世界坐标系到车辆坐标系的旋转矩阵和平移向量，根据\ref{eq:铰接车顶点}，则前桥顶点在世界坐标系下表示为：
 	\begin{equation}
 	\begin{aligned}
-		\varepsilon_f = \left\{ p_f \in \mathbb{R}^2 \mid p_f=R_\theta l_f+\sigma,  f = A,B,C,D \right\},
+		\varepsilon_f = \left\{ \bm{p}_f \in \mathbb{R}^2 \mid \bm{p}_f=\bm{R}_\theta \bm{l}_f+\bm{\sigma},  f = A,B,C,D \right\},
 	\end{aligned} 
 	\end{equation}
-	其中，$\sigma$也是前轴参考点坐标，表示为$\sigma=(x,y)$。
+	其中，$\bm{\sigma}$也是前轴参考点坐标，表示为$\bm{\sigma}=(x,y)$。
 	
-	$l_E,l_F,l_G,l_H$是相对于后桥坐标系下的坐标。在从世界坐标系到后桥坐标系的变换中，还涉及到前桥坐标系，需要应用旋转矩阵$R_\theta$和$R_\gamma$。平移向量由世界坐标系中的铰接点给出，记为$\sigma_1$。可以得到后桥的坐标变换为： 
+	$\bm{l}_E,\bm{l}_F,\bm{l}_G,\bm{l}_H$是相对于后桥坐标系下的坐标。在从世界坐标系到后桥坐标系的变换中，还涉及到前桥坐标系，需要应用旋转矩阵$\bm{R}_\theta$和$\bm{R}_\gamma$。平移向量由世界坐标系中的铰接点给出，记为$\bm{\sigma}_1$。可以得到后桥的坐标变换为： 
 	\begin{equation}
 		\begin{aligned}
-				p_r&=R_\gamma R_\theta l_b+\sigma_1\\
-				\sigma_1&=R_\theta l_{O_1}+\sigma
+				\bm{p}_r&=\bm{R}_\gamma \bm{R}_\theta \bm{l}_b+\bm{\sigma}_1\\
+				\bm{\sigma}_1&=\bm{R}_\theta \bm{l}_{O_1}+\bm{\sigma}
 		\end{aligned}
 	\end{equation}
 	则后桥的顶点集表示如下：
 	\begin{equation}
 		\begin{aligned}
-			\varepsilon_r = \left\{ p_r \in \mathbb{R}^2 \mid p_r=R_\gamma R_\theta l_r+R_\theta l_{O_1}+\sigma,r = E,F,G,H.  \right\} \\
+			\varepsilon_r = \left\{ \bm{p}_r \in \mathbb{R}^2 \mid \bm{p}_r=\bm{R}_\gamma \bm{R}_\theta \bm{l}_r+\bm{R}_\theta \bm{l}_{O_1}+\bm{\sigma},r = E,F,G,H.  \right\} \\
 		\end{aligned}
 	\end{equation}
-	其中，$R_\theta = \begin{bmatrix}
+	其中，$\bm{R}_\theta = \begin{bmatrix}
 		\cos\theta &-\sin\theta\\
 		\sin\theta &\cos\theta
-	\end{bmatrix}$，$R_\gamma$同理。
+	\end{bmatrix}$，$\bm{R}_\gamma$同理。
 
 	
 	\section{铰接车Hybrid A*算法的改进}
-	在大规模优化问题中，影响求解质量的主要因素往往不是问题或约束的非线性特性，而是问题是否具备凸性。大多数非线性规划问题都不具备凸性，只有少数问题能够通过对偶方法、变换等手段转化为凸优化问题。直接求解这类问题时，常常会陷入局部最优解，难以保证找到全局最优解。对于这些非凸问题，依然可以采用其他思路，找到最优解或一个较为理想的解。尽管问题本身无法严格保证非凸性，但是仍然可以使用一些全局最优算法，通过寻找一个接近最优的初值来确保其位于全局最优解所在的凸空间内。使得优化算法可以沿着这个初值在局部凸空间内展开迭代，最终找到最优解。
-	例如，在百度Apollo的轨迹规划中，轨迹优化基元采用了五次多项式，通过优化控制点来生成满足要求的轨迹。在此过程中，控制点的初值是通过动态规划搜索得到的。动态规划的作用在于，通过对状态空间的逐步分解，找到一个合理的凸空间，使得优化算法能够高效地进行局部最优解的搜索。Hybrid A*算法首次应用于2007年DAPPA城市挑战赛，并由Dolgov等人提出。与传统的A*算法不同，Hybrid A*算法在三维空间中进行搜索，且在搜索过程中，邻居节点的拓展是通过动力学方程的前向推演来实现的。
-	
-	然而，传统的Hybrid A*算法是基于$x-y-\theta$三维空间进行搜索的，这使得它并不适用于铰接车模型。铰接车由于其具有较为复杂的非线性运动特性，因此直接应用传统的Hybrid A*算法会面临难以满足约束条件和路径质量不高的问题。
+	Hybrid A*算法首次应用于2007年DAPPA城市挑战赛，并由Dolgov等人提出。与传统的A*算法不同，Hybrid A*算法在三维空间中进行搜索，且在搜索过程中，邻居节点的拓展是通过动力学方程的前向推演来实现的。然而，传统的Hybrid A*算法是基于$x-y-\theta$三维空间进行搜索的，这使得它并不适用于铰接车模型。铰接车由于其具有较为复杂的非线性运动特性，因此直接应用传统的Hybrid A*算法会面临难以满足约束条件和路径质量不高的问题。
 
 	为了能够适应铰接车的路径规划问题，本节将提出一种改进Hybrid A*算法。修改Hybrid A*算法中的邻居节点拓展策略，结合铰接车的运动学特性，改进算法的搜索策略，以便更好地在铰接车的状态空间中找到一个次优的初解。该初解将在后续的优化过程中作为起点，进一步引导算法沿着合适的方向优化，最终得到一个更加符合实际需求的路径。通过这种方式，能够克服传统Hybrid A*算法的局限性，为铰接车路径规划提供更为高效和精准的解决方案。
 		\subsection{节点拓展策略改进}
-		假设铰接车当前的状态为$x_0(x,y,\theta,\gamma)$，一般Hybrid A*算法将控制区间$[-v_{max},v_{max}]$和$[-\omega_{max},\omega_{max}]$进行离散化。并从当前状态$x_0$开始以输入采样值$[v,\omega]$在$\Delta_t$时间内进行运动学推演得到下一个状态，运动学推演见公式\ref{eq:铰接车运动学模型}。图\ref{fig:Hybrid A*原始采样策略和改进采样策略}是原始Hybrid A*算法运动学采样策略和改进后的采样策略比较。 
-		\begin{figure}[!ht]
+		假设铰接车当前的状态为$x_0(x,y,\theta,\gamma)$，一般Hybrid A*算法将控制区间$-v_{min}$至$v_{max}$和$-\omega_{min}$至$\omega_{max}$进行离散化。并从当前状态$x_0$开始以输入$v$和$\omega$在$\Delta_t$时间内进行运动学推演得到下一个状态，运动学推演见式（\ref{eq:铰接车运动学模型}）。图\ref{fig:Hybrid A*原始采样策略和改进采样策略}是原始Hybrid A*算法运动学采样策略和改进后的采样策略比较。 
+		\begin{figure}[H]
 			\centering
 			\subcaptionbox{Hybrid A*原始采样策略\label{fig:hybrid采样}}[0.49\textwidth]{\includegraphics[width=0.2\textwidth]{hybrid采样.png}}
 			\subcaptionbox{Hybrid A*改进采样策略\label{fig:hybrid采样改进剪枝}}[0.49\textwidth]{\includegraphics[width=0.5\textwidth]{hybrid采样改进剪枝.png}}
 			\caption{Hybrid A*原始采样策略和改进采样策略}
 			\label{fig:Hybrid A*原始采样策略和改进采样策略}
 		\end{figure}
-		如图\ref{fig:hybrid采样}，列出了速度为0.1和1采样点。可以看出这种采样方式在$|v|$很小时，不管$\omega$为多少，所积分出来的轨迹都会聚在一起。红色轨迹有短又聚合，并没有充分的去探索周围空间。这是很浪费计算资源且没有必要的。第二，由于系统的输入是二维$(v,\omega)$，所以算法的时间复杂度是$O(N^2)$。下面将针对节点采样进行改进，可以有效解决采样出来的轨迹聚合的问题，并以$O(N)$时间复杂度完成探索，某种意义上这也是一种轨迹的剪枝策略。 
+		如图\ref{fig:hybrid采样}，列出了速度为0.1和1采样点。可以看出这种采样方式在$|v|$很小时，不管$\omega$为多少，所积分出来的轨迹都会聚在一起。红色轨迹有短又聚合，并没有充分的去探索周围空间。这是很浪费计算资源且没有必要的。第二，由于系统的输入是二维（$v$和$\omega$），所以算法的时间复杂度是$O(N^2)$。下面将针对节点采样进行改进，可以有效解决采样出来的轨迹聚合的问题，并以$O(N)$时间复杂度完成探索，某种意义上这也是一种轨迹的剪枝策略。 
 
-		首先为了降低计算的复杂度，使用铰接车的静态转向模型，系统的输入为$(v,\gamma_u)$。不再以固定的时间$\Delta t$进行采样，以固定的行驶路程$\Delta_s$采样，于是系统的输入为$\gamma_u$。这样做的本质是只在路径几何层面考虑规划问题。运动学方程如下：
+		首先为了降低计算的复杂度，使用铰接车的静态转向模型，系统的输入为$v$和$\gamma_u$。不再以固定的时间$\Delta t$进行采样，以固定的行驶路程$\Delta_s$采样，于是系统的输入为$\gamma_u$。这样做的本质是只在路径几何层面考虑规划问题。运动学方程如下：
 		\begin{equation}
 			\begin{aligned}
 				\left[ \begin{array}{c}
@@ -933,14 +932,14 @@
 			\end{aligned}
 			\label{eq:改进运动学推演策略}
 		\end{equation}
-		其中，$\Delta s$是采样的路径步长，$(x,y,\theta,\gamma)$是铰接车的位形空间状态变量。
+		其中，$\Delta s$是采样的路径步长，$x$、$y$、$\theta$和$\gamma$是铰接车的位形空间状态变量。
 
 		图\ref{fig:hybrid采样改进剪枝}为$\Delta s$等于2m的采样过程。可以看出相对于原始推演策略来说这种方式可以大大降低时间复杂度。本质上这其实也是速度$v$为固定常数时的特殊情况。此外为了加速搜索，Hybrid A*在搜索过程中还引入了RS（Reeds-Shepp曲线），进一步提高搜索效率。
 		
 		RS曲线是一种用于求解二维平面中任意始末位姿之间最短路径的算法。该算法的核心思想是通过分析并归纳所有可能的路径类型，将最短路径的构造问题简化为48种不同的情况，并且对每种情况进行了枚举，涵盖了圆弧和直线段的各种排列组合方式。因此，RS曲线可以为无障碍情况下的最短路径提供解析表达式，并能够快速地构造出符合运动学约束的可行路径。RS曲线特别适用于涉及到转向半径约束的路径规划问题，尤其是在移动机器人和自动驾驶领域中，其广泛应用于生成车辆的路径规划。该算法通过考虑车辆的运动学约束（如最小转弯半径），能够有效地找到从起点到终点的最短路径，并确保路径是可行的，符合实际的转向和行驶要求。值得指出的是，RS曲线在hybrid A*搜索的最后一步具有加速收敛到终点的效果。
 
 		\subsection{代价函数设计}
-		Hybrid A*算法在进行节点的扩展时，会从采样出来的节点中选出代价最低的一个节点作为下一个扩展节点。Hybrid A*算法的代价函数$f$分为累积代$g$和启发式函数代价$h$两个部分，如公式\ref{eq:搜索代价}。
+		Hybrid A*算法在进行节点的扩展时，会从采样出来的节点中选出代价最低的一个节点作为下一个扩展节点。Hybrid A*算法的代价函数$f$分为累积代$g$和启发式函数代价$h$两个部分，见式（\ref{eq:搜索代价}）。
 		\begin{equation}
 			\begin{aligned}
 				f = g+h
@@ -957,7 +956,7 @@
 		\end{equation}
 		其中，$g_{cur}$为当前节点的累积代价，$g_{next}$为即将拓展的邻居节点累积代价。$x_{cur},y_{cur}$为当前节点位置信息，$x_{next},y_{next}$为即将拓展的邻居节点的位置信息。$\gamma _{u(next)}$为从当前节点拓展到邻居节点的所需要的转向输入，$\gamma _{u(cur)}$为从上一节点拓展到当前节点的所需要的转向输入。
 
-		启发式代价函数$h$记录当前节点到终点的估计代价，hybrid A*算法的启发式代价一般分为两个部分：非完整约束启发式代价$h_{nonh}$和避障启发式代价$h_{collision}$。其中非完整约束代价$h_{nonh}$是仅仅在考虑车辆有转弯半径且不考虑障碍物的情况下的距离代价，通常可以直接由RS曲线闭式算出。避障启发式代价$h_{collision}$则是仅考虑避障时的代价，使用无穷范数作为避障启发式代价，见公式\ref{eq:启发代价}。
+		启发式代价函数$h$记录当前节点到终点的估计代价，hybrid A*算法的启发式代价一般分为两个部分：非完整约束启发式代价$h_{nonh}$和避障启发式代价$h_{collision}$。其中非完整约束代价$h_{nonh}$是仅仅在考虑车辆有转弯半径且不考虑障碍物的情况下的距离代价，通常可以直接由RS曲线闭式算出。避障启发式代价$h_{collision}$则是仅考虑避障时的代价，使用无穷范数作为避障启发式代价，见式（\ref{eq:启发代价}）。
 		\begin{equation}
 			\begin{aligned}
 				h_{nonh} &= RS(x_{cur},y_{cur},x_{goal},y_{goal})\\
@@ -971,62 +970,62 @@
 		在碰撞检测算法的设计中，通过检查车辆几何模型与栅格地图的是否有重叠来判断路径可行性，其核心原理基于车辆位姿变换与离散化障碍物检测。首先，算法利用旋转矩阵将车辆初始轮廓坐标变换到全局坐标系下，计算各顶点坐标后转换为地图栅格索引，以便在栅格地图中查询索引处是否由障碍物。随后，对车辆轮廓边进行线段离散化检测。
 		
 		如图\ref{fig:障碍物检测图}所示，采用Bresenham算法\upcite{bresenham1977linear}遍历每条边的栅格路径，若任一栅格为障碍物或超出地图边界，则判定为碰撞。在路径搜索过程中，该模块嵌入节点扩展和Reeds-Shepp曲线连接阶段，逐段验证候选路径的安全性。其优势在于计算效率高且与栅格地图兼容性强，但受限于离散化误差可能忽略细小障碍物，且仅适用于静态环境。图\ref{fig:障碍物检测图}中左图为铰接车没有和障碍物发生碰撞的场景，右图则是发生碰撞的场景，其中红色栅格是车体轮廓和障碍物栅格重叠的区域。
-		\begin{figure}[!ht]
+		\begin{figure}[H]
 			\centering
 			\subcaptionbox{铰接车处于安全区域\label{fig:bresham_free}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{bresham_free.png}}
 			\subcaptionbox{铰接车与障碍物发生重叠 colli\label{fig:bresham_colli}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{bresham_colli.png}}
-			\caption{障碍物检测图}
+			\caption{铰接车在环境中的碰撞示意图}
 			\label{fig:障碍物检测图}
 		\end{figure}
 
 	\section{基于NMPC和安全走廊的轨迹规划}
-	在4.2节中针对铰接车对hybrid A*算法进行了改进，它将作为轨迹规划的热启动算法。本节中将介绍如何构建一个基于NMPC的轨迹规划算法，这是一个典型的OCP最优控制框架。
+	在4.2节中针对铰接车对Hybrid A*算法进行了改进，它将作为轨迹规划的热启动算法。本节中将介绍如何构建一个基于NMPC的轨迹规划算法，这是一个典型的OCP最优控制框架。
 		\subsection{NMPC问题构建}
 		铰接式车辆运动规划的最优控制问题可以表示为其一般形式，包括成本函数以及多个等式或不等式约束。与典型的优化问题不同，基于最优控制的轨迹规划还受到一组动态微分方程的约束。一般能耗和时间最优的代价函数定义如下：
 		\begin{equation}
 			\begin{aligned}
 				J(x(t),u(t)) &= \int_{t_0}^{t_f}
-				\left\| u(t)\right\|^2dt +w_t*\left\|t_f-t_0\right\|^2,    \\
-				\left\|u(t)\right\|^2&=w_{uj}*\left\|jerk(t)\right\|^2+w_{uw}*\left\|\omega\right\|^2.
+				\left\| u(t)\right\|^2dt +w_t*\left\|t_f-t_0\right\|^2    \\
+				\left\|u(t)\right\|^2&=w_{uj}*\left\|jerk(t)\right\|^2+w_{uw}*\left\|\omega\right\|^2
 			\end{aligned} 
 		\end{equation}
 		其中，$w_t$、$w_{uj}$ 和 $w_{uw}$ 分别为时间代价权重、舒适度代价权重和铰接角能耗代价权重。$\left\|u(t)\right\|^2$ 用作输入能量消耗的度量，而 $\|t_f- t_0\|^2$ 确保时间持续时间的最优性，其中 $t_f$ 和 $t_0$ 分别为结束时间和开始时间。然后这个轨迹优化问题表示为：
 		\begin{equation}
 			\begin{aligned}
-				&\left[x^*(t),u^*(t)\right] = minimize\ J(x(t),u(t)),\\      
-				&s.t.\ \dot x(t)-f(x(t),u(t))=0,\\
-				&x_l \leq x(t) \leq x_u, u_l \leq u(t) \leq u_u,t\in \left[0,t_f\right],\\
-				&x(t_0)=x_{start},x(t_f)=x_{goal}.\label{eq:最优控制优化问题}
+				&\left[x^*(t),u^*(t)\right] = minimize\ J(x(t),u(t))\\      
+				&s.t.\ \dot x(t)-f(x(t),u(t))=0\\
+				&x_l \leq x(t) \leq x_u, u_l \leq u(t) \leq u_u,t\in \left[0,t_f\right]\\
+				&x(t_0)=x_{start},x(t_f)=x_{goal}\label{eq:最优控制优化问题}
 			\end{aligned}   
 		\end{equation}
 		其中，$\dot x(t)-f(x(t),u(t))=0$表示运动方程约束，为了保证优化问题中轨迹的平滑性。变量$x_l$和$x_u$表示状态变量的下界和上界，$u_l$和$u_u$表示控制变量的下界和上界。此外，$x_{start}$和$x_{goal}$分别对应规划问题的起点状态和终点状态。将状态方程进行离散化，求解它的最有离散子序列，即演变成一个NLP（Nonlinear Programming）问题。定义如下形式的解向量形式：
 		\begin{equation}
 			\begin{aligned}
-				\xi &=\left[ \xi _{x}^{T},\xi _{y}^{T},\xi _{\theta}^{T},\xi _{\gamma}^{T},\xi _{v}^{T},\xi _{a}^{T},\xi _{\omega}^{T},\xi_{{jerk}}^{T},\xi _{\Delta t}^{T} \right] ^T,\\
-				\xi _x&=\left[ x\left( 1 \right) ,...,x\left( N-2 \right) \right] ^T,\\
-				\xi _{\omega}&=\left[ \omega \left( 0 \right) ,...,\omega \left( N-2 \right) \right] ^T.
+				\bm{\xi} &=\left[ \bm{\xi} _{x}^{T},\bm{\xi} _{y}^{T},\bm{\xi} _{\theta}^{T},\bm{\xi} _{\gamma}^{T},\bm{\xi} _{v}^{T},\bm{\xi} _{a}^{T},\bm{\xi} _{\omega}^{T},\bm{\xi}_{{jerk}}^{T},\bm{\xi} _{\Delta t}^{T} \right] ^T\\
+				\bm{\xi} _x&=\left[ x\left( 1 \right) ,...,x\left( N-2 \right) \right] ^T\\
+				\bm{\xi} _{\omega}&=\left[ \omega \left( 0 \right) ,...,\omega \left( N-2 \right) \right] ^T
 			\end{aligned}   
 		\end{equation}
-		其中，对于轨迹上的$N$个点，起点$P_0$和终点$P_{N-1}$是已知的。$\xi _{x}$的维度为$n=N-2$，$\xi _{y},\xi _{\theta},\xi _{\gamma},\xi _{v},\xi _{a}$同理。$\xi _{\omega}$的维度为$m=N-1$，$\xi_{jerk},\xi _{\Delta t}$同理。
+		其中，对于轨迹上的$N$个点，起点$P_0$和终点$P_{N-1}$是已知的。$\bm{\xi} _{x}$的维度为$n=N-2$，$\bm{\xi} _{y},\bm{\xi} _{\theta},\bm{\xi} _{\gamma},\bm{\xi} _{v},\bm{\xi} _{a}$同理。$\bm{\xi} _{\omega}$的维度为$m=N-1$，$\bm{\xi}_{jerk},\bm{\xi} _{\Delta t}$同理。
 
-		以上所构建的优化问题中所受到的约束有状态方程约束、状态受限、输入受限、起点约束和终点约束，并没有包含避障约束。沿用安全走廊的方法，和第三章中公式\ref{eq:走廊约束}一样，避障约束是不等式的形式。假设$g_f$为铰接车前桥的不等式约束函数，$g_r$为铰接车后桥的不等式约束函数。则最终的轨迹规划问题可以表示为：
+		以上所构建的优化问题中所受到的约束有状态方程约束、状态受限、输入受限、起点约束和终点约束，并没有包含避障约束。沿用安全走廊的方法，和第三章中式（\ref{eq:走廊约束}）一样，避障约束是不等式的形式。假设$\bm{g}_{f}$为铰接车前桥的不等式约束函数，$\bm{g}_{r}$为铰接车后桥的不等式约束函数。则最终的轨迹规划问题可以表示为：
 		\begin{equation}
 			\begin{aligned}
-			&J\left( \xi \right) =w_{uj}*\lVert \xi _{jerk} \rVert _{2}^{2}+w_{uw}*\lVert \xi _{\omega} \rVert _{2}^{2}+w_t*I_{N-1}^{T}\xi _{\Delta t},\\
-			s.t.\ \ &g_{kin}\left( k \right) =0,1\leq k\leq N-1,\\
-			&g_f\left( k \right) <0,\,\,g_r\left( k \right) <0,1\leq k\leq N-2,\\
-			&\hat{\xi}_{min}\le \hat{\xi}\le \hat{\xi}_{max},\xi _{\Delta tmin}<\xi _{\Delta t}<\xi _{\Delta tmax}.
+			&J\left( \bm{\xi} \right) =w_{uj}*\lVert \bm{\xi} _{jerk} \rVert _{2}^{2}+w_{uw}*\lVert \bm{\xi} _{\omega} \rVert _{2}^{2}+w_t*\bm{I}_{N-1}^{T}\bm{\xi} _{\Delta t}\\
+			s.t.\ \ &\bm{g}_{kin}\left( k \right) =0,1\leq k\leq N-1\\
+			&\bm{g}_{f}\left( k \right) <0,\,\,\bm{g}_{r}\left( k \right) <0,1\leq k\leq N-2\\
+			&\hat{\bm{\xi}}_{min}\le \hat{\bm{\xi}}\le \hat{\bm{\xi}}_{max},\bm{\xi} _{\Delta tmin}<\bm{\xi} _{\Delta t}<\bm{\xi} _{\Delta tmax}
 			\end{aligned}   
 		\end{equation}
-		其中，$\hat{\xi}=\left[ \xi _{\gamma}^{T},\xi _{v}^{T},\xi _{a}^{T},\xi _{\omega}^{T},\xi _{\text{jerk}}^{T} \right] ^T$，$g_{kin}$是状态方程约束。方程约束中未提到的变量都是无约束变量。
+		其中，$\hat{\bm{\xi}}=\left[ \bm{\xi} _{\gamma}^{T},\bm{\xi} _{v}^{T},\bm{\xi} _{a}^{T},\bm{\xi} _{\omega}^{T},\bm{\xi} _{\text{jerk}}^{T} \right] ^T$，$\bm{g}_{kin}$是状态方程约束。方程约束中未提到的变量都是无约束变量。
 
 		\subsection{运动学约束}
-		在第二章中介绍了铰接车的运动学模型，模型的状态量为$x,y,\theta,\gamma$，受到微分方程的约束这些变量是天然连续的。系统的输入为速度$v$和铰接角速度$\omega$，他们并没有受到微分方程的约束，这意味着$v$和$\omega$在优化过程中直接作为优化变量是会突变的。这对于下层控制来说是不利的。为了解决这个问题，为系统引入高阶的连续性，假设系统的输入为$jerk$（加加速度或者舒适度）和$\omega$。模型可以进一步写为$\dot{x}=f( x,u )$：
+		在第二章中介绍了铰接车的运动学模型，模型的状态量为$x$、$y$、$\theta$和$\gamma$，受到微分方程的约束这些变量是天然连续的。系统的输入为速度$v$和铰接角速度$\omega$，它们并没有受到微分方程的约束，这意味着$v$和$\omega$在优化过程中直接作为优化变量是会突变的。这对于下层控制来说是不利的。为了解决这个问题，为系统引入高阶的连续性，假设系统的输入为$jerk$（加加速度或者舒适度）和$\omega$（铰接角速度）。运动学模型可以进一步写为$\dot{x}=f( x,u )$：
 		\begin{equation}
 			\begin{aligned}
 				 \frac{d}{dt}\left[ \begin{array}{c}
-					x_f\\
-					y_f\\
+					x\\
+					y\\
 					\theta\\
 					\gamma\\
 					v\\
@@ -1041,102 +1040,107 @@
 				\end{array} \right] 
 			\end{aligned}   
 		\end{equation}
-		其中， $x=\left[ x_f,y_f,\theta,\gamma,v,a \right]^T$ 为状态向量，分别表示前轴中点位置、航向角、铰接角、速度、加速度。输入向量由 $u=\left[jerk,\omega\right]^T$ 给出，其中 $jerk$ 为前轴中点加加速度（舒适度），$w$ 为铰接角速度。
+		其中， 令$\bm{x}=\left[ x,y,\theta,\gamma,v,a \right]^T$ 为状态向量，分别表示前轴中点位置、航向角、铰接角、速度、加速度。输入向量由 $\bm{u}=\left[jerk,\omega\right]^T$ 给出，其中 $jerk$ 为前轴中点加加速度（舒适度），$\omega$ 为铰接角速度。
+
 		对于上述运动学方程需要对其进行离散化，采用一阶离散运动学模型，可表示为：
 		\begin{equation}
 			\begin{aligned}
-				x( k ) =x( k-1 ) +\Delta t( k-1 ) f( x( k-1 ) ,u( k-1 ) ) 
+				\bm{x}( k ) =\bm{x}( k-1 ) +\Delta t( k-1 ) f( \bm{x}( k-1 ) ,\bm{u}( k-1 ) ) 
 			\end{aligned}   
 		\end{equation}
-		令 \(g_{\text{kin}} = [g_x^T\ g_y^T\ g_\theta^T\ g_\gamma^T\ g_v^T\ g_a^T]^T\)，其中每个 \(g\) 对应 \(m = N-1\) 个等式约束。例如：
+
+		令 $\bm{g}_{kin} = [\bm{g}_x^T\ \bm{g}_y^T\ \bm{g}_\theta^T\ \bm{g}_\gamma^T\ \bm{g}_v^T\ \bm{g}_a^T]^T$，其中 $\bm{g}_{kin}$的每一个元素对应 $m = N-1$ 个等式约束。例如：
 		\begin{equation}
 			\begin{aligned}
-				g_{x_f}( 0 ) =x_f( 1 ) -x_{start}-\Delta t( 0 ) \cdot v( 0 ) \cos \theta( 0 ) ,\\
-				g_{x_f}( 1 ) =x_f( 2 ) -x_f( 1 ) -\Delta t( 1 ) \cdot v( 1 ) \cos \theta ( 1 ) ,\\
+				g_{x}( 0 ) =x_f( 1 ) -x_{start}-\Delta t( 0 ) \cdot v( 0 ) \cos \theta( 0 ) \\
+				g_{x}( 1 ) =x_f( 2 ) -x_f( 1 ) -\Delta t( 1 ) \cdot v( 1 ) \cos \theta ( 1 ) \\
 				...\\
-				g_{y_f}( 0 ) =y_f( 1 ) -x_{start}-\Delta t( 0 ) \cdot v( 0 ) \sin \theta ( 0 ) ,\\
-				g_{y_f}( 1 ) =y_f( 2 ) -y_f( 1 ) -\Delta t( 1 ) \cdot v( 1 ) \sin \theta ( 1 ) ,\\
+				g_{y}( 0 ) =y_f( 1 ) -x_{start}-\Delta t( 0 ) \cdot v( 0 ) \sin \theta ( 0 ) \\
+				g_{y}( 1 ) =y_f( 2 ) -y_f( 1 ) -\Delta t( 1 ) \cdot v( 1 ) \sin \theta ( 1 ) \\
 				...
 			\end{aligned}   
 		\end{equation}
+
 		使用惩罚函数将运动学约束纳入代价函数，表达式如下:
 		\begin{equation}
-			\mathcal{G}_{kin} = w_{kin}*\left \| g_{kin} \right \|_2^2 \label{Gkin}
+			\mathcal{G}_{kin} = w_{kin}*\left \| \bm{g}_{kin} \right \|_2^2 \label{Gkin}
 		\end{equation}
 		梯度为：
 		\begin{equation}
-			\frac{\partial\mathcal{G}_{kin}}{\partial\xi}=2w_{kin}\cdot\frac{\partial g_{kin}^T}{\partial\xi}\cdot g_{kin}\label{18}
+			\frac{\partial\mathcal{G}_{kin}}{\partial\bm{\xi}}=2w_{kin}\cdot\frac{\partial \bm{g}_{kin}^T}{\partial\bm{\xi}}\cdot \bm{g}_{kin}\label{18}
 		\end{equation}
-		其中，$w_{kin}$为运动学约束权重。\(\frac{\partial g_{\text{kin}}^T}{\partial \xi}\) 表示所有运动约束向量的雅可比矩阵。假设第 \(i\) 类运动约束关于第 \(j\) 类变量的雅可比矩阵由 \(\psi_{ij} = \frac{\partial g^T_{i}}{\partial \xi_j}\) 给出。可以推出：
+		其中，$w_{kin}$为运动学约束权重。\(\frac{\partial \bm{g}_{kin}^T}{\partial \bm{\xi}}\) 表示所有运动约束向量的雅可比矩阵，表示为：
 		\begin{equation}
 			\begin{array}{c}
-				\frac{\partial g_{k i n}^{T}}{\partial \xi}= \\
+				\frac{\partial \bm{g}_{kin}^{T}}{\partial \bm{\xi}}= 
 				{\left[\begin{array}{cccccc}
-						\psi_{E} & 0 & 0 & 0 & 0 & 0 \\
-						0 & \psi_{E} & 0 & 0 & 0 & 0 \\
-						-\psi_{x \theta} & -\psi_{y \theta} & \psi_{E} & 0 & 0 & 0 \\
-						0 & 0 & -\psi_{\theta \gamma} & \psi_{E} & 0 & 0 \\
-						-\psi_{x v} & -\psi_{y v} & -\psi_{\theta v} & 0 & \psi_{E} & 0 \\
-						0 & 0 & 0 & 0 & -\psi_{v a} & \psi_{E} \\
-						0 & 0 & -\psi_{\theta \omega} & -\psi_{\gamma \omega} & 0 & 0 \\
-						0 & 0 & 0 & 0 & 0 & -\psi_{\text {ajerk }} \\
-						-\psi_{x \Delta t} & -\psi_{y \Delta t} & -\psi_{\theta \Delta t} & -\psi_{\gamma \Delta t} & -\psi_{v \Delta t} & -\psi_{a \Delta t}
+						\bm{\psi}_{E} & 0 & 0 & 0 & 0 & 0 \\
+						0 & \bm{\psi}_{E} & 0 & 0 & 0 & 0 \\
+						-\bm{\psi}_{x \theta} & -\bm{\psi}_{y \theta} & \bm{\psi}_{E} & 0 & 0 & 0 \\
+						0 & 0 & -\bm{\psi}_{\theta \gamma} & \bm{\psi}_{E} & 0 & 0 \\
+						-\bm{\psi}_{x v} & -\bm{\psi}_{y v} & -\bm{\psi}_{\theta v} & 0 & \bm{\psi}_{E} & 0 \\
+						0 & 0 & 0 & 0 & -\bm{\psi}_{v a} & \bm{\psi}_{E} \\
+						0 & 0 & -\bm{\psi}_{\theta \omega} & -\bm{\psi}_{\gamma \omega} & 0 & 0 \\
+						0 & 0 & 0 & 0 & 0 & -\bm{\psi}_{\text {ajerk }} \\
+						-\bm{\psi}_{x \Delta t} & -\bm{\psi}_{y \Delta t} & -\bm{\psi}_{\theta \Delta t} & -\bm{\psi}_{\gamma \Delta t} & -\bm{\psi}_{v \Delta t} & -\bm{\psi}_{a \Delta t}
 					\end{array}\right]}
 			\end{array}
 			\label{eq:运动学约束的雅可比}
 		\end{equation}
-		其中 $\psi_E = [E_{n \times n}, 0_n] - [0_n, E_{n \times n}]$，其中 $E$ 为单位矩阵，且\(\psi_{ij} = \frac{\partial g^T_{i}}{\partial \xi_j}\)。
+		其中 $\bm{\psi}_E = [\bm{E}_{n \times n}, 0_n] - [0_n, \bm{E}_{n \times n}]$，其中 $\bm{E}$ 为单位矩阵，且\(\bm{\psi}_{ij} = \frac{\partial \bm{g}^T_{i}}{\partial \bm{\xi}_j}\)。
 
 		\subsection{安全走廊的防碰撞约束处理}
-		在本节中，将探讨避障约束在笛卡尔坐标系中的表述方法。仍然采用安全走廊模型对铰接车的避障进行全维建模，安全走廊的构建方法参照第三章中的全局规划方案。与全局规划中的处理方式不同，本节中将对车体结构进行建模。在全局规划中，车体被简化为质点模型，且车体结构的影响通过膨胀层来近似替代，其主要目的是快速生成一条长远的路径，以为局部规划提供导航指引。而局部规划则负责生成更加精细化的轨迹。
+		在本节中，将探讨避障约束在笛卡尔坐标系中的表述方法。仍然采用安全走廊对铰接车的避障进行全维建模，安全走廊的构建方法参照第三章中的全局规划方案。与全局规划中的处理方式不同，本节中将对车体结构进行建模。在全局规划中，车体被简化为质点模型，且车体结构的影响通过膨胀层来近似替代，其主要目的是快速生成一条长远的路径，以为局部规划提供导航指引。而局部规划则负责生成更加精细化的轨迹。
 
-		如图\ref{fig:安全走廊}所示，沿前端粗解生成一系列凸多边形，这些凸多边形依次相交形成安全走廊，所有优化轨迹点都将被约束在该走廊内。
-		\begin{figure}[!ht]
+		如图\ref{fig:安全走廊}所示，灰色区域是设置的障碍物示意，黑色的是运动轨迹。轨迹上设置有多个离散点，蓝色的区域是凸多边形安全区域。每一个离散的路径点都生成一个凸多边形，这些凸多边形依次相交形成安全走廊，所有优化轨迹点都将被约束在该走廊内。
+		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.8\textwidth]{安全走廊.png}
+			\includegraphics[width=0.9\textwidth]{安全走廊.png}
 			\caption{安全走廊示意图}
 			\label{fig:安全走廊}
 		\end{figure}
-		根据凸集的性质，如果车辆的所有顶点都在凸包内，那么整个车辆就一定在凸包内。把铰接车前桥和后桥共八个顶点全部带入不等式\ref{eq:走廊约束}，可以得到如下安全约束：
+
+		铰接车辆的前桥由四个顶点构成，这四个顶点围成一个凸多边形，即为前桥的轮廓。同样地，后桥也具有类似的四个顶点，形成其自身的凸多边形轮廓。基于凸集的性质，如果我们将车辆的所有顶点都包含在一个大的凸包内，则可以确定整个车辆都将位于这个凸包之内。例如，在判断车辆是否能够安全通过狭窄通道或避开障碍物时，可以通过检查车辆的凸包是否与障碍物或其他限制发生重叠来进行决策。进一步，考虑到铰接式车辆在转向过程中前后桥的相对位置会发生变化，采用动态更新的凸包能更准确地反映车辆的实际形态和运动轨迹。可以得到如下安全约束：
 		\begin{equation}
 			\left\{ \begin{matrix}
-				A\left( R_{\theta}l_f+\sigma \right) -b<0,&		f=A,B,C,D\\
-				A\left( R_{\gamma}R_{\theta}l_r+R_{\theta}l_{O_1}+\sigma \right) -b<0,&		r=E,F,G,H\\
-			\end{matrix} \right. .
+				\bm{A}\left( \bm{R}_{\theta}\bm{l}_f+\bm{\sigma} \right) -\bm{b}<0,&		f=A,B,C,D\\
+				\bm{A}\left( \bm{R}_{\gamma}\bm{R}_{\theta}\bm{l}_r+\bm{R}_{\theta}\bm{l}_{O_1}+\bm{\sigma} \right) -\bm{b}<0,&		r=E,F,G,H\\
+			\end{matrix} \right. 
 		\end{equation}
-		需要注意的是，所有顶点不一定都需要参与到避障约束中。由于铰接角的运动范围有限，仅利用前轴的四个顶点很多时候就足以实现有效的避障。
+
+		由于铰接角的运动范围有限，仅利用前轴的四个顶点很多时候就足以实现有效的避障。
 		为了方便表达，令
 		\begin{equation}
 			\begin{aligned}
-			g_f\left( \sigma ,\theta ,\gamma \right) &=A\left( R_{\theta}l_f+\sigma \right) -b\\
-			g_b\left( \sigma ,\theta ,\gamma \right) &=A\left( R_{\gamma}R_{\theta}l_r+R_{\theta}l_{O_1}+\sigma \right) -b.
+			\bm{g}_{f}\left( \bm{\sigma} ,\theta ,\gamma \right) &=\bm{A}\left( \bm{R}_{\theta}\bm{l}_f+\bm{\sigma} \right) -b\\
+			\bm{g}_r\left( \bm{\sigma} ,\theta ,\gamma \right) &=\bm{A}\left( \bm{R}_{\gamma}\bm{R}_{\theta}\bm{l}_r+\bm{R}_{\theta}\bm{l}_{O_1}+\bm{\sigma} \right) -b
 			\end{aligned}
 		\end{equation}
-		这里$R_{\theta +\gamma}=R_{\theta}R_{\gamma},\ R_{\theta}=\left[ \begin{matrix}
+		其中，$\bm{R}_{\theta +\gamma}=\bm{R}_{\theta}\bm{R}_{\gamma},\ \bm{R}_{\theta}=\left[ \begin{matrix}
 			\cos\theta&		-\sin\theta\\
 			\sin\theta&		\cos\theta\\
 		\end{matrix} \right] $。
-		路径上第$k$个点处的走廊约束关于$\sigma_k,\theta_k$和$\gamma_k$的梯度由下式给出：
+		路径上第$k$个点处的走廊约束关于$\bm{\sigma}_k,\theta_k$和$\gamma_k$的梯度由下式给出：
 		\begin{equation}
 			\begin{aligned}
-			\frac{\partial g_{f}^{T}(k)}{\partial \sigma _k}&=A_{k}^{T},\frac{\partial g_{f}^{T}(k)}{\partial \gamma _k}=0,\frac{\partial g_{f}^{T}(k)}{\partial \theta _k}=l_{f}^{T}\frac{\partial R_{\theta}^{T}}{\partial \theta _k}A_{k}^{T},\\
-			\frac{\partial g_{r}^{T}(k)}{\partial \sigma _k}&=A_{k}^{T},\frac{\partial g_{r}^{T}(k)}{\partial \gamma _k}=l_{r}^{T}\frac{\partial R_{\theta +\gamma}^{T}}{\partial \gamma _k}A_{k}^{T},\\
-			\frac{\partial g_{r}^{T}(k)}{\partial \theta _k}&=l_{r}^{T}\frac{\partial R_{\theta +\gamma}^{T}}{\partial \theta _k}A_{k}^{T}+l_{o1}^{T}\frac{\partial R_{\theta}^{T}}{\partial \theta _k}A_{k}^{T}.
+			\frac{\partial g_{f}^{T}(k)}{\partial \bm{\sigma} _k}&=\bm{A}_{k}^{T},\frac{\partial g_{f}^{T}(k)}{\partial \gamma _k}=0,\frac{\partial g_{f}^{T}(k)}{\partial \theta _k}=\bm{l}_{f}^{T}\frac{\partial \bm{R}_{\theta}^{T}}{\partial \theta _k}\bm{A}_{k}^{T}\\
+			\frac{\partial g_{r}^{T}(k)}{\partial \bm{\sigma} _k}&=\bm{A}_{k}^{T},\frac{\partial g_{r}^{T}(k)}{\partial \gamma _k}=\bm{l}_{r}^{T}\frac{\partial \bm{R}_{\theta +\gamma}^{T}}{\partial \gamma _k}\bm{A}_{k}^{T}\\
+			\frac{\partial g_{r}^{T}(k)}{\partial \theta _k}&=\bm{l}_{r}^{T}\frac{\partial \bm{R}_{\theta +\gamma}^{T}}{\partial \theta _k}\bm{A}_{k}^{T}+\bm{l}_{o1}^{T}\frac{\partial \bm{R}_{\theta}^{T}}{\partial \theta _k}\bm{A}_{k}^{T}
 			\end{aligned}
 		\end{equation}
 
-		对于上述走廊的不等式约束，使用罚函数将约束加入到代价函数中。为了确保连续可微性，罚函数使用公式\ref{eq:松弛函数}。为了方便表达，定义 \([]\) 为逐元素运算符，例如 \([\cdot]\) 表示逐元素乘法，\(S[x]\) 表示对$x$的所有元素进行函数 \(S\)运算。于是可以得到总体的走廊约束代价，其表达为：
+		对于上述走廊的不等式约束，使用罚函数将约束加入到代价函数中。为了确保连续可微性，罚函数使用式（\ref{eq:松弛函数}）。为了方便表达，定义 \([]\) 为逐元素运算符，例如 \([\cdot]\) 表示逐元素乘法，\(S[x]\) 表示对$x$的所有元素进行函数 \(S\)运算。于是可以得到总体的走廊约束代价，其表达为：
 		\begin{equation}
-			\mathcal{G}_c =\mathcal{G}_{f}+\mathcal{G}_{r}=w_{c}\cdot \sum_{k=1}^{N-2}\sum_{i=0}^{d-1}(S[g_f(k)] + S[g_r(k)]).\label{eq:走廊约束代价}
+			\mathcal{G}_c =\mathcal{G}_{f}+\mathcal{G}_{r}=w_{c}\cdot \sum_{k=1}^{N-2}\sum_{i=0}^{d-1}(S[\bm{g}_{f}(k)] + S[\bm{g}_{r}(k)]).\label{eq:走廊约束代价}
 		\end{equation}
-		其中$d$为矩阵$A_k$的行数。对公式\ref{eq:走廊约束代价}中的各项分别进行求导得到走廊的惩罚项的梯度：
+		其中$d$为矩阵$\bm{A}_k$的行数。对式（\ref{eq:走廊约束代价}）中的各项分别进行求导得到走廊的惩罚项的梯度：
 		\begin{equation}
 			\begin{aligned}
-				\frac{\partial \mathcal{G}_{f,r}}{\sigma \left( k \right)}&=\sum_{i=0}^{d-1}{A}_{k}^{T}S^{'}\left[ g_{f,r}\left( k \right) \right] =A_{k}^{T}S^{'}\left[ g_{f,r}\left( k \right) \right] I_d,\\
-				\frac{\partial \mathcal{G}_f}{\xi _{\theta}\left( k \right)}&=l_{f}^{T}\frac{\partial R_{\theta}^{T}\left( k \right)}{\partial \theta \left( k \right)}A_{k}^{T}S^{'}\left[ g_f\left( k \right) \right] I_d,\\
-				\frac{\partial \mathcal{G}_r}{\xi _{\gamma}\left( k \right)}&=l_{r}^{T}\frac{\partial R_{\theta +\gamma}^{T}\left( k \right)}{\partial \gamma \left( k \right)}A_{k}^{T}S^{'},\\
-				\frac{\partial \mathcal{G}_r}{\xi _{\theta}\left( k \right)}&=\left( l_{r}^{T}\frac{\partial R_{\theta +\gamma}^{T}\left( k \right)}{\partial \theta \left( k \right)}+l_{o1}^{T}\frac{\partial R_{\theta}^{T}\left( k \right)}{\partial \theta \left( k \right)} \right) A_{k}^{T}S^{'}\left[ g_r\left( k \right) \right] I_d,\\
-				\sigma \left( k \right) &=\left[ \xi _x\left( k \right) ,\xi _y\left( k \right) \right] ^T.\left[ g_r\left( k \right) \right] I_d
+				\frac{\partial \mathcal{G}_{f,r}}{\bm{\sigma} \left( k \right)}&=\sum_{i=0}^{d-1}{\bm{A}}_{k}^{T}S^{'}\left[ \bm{g}_{f,r}\left( k \right) \right] =\bm{A}_{k}^{T}S^{'}\left[ \bm{g}_{f,r}\left( k \right) \right] \bm{I}_d,\\
+				\frac{\partial \mathcal{G}_f}{\bm{\xi} _{\theta}\left( k \right)}&=\bm{l}_{f}^{T}\frac{\partial \bm{R}_{\theta}^{T}\left( k \right)}{\partial \theta \left( k \right)}\bm{A}_{k}^{T}S^{'}\left[ \bm{g}_{f}\left( k \right) \right] \bm{I}_d,\\
+				\frac{\partial \mathcal{G}_r}{\bm{\xi} _{\gamma}\left( k \right)}&=\bm{l}_{r}^{T}\frac{\partial \bm{R}_{\theta +\gamma}^{T}\left( k \right)}{\partial \gamma \left( k \right)}\bm{A}_{k}^{T}S^{'},\\
+				\frac{\partial \mathcal{G}_r}{\bm{\xi} _{\theta}\left( k \right)}&=\left( \bm{l}_{r}^{T}\frac{\partial \bm{R}_{\theta +\gamma}^{T}\left( k \right)}{\partial \theta \left( k \right)}+\bm{l}_{o1}^{T}\frac{\partial \bm{R}_{\theta}^{T}\left( k \right)}{\partial \theta \left( k \right)} \right) \bm{A}_{k}^{T}S^{'}\left[ \bm{g}_{r}\left( k \right) \right] \bm{I}_d,\\
+				\bm{\sigma} \left( k \right) &=\left[ \bm{\xi} _x\left( k \right) ,\bm{\xi} _y\left( k \right) \right] ^T.\left[ \bm{g}_{r}\left( k \right) \right] \bm{I}_d
 			\end{aligned}
 		\end{equation}
 		
@@ -1144,13 +1148,13 @@
 		在实际的系统中，系统的输入和状态不是无边界的，例如铰接车的速度、加速度、加加速度、铰接角等变量，所以需要对这些变量进行约束分析。由于边界约束同样和走廊约束一样是不等式约束，采用走廊约束处理方法，使用松弛函数$S(\cdot)$加入到代价函数中。为了表示方便后序将省略下标，变量边界约束对应的罚函数项和其梯度如下：
 		\begin{equation}
 			\begin{aligned}
-				\mathcal{G}_b&=w_b\cdot \sum_{k=0}^{cols}{\left( S\left[ \hat{\xi}_{min}-\hat{\xi} \right] +S\left[ \hat{\xi}-\hat{\xi}_{max} \right] \right)}\\
-				&=w_b\cdot I_{N-2}^{T}\left( S\left[ \hat{\xi}_{min}-\hat{\xi} \right] +S\left[ \hat{\xi}-\hat{\xi}_{max} \right] \right)\\
-				\frac{\partial \mathcal{G}_b}{\hat{\xi}}&=w_b\cdot \left( S^{'}\left[ \hat{\xi}-\hat{\xi}_{max} \right] -S^{'}\left[ \hat{\xi}_{min}-\hat{\xi} \right] \right)
+				\mathcal{G}_b&=w_b\cdot \sum_{k=0}^{cols}{\left( S\left[ \hat{\bm{\xi}}_{min}-\hat{\bm{\xi}} \right] +S\left[ \hat{\bm{\xi}}-\hat{\bm{\xi}}_{max} \right] \right)}\\
+				&=w_b\cdot \bm{I}_{N-2}^{T}\left( S\left[ \hat{\bm{\xi}}_{min}-\hat{\bm{\xi}} \right] +S\left[ \hat{\bm{\xi}}-\hat{\bm{\xi}}_{max} \right] \right)\\
+				\frac{\partial \mathcal{G}_b}{\hat{\bm{\xi}}}&=w_b\cdot \left( S^{'}\left[ \hat{\bm{\xi}}-\hat{\bm{\xi}}_{max} \right] -S^{'}\left[ \hat{\bm{\xi}}_{min}-\hat{\bm{\xi}} \right] \right)
 			\end{aligned}
 			\label{eq:Gb}
 		\end{equation}
-		其中，$w_b$是边界约束的权重，$I_{N-2}$表示元素全为1的$N-2$维向量。
+		其中，$w_b$是边界约束的权重，$\bm{I}_{N-2}$表示元素全为1的$N-2$维向量。
 
 		\subsection{时间正则化约束}
 		在本文的轨迹优化问题中，每两个轨迹点之间的时间$\Delta t$是灵活变化且独立的，纳入了优化变量当中。时间正则化约束和走廊约束一样属于不等式约束，与之不同的是，时间项$\Delta t$必须严格大于0，这是硬约束。使用松弛函数对时间项进行惩罚属于约束软化的过程，在极端的场景下仍然可能出现$\Delta t \le 0$，这并不符合物理规律。
@@ -1164,29 +1168,29 @@
 		其中，$t_{max}$为时间变量的上界。$-\infty <\tau <+\infty $，$0<\Delta t<\Delta t_{max}$。
 		
 		\subsection{优化问题求解}
-		在上面几个小节，利用惩罚函数来表示成本函数中的运动学约束，并使用松弛函数来表示成本函数中的走廊约束，对于时间变量被映射到了整个实数轴。
+		在上面几个小节，利用惩罚函数来表示成本函数中的运动学约束，并使用松弛函数来表示成本函数中的走廊约束，对于时间变量被映射到了整个实数轴，最后所有约束都被处理，问题被化为一个无约束优化的形式
 
-		由于时间变量发生了转换，不妨重新表示以下优化变量。令最终的优化变量$\eta =\left[ \xi _{x}^{T},\xi _{y}^{T},\xi _{\theta}^{T},\xi _{\gamma}^{T},\xi _{v}^{T},\xi _{a}^{T},\xi _{\omega}^{T},\xi _{\text{jerk}}^{T},\xi _{\tau}^{T} \right] ^T$，在这里$\xi _{\tau}$和最初优化变量$\xi$中的$\xi _{t}$是微分同胚的。于是代价函数可以重新写为：
+		由于时间变量用微分同胚进行了转换，需要重新表示优化变量。令最终的优化变量$\eta =\left[ \bm{\xi} _{x}^{T},\bm{\xi} _{y}^{T},\bm{\xi} _{\theta}^{T},\bm{\xi} _{\gamma}^{T},\bm{\xi} _{v}^{T},\bm{\xi} _{a}^{T},\bm{\xi} _{\omega}^{T},\bm{\xi} _{jerk}^{T},\bm{\xi} _{\tau}^{T} \right] ^T$，在这里$\bm{\xi} _{\tau}$和最初优化变量$\bm{\xi}$中的$\bm{\xi} _{t}$是微分同胚的。于是代价函数可以重新写为：
 		\begin{equation}
 			\begin{aligned}
-				\mathcal{J}\left( \eta \right) =J\left( \xi \right) +\mathcal{G}_{kin}+\mathcal{G}_c+\mathcal{G}_b
+				\mathcal{J}\left( \eta \right) =J\left( \bm{\xi} \right) +\mathcal{G}_{kin}+\mathcal{G}_c+\mathcal{G}_b
 			\end{aligned}
 		\end{equation}
-		对应的梯度为
+		对应的梯度为：
 		\begin{equation}
 			\begin{aligned}
-				\frac{\partial \mathcal{J}}{\partial \xi _{jerk}}=2w_{uj}\cdot \xi _{jerk}\\
-				\frac{\partial \mathcal{J}}{\partial \xi _{\omega}}=2w_{u\omega}\cdot \xi _{\omega}\\
-				\frac{\partial \mathcal{J}}{\partial \xi _{\tau}}=\Delta t\left[ \xi _{\tau} \right]
+				\frac{\partial \mathcal{J}}{\partial \bm{\xi} _{jerk}}&=2w_{uj}\cdot \bm{\xi} _{jerk}\\
+				\frac{\partial \mathcal{J}}{\partial \bm{\xi} _{\omega}}&=2w_{u\omega}\cdot \bm{\xi} _{\omega}\\
+				\frac{\partial \mathcal{J}}{\partial \bm{\xi} _{\tau}}&=\Delta t\left[ \bm{\xi} _{\tau} \right]
 			\end{aligned}
 		\end{equation}
-		在等式约束部分\ref{eq:走廊约束代价}，推导出了运动学约束的雅可比矩阵。现在把对时间变量的导数部分进行替换，得到：
+		在式（\ref{eq:走廊约束代价}）推导出了运动学约束的雅可比矩阵。现在把对时间变量的导数部分进行替换，得到：
 		\begin{equation}
 			\begin{aligned}
-				\psi _{i\tau}=\frac{\partial g_{i}^{T}}{\partial \xi _{\tau}}=\frac{\partial g_{i}^{T}}{\partial \xi _{\Delta t}}\cdot \Delta t\left[ \xi _{\tau} \right] 
+				\bm{\psi} _{i\tau}=\frac{\partial \bm{g}_{i}^{T}}{\partial \bm{\xi} _{\tau}}=\frac{\partial \bm{g}_{i}^{T}}{\partial \bm{\xi} _{\Delta t}}\cdot \Delta t\left[ \bm{\xi} _{\tau} \right] 
 			\end{aligned}
 		\end{equation}
-		其中，$\mathcal{G}_{\text{kin}},\mathcal{G}_c,\mathcal{G}_b$由公式\ref{Gkin}，\ref{eq:走廊约束代价}、\ref{eq:Gb}提供。
+		其中，$\mathcal{G}_{kin},\mathcal{G}_c,\mathcal{G}_b$由式（\ref{Gkin}）、式（\ref{eq:走廊约束代价}）和式（\ref{eq:Gb}）提供。
 		综上所述，优化问题被转化为了一个无约束的形式，可以使用LBFGS算法求解。
 
 	\section{本章小结}
@@ -1198,16 +1202,16 @@
 		\label{alg:local_planning}  
 		\begin{algorithmic}[1]  
 			\REQUIRE  
-			$\mathbf{p_{start}},\mathbf{p_{end}},\mathbf{map}$
+			$\bm{p}_{start},\bm{p}_{end},\bm{map}$
 			\ENSURE  
-			$\mathbf{traj}^{opt}$
-			\STATE $\mathbf{traj}^{coarse} \leftarrow HybridAstar(\mathbf{p_{start}},\mathbf{p_{end}},\mathbf{map})$\\
-			\STATE $\xi_0 \leftarrow getGuess(\mathbf{traj}^{coarse})$\\
-			\STATE $cors \leftarrow getCorridor(\mathbf{map},\mathbf{traj}^{coarse})$\\
-			\STATE $cons \leftarrow getConstraint(\xi_{min,max},cors,kinEqn)$\\
+			$\bm{traj}^{opt}$
+			\STATE $\bm{traj}^{coarse} \leftarrow HybridAstar(\bm{p}_{start},\bm{p}_{end},\bm{map})$\\
+			\STATE $\bm{\xi}_0 \leftarrow getGuess(\bm{traj}^{coarse})$\\
+			\STATE $cors \leftarrow getCorridor(\bm{map},\bm{traj}^{coarse})$\\
+			\STATE $cons \leftarrow getConstraint(\bm{\xi}_{min,max},cors,kinEqn)$\\
 			\STATE $cosFcn \leftarrow getCost(cons)$\\
 			\STATE $grad \leftarrow getGrad(cons)$ \\
-		   \RETURN $\mathbf{traj}^{opt} \leftarrow \mathbf{lbfgs}(cosFcn,grad)$
+		   \RETURN $\bm{traj}^{opt} \leftarrow \bm{lbfgs}(cosFcn,grad)$
 		\end{algorithmic}  
 	\end{algorithm}
 
@@ -1216,7 +1220,7 @@
 	\chapter{无人铰接车运动规划系统仿真}
 	在前面章节中，本文全面介绍了全局路径规划和局部轨迹规划两个算法，并分别对两个算法进行了严格的理论分析。在这一章节中将把这两个算法集成到自主导航中，组合成一个完整的运动规划系统。并通过大量的仿真分别对这两个算法进行详细的分析和验证，展示整个运动规划系统的能力。
 	
-	表\ref{tab:仿真车体参数}给出了车体的仿真参数设置，仿真中都将使用栅格地图最为环境信息，地图的的分辨率是0.3米/像素。
+	表\ref{tab:仿真车体参数}给出了车体的仿真参数设置，仿真中都将使用栅格地图最为环境信息，地图的的分辨率是0.3m/pix。
 	\begin{table}[!ht]
 		\caption{System Parameters}
 		\label{tab:仿真车体参数}
@@ -1225,30 +1229,30 @@
 			\toprule
 			Parameter & Description & Value \\
 			\midrule
-			$L$ &Front axle/rear axle length $m$ &1.3\\			
-			$L_1$ &Front axle length  &1.8\\			
-			$L_2$ & Rear axle length &1.8\\			
-			$d$   &Half wheelbase  &1.8\\		
-			$d_1$ &Distance from front axle to A &1.075\\			
-			$d_2$ &Distance from rear axle to H  &1.075\\			
-			$width$ &Front/Rear axle width  &2.1\\			
-			$v_{min}$ &Velocity lower-bound $m/s$ &-3\\			
-			$v_{max}$ &velocity upper-bound  &3\\			
-			$a_{min}$ &Acceleration lower-bound $m/s^2$ &-2\\			
-			$a_{max}$ &Acceleration upper-bound &2\\			
-			$jerk_{min}$ &Jerk lower-bound $m/s^3$ &-3\\			
-			$jerk_{max}$ &Jerk upper-bound &3\\
-			$\gamma_{min}$ &Articulation angle lower-bound $rad$ &-0.52\\
-			$\gamma_{max}$ &Articulation angle upper-bound &0.52\\
-			$\omega_{min}$ &Lower bound of articulation angular velocity $rad/s$ &-0.2\\
-			$\omega_{max}$ &Upper bound of articulation angular velocity &0.2\\
+			$L$ &Front axle/rear axle length &1.3m\\			
+			$L_1$ &Front axle length  &1.8m\\			
+			$L_2$ & Rear axle length &1.8m\\			
+			$d$   &Half wheelbase  &1.8m\\		
+			$d_1$ &Distance from front axle to A &1.075m\\			
+			$d_2$ &Distance from rear axle to H  &1.075m\\			
+			$width$ &Front/Rear axle width  &2.1m\\			
+			$v_{min}$ &Velocity lower-bound &-3m/s\\			
+			$v_{max}$ &velocity upper-bound  &3m\\			
+			$a_{min}$ &Acceleration lower-bound &-2m/s$^\text{2}$\\			
+			$a_{max}$ &Acceleration upper-bound &2m/s$^\text{2}$\\			
+			$jerk_{min}$ &Jerk lower-bound      &-3m/s$^\text{3}$\\			
+			$jerk_{max}$ &Jerk upper-bound     &3m/s$^\text{3}$\\
+			$\gamma_{min}$ &Articulation angle lower-bound &-0.52rad\\
+			$\gamma_{max}$ &Articulation angle upper-bound &0.52rad\\
+			$\omega_{min}$ &Lower bound of articulation angular velocity &-0.2rad/s\\
+			$\omega_{max}$ &Upper bound of articulation angular velocity &0.2rad/s\\
 			\bottomrule
 		\end{tabular}
 	\end{table}
 
 	\section{仿真环境及运动规划软件架构设计}
 	本文的实验仿真环境搭载AMD-Ryzen9-7940HX处理器，基于Ubuntu20.04LTS操作系统构建ROS-Noetic机器人系统框架。仿真可视化界面使用RVIZ，其仿真界面示意图见\ref{fig:rviz仿真界面}。核心算法采用C++14标准和Eigen矩阵库实现，并通过Catkin构建系统实现节点编译与依赖管理。
-	\begin{figure}[!ht]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.75\textwidth]{rviz_view.png}
 		\caption{RVIZ仿真可视化示意图}
@@ -1256,38 +1260,45 @@
 	\end{figure}
 
 	受开源机器人框架ROS的启发，本文的运动规划系统采用全局-局部双级递进架构实现任务分解。下图\ref{fig:运动规划算法框架}为运动规划系统的算法架构图：
-		\begin{figure}[!ht]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=1.0\textwidth]{运动规划算法框架.png}
 			\caption{运动规划算法架构图}
 			\label{fig:运动规划算法框架}
 		\end{figure}
 
-	在ROS中，navigation框架以move\_base节点作为整个机器人的运动逻辑控制中心，集成了定位、路径规划、避障和运动控制等关键功能。它通过自适应蒙特卡洛定位（​AMCL）算法实现机器人在已知地图中的实时定位，利用全局规划器生成最优路径，并通过局部规划器实时调整路径以避开动态障碍物。全局代价地图和局部代价地图更新环境信息，确保导航安全。支持灵活配置传感器、规划算法及地图参数，适用于服务机器人、仓储物流和工业自动化等场景，提供从建图到自主导航的一体化解决方案。但是目前正处于机器人高速发展的时期，navigation会随着ROS版本的更替而快速更替，这给开发者带来了很多的不便。而move\_base\_flex的诞生解决了这个问题，该框架以向后兼容为目的，旨在让使用者可以不必关注于框架的改变，可以快速适配自己的机器人。图\ref{fig:navigation规划框架图}为navigation的规划软件架构。
-	\begin{figure}[!ht]
+	在ROS中，navigation框架以move\_base节点作为整个机器人的运动逻辑控制中心，集成了定位、路径规划、避障和运动控制等关键功能。它通过自适应蒙特卡洛定位（​AMCL）算法实现机器人在已知地图中的实时定位，利用全局规划器生成最优路径，并通过局部规划器实时调整路径以避开动态障碍物。全局代价地图和局部代价地图更新环境信息，确保导航安全。支持灵活配置传感器、规划算法及地图参数，适用于服务机器人、仓储物流和工业自动化等场景，提供从建图到自主导航的一体化解决方案。但是目前正处于机器人高速发展的时期，navigation会随着ROS版本的更替而快速更替，这给开发者带来了很多的不便。而move\_base\_flex的诞生解决了这个问题，该框架以向后兼容为目的，旨在让使用者可以不必关注于框架的改变，可以快速适配自己的机器人。图\ref{fig:navigation规划框架图}为navigation的规划软件架构。如图\ref{fig:改进的规划框架图}是本文改进的规划框架图。
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\textwidth]{navigation规划框架.png}
 		\caption{navigation规划软件架构图}
 		\label{fig:navigation规划框架图}
 	\end{figure}
-	
-	由于本课题的重点在于运动规划，所以涉及到感知、定位和控制后序不做讨论。navigation的规划框架由全局规划器、局部规划器、全局代价代价地图和局部代价地图构成。全局规划器利用全局代价地图提供的环境信息使用A*或者Dijkstra算法完成路径规划。局部规划器使用局部代价地图提供的环境信息，使用DWA和TEB等算法进行局部轨迹规划。如图\ref{fig:navigation规划框架图}是navigation的整体规划框架图。
-	受navigation规划框架的启发，本文采用流水线的设计模式设计了有效的规划框架，如图\ref{fig:改进的规划框架图}。
-	\begin{figure}[!ht]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\textwidth]{我的规划框架.png}
 		\caption{改进的铰接车软件架构图}
 		\label{fig:改进的规划框架图}
 	\end{figure}
-	相较于navigation的规划架构做了几个变化：
-
+	
+	由于本课题的重点在于运动规划，所以涉及到感知、定位和控制后序不做讨论。navigation的规划框架由全局规划器、局部规划器、全局代价代价地图和局部代价地图构成。全局规划器利用全局代价地图提供的环境信息使用A*或者Dijkstra算法完成路径规划。局部规划器使用局部代价地图提供的环境信息，使用DWA和TEB等算法进行局部轨迹规划。受navigation规划框架的启发，本文采用流水线的设计模式设计了有效的规划框架，如图\ref{fig:改进的规划框架图}。图\ref{fig:URDF铰接式底盘模型}为后续仿真使用到的URDF铰接式底盘模型。
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{urdf.png}
+		\caption{URDF铰接式底盘模型}
+		\label{fig:URDF铰接式底盘模型}
+	\end{figure}
+	
+	相较于navigation的规划架构本文做了几个变化：
 	首先，移除了恢复模块。在标准的navigation系统中，恢复模块的主要功能是在机器人遇到困境时（例如陷入狭窄空间或被障碍物包围），提供必要的恢复行为，帮助机器人脱离困境。然而，在本文的仿真环境中，由于地图是预先设定且静态不变的，并没有动态变化的情况，因此恢复模块是没必要的。通过去除这一模块，不仅简化了系统的复杂性，还提高了整体框架的效率和稳定性。
 
 	其次，合并全局代价地图与局部代价地图。通常情况下，全局和局部规划器需要实时更新环境中的静态和动态障碍物信息，这对计算资源提出了挑战。为了应对这个问题，navigation系统设计了独立工作的全局和局部代价地图，以确保系统能够高效运行。但在本文的仿真场景中，由于所有障碍物都是事先加载且固定不变的，不存在动态障碍物的情况。因此将这两个代价地图合并以提升了系统的响应速度和性能表现。
 
 	此外，对全局规划器进行了重构，将其分为RRT-Connect规划器和路径平滑器两个主要部分。RRT-Connect专注于前端快速路径搜索，能够在短时间内找到一条从起点到终点的基本可行路径；而路径平滑器则负责后端处理，对这条路径进行平滑处理，并根据具体需求施加曲率限制，确保生成的路径既安全又符合机器人的运动特性。这两者紧密结合，共同构成了一个高效的全局路径规划方案。
 
-	最后，对局部规划器进行了重构。新的局部规划器由Hybrid A*规划器和轨迹优化器组成。Hybrid A*用于前端快速搜索允许倒车的轨迹，它能在复杂的环境中迅速找到一条初步可行的轨迹；随后，轨迹优化器对这条路径进行进一步优化，确保其满足一系列约束条件，包括运动学约束、安全性要求以及边界限制等。这样的设计使得局部规划器不仅能适应更广泛的应用场景，还能提高机器人执行任务的成功率和安全性。
+	最后，对局部规划器进行了重构。新的局部规划器由Hybrid A*规划器和轨迹优化器组成。Hybrid A*用于前端快速搜索允许倒车的轨迹，它能在复杂的环境中迅速找到一条初步可行的轨迹；随后，轨迹优化器对这条路径进行进一步优化，确保其满足一系列约束条件，包括运动学约束、安全性要求以及边界限制等。
+	
+	% 这样的设计使得局部规划器不仅能适应更广泛的应用场景，还能提高机器人执行任务的成功率和安全性。
 
 	\section{全局规划算法仿真}
 	在本节中，将对全局规划算法进行仿真测试。该算法的理论原理已在第三章中详细推导和分析。为了验证提出的算法的有效性，本文分别在单点到点导航场景和多点导航场景下进行全局规划测试。在这两种仿真场景中，所使用的权重参数保持一致，具体参数值见表 \ref{tab:全局规划仿真参数}。
@@ -1300,82 +1311,79 @@
 			Parameter & Description & Value \\
 			\midrule
 			$k_{min}$ &Minimum curvature &-0.1\\
-			$k{max}$ &Maximum curvature &0.1\\
+			$k_{max}$ &Maximum curvature &0.1\\
 			$w_{k}$ &Curvature constraint penalty weight &100\\
 			$w_c$ &Corridor constraint penalty weight &10\\
 			\bottomrule
 		\end{tabular}
 	\end{table}
 	
-	从表 \ref{tab:全局规划仿真参数} 中可以看到，仿真设定的最大曲率为0.1，最小曲率为-0.1。实际上，本文的铰接车辆允许的最大曲率为0.2，即最大铰接角可达30度。然而，为了给后续的局部轨迹优化留出一定的裕量，设置了较为保守的曲率限制。这样做不仅有助于确保全局路径的可行性，还能为局部规划器提供足够的空间来进行进一步优化，以满足更严格的运动学和安全约束条件。通过这些设置，能够在保证全局路径质量的前提下，最大化局部轨迹优化的效果。这样使得系统能够更好地应对复杂的环境变化，并提高了整体导航系统的鲁棒性和可靠性。
+	表 \ref{tab:全局规划仿真参数} 中可仿真设定的最大曲率为0.1，最小曲率为-0.1。实际上，本文的铰接车辆允许的最大曲率为0.2，即最大铰接角可达30度。然而，为了给后续的局部轨迹优化留出一定的裕量，设置了较为保守的曲率限制。这样做不仅有助于确保全局路径的可行性，还能为局部规划器提供足够的空间来进行进一步优化，以满足更严格的运动学和安全约束条件。
 
 		\subsection{点到点路径规划仿真}
 		本小节的主要目的是通过仿真验证第三章中点到点场景下的路径规划任务，展示规划算法在穿越不同障碍物下的表现，并评估其生成路径的质量和效率。
 		
-		图 \ref{fig:点到点路径规划仿真案例} 是点到点规划的仿真结果图，其中图\ref{fig:single_1}、\ref{fig:single_2}、\ref{fig:single_3}和\ref{fig:single_4}分别是在不同起点和终点下的规划结果。图中红色的圆滑路径是经过算法优化后最终效果。
-		\begin{figure}[!ht]
+		图 \ref{fig:点到点路径规划仿真案例} 是点到点规划的仿真结果图，其中图\ref{fig:single_3}和\ref{fig:single_4}分别是在不同起点和终点下的规划结果。图 \ref{fig:single} 单独展示了一个路径规划仿真例子，用于对局部路径规划算法进行定性分析。
+		\begin{figure}[H]
 			\centering
-			\subcaptionbox{示意一\label{fig:single_1}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{single_1.png}}
-			\subcaptionbox{示意二\label{fig:single_2}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{single_2.png}}
-			\subcaptionbox{示意三\label{fig:single_3}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{single_3.png}}
-			\subcaptionbox{示意四\label{fig:single_4}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{single_4.png}}
+			\subcaptionbox{示意一\label{fig:single_3}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{single_3.png}}
+			\subcaptionbox{示意二\label{fig:single_4}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{single_4.png}}
 			\caption{不同起点、终点下的路径规划仿真图}
 			\label{fig:点到点路径规划仿真案例}
 		\end{figure}
 
-		图 \ref{fig:single} 单独展示了一个路径规划仿真例子，用于对局部路径规划算法进行定量分析。
-		\begin{figure}[!ht]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.7\textwidth]{single.png}
 			\caption{障碍物场景及路径规划结果}
 			\label{fig:single}
 		\end{figure}
 		
-		在图 \ref{fig:single} 中，黑色细线代表由RRT-Connect算法搜索出的初始路径，蓝色区域表示沿着该路径生成的安全走廊，而红色平滑曲线则展示了经优化算法处理后的最终路径。通过对比可以明显看出，优化后的轨迹不仅保证了足够的安全性和平滑度，而且其曲率（即转弯幅度）保持在一个合理的范围内。此外，起点和终点的方向与车体方向（如图中箭头所示）一致，进一步确保了路径的可用性。
+		在图 \ref{fig:点到点路径规划仿真案例}和\ref{fig:single} 中，黑色细线代表由RRT-Connect算法搜索出的初始路径，蓝色区域表示沿着该路径生成的安全走廊，而红色平滑曲线则展示了经优化算法处理后的最终路径。通过对比可以明显看出，优化后的轨迹不仅保证了足够的安全性和平滑度，而且其曲率（即转弯幅度）保持在一个合理的范围内。此外，起点和终点的方向与车体方向（如图中箭头所示）一致，进一步确保了路径的可用性。
 
-		接下来，将简要分析路径仿真数据。图 \ref{fig:datasingle} 中右子图展示了路径的曲率曲线，为了便于详细比较，左子图重新绘制了优化后的全局路径。从右子图可以看出，在坐标点（80, 0）附近，对应于路程S=160米处的曲率达到最大值0.097。整个曲率曲线的值始终小于0.1，这意味着曲率半径始终大于10米，这与仿真中设置的优化参数相吻合，证明了优化算法的有效性和合理性。
+		接下来，将简要分析图\ref{fig:single}对应的路径仿真数据。图 \ref{fig:datasingle} 中右子图展示了路径的曲率曲线，为了便于详细比较，左子图重新绘制了优化后的全局路径。从右子图可以看出，在坐标点（80, 0）附近，对应于路程S=160米处的曲率达到最大值0.097。整个曲率曲线的值始终小于0.1，这意味着曲率半径始终大于10米，这与仿真中设置的优化参数相吻合，证明了优化算法的有效性和合理性。
 
-		\begin{figure}[!ht]
+		\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\textwidth]{datasingle.png}
 		\caption{路径及其曲率分析}
 		\label{fig:datasingle}
 		\end{figure}
 
-		鉴于本算法分为前端搜索和后端优化两大部分，在表 \ref{tab:global_planning_time} 中记录了各部分的运行时间。实验结果显示，在大约200米的平均行程中，后端优化阶段的平均耗时为10.14毫秒，充分满足了高实时性的要求。前端的RRT-Connect算法借助OMPL库实现，平均求解时间为6.07毫秒。因此，整个算法的总平均求解时间约为17.71毫秒，展现了优异的性能表现。
+		鉴于本算法分为前端搜索（RRT-Connect）和后端路径优化（Path Optimization）两大部分，在表 \ref{tab:global_planning_time} 中记录了各部分的运行时间。实验结果显示，在大约200米的平均行程中，后端优化阶段的平均耗时为10.14毫秒，充分满足了高实时性的要求。前端的RRT-Connect算法借助OMPL库实现，平均求解时间为6.07毫秒。因此，整个算法的总平均求解时间约为17.71毫秒，展现了优异的性能表现。
 		\begin{table}[!ht]
-			\caption{全局规划算法求解时间统计}
+			\caption{Solving time of global planning algorithm}
 			\label{tab:global_planning_time}
 			\centering
 			\begin{tabular}{cccc}
 				\toprule
-				算法阶段   & 最小值 (ms) & 最大值 (ms) & 平均值 (ms) \\
+				Algorithm   & Minimum/ms & Maximum/ms & Mean/ms \\
 				\midrule
-				前端RRT-Connect & 3.04    & 12.22   & 6.07       \\
-				后端优化       & 0.38    & 21.44    & 10.14      \\
-				总时间         & 4.32    & 24.18    & 17.71      \\
+				RRT-Connect & 3.04    & 12.22   & 6.07       \\
+				Path Optimization       & 0.38    & 21.44    & 10.14      \\
+				Total Time         & 4.32    & 24.18    & 17.71      \\
 				\bottomrule
 			\end{tabular}
 		\end{table}
 
 		综上所述，通过精心设计的障碍物场景测试、详细的路径曲率分析以及算法运行时间的评估，验证了所提出的路径规划方法在复杂环境中的高效性和可靠性，同时也证明了其能够满足实际应用中对于安全性和实时性的严格要求
 
-		\subsection{多点路径规划仿真}
-		在上一节中，对点到点的路径规划算法进行了仿真测试。本节将重点介绍多点巡航路径规划算法的测试结果。在这种场景下，每一个点都作为一个换向点，允许车辆在这些点上改变行驶方向。值得一提的是，在RVIZ可视化界面中，用户可以方便地通过鼠标拖动调整航点的位置，极大地提升了操作的灵活性和便捷性。
+		\subsection{多站点路径规划仿真}
+		在上一节中，对点到点的路径规划算法进行了仿真测试。本节将重点介绍多站点巡航路径规划算法的测试结果。在这种场景下，每一个点都作为一个换向点，允许车辆在这些点上改变行驶方向。值得一提的是，在RVIZ可视化界面中，用户可以方便地通过鼠标拖动调整航点的位置，极大地提升了操作的灵活性和便捷性。
 
 		图 \ref{fig:muti} 展示了的多点航仿真案例。在这个测试中，手动设定了6个航点，分别为A、B、C、D、E和F，其中A为起点，F为终点，其余四个点（B、C、D、E）作为中间的换向点。蓝色区域代表沿前端搜索路径膨胀生成的安全走廊，而红色曲线则展示了经过优化处理后的最终路径。需要注意的是，在每个换向点处，两条路径的切线方向保持一致，这确保了车辆能够在这些关键点顺利完成转向操作，例如从前进切换为倒车。这一现象与第二章中讨论的算法理论完全吻合，进一步验证了算法的有效性和实用性。
 		
-		\begin{figure}[!ht]
+		\begin{figure}[H]
 			\centering
-			\subcaptionbox{多点路径规划\label{fig:muti}}[0.49\textwidth]{\includegraphics[width=0.344\textwidth]{muti.png}}
+			\subcaptionbox{多站点路径规划\label{fig:muti}}[0.49\textwidth]{\includegraphics[width=0.344\textwidth]{muti.png}}
 			\subcaptionbox{室内场景路径规划\label{fig:dataminco}}[0.49\textwidth]{\includegraphics[width=0.48\textwidth]{dataminco.png}}
-			\caption{多点路径规划仿真案例}
+			\caption{多站点路径规划仿真案例}
 			\label{fig:多点路径规划仿真案例}
 			\end{figure}
 		
 		为了更深入地分析路径的特性，下面对图\ref{fig:muti}进行仿真的数据分析。 图 \ref{fig:datamuti} 展示了多航点路径的曲率曲线。正如前一节所述，左子图重新绘制了优化后的全局路径，右子图则呈现了轨迹曲率随路程S的变化情况。从图中可以看出，在路程S=80米、S=140米和S=210米处，曲率接近最大值0.1，但始终未超出此限值，保证了曲率半径始终大于10米。这不仅符合优化参数设置，也证明了算法在复杂环境下的稳定性和可靠性。
 		
-		\begin{figure}[!ht]
+		\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\textwidth]{datamuti.png}
 		\caption{路径和的曲率变化曲线}
@@ -1403,7 +1411,7 @@
 		\end{tabular}
 	\end{table}
 	从表 \ref{tab:局部规划仿真参数} 中可以看出，本文在铰接角速度代价、加加速度（舒适度）代价和时间最优代价上设置了相对较小的权重。这主要是因为本次提出的算法本质上是一个运动规划算法，在输入量方面可以稍作放松，同时也不苛求严格的时间最优性。对于运动学约束（平滑性）、走廊约束（安全性）以及边界约束（可行性），设定了非常高的权重，分别为1000。
-	\begin{figure}[!ht]
+	\begin{figure}[H]
 		\centering
 		\subcaptionbox{泊车场景\label{fig:s1}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{s1.png}}
 		\subcaptionbox{狭窄场景\label{fig:s2}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{s2.png}}
@@ -1412,88 +1420,92 @@
 		\caption{局部规划算法在部分场景中的规划结果展示}
 		\label{fig:局部规划仿真案例}
 	\end{figure}
-	\begin{figure}[!ht]
+
+	为了展示局部规划算法的效果，本文在仿真环境中设置了多种障碍物配置，并记录了算法在不同场景下的表现。如图 \ref{fig:局部规划仿真案例} 所示，展示了局部规划算法在不同场景下的仿真结果。这些场景包括泊车、穿越狭窄区域以及绕过障碍物等典型情况。在图 \ref{fig:s1}、\ref{fig:s2} 和 \ref{fig:s3} 中，蓝色线条代表由算法生成的最终轨迹，浅蓝色区域则表示安全走廊。这些图展示了算法如何在复杂环境中找到一条既安全又高效的路径。进一步地，在图 \ref{fig:s4} 中，紫色线条表示由Hybrid A*算法生成的初始解，而绿色线条则是经过优化后的最终轨迹。优化后的轨迹具有更少的换向次数，这不仅提高了路径的平滑度，还增强了车辆行驶的舒适性和安全性。
+
+	图 \ref{fig:nmpcyuewa1} 展示了穿越室内场景的仿真结果。其中，蓝色细线为Hybrid A*算法生成的初步路径，而粗线则为经过优化处理后的最终轨迹。优化后的路径更加平滑，并且有效避开了所有障碍物，确保了车辆的安全通行。
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\textwidth]{nmpcyuewa1.png}
 		\caption{室内栅格地图规划结果展示}
 		\label{fig:nmpcyuewa1}
 	\end{figure}
 
-	为了展示局部规划算法的效果，本文在仿真环境中设置了多种障碍物配置，并记录了算法在不同场景下的表现。如图 \ref{fig:局部规划仿真案例} 所示，展示了局部规划算法在不同场景下的仿真结果。这些场景包括泊车、穿越狭窄区域以及绕过障碍物等典型情况。在图 \ref{fig:s1}、\ref{fig:s2} 和 \ref{fig:s3} 中，蓝色线条代表由算法生成的最终轨迹，浅蓝色区域则表示安全走廊。这些图展示了算法如何在复杂环境中找到一条既安全又高效的路径。进一步地，在图 \ref{fig:s4} 中，紫色线条表示由Hybrid A*算法生成的初始解，而绿色线条则是经过优化后的最终轨迹。优化后的轨迹具有更少的换向次数，这不仅提高了路径的平滑度，还增强了车辆行驶的舒适性和安全性。此外，图 \ref{fig:nmpcyuewa1} 展示了穿越室内场景的仿真结果。其中，蓝色细线为Hybrid A*算法生成的初步路径，而粗线则为经过优化处理后的最终轨迹。优化后的路径更加平滑，并且有效避开了所有障碍物，确保了车辆的安全通行。
-
 	下面两小节将主要对两个实用场景进行详细的仿真分析，分别是自主泊车场景和侧方位停车场景。
 
 		\subsection{自主泊车场景}
 		自主泊车类的算法要求车辆能够在前进和后退之间灵活切换，但许多现有的规划算法（如五次多项式等）并未明确区分这两种模式。相比之下，本文提出的算法基于精确的运动学模型构建，天然具备前进与后退的切换能力，即使在泊车这种对精度要求极高的场景下也能表现出色。图 \ref{fig:boche} 是在泊车场景中Hybrid A*算法与优化后的路径对比图。
-		\begin{figure}[!ht]
+		
+		铰接车将从绿色箭头处开始移动，并最终停靠在灰色箭头指示的位置。深蓝色细线代表由改进版Hybrid A*算法生成的轨迹，在接近终点时需要进行三次换向才能成功完成泊车任务。为了确保安全，在Hybrid A*轨迹的基础上创建了一个膨胀的安全区域。只要铰接车保持在这个区域内，就能有效避免碰撞。可以看出，本文提出的局部规划算法生成了更为流畅的绿色轨迹，在接近终点时仅需一次换向即可完成泊车任务。尽管局部规划算法使用Hybrid A*生成的路径作为初始解，但最终得到的轨迹质量远超前者，显著减少了换向次数。这表明，即便初始解的质量并非最佳，本文提出的算法也能够通过迭代优化将轨迹调整至较高水平。
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.7\textwidth]{boche.png}
 			\caption{改进的Hybrid A*算法与优化后的路径对比}
 			\label{fig:boche}
 		\end{figure}
-		在测试的泊车场景中（如图 \ref{fig:boche} 所示），铰接车将从绿色箭头处开始移动，并最终停靠在灰色箭头指示的位置。深蓝色细线代表由改进版Hybrid A*算法生成的轨迹，在接近终点时需要进行三次换向才能成功完成泊车任务。为了确保安全，在Hybrid A*轨迹的基础上创建了一个膨胀的安全区域。只要铰接车保持在这个区域内，就能有效避免碰撞。可以看出，本文提出的局部规划算法生成了更为流畅的绿色轨迹，在接近终点时仅需一次换向即可完成泊车任务。尽管局部规划算法使用Hybrid A*生成的路径作为初始解，但最终得到的轨迹质量远超前者，显著减少了换向次数。这表明，即便初始解的质量并非最佳，本文提出的算法也能够通过迭代优化将轨迹调整至较高水平。
-		具体来说，本文提出的算法不仅降低了换向点的数量，提高了泊车过程中的效率和平稳性，还展示了其对初始解质量依赖程度较低的特点。
+
+		本文提出的算法不仅降低了换向点的数量，提高了泊车过程中的效率和平稳性，还展示了其对初始解质量依赖程度较低的特点。
 		此外，值得注意的是，该算法虽然依赖Hybrid A*生成的轨迹作为粗略解，但经过优化处理后轨迹明显大幅度偏离粗略解，并且换向点大大减少。这一结果表明，本文提出的算法具有较强的自我修正能力，能够在初始解质量不高的情况下，仍然生成高质量的最终路径。
 
-		接下来，将对仿真数据进行详细分析，以进一步了解算法性能。图 \ref{fig:databochestate} 展示了航向角、铰接角、车体速度和车体加速度随时间的变化情况。从图表中可以看出，航向角和车速曲线非常平滑且连续可微，这主要得益于采用的精确运动学模型。这种平滑度对于确保车辆在行驶过程中的稳定性和安全性至关重要。其次，车体速度在整个过程中保持在 $[-1m/s, 3m/s]$ 的范围内，而加速度则在 $[-0.4m/s^2, 0.4m/s^2]$ 之间波动，均符合设计要求。然而对于铰接角和加速度的曲线虽然也是连续的，但其斜率有时会出现小突变。这是因为铰接角和加速度与输入量（即铰接角速度和加加速度）之间仅存在一阶导数关系。由于输入量可以是不连续的，因此铰接角和加速度并不能保证始终可微。不过，这种现象并不会显著影响车辆的整体表现，因为铰接角范围始终保持在 $[-0.5rad, 0.5rad]$ 之间，满足操作需求。值得注意的是，在0秒至26秒期间，铰接车的速度为正值，表示车辆处于前进状态。到了26秒时，车速降为$0 m/s$，标志着车辆到达换向点。此时，结合示意图 \ref{fig:boche} 可以看出，铰接角也变为$0 rad$，意味着方向盘完全回正。随后，车速转为负值，表明车辆开始倒车并顺利泊入车库。
-		\begin{figure}[!ht]
+		接下来，将对仿真数据进行详细分析，以进一步了解算法性能。图 \ref{fig:databochestate} 展示了航向角、铰接角、车体速度和车体加速度随时间的变化情况。从图表中可以看出，航向角和车速曲线非常平滑且连续可微，这主要得益于采用的精确运动学模型。这种平滑度对于确保车辆在行驶过程中的稳定性和安全性至关重要。其次，车体速度在整个过程中保持在-1m/s至3m/s的范围内，而加速度则在-0.4m/s$^2$至0.4m/$s^2$之间波动，均符合设计要求。然而对于铰接角和加速度的曲线虽然也是连续的，但其斜率有时会出现小突变。这是因为铰接角和加速度与输入量（即铰接角速度和加加速度）之间仅存在一阶导数关系。由于输入量可以是不连续的，因此铰接角和加速度并不能保证始终可微。不过，这种现象并不会显著影响车辆的整体表现，因为铰接角范围始终保持在-0.5rad至0.5rad之间，满足操作需求。值得注意的是，在0秒至26秒期间，铰接车的速度为正值，表示车辆处于前进状态。到了26秒时，车速降为0m/s，标志着车辆到达换向点。此时，结合示意图 \ref{fig:boche} 可以看出，铰接角也变为0rad，意味着方向盘完全回正。随后，车速转为负值，表明车辆开始倒车并顺利泊入车库。
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=1\textwidth]{databochestate.png}
 			\caption{泊车轨迹状态变量曲线}
 			\label{fig:databochestate}
 		\end{figure}
 
-		如图\ref{fig:databocheinput}，是优化出的轨迹的输入量，可以看到在5s、17s和24s时加加速度都发生了突变，对应角速度也发生了突变。这是由系统的输入量并不会受到微分方程的约束。但是可以看出，输入变量和事先定下的边界约束时保持一致的，铰接角速度在$[-0.2rad/s,0.2rad/s]$，加加速度在$[-0.3m/s^3,0.3m/s^3]$之间。
-		\begin{figure}[!ht]
+		如图\ref{fig:databocheinput}，是优化出的轨迹的输入量，可以看到在5s、17s和24s时加加速度都发生了突变，对应角速度也发生了突变。这是由系统的输入量并不会受到微分方程的约束。但是可以看出，输入变量和事先定下的边界约束时保持一致的，铰接角速度在-0.2rad/s至0.2rad/s之间，加加速度在-0.3m/s$^3$至0.3m/s$^3$之间。
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=1\textwidth]{databocheinput.png}
 			\caption{泊车轨迹输入变量曲线}
 			\label{fig:databocheinput}
 		\end{figure}
 
-		表\ref{tab:local_planning_boche_time}是局部规划算法的运行时间表。
+		表\ref{tab:local_planning_boche_time}是局部规划算法的平均求解时间，每个场景测试20次。
 		\begin{table}[!ht]
-			\caption{局部规划算法运行时间}
+			\caption{Solving time of local planning algorithm}
 			\label{tab:local_planning_boche_time}
 			\centering
 			\begin{tabular}{l rrr}
 				\toprule
-				测试场景   & 规划长度(m) & 平均求解时间 (20次) \\
+				Scenario   &  Length/m & Runtime/ms \\
 				\midrule
-				绕障1 & 20至30    & 78.2ms   \\
-				绕障2 & 30至40    & 106.0ms  \\
-				绕障3 & 40至50    & 147.8ms  \\
-				泊车1  & 30至40   & 207.4ms  \\
-				泊车2  & 40至50   & 515.2ms  \\
+				Obstacle Avoidance 1 & 25    & 78.2   \\
+				Obstacle Avoidance 2 & 35    & 106.0  \\
+				Obstacle Avoidance 3 & 45    & 147.8  \\
+				Parking 1  & 35   & 207.4  \\
+				Parking 2  & 45   & 515.2  \\
 				\bottomrule
 			\end{tabular}
 		\end{table}
 
 
 		\subsection{侧方位停车场景}
-		侧方位停车与自主泊车具有同等重要性，这一小节将做侧方位停车的仿真实验。如图\ref{fig:cebianboche}是侧边泊车的RVIZ仿真可视化图，其中细的轨迹是改进的Hybrid A*生成的，它在距离终点很近时发生了一次泊车。蓝色区域是沿着细轨迹膨胀出来的安全走廊区域。较粗的轨迹是算法生成的最终轨迹。可以看出轨迹对于该侧边停车场景并没有发生换向。
-		\begin{figure}[!ht]
+		侧方位停车与自主泊车具有同等重要性，这一小节将做侧方位停车的仿真实验。如图\ref{fig:cebianboche}是侧边泊车的RVIZ仿真可视化图，图\ref{fig:datacebianstate}是对应的状态曲线图。其中细的轨迹是改进的Hybrid A*生成的，它在距离终点很近时发生了一次泊车。
+		
+
+		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.7\textwidth]{cebianboche.png}
+			\includegraphics[width=0.65\textwidth]{cebianboche.png}
 			\caption{侧边泊车场景}
 			\label{fig:cebianboche}
 		\end{figure}
 
-		图\ref{fig:datacebianstate}是侧边泊车的状态曲线图，包括航向角、铰接角、速度和加速度。可以从速度曲线看出，由于并没有发生换向，所以铰接车的速度始终保持为正。
-		\begin{figure}[!ht]
+		% 图\ref{fig:datacebianstate}是侧边泊车的状态曲线图，包括航向角、铰接角、速度和加速度。可以从速度曲线看出，由于并没有发生换向，所以铰接车的速度始终保持为正。
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=1\textwidth]{datacebianstate.png}
 			\caption{侧边泊车状态变量曲线}
 			\label{fig:datacebianstate}
 		\end{figure}
 
+		图中数据包括航向角、铰接角、速度和加速度。可以从速度曲线看出，由于并没有发生换向，所以铰接车的速度始终保持为正。蓝色区域是沿着细轨迹膨胀出来的安全走廊区域。较粗的轨迹是算法生成的最终轨迹。可以看出轨迹对于该侧边停车场景并没有发生换向。
+
 		\subsection{局部规划算法的性能对比}
-		为了全面地评估本研究提出的局部轨迹规划算法性能，我们将其与文献\ref{9216948}中描述的算法进行了对比分析。为简化叙述过程，我们将该参考文献中的算法称为OBPP算法。OBPP算法通过构建基于最优控制的规划问题，并采用增广拉格朗日方法处理约束条件，这种方法虽然有效，但由于引入了大量的协态变量，导致计算成本显著增加。避障策略依赖于自车结构和障碍物凸包的距离来实现，这意味着随着环境中障碍物数量的增加，约束条件的数量也会线性增长。
-
-		为了确保实验结果的准确性和可靠性，我们在实现过程中使用了IPOPT求解器对本文提出的局部规划算法以及OBPP算法进行求解，并利用CasADi自动微分工具进行梯度计算。此外，两种算法的初始粗略路径均由Hybrid A*算法生成。
-
-		图\ref{fig:Hybrid A*、OBPP算法、本文的局部规划算法对比图}展示了三种不同算法（Hybrid A*、OBPP算法以及本文提出的局部规划算法）的规划结果。其中紫色轨迹代表Hybrid A*算法的输出，橙色轨迹对应OBPP算法，而绿色轨迹则表示本研究所提出的局部规划算法的结果。从图中可以看出，相较于OBPP算法所规划出的较为激进的轨迹，本文算法在转向点处的表现更加自然流畅，提供了更高的舒适度。
-		\begin{figure}[!ht]
+		为了全面地评估本研究提出的局部轨迹规划算法性能，我们将其与文献\ref{9216948}中描述的算法进行了对比分析。图\ref{fig:Hybrid A*、OBPP算法、本文的局部规划算法对比图}展示了不同算法（Hybrid A*、OBPP算法以及本文提出的局部规划算法）的规划结果。
+		\begin{figure}[H]
 			\centering
 			\subcaptionbox{\label{fig:局部对比1}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/局部对比1.png}}
 			\subcaptionbox{\label{fig:局部对比2}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/局部对比2.png}}
@@ -1502,11 +1514,17 @@
 			\caption{Hybrid A*、OBPP算法、本文的局部规划算法对比图}
 			\label{fig:Hybrid A*、OBPP算法、本文的局部规划算法对比图}
 		\end{figure}
+		
+		为简化叙述过程，本文将该参考文献中的算法称为OBPP算法。OBPP算法通过构建基于最优控制的规划问题，并采用增广拉格朗日方法处理约束条件，这种方法虽然有效，但由于引入了大量的协态变量，导致计算成本显著增加。避障策略依赖于自车结构和障碍物凸包的距离来实现，这意味着随着环境中障碍物数量的增加，约束条件的数量也会线性增长。
 
-		表\ref{tab:局部仿真结果对比}比较了OBPP算法与本文算法在20至30米路径长度范围内的表现，随机起点、终点共测试了40次，测试指标包括规划成功率（Success rate）、平均换向次数（Average direction-change）、平均舒适度（Average comfort）以及算法求解时间（Solving time）。平均舒适度的计算公式如下：
+		为了确保实验结果的准确性和可靠性，我们在实现过程中使用了IPOPT求解器对本文提出的局部规划算法以及OBPP算法进行求解，并利用CasADi自动微分工具进行梯度计算。此外，两种算法的初始粗略路径均由Hybrid A*算法生成。
+		
+		图\ref{fig:Hybrid A*、OBPP算法、本文的局部规划算法对比图}中紫色轨迹代表Hybrid A*算法的输出，橙色轨迹对应OBPP算法，而绿色轨迹则表示本研究所提出的局部规划算法的结果。从图中可以看出，相较于OBPP算法所规划出的较为激进的轨迹，本文算法在转向点处的表现更加自然流畅，提供了更高的舒适度。
+
+		表\ref{tab:局部仿真结果对比}比较了OBPP算法与本文算法在20至30米路径长度范围内的表现，随机起点、终点共测试了40次，测试指标包括规划成功率（Success rate）、平均换向次数（Reversing）、舒适度（Comfort）以及算法求解时间（Runtime）。平均舒适度的计算公式如下：
 		\begin{equation}
 			\begin{aligned}
-				AverageComfort = \frac{\sum_{i=1}^{N}jerk_i*\Delta t_i}{\sum_{i=1}^{N}\Delta t_i} 
+				Comfort = \frac{\sum_{i=1}^{N}jerk_i*\Delta t_i}{\sum_{i=1}^{N}\Delta t_i} 
 			\end{aligned}
 		\end{equation}
 		其中$jerk_i$为第$i$步系统的输入变量，参考第四章。$\Delta t_i$为第$i$步系统的离散时间。
@@ -1517,10 +1535,10 @@
 			\centering
 			\begin{tabular}{CCCCC}
 				\toprule
-				Algorithm & Success rate &Average direction-change(times) &Average comfort ($s^3/m$)&Solving time\\
+				Algorithm & Success rate &Reversing/times &Comfort/[s$^{3}$/m] &Runtime/ms\\
 				\midrule 
-				This work &100\% &1.2 &16.13 &79.3ms\\
-				OBPP &87.4\% &1.2 &14.08 &21817.1ms \\
+				This work &100\% &1.2 &16.13 &79.3\\
+				OBPP &87.4\% &1.2 &14.08 &21817.1 \\
 				\bottomrule
 			\end{tabular}
 		\end{table}
@@ -1528,7 +1546,7 @@
 		结果显示，本文提出的算法不仅拥有更高的成功率，而且其求解时间也远低于OBPP算法。这是因为OBPP算法在应对运动学约束、安全约束及时间约束时采用了增广拉格朗日方法，导致大量协态变量的引入，引发了维度爆炸的问题，增加了求解难度和失败风险。相反，本文的方法通过罚函数和微分同胚策略处理约束条件，避免了额外协态变量的引入，从而提高了计算效率和稳定性。
 
 	\section{本章小结}
-	在本章中，首先详细介绍了基于ROS和RVIZ的仿真环境搭建过程，该环境为后续的研究提供了坚实的基础。接着，设计了一个专门适用于本课题需求的运动规划软件框架，旨在优化系统的效率和性能。
+	在本章中，首先介绍了基于ROS和RVIZ的仿真环境，该环境为后续的研究提供了坚实的基础。接着，设计了一个专门适用于本课题需求的运动规划软件框架，旨在优化系统的效率和性能。
 
 	随后，针对第三章和第四章中提出的全局路径规划算法与局部轨迹规划算法，设计并实施了一系列详细的仿真实验，以全面验证这些算法的有效性和实用性。通过这些实验，不仅展示了算法在复杂环境中的优异表现，还进一步确认了其在实际应用中的可靠性和鲁棒性。
 

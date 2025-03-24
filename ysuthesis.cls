@@ -35,7 +35,7 @@
 \newCJKfontfamily{\songtib}[AutoFakeBold={3.17}]{SimSun}
 \newCJKfontfamily{\heitib}[AutoFakeBold={3.17}]{SimHei}
 
-\bibliographystyle{gbt7714-numerical}
+\bibliographystyle{shixiong}
 \renewcommand{\bibfont}{\zihao{5}}
 \setlength{\bibsep}{0pt}
 
