@@ -166,7 +166,8 @@
 
 \newcommand{\ekeywords}[1]{
 	\thispagestyle{fancy}
-	\fancyhead[OC]{\zihao{5}\songti Abstract}
+	% \fancyhead[OC]{\zihao{5}\songti Abstract}
+	\fancyhead[OC]{\zihao{5}\songti 目\quad 次} % 页眉内容
 	\fancyhead[EC]{\zihao{5}\songti 燕山大学\@capplydegree\cdegree 士学位论文}
 	\hangafter1\hangindent5em\noindent\textbf{Keywords: }\songti #1
 

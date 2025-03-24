@@ -1,4 +1,4 @@
-\begin{thebibliography}{58}
+\begin{thebibliography}{55}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -18,11 +18,6 @@ YUE C, ZHONG J, NING Q, et~al.
   the new technological situation\allowbreak[J].
 \newblock Strategic Study of Chinese Academy of Engineering, 2024,
   26\allowbreak (1): 45-58.
-
-\bibitem[任吉东(2023)]{任吉东2023城市史研究}
-任吉东.
-\newblock 城市史研究 (第 46 辑): 第 46 卷\allowbreak[M].
-\newblock 社会科学文献出版社, 2023.
 
 \bibitem[Garrett et~al.(2021)Garrett, Chitnis, Holladay, Kim, Silver,
   Kaelbling, and Lozano-P{\'e}rez]{garrett2021integrated}
@@ -98,11 +93,12 @@ Proceedings of the fifth international joint conference on Autonomous agents
   and multiagent systems.
 \newblock 2006: 281-288.
 
-\bibitem[LaValle(1998)]{lavalle1998rapidly}
-LAVALLE S.
-\newblock Rapidly-exploring random trees: A new tool for path
-  planning\allowbreak[J].
-\newblock Research Report 9811, 1998.
+\bibitem[LaValle et~al.(2001)LaValle and Kuffner]{lavalle2001rapidly}
+LAVALLE S~M, KUFFNER J~J.
+\newblock Rapidly-exploring random trees: Progress and prospects: Steven m.
+  lavalle, iowa state university, a james j. kuffner, jr., university of tokyo,
+  tokyo, japan\allowbreak[J].
+\newblock Algorithmic and computational robotics, 2001: 303-307.
 
 \bibitem[Kuffner et~al.(2000)Kuffner and LaValle]{kuffner2000rrt}
 KUFFNER J~J, LAVALLE S~M.
@@ -155,11 +151,12 @@ GUPTA~MANYAM S, CASBEER D~W, VON~MOLL A, et~al.
 \newblock Journal of Guidance, Control, and Dynamics, 2022, 45\allowbreak (11):
   2107-2120.
 
-\bibitem[Fan et~al.(2018)Fan, Zhu, Liu, Zhang, Zhuang, Li, Zhu, Hu, Li, and
-  Kong]{fan2018baidu}
-FAN H, ZHU F, LIU C, et~al.
-\newblock Baidu apollo em motion planner\allowbreak[A].
-\newblock 2018.
+\bibitem[Zhang et~al.(2020)Zhang, Sun, Zhou, Pan, Hu, and Miao]{fan2018baidu}
+ZHANG Y, SUN H, ZHOU J, et~al.
+\newblock Optimal vehicle path planning using quadratic optimization for baidu
+  apollo open platform\allowbreak[C]//\allowbreak
+2020 IEEE Intelligent Vehicles Symposium (IV).
+\newblock IEEE, 2020: 978-984.
 
 \bibitem[Gao et~al.(2018)Gao, Wu, Lin, and Shen]{Gao2018OnlineST}
 GAO F, WU W, LIN Y, et~al.
@@ -360,16 +357,6 @@ WANG Z, ZHOU X, XU C, et~al.
 \newblock Geometrically constrained trajectory optimization for
   multicopters\allowbreak[J].
 \newblock IEEE Transactions on Robotics, 2022, 38\allowbreak (5): 3259-3278.
-
-\bibitem[Lewis et~al.(2012)Lewis, Vrabie, and Syrmos]{lewis2012optimal}
-LEWIS F~L, VRABIE D, SYRMOS V~L.
-\newblock Optimal control\allowbreak[M].
-\newblock John Wiley \& Sons, 2012.
-
-\bibitem[Vinter et~al.(2010)Vinter and Vinter]{vinter2010optimal}
-VINTER R~B, VINTER R.
-\newblock Optimal control: Vol.~2\allowbreak[M].
-\newblock Springer, 2010.
 
 \bibitem[Li et~al.(2022)Li, Acarman, Zhang, Ouyang, Yaman, Kong, Zhong, and
   Peng]{BaiLi:2022}

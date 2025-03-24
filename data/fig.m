@@ -1,4 +1,5 @@
 %%
+load("data.mat");
 % 点到点全局
 x = datasibgle(:,1);
 y = datasibgle(:,2);
@@ -59,8 +60,8 @@ figure('Position', [100 100 1200 500])
 subplot(1,2,1)
 plot(x, y, 'b-', 'LineWidth', 1.5, 'DisplayName','原始轨迹') 
 title('运动轨迹分析', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
-xlabel('X坐标 (m)', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
-ylabel('Y坐标 (m)', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
+xlabel('X坐标/m', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
+ylabel('Y坐标/m', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
 legend('show', 'Location','northeast', 'FontSize',16, 'FontWeight','bold')
 ax = gca;
 ax.FontSize = 14;  % 主刻度字号
@@ -70,8 +71,8 @@ axis equal
 subplot(1,2,2)
 plot(s, curvature_filtered, 'r-', 'LineWidth', 1.5,'DisplayName','轨迹曲率')
 title('曲率随弧长变化', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
-xlabel('弧长 s', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
-ylabel('曲率 \kappa', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
+xlabel('弧长/m', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
+ylabel('曲率', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
 legend('show', 'Location','northeast', 'FontSize',16, 'FontWeight','bold')
 ax = gca;
 ax.FontSize = 14;  % 主刻度字号
@@ -83,6 +84,7 @@ if curvature_max > 0
     ylim([0 curvature_max*1.1])
 end
 %%
+load("data.mat");
 % 多航点全局
 x = datamuti(:,1);
 y = datamuti(:,2);
@@ -143,8 +145,8 @@ figure('Position', [100 100 1200 500])
 subplot(1,2,1)
 plot(x, y, 'b-', 'LineWidth', 1.5, 'DisplayName','原始轨迹') 
 title('运动轨迹分析', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
-xlabel('X坐标 (m)', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
-ylabel('Y坐标 (m)', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
+xlabel('X坐标/m', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
+ylabel('Y坐标/m', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
 legend('show', 'Location','northeast', 'FontSize',16, 'FontWeight','bold')
 ax = gca;
 ax.FontSize = 14;  % 主刻度字号
@@ -154,8 +156,8 @@ axis equal
 subplot(1,2,2)
 plot(s, curvature_filtered, 'r-', 'LineWidth', 1.5,'DisplayName','轨迹曲率')
 title('曲率随弧长变化', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
-xlabel('弧长 s', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
-ylabel('曲率 \kappa', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
+xlabel('弧长/m', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
+ylabel('曲率', 'FontSize',16, 'FontName','宋体', 'FontWeight','bold')
 legend('show', 'Location','northeast', 'FontSize',16, 'FontWeight','bold')
 ax = gca;
 ax.FontSize = 14;  % 主刻度字号
@@ -167,6 +169,7 @@ if curvature_max > 0
     ylim([0 curvature_max*1.1])
 end
 %%
+load("data.mat");
 % 泊车场景
 x = boche(1,:);
 y = boche(2,:);
@@ -184,7 +187,7 @@ figure('Color', 'white', 'Position', [100, 100, 800, 600]);
 % ----------------- 子图1：航向角 -----------------
 subplot(4,1,1);
 plot(t, theta, 'g--', 'LineWidth', 2);
-ylabel('航向角 (rad)');
+ylabel('航向角/rad');
 %ylim([-2.5, 2.5]);      % 根据图片中的纵轴范围设置
 legend('航向角', 'Location', 'best');
 %title('航向角随时间变化');
@@ -193,7 +196,7 @@ grid on;
 subplot(4,1,2);
 plot(t, gamma, 'b', 'LineWidth', 2);
 %xlabel('时间 (s)');
-ylabel('铰接角 (rad)');
+ylabel('铰接角/rad');
 %ylim([-2.5, 2.5]);      % 根据图片中的纵轴范围设置
 legend('铰接角', 'Location', 'best');
 %title('铰接角随时间变化');
@@ -207,7 +210,7 @@ set(h, 'FontSize', 14); % 统一字体大小
 % ----------------- 子图1：车体速度 -----------------
 subplot(4,1,3);
 plot(t, v, 'g--', 'LineWidth', 2);
-ylabel('车体速度 (m/s)');
+ylabel('车体速度/[m/s]');
 %ylim([0, 2]);           % 根据图片中的纵轴范围设置
 legend('车体速度', 'Location', 'best');
 %title('车体速度随时间变化');
@@ -216,8 +219,8 @@ grid on;
 % ----------------- 子图2：加速度 -----------------
 subplot(4,1,4);
 plot(t, a, 'b', 'LineWidth', 2); 
-xlabel('时间 (s)');
-ylabel('加速度 (m^2/s)');
+xlabel('时间/s');
+ylabel('加速度/[m/s^2]');
 %ylim([-1, 1]);          % 根据图片中的纵轴范围设置
 legend('加速度', 'Location', 'best');
 %title('加速度随时间变化');
@@ -232,7 +235,7 @@ figure('Color', 'white', 'Position', [100, 100, 800, 600]);
 % ----------------- 子图1：omega -----------------
 subplot(2,1,1);
 plot(t(:,2:end), omega, 'g--', 'LineWidth', 2);
-ylabel('铰接角速度 (rad/s)');
+ylabel('铰接角速度/[rad/s]');
 %ylim([-2.5, 2.5]);      % 根据图片中的纵轴范围设置
 legend('铰接角速度', 'Location', 'best');
 %title('铰接角速度随时间变化');
@@ -240,8 +243,8 @@ grid on;
 % ----------------- 子图2：jerk -----------------
 subplot(2,1,2);
 plot(t(:,2:end), jerk, 'b', 'LineWidth', 2);
-xlabel('时间 (s)');
-ylabel(' 加加速度(m^3/s)');
+xlabel('时间/s');
+ylabel(' 加加速度/[m/s^3]');
 %ylim([-2.5, 2.5]);      % 根据图片中的纵轴范围设置
 legend('加加速度', 'Location', 'best');
 %title('铰接角随时间变化');
@@ -250,6 +253,7 @@ grid on;
 h = findobj(gcf, 'Type', 'axes');
 set(h, 'FontSize', 14); % 统一字体大小
 %%
+load("data.mat");
 % 侧边停车场景
 x = cebian(1,:);
 y = cebian(2,:);
@@ -267,7 +271,7 @@ figure('Color', 'white', 'Position', [100, 100, 800, 600]);
 % ----------------- 子图1：航向角 -----------------
 subplot(4,1,1);
 plot(t, theta, 'g--', 'LineWidth', 2);
-ylabel('航向角 (rad)');
+ylabel('航向角/rad');
 %ylim([-2.5, 2.5]);      % 根据图片中的纵轴范围设置
 legend('航向角', 'Location', 'best');
 %title('航向角随时间变化');
@@ -276,7 +280,7 @@ grid on;
 subplot(4,1,2);
 plot(t, gamma, 'b', 'LineWidth', 2);
 %xlabel('时间 (s)');
-ylabel('铰接角 (rad)');
+ylabel('铰接角/rad');
 %ylim([-2.5, 2.5]);      % 根据图片中的纵轴范围设置
 legend('铰接角', 'Location', 'best');
 %title('铰接角随时间变化');
@@ -290,7 +294,7 @@ set(h, 'FontSize', 14); % 统一字体大小
 % ----------------- 子图1：车体速度 -----------------
 subplot(4,1,3);
 plot(t, v, 'g--', 'LineWidth', 2);
-ylabel('车体速度 (m/s)');
+ylabel('车体速度/[m/s])');
 %ylim([0, 2]);           % 根据图片中的纵轴范围设置
 legend('车体速度', 'Location', 'best');
 %title('车体速度随时间变化');
@@ -299,8 +303,8 @@ grid on;
 % ----------------- 子图2：加速度 -----------------
 subplot(4,1,4);
 plot(t, a, 'b', 'LineWidth', 2); 
-xlabel('时间 (s)');
-ylabel('加速度 (m^2/s)');
+xlabel('时间/s');
+ylabel('加速度/[m/s^2]');
 %ylim([-1, 1]);          % 根据图片中的纵轴范围设置
 legend('加速度', 'Location', 'best');
 %title('加速度随时间变化');
@@ -315,7 +319,7 @@ figure('Color', 'white', 'Position', [100, 100, 800, 600]);
 % ----------------- 子图1：omega -----------------
 subplot(2,1,1);
 plot(t(:,2:end), omega, 'g--', 'LineWidth', 2);
-ylabel('铰接角速度 (rad/s)');
+ylabel('铰接角速度/[rad/s]');
 %ylim([-2.5, 2.5]);      % 根据图片中的纵轴范围设置
 legend('铰接角速度', 'Location', 'best');
 %title('铰接角速度随时间变化');
@@ -323,8 +327,8 @@ grid on;
 % ----------------- 子图2：jerk -----------------
 subplot(2,1,2);
 plot(t(:,2:end), jerk, 'b', 'LineWidth', 2);
-xlabel('时间 (s)');
-ylabel(' 加加速度(m^3/s)');
+xlabel('时间/s');
+ylabel(' 加加速度/[m/s^3]');
 %ylim([-2.5, 2.5]);      % 根据图片中的纵轴范围设置
 legend('加加速度', 'Location', 'best');
 %title('铰接角随时间变化');
