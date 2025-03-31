@@ -1,4 +1,4 @@
-\begin{thebibliography}{56}
+\begin{thebibliography}{62}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -278,12 +278,39 @@ SHI J, SUN D, QIN D, et~al.
   its trajectory via adaptive model predictive control\allowbreak[J].
 \newblock Robotics and autonomous systems, 2020, 131: 103570.
 
+\bibitem[孟宇\ 等(2019)孟宇, 甘鑫, and
+  白国星]{孟宇2019基于预瞄距离的地下矿用铰接车路径跟踪预测控制}
+孟宇, 甘鑫, 白国星.
+\newblock
+  基于预瞄距离的地下矿用铰接车路径跟踪预测控制\allowbreak[J].
+\newblock 工程科学学报, 2019, 41\allowbreak (5): 662-671.
+
+\bibitem[贾生超\ 等(2023)贾生超, 彭加耕, 黄伟, and
+  黄钦明]{贾生超2023牵引挂车垂直泊车路径规划与运动控制}
+贾生超, 彭加耕, 黄伟, 等.
+\newblock 牵引挂车垂直泊车路径规划与运动控制\allowbreak[J].
+\newblock 信息与控制, 2023, 52\allowbreak (2): 190-201.
+
+\bibitem[杜青炎\ 等(2023)杜青炎, 任助理, and
+  马宏超]{杜青炎2023基于改进混合}
+杜青炎, 任助理, 马宏超.
+\newblock 基于改进混合 A*
+  算法的地下无人铲运机智能路径规划.\allowbreak[J].
+\newblock Nonferrous Metals (Mining Section), 2023, 75\allowbreak (2).
+
 \bibitem[Corke et~al.(2001)Corke and Ridley]{corke2001steering}
 CORKE P~I, RIDLEY P.
 \newblock Steering kinematics for a center-articulated mobile
   robot\allowbreak[J].
 \newblock IEEE Transactions on Robotics and Automation, 2001, 17\allowbreak
   (2): 215-218.
+
+\bibitem[刘凯\ 等(2018)刘凯, 龚建伟, 陈舒平, 张玉, and
+  陈慧岩]{刘凯2018高速无人驾驶车辆最优运动规划与控制的动力学建模分析}
+刘凯, 龚建伟, 陈舒平, 等.
+\newblock
+  高速无人驾驶车辆最优运动规划与控制的动力学建模分析\allowbreak[J].
+\newblock 机械工程学报, 2018, 54\allowbreak (14): 141-151.
 
 \bibitem[Anderson et~al.(2010)Anderson, Peters, Pilutti, and
   Iagnemma]{anderson2010optimal}
@@ -293,6 +320,13 @@ ANDERSON S~J, PETERS S~C, PILUTTI T~E, et~al.
   avoidance scenarios\allowbreak[J].
 \newblock International Journal of Vehicle Autonomous Systems, 2010,
   8\allowbreak (2-4): 190-216.
+
+\bibitem[彭海军\ 等(2011)彭海军, 高强, 吴志刚, and
+  钟万勰]{彭海军2011求解最优控制问题的混合变量变分方法及其航天控制应用}
+彭海军, 高强, 吴志刚, 等.
+\newblock
+  求解最优控制问题的混合变量变分方法及其航天控制应用\allowbreak[J].
+\newblock 自动化学报, 2011, 37\allowbreak (10): 1248-1255.
 
 \bibitem[Mehta et~al.(2009)Mehta and Meyn]{mehta2009q}
 MEHTA P, MEYN S.
@@ -344,6 +378,13 @@ K{\"U}MMERLE R, GRISETTI G, STRASDAT H, et~al.
   optimization\allowbreak[C]//\allowbreak
 2011 IEEE international conference on robotics and automation.
 \newblock IEEE, 2011: 3607-3613.
+
+\bibitem[赵昱宇\ 等(2024)赵昱宇, 索超, and
+  王雨潇]{赵昱宇2024基于微分平坦的高超声速飞行器跟踪控制方法}
+赵昱宇, 索超, 王雨潇.
+\newblock
+  基于微分平坦的高超声速飞行器跟踪控制方法.\allowbreak[J].
+\newblock Systems Engineering \& Electronics, 2024, 46\allowbreak (3).
 
 \bibitem[Mellinger et~al.(2011)Mellinger and Kumar]{mellinger2011minimum}
 MELLINGER D, KUMAR V.

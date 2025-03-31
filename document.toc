@@ -63,6 +63,6 @@
 \contentsline {section}{\numberline {5.4}本章小结}{63}{section.5.4}%
 \contentsline {chapter}{\numberline {第6章\hspace {.3em}}结论}{64}{chapter.6}%
 \contentsline {chapter}{参考文献}{66}{chapter.6}%
-\contentsline {chapter}{攻读硕士学位期间取得的成果}{71}{chapter*.47}%
-\contentsline {chapter}{致谢}{72}{chapter*.48}%
+\contentsline {chapter}{攻读硕士学位期间取得的成果}{72}{chapter*.47}%
+\contentsline {chapter}{致谢}{73}{chapter*.48}%
 \contentsfinish 
