@@ -1048,7 +1048,7 @@
 		在第二章中介绍了铰接车的运动学模型，模型的状态量为$x$、$y$、$\theta$和$\gamma$，受到微分方程的约束这些变量是天然连续的。系统的输入为速度$v$和铰接角速度$\omega$，它们并没有受到微分方程的约束，这意味着$v$和$\omega$在优化过程中直接作为优化变量是会突变的。这对于下层控制来说是不利的。为了解决这个问题，为系统引入高阶的连续性，假设系统的输入为$jerk$（加加速度或者舒适度）和$\omega$（铰接角速度）。运动学模型可以进一步写为$\dot{x}=f( x,u )$：
 		\begin{equation}
 			\begin{aligned}
-				 \frac{\mathrm{d}}{\mathrm{d}}\left[ \begin{array}{c}
+				 \frac{\mathrm{d}}{\mathrm{d}t}\left[ \begin{array}{c}
 					x\\
 					y\\
 					\theta\\
