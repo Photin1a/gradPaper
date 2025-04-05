@@ -19,7 +19,7 @@
 \contentsline {section}{\numberline {2.4}非线性规划问题的求解}{15}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}罚函数法}{15}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}非线性规划问题的初始解}{16}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}本章小结}{16}{section.2.5}%
+\contentsline {section}{\numberline {2.5}本章小结}{17}{section.2.5}%
 \contentsline {chapter}{\numberline {第3章\hspace {.3em}}基于微分平坦的铰接车全局轨迹规划方法}{18}{chapter.3}%
 \contentsline {section}{\numberline {3.1}铰接模型微分平坦性}{19}{section.3.1}%
 \contentsline {section}{\numberline {3.2}轨迹的参数化表达形式}{20}{section.3.2}%
@@ -28,16 +28,16 @@
 \contentsline {subsection}{\numberline {3.2.3}航点的连续性约束方程}{23}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}轨迹的闭式解}{24}{subsection.3.2.4}%
 \contentsline {section}{\numberline {3.3}基于安全走廊的安全约束分析}{24}{section.3.3}%
-\contentsline {section}{\numberline {3.4}点到点全局路径规划}{26}{section.3.4}%
+\contentsline {section}{\numberline {3.4}点到点全局轨迹规划}{26}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}铰接车的最大曲率}{26}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}优化问题的建立}{27}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}起点和终点航向角保证}{29}{subsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.4.4}优化问题求解}{29}{subsection.3.4.4}%
-\contentsline {section}{\numberline {3.5}多站点航行全局路径规划}{30}{section.3.5}%
+\contentsline {section}{\numberline {3.5}多站点航行全局轨迹规划}{30}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}多站点航行规划的问题描述}{31}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}站点的换向处理}{31}{subsection.3.5.2}%
 \contentsline {section}{\numberline {3.6}本章小结}{32}{section.3.6}%
-\contentsline {chapter}{\numberline {第4章\hspace {.3em}}基于安全走廊的铰接车局部规划方法}{34}{chapter.4}%
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}基于安全走廊的铰接车局部轨迹规划方法}{34}{chapter.4}%
 \contentsline {section}{\numberline {4.1}铰接车的几何结构建模}{34}{section.4.1}%
 \contentsline {section}{\numberline {4.2}铰接车Hybrid A*算法的改进}{35}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}节点拓展策略改进}{36}{subsection.4.2.1}%

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  31 MAR 2025 11:20
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  5 APR 2025 11:49
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1682,12 +1682,6 @@ Package microtype Info: Character `textquotedblright ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/b/n/12.045'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (1.3702pt too wide) in paragraph at lines 64--64
-\TU/TimesNewRoman(0)/m/n/12.045 incorporating full vehicle dimensions and using
- a modified Hybrid A* algorithm for pathfind-
- []
-
-
 
 [2
 
@@ -1843,6 +1837,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [15]
 File: fig/不同初解.png Graphic file (type bmp)
@@ -1931,47 +1928,47 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [27]
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 12.045pt on input line 743.
+(Font)              scaled to size 12.045pt on input line 749.
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 8.0pt on input line 743.
+(Font)              scaled to size 8.0pt on input line 749.
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 6.0pt on input line 743.
+(Font)              scaled to size 6.0pt on input line 749.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 12.045pt on input line 743.
+(Font)              scaled to size 12.045pt on input line 749.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 8.0pt on input line 743.
+(Font)              scaled to size 8.0pt on input line 749.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 6.0pt on input line 743.
+(Font)              scaled to size 6.0pt on input line 749.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 12.045pt on input line 743.
+(Font)              scaled to size 12.045pt on input line 749.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 8.0pt on input line 743.
+(Font)              scaled to size 8.0pt on input line 749.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 6.0pt on input line 743.
+(Font)              scaled to size 6.0pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxmia/b/it' will be
-(Font)              scaled to size 12.045pt on input line 743.
+(Font)              scaled to size 12.045pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxmia/b/it' will be
-(Font)              scaled to size 8.0pt on input line 743.
+(Font)              scaled to size 8.0pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxmia/b/it' will be
-(Font)              scaled to size 6.0pt on input line 743.
+(Font)              scaled to size 6.0pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxsym/b/n' will be
-(Font)              scaled to size 12.045pt on input line 743.
+(Font)              scaled to size 12.045pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxsym/b/n' will be
-(Font)              scaled to size 8.0pt on input line 743.
+(Font)              scaled to size 8.0pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxsym/b/n' will be
-(Font)              scaled to size 6.0pt on input line 743.
+(Font)              scaled to size 6.0pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxsyc/b/n' will be
-(Font)              scaled to size 12.045pt on input line 743.
+(Font)              scaled to size 12.045pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxsyc/b/n' will be
-(Font)              scaled to size 8.0pt on input line 743.
+(Font)              scaled to size 8.0pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxsyc/b/n' will be
-(Font)              scaled to size 6.0pt on input line 743.
+(Font)              scaled to size 6.0pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
-(Font)              scaled to size 12.045pt on input line 743.
+(Font)              scaled to size 12.045pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
-(Font)              scaled to size 8.0pt on input line 743.
+(Font)              scaled to size 8.0pt on input line 749.
 LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
-(Font)              scaled to size 6.0pt on input line 743.
+(Font)              scaled to size 6.0pt on input line 749.
 
 Missing character: There is no ¤ in font cmbsy10!
 Missing character: There is no ¤ in font cmbsy10!
@@ -2021,7 +2018,7 @@ File: fig/hybrid采样.png Graphic file (type bmp)
 File: fig/hybrid采样改进剪枝.png Graphic file (type bmp)
 <fig/hybrid采样改进剪枝.png>
 
-Overfull \hbox (4.37932pt too wide) in paragraph at lines 928--928
+Overfull \hbox (4.37932pt too wide) in paragraph at lines 934--934
  [][] 
  []
 
@@ -2073,33 +2070,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [46]
 第5章
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 1256.
+(Font)              scaled to size 10.95pt on input line 1262.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 1256.
+(Font)              scaled to size 6.1pt on input line 1262.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1256.
+(Font)              scaled to size 10.95pt on input line 1262.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1256.
+(Font)              scaled to size 6.1pt on input line 1262.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1256.
+(Font)              scaled to size 10.95pt on input line 1262.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1256.
+(Font)              scaled to size 6.1pt on input line 1262.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 1256.
+(Font)              scaled to size 10.95pt on input line 1262.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 1256.
+(Font)              scaled to size 6.1pt on input line 1262.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1256.
+(Font)              scaled to size 10.95pt on input line 1262.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1256.
+(Font)              scaled to size 6.1pt on input line 1262.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1256.
+(Font)              scaled to size 10.95pt on input line 1262.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1256.
+(Font)              scaled to size 6.1pt on input line 1262.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1256.
+(Font)              scaled to size 10.95pt on input line 1262.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1256.
+(Font)              scaled to size 6.1pt on input line 1262.
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/m/n/6.1'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -2290,13 +2287,13 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.34248pt have occurred.
 
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 4A97589C1F8BC848000AE431656F71C1;10384.
+(rerunfilecheck)             Checksum: 6DFF2759C6BAD47A70C81BD677CD435B;10400.
  ) 
 Here is how much of TeX's memory you used:
- 27749 strings out of 408789
- 565692 string characters out of 5748080
- 974520 words of memory out of 5000000
- 50173 multiletter control sequences out of 15000+600000
+ 27751 strings out of 408789
+ 565746 string characters out of 5748080
+ 974540 words of memory out of 5000000
+ 50175 multiletter control sequences out of 15000+600000
  663296 words of font info for 286 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,23n,145p,3346b,795s stack positions out of 10000i,1000n,20000p,200000b,200000s
