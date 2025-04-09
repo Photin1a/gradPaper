@@ -1,0 +1,445 @@
+\begin{thebibliography}{62}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Yue et~al.(2024)Yue, Zhong, Ning, Chen, Sun, Wang, Lian, Li, and
+  Sun]{yue2024development}
+YUE C, ZHONG J, NING Q, et~al.
+\newblock Development strategy of vehicle-energy-road-cloud collaboration in
+  the new technological situation\allowbreak[J].
+\newblock Strategic Study of Chinese Academy of Engineering, 2024,
+  26\allowbreak (1): 45-58.
+
+\bibitem[Garrett et~al.(2021)Garrett, Chitnis, Holladay, Kim, Silver,
+  Kaelbling, and Lozano-P{\'e}rez]{garrett2021integrated}
+GARRETT C~R, CHITNIS R, HOLLADAY R, et~al.
+\newblock Integrated task and motion planning\allowbreak[J].
+\newblock Annual review of control, robotics, and autonomous systems, 2021,
+  4\allowbreak (1): 265-293.
+
+\bibitem[Kwayu et~al.(2021)Kwayu, Kwigizile, Lee, and Oh]{kwayu2021discovering}
+KWAYU K~M, KWIGIZILE V, LEE K, et~al.
+\newblock Discovering latent themes in traffic fatal crash narratives using
+  text mining analytics and network topology\allowbreak[J].
+\newblock Accident Analysis \& Prevention, 2021, 150: 105899.
+
+\bibitem[Li et~al.(2022)Li, Huang, Ding, Song, and Lu]{li2022global}
+LI C, HUANG X, DING J, et~al.
+\newblock Global path planning based on a bidirectional alternating search a*
+  algorithm for mobile robots\allowbreak[J].
+\newblock Computers \& Industrial Engineering, 2022, 168: 108123.
+
+\bibitem[Yang et~al.(2023)Yang, Xiong, and Yan]{yang2023uav}
+YANG Y, XIONG X, YAN Y.
+\newblock Uav formation trajectory planning algorithms: A review\allowbreak[J].
+\newblock Drones, 2023, 7\allowbreak (1): 62.
+
+\bibitem[Dijkstra(1959)]{Dijstra1959}
+DIJKSTRA E~W.
+\newblock A note on two problems in connexion with graphs\allowbreak[J].
+\newblock Numer. Math., 1959, 1\allowbreak (1): 269–271.
+
+\bibitem[Hart et~al.(1968)Hart, Nilsson, and Raphael]{hart1968formal}
+HART P~E, NILSSON N~J, RAPHAEL B.
+\newblock A formal basis for the heuristic determination of minimum cost
+  paths\allowbreak[J].
+\newblock IEEE transactions on Systems Science and Cybernetics, 1968,
+  4\allowbreak (2): 100-107.
+
+\bibitem[Stentz(1994)]{stentz1994optimal}
+STENTZ A.
+\newblock Optimal and efficient path planning for partially-known
+  environments\allowbreak[C]//\allowbreak
+Proceedings of the 1994 IEEE international conference on robotics and
+  automation.
+\newblock IEEE, 1994: 3310-3317.
+
+\bibitem[Koenig et~al.(2004)Koenig, Likhachev, and Furcy]{koenig2004lifelong}
+KOENIG S, LIKHACHEV M, FURCY D.
+\newblock Lifelong planning a∗\allowbreak[J].
+\newblock Artificial Intelligence, 2004, 155\allowbreak (1-2): 93-146.
+
+\bibitem[Likhachev et~al.(2003)Likhachev, Gordon, and Thrun]{likhachev2003ara}
+LIKHACHEV M, GORDON G~J, THRUN S.
+\newblock Ara*: Anytime a* with provable bounds on
+  sub-optimality\allowbreak[J].
+\newblock Advances in neural information processing systems, 2003, 16.
+
+\bibitem[Bulitko et~al.(2006)Bulitko and Lee]{bulitko2006learning}
+BULITKO V, LEE G.
+\newblock Learning in real-time search: A unifying framework\allowbreak[J].
+\newblock Journal of Artificial Intelligence Research, 2006, 25: 119-157.
+
+\bibitem[Harabor et~al.(2011)Harabor and Grastien]{harabor2011online}
+HARABOR D, GRASTIEN A.
+\newblock Online graph pruning for pathfinding on grid
+  maps\allowbreak[C]//\allowbreak
+Proceedings of the AAAI conference on artificial intelligence: Vol.~25.
+\newblock 2011: 1114-1119.
+
+\bibitem[Koenig et~al.(2006)Koenig and Likhachev]{koenig2006real}
+KOENIG S, LIKHACHEV M.
+\newblock Real-time adaptive a\allowbreak[C]//\allowbreak
+Proceedings of the fifth international joint conference on Autonomous agents
+  and multiagent systems.
+\newblock 2006: 281-288.
+
+\bibitem[LaValle et~al.(2001)LaValle and Kuffner]{lavalle2001rapidly}
+LAVALLE S~M, KUFFNER J~J.
+\newblock Rapidly-exploring random trees: Progress and prospects: Steven m.
+  lavalle, iowa state university, a james j. kuffner, jr., university of tokyo,
+  tokyo, japan\allowbreak[J].
+\newblock Algorithmic and computational robotics, 2001: 303-307.
+
+\bibitem[Kuffner et~al.(2000)Kuffner and LaValle]{kuffner2000rrt}
+KUFFNER J~J, LAVALLE S~M.
+\newblock Rrt-connect: An efficient approach to single-query path
+  planning\allowbreak[C]//\allowbreak
+Proceedings 2000 ICRA. Millennium conference. IEEE international conference on
+  robotics and automation. Symposia proceedings (Cat. No. 00CH37065): Vol.~2.
+\newblock IEEE, 2000: 995-1001.
+
+\bibitem[Bruce et~al.(2002)Bruce and Veloso]{bruce2002real}
+BRUCE J, VELOSO M.
+\newblock Real-time randomized path planning for robot
+  navigation\allowbreak[C]//\allowbreak
+IEEE/RSJ international conference on intelligent robots and systems: Vol.~3.
+\newblock IEEE, 2002: 2383-2388.
+
+\bibitem[Karaman et~al.(2011)Karaman and Frazzoli]{karaman2011sampling}
+KARAMAN S, FRAZZOLI E.
+\newblock Sampling-based algorithms for optimal motion planning\allowbreak[J].
+\newblock The international journal of robotics research, 2011, 30\allowbreak
+  (7): 846-894.
+
+\bibitem[Gammell et~al.(2014)Gammell, Srinivasa, and Barfoot]{6942976}
+GAMMELL J~D, SRINIVASA S~S, BARFOOT T~D.
+\newblock Informed rrt*: Optimal sampling-based path planning focused via
+  direct sampling of an admissible ellipsoidal
+  heuristic\allowbreak[C]//\allowbreak
+2014 IEEE/RSJ International Conference on Intelligent Robots and Systems.
+\newblock 2014: 2997-3004.
+
+\bibitem[Gammell et~al.(2015)Gammell, Srinivasa, and Barfoot]{7139620}
+GAMMELL J~D, SRINIVASA S~S, BARFOOT T~D.
+\newblock Batch informed trees (bit*): Sampling-based optimal planning via the
+  heuristically guided search of implicit random geometric
+  graphs\allowbreak[C]//\allowbreak
+2015 IEEE International Conference on Robotics and Automation (ICRA).
+\newblock 2015: 3067-3074.
+
+\bibitem[Reeds et~al.(1990)Reeds and Shepp]{reeds1990optimal}
+REEDS J, SHEPP L.
+\newblock Optimal paths for a car that goes both forwards and
+  backwards\allowbreak[J].
+\newblock Pacific journal of mathematics, 1990, 145\allowbreak (2): 367-393.
+
+\bibitem[Gupta~Manyam et~al.(2022)Gupta~Manyam, Casbeer, Von~Moll, and
+  Fuchs]{gupta2022shortest}
+GUPTA~MANYAM S, CASBEER D~W, VON~MOLL A, et~al.
+\newblock Shortest dubins paths to intercept a target moving on a
+  circle\allowbreak[J].
+\newblock Journal of Guidance, Control, and Dynamics, 2022, 45\allowbreak (11):
+  2107-2120.
+
+\bibitem[Zhang et~al.(2020)Zhang, Sun, Zhou, Pan, Hu, and Miao]{fan2018baidu}
+ZHANG Y, SUN H, ZHOU J, et~al.
+\newblock Optimal vehicle path planning using quadratic optimization for baidu
+  apollo open platform\allowbreak[C]//\allowbreak
+2020 IEEE Intelligent Vehicles Symposium (IV).
+\newblock IEEE, 2020: 978-984.
+
+\bibitem[Gao et~al.(2018)Gao, Wu, Lin, and Shen]{Gao2018OnlineST}
+GAO F, WU W, LIN Y, et~al.
+\newblock Online safe trajectory generation for quadrotors using fast marching
+  method and bernstein basis polynomial\allowbreak[J].
+\newblock 2018 IEEE International Conference on Robotics and Automation (ICRA),
+  2018: 344-351.
+
+\bibitem[Lee et~al.(2021)Lee and Kim]{lee2021optimal}
+LEE S, KIM Y.
+\newblock Optimal output trajectory shaping using b{\'e}zier
+  curves\allowbreak[J].
+\newblock Journal of Guidance, Control, and Dynamics, 2021, 44\allowbreak (5):
+  1027-1035.
+
+\bibitem[Nguyen et~al.(2023)Nguyen, Gangavarapu, Sahrhage, Schildbach, and
+  Ernst]{10160561}
+NGUYEN N~T, GANGAVARAPU P~T, SAHRHAGE A, et~al.
+\newblock Navigation with polytopes and b-spline path
+  planner\allowbreak[C]//\allowbreak
+2023 IEEE International Conference on Robotics and Automation (ICRA).
+\newblock 2023: 5695-5701.
+
+\bibitem[Li et~al.(2015)Li and Shao]{li2015unified}
+LI B, SHAO Z.
+\newblock A unified motion planning method for parking an autonomous vehicle in
+  the presence of irregularly placed obstacles\allowbreak[J].
+\newblock Knowledge-Based Systems, 2015, 86: 11-20.
+
+\bibitem[Kondak et~al.(2001)Kondak and Hommel]{933030}
+KONDAK K, HOMMEL G.
+\newblock Computation of time optimal movements for autonomous parking of
+  non-holonomic mobile platforms\allowbreak[C]//\allowbreak
+Proceedings 2001 ICRA. IEEE International Conference on Robotics and Automation
+  (Cat. No.01CH37164): Vol.~3.
+\newblock 2001: 2698-2703 vol.3.
+
+\bibitem[Arantes et~al.(2019)Arantes, Toledo, Williams, and Ono]{8613017}
+ARANTES M~D~S, TOLEDO C~F~M, WILLIAMS B~C, et~al.
+\newblock Collision-free encoding for chance-constrained nonconvex path
+  planning\allowbreak[J].
+\newblock IEEE Transactions on Robotics, 2019, 35\allowbreak (2): 433-448.
+
+\bibitem[Zhang et~al.(2021)Zhang, Liniger, and Borrelli]{9062306}
+ZHANG X, LINIGER A, BORRELLI F.
+\newblock Optimization-based collision avoidance\allowbreak[J].
+\newblock IEEE Transactions on Control Systems Technology, 2021, 29\allowbreak
+  (3): 972-983.
+
+\bibitem[Zhang et~al.(2018)Zhang, Liniger, Sakai, and Borrelli]{8619433}
+ZHANG X, LINIGER A, SAKAI A, et~al.
+\newblock Autonomous parking using optimization-based collision
+  avoidance\allowbreak[C]//\allowbreak
+2018 IEEE Conference on Decision and Control (CDC).
+\newblock 2018: 4327-4332.
+
+\bibitem[Chang et~al.(2024)Chang and Tian]{chang2024hybrid}
+CHANG T, TIAN G.
+\newblock Hybrid a-star path planning method based on hierarchical clustering
+  and trichotomy\allowbreak[J].
+\newblock Applied Sciences, 2024, 14\allowbreak (13): 5582.
+
+\bibitem[Choi et~al.(2015)Choi and Huhtala]{choi2015constrained}
+CHOI J~W, HUHTALA K.
+\newblock Constrained global path optimization for articulated steering
+  vehicles\allowbreak[J].
+\newblock IEEE Transactions on Vehicular Technology, 2015, 65\allowbreak (4):
+  1868-1879.
+
+\bibitem[Yossawee et~al.(2002)Yossawee, Tsubouchi, Sarata, and
+  Yuta]{yossawee2002path}
+YOSSAWEE W, TSUBOUCHI T, SARATA S, et~al.
+\newblock Path generation for articulated steering type vehicle using
+  symmetrical clothoid\allowbreak[C]//\allowbreak
+2002 IEEE International Conference on Industrial Technology, 2002. IEEE
+  ICIT'02.: Vol.~1.
+\newblock IEEE, 2002: 187-192.
+
+\bibitem[Nayl et~al.(2013)Nayl, Nikolakopoulos, and Gustafsson]{nayl2013line}
+NAYL T, NIKOLAKOPOULOS G, GUSTAFSSON T.
+\newblock On-line path planning for an articulated vehicle based on model
+  predictive control\allowbreak[C]//\allowbreak
+2013 IEEE international conference on control applications (CCA).
+\newblock IEEE, 2013: 772-777.
+
+\bibitem[Chen et~al.(2020)Chen, Yang, Svensson, and Feng]{9216948}
+CHEN D, YANG Z, SVENSSON L, et~al.
+\newblock Optimization based path planning for a two-body articulated
+  vehicle\allowbreak[C]//\allowbreak
+2020 IEEE 16th International Conference on Automation Science and Engineering
+  (CASE).
+\newblock 2020: 397-403.
+
+\bibitem[Hong et~al.(2018)Hong and Ma]{8500447}
+HONG B, MA X.
+\newblock Path optimization for a wheel loader considering construction site
+  terrain\allowbreak[C]//\allowbreak
+2018 IEEE Intelligent Vehicles Symposium (IV).
+\newblock 2018: 2098-2103.
+
+\bibitem[Kawabe et~al.(2021)Kawabe, Takei, and and]{Kawabe02122021}
+KAWABE T, TAKEI T, AND E~I.
+\newblock Path planning to expedite the complete transfer of distributed gravel
+  piles with an automated wheel loader\allowbreak[J].
+\newblock Advanced Robotics, 2021, 35\allowbreak (23): 1418-1437.
+
+\bibitem[Zhao et~al.(2022)Zhao, Yin, Shen, Ren, Wang, and Zhang]{zhao2022time}
+ZHAO M, YIN G, SHEN T, et~al.
+\newblock Time optimal trajectory optimization for vertical parking of heavy
+  duty vehicle based on chebyshev pseudospectral
+  method\allowbreak[C]//\allowbreak
+2022 6th CAA International Conference on Vehicular Control and Intelligence
+  (CVCI).
+\newblock IEEE, 2022: 1-6.
+
+\bibitem[Shi et~al.(2020)Shi, Sun, Qin, Hu, Kan, Ma, and Chen]{shi2020planning}
+SHI J, SUN D, QIN D, et~al.
+\newblock Planning the trajectory of an autonomous wheel loader and tracking
+  its trajectory via adaptive model predictive control\allowbreak[J].
+\newblock Robotics and autonomous systems, 2020, 131: 103570.
+
+\bibitem[孟宇\ 等(2019)孟宇, 甘鑫, and
+  白国星]{孟宇2019基于预瞄距离的地下矿用铰接车路径跟踪预测控制}
+孟宇, 甘鑫, 白国星.
+\newblock
+  基于预瞄距离的地下矿用铰接车路径跟踪预测控制\allowbreak[J].
+\newblock 工程科学学报, 2019, 41\allowbreak (5): 662-671.
+
+\bibitem[贾生超\ 等(2023)贾生超, 彭加耕, 黄伟, and
+  黄钦明]{贾生超2023牵引挂车垂直泊车路径规划与运动控制}
+贾生超, 彭加耕, 黄伟, 等.
+\newblock 牵引挂车垂直泊车路径规划与运动控制\allowbreak[J].
+\newblock 信息与控制, 2023, 52\allowbreak (2): 190-201.
+
+\bibitem[杜青炎\ 等(2023)杜青炎, 任助理, and
+  马宏超]{杜青炎2023基于改进混合}
+杜青炎, 任助理, 马宏超.
+\newblock 基于改进混合 A*
+  算法的地下无人铲运机智能路径规划.\allowbreak[J].
+\newblock Nonferrous Metals (Mining Section), 2023, 75\allowbreak (2).
+
+\bibitem[Corke et~al.(2001)Corke and Ridley]{corke2001steering}
+CORKE P~I, RIDLEY P.
+\newblock Steering kinematics for a center-articulated mobile
+  robot\allowbreak[J].
+\newblock IEEE Transactions on Robotics and Automation, 2001, 17\allowbreak
+  (2): 215-218.
+
+\bibitem[刘凯\ 等(2018)刘凯, 龚建伟, 陈舒平, 张玉, and
+  陈慧岩]{刘凯2018高速无人驾驶车辆最优运动规划与控制的动力学建模分析}
+刘凯, 龚建伟, 陈舒平, 等.
+\newblock
+  高速无人驾驶车辆最优运动规划与控制的动力学建模分析\allowbreak[J].
+\newblock 机械工程学报, 2018, 54\allowbreak (14): 141-151.
+
+\bibitem[Anderson et~al.(2010)Anderson, Peters, Pilutti, and
+  Iagnemma]{anderson2010optimal}
+ANDERSON S~J, PETERS S~C, PILUTTI T~E, et~al.
+\newblock An optimal-control-based framework for trajectory planning, threat
+  assessment, and semi-autonomous control of passenger vehicles in hazard
+  avoidance scenarios\allowbreak[J].
+\newblock International Journal of Vehicle Autonomous Systems, 2010,
+  8\allowbreak (2-4): 190-216.
+
+\bibitem[彭海军\ 等(2011)彭海军, 高强, 吴志刚, and
+  钟万勰]{彭海军2011求解最优控制问题的混合变量变分方法及其航天控制应用}
+彭海军, 高强, 吴志刚, 等.
+\newblock
+  求解最优控制问题的混合变量变分方法及其航天控制应用\allowbreak[J].
+\newblock 自动化学报, 2011, 37\allowbreak (10): 1248-1255.
+
+\bibitem[Mehta et~al.(2009)Mehta and Meyn]{mehta2009q}
+MEHTA P, MEYN S.
+\newblock Q-learning and pontryagin's minimum
+  principle\allowbreak[C]//\allowbreak
+Proceedings of the 48h IEEE Conference on Decision and Control (CDC) held
+  jointly with 2009 28th Chinese Control Conference.
+\newblock IEEE, 2009: 3598-3605.
+
+\bibitem[Aluru(2000)]{aluru2000point}
+ALURU N.
+\newblock A point collocation method based on reproducing kernel
+  approximations\allowbreak[J].
+\newblock International Journal for Numerical Methods in Engineering, 2000,
+  47\allowbreak (6): 1083-1121.
+
+\bibitem[Rockafellar(1974)]{rockafellar1974augmented}
+ROCKAFELLAR R~T.
+\newblock Augmented lagrange multiplier functions and duality in nonconvex
+  programming\allowbreak[J].
+\newblock SIAM Journal on Control, 1974, 12\allowbreak (2): 268-285.
+
+\bibitem[Wei et~al.(2012)Wei and Ozdaglar]{wei2012distributed}
+WEI E, OZDAGLAR A.
+\newblock Distributed alternating direction method of
+  multipliers\allowbreak[C]//\allowbreak
+2012 IEEE 51st IEEE Conference on Decision and Control (CDC).
+\newblock IEEE, 2012: 5445-5450.
+
+\bibitem[Yeniay(2005)]{yeniay2005penalty}
+YENIAY {\"O}.
+\newblock Penalty function methods for constrained optimization with genetic
+  algorithms\allowbreak[J].
+\newblock Mathematical and computational Applications, 2005, 10\allowbreak (1):
+  45-56.
+
+\bibitem[Curtis et~al.(2010)Curtis, Schenk, and
+  W{\"a}chter]{curtis2010interior}
+CURTIS F~E, SCHENK O, W{\"A}CHTER A.
+\newblock An interior-point algorithm for large-scale nonlinear optimization
+  with inexact step computations\allowbreak[J].
+\newblock SIAM Journal on Scientific Computing, 2010, 32\allowbreak (6):
+  3447-3475.
+
+\bibitem[K{\"u}mmerle et~al.(2011)K{\"u}mmerle, Grisetti, Strasdat, Konolige,
+  and Burgard]{kummerle2011g}
+K{\"U}MMERLE R, GRISETTI G, STRASDAT H, et~al.
+\newblock g 2 o: A general framework for graph
+  optimization\allowbreak[C]//\allowbreak
+2011 IEEE international conference on robotics and automation.
+\newblock IEEE, 2011: 3607-3613.
+
+\bibitem[赵昱宇\ 等(2024)赵昱宇, 索超, and
+  王雨潇]{赵昱宇2024基于微分平坦的高超声速飞行器跟踪控制方法}
+赵昱宇, 索超, 王雨潇.
+\newblock
+  基于微分平坦的高超声速飞行器跟踪控制方法.\allowbreak[J].
+\newblock Systems Engineering \& Electronics, 2024, 46\allowbreak (3).
+
+\bibitem[Mellinger et~al.(2011)Mellinger and Kumar]{mellinger2011minimum}
+MELLINGER D, KUMAR V.
+\newblock Minimum snap trajectory generation and control for
+  quadrotors\allowbreak[C]//\allowbreak
+2011 IEEE international conference on robotics and automation.
+\newblock IEEE, 2011: 2520-2525.
+
+\bibitem[Wang et~al.(2022)Wang, Zhou, Xu, and Gao]{wang2022geometrically}
+WANG Z, ZHOU X, XU C, et~al.
+\newblock Geometrically constrained trajectory optimization for
+  multicopters\allowbreak[J].
+\newblock IEEE Transactions on Robotics, 2022, 38\allowbreak (5): 3259-3278.
+
+\bibitem[Li et~al.(2022)Li, Acarman, Zhang, Ouyang, Yaman, Kong, Zhong, and
+  Peng]{BaiLi:2022}
+LI B, ACARMAN T, ZHANG Y, et~al.
+\newblock Optimization-based trajectory planning for autonomous parking with
+  irregularly placed obstacles: A lightweight iterative
+  framework\allowbreak[J].
+\newblock IEEE Transactions on Intelligent Transportation Systems, 2022,
+  23\allowbreak (8): 11970-11981.
+
+\bibitem[Deits et~al.(2015)Deits and Tedrake]{Deits:2015}
+DEITS R, TEDRAKE R.
+\newblock Computing large convex regions of obstacle-free space through
+  semidefinite programming\allowbreak[M].
+\newblock Cham: Springer International Publishing, 2015: 109-124.
+
+\bibitem[Liu et~al.(2017)Liu, Watterson, Mohta, Sun, Bhattacharya, Taylor, and
+  Kumar]{SikangLiu:2017}
+LIU S, WATTERSON M, MOHTA K, et~al.
+\newblock Planning dynamically feasible trajectories for quadrotors using safe
+  flight corridors in 3-d complex environments\allowbreak[J].
+\newblock IEEE Robotics and Automation Letters, 2017, 2\allowbreak (3):
+  1688-1695.
+
+\bibitem[Han et~al.(2023)Han, Wu, Li, Zhang, Pei, Xu, Li, Ma, Xu, Shen,
+  et~al.]{han2023efficient}
+HAN Z, WU Y, LI T, et~al.
+\newblock An efficient spatial-temporal trajectory planner for autonomous
+  vehicles in unstructured environments\allowbreak[J].
+\newblock IEEE Transactions on Intelligent Transportation Systems, 2023,
+  25\allowbreak (2): 1797-1814.
+
+\bibitem[Liu et~al.(1989)Liu and Nocedal]{liu1989limited}
+LIU D~C, NOCEDAL J.
+\newblock On the limited memory bfgs method for large scale
+  optimization\allowbreak[J].
+\newblock Mathematical programming, 1989, 45\allowbreak (1): 503-528.
+
+\bibitem[Bresenham(1977)]{bresenham1977linear}
+BRESENHAM J.
+\newblock A linear algorithm for incremental digital display of circular
+  arcs\allowbreak[J].
+\newblock Communications of the ACM, 1977, 20\allowbreak (2): 100-106.
+
+\end{thebibliography}

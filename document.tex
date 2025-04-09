@@ -564,7 +564,7 @@
 				\bm{G}(T_i)\bm{c}_i-\bm{G}(0)\bm{c}_{i+1} = 0
 			\end{aligned}
 		\end{equation}
-		其中$T_i$为第$i$段多项式轨迹的时间区间，$\bm{c}_i$为第$i$段多项式轨迹的系数向量。
+		其中，$T_i$为第$i$段多项式轨迹的时间区间，$\bm{c}_i$为第$i$段多项式轨迹的系数向量。
 		由于一共有$N$-1个中间航点，每一个航点带来5个约束，所以连续性约束一共有5$N$-5个。
 		
 		\subsection{轨迹的闭式解} 
@@ -751,7 +751,7 @@
 				\frac{\partial S( \bm{A}_i\bm{p}_{ij}-\bm{b}_{i} )}{\partial \bm{c}_i}&=\frac{\partial \bm{p}_{ij}}{\partial \bm{c}_i}\bm{A}_{i}^{\mathrm{T}}S^{'}( \bm{A}_i\bm{p}_{ij}-\bm{b}_{i} ) 
 			\end{aligned}
 		\end{equation}
-		其中$\dot{\bm{p}}$和$\ddot{\bm{p}}$分别为$\bm{p}$对时间的一阶、二阶导数。利用上式求出了$J$关于$\bm{c}$的梯度，于是由$\bm{\alpha} = \bm{M}\bm{c}$,可以推导出：$\frac{\partial \bm{\alpha}}{\partial \bm{q}}\bm{M}^{-T}=\frac{\partial \bm{c}}{\partial \bm{q}}$ ，因此$J$关于$q$的梯度为：
+		其中，$\dot{\bm{p}}$和$\ddot{\bm{p}}$分别为$\bm{p}$对时间的一阶、二阶导数。利用上式求出了$J$关于$\bm{c}$的梯度，于是由$\bm{\alpha} = \bm{M}\bm{c}$,可以推导出：$\frac{\partial \bm{\alpha}}{\partial \bm{q}}\bm{M}^{-T}=\frac{\partial \bm{c}}{\partial \bm{q}}$ ，因此$J$关于$q$的梯度为：
 		\begin{equation}
 			\frac{\partial J}{\partial \bm{q}}=\frac{\partial \bm{c}}{\partial \bm{q}}\frac{\partial J}{\partial \bm{c}}
 		\end{equation}
@@ -769,7 +769,7 @@
 				v_{0y}=v_s\sin\theta _s\\
 			\end{aligned}
 		\end{equation}
-		其中$\theta_s$是铰接车的起始航向角。对于初始速度$v_s$不为零的情况，$v_{0x},v_{0y}$都不等于零，带入优化问题就可以直接保证车辆初始朝向和轨迹的起点切向在一条直线上。但是当$v_{s}=0$时，得到$v_{0x}=0$和$v_{0y}=0$。此时用平坦模型计算$\theta_s$:
+		其中，$\theta_s$是铰接车的起始航向角。对于初始速度$v_s$不为零的情况，$v_{0x},v_{0y}$都不等于零，带入优化问题就可以直接保证车辆初始朝向和轨迹的起点切向在一条直线上。但是当$v_{s}=0$时，得到$v_{0x}=0$和$v_{0y}=0$。此时用平坦模型计算$\theta_s$:
 		\begin{equation}
 			\theta_s=\arctan2 \left( v_{sy},v_{sx} \right) =\arctan2\left( 0,0 \right) 
 		\end{equation}
@@ -1112,7 +1112,7 @@
 			\end{array}
 			\label{eq:运动学约束的雅可比}
 		\end{equation}
-		其中 $\bm{\psi}_E = [\bm{E}_{n \times n}, 0_n] - [0_n, \bm{E}_{n \times n}]$，其中 $\bm{E}$ 为单位矩阵，且\(\bm{\psi}_{ij} = \frac{\partial \bm{g}^{\mathrm{T}}_{i}}{\partial \bm{\xi}_j}\)。
+		其中， $\bm{\psi}_E = [\bm{E}_{n \times n}, 0_n] - [0_n, \bm{E}_{n \times n}]$，其中 $\bm{E}$ 为单位矩阵，且\(\bm{\psi}_{ij} = \frac{\partial \bm{g}^{\mathrm{T}}_{i}}{\partial \bm{\xi}_j}\)。
 
 		\subsection{安全走廊的防碰撞约束处理}
 		在本节中，将探讨避障约束在笛卡尔坐标系中的表述方法。仍然采用安全走廊对铰接车的避障进行全维建模，安全走廊的构建方法参照第三章中的全局规划方案。与全局规划中的处理方式不同，本节中将对车体结构进行建模。在全局规划中，车体被简化为质点模型，且车体结构的影响通过膨胀层来近似替代，其主要目的是快速生成一条长远的路径，以为局部规划提供导航指引。而局部规划则负责生成更加精细化的轨迹。
@@ -1162,7 +1162,7 @@
 		\begin{equation}
 			\mathcal{G}_c =\mathcal{G}_{f}+\mathcal{G}_{r}=w_{c}\cdot \sum_{k=1}^{N-2}\sum_{i=0}^{d-1}(S[\bm{g}_{f}(k)] + S[\bm{g}_{r}(k)])\label{eq:走廊约束代价}
 		\end{equation}
-		其中$d$为矩阵$\bm{A}_k$的行数。对式（\ref{eq:走廊约束代价}）中的各项分别进行求导得到走廊的惩罚项的梯度：
+		其中，$d$为矩阵$\bm{A}_k$的行数。对式（\ref{eq:走廊约束代价}）中的各项分别进行求导得到走廊的惩罚项的梯度：
 		\begin{equation}
 			\begin{aligned}
 				\frac{\partial \mathcal{G}_{f,r}}{\bm{\sigma} \left( k \right)}&=\sum_{i=0}^{d-1}{\bm{A}}_{k}^{\mathrm{T}}S^{'}\left[ \bm{g}_{f,r}\left( k \right) \right] =\bm{A}_{k}^{\mathrm{T}}S^{'}\left[ \bm{g}_{f,r}\left( k \right) \right] \bm{I}_d\\
@@ -1561,7 +1561,7 @@
 				Comfort = \frac{\sum_{i=1}^{N}\Delta t_i}{\sum_{i=1}^{N}jerk_i*\Delta t_i} 
 			\end{aligned}
 		\end{equation}
-		其中$jerk_i$为第$i$步系统的输入变量，参考第四章。$\Delta t_i$为第$i$步系统的离散时间。
+		其中，$jerk_i$为第$i$步系统的输入变量，参考第四章。$\Delta t_i$为第$i$步系统的离散时间。
 
 		\begin{table}[!ht]
 			\caption{20米至30米路径长度时几种算法的性能对比}
@@ -1614,7 +1614,7 @@
 	\achievement{
 		{\vspace{-0.1em}\noindent\textbf{\songtib\zihao{-4} 1.\enspace 发表的学术论文}\vspace{-0.41em}}    % 无学术论文时此项不必列出
 		\begin{enumerate}[leftmargin=1.52em,itemsep=-0.4em,label={[\arabic*]}]\zihao{5}%%%%%%% 这一行的设定不要修改！！！
-			\item YANG Y, LUO X, CHEN K, et al. A spatial-temporal trajectory planner for center-articulated vehicles[C/OL]//2024 4th International Conference on Artificial Intelligence, Robotics, and Communication (ICAIRC). 2024: 442-448. (国际会议论文，已录用)
+			\item YANG Y, LUO X, CHEN K, et al. A spatial-temporal trajectory planner for center-articulated vehicles[C]//2024 4th International Conference on Artificial Intelligence, Robotics, and Communication (ICAIRC). IEEE,2024: 442-448. (国际会议论文，EI收录号：20251318118964)
 		\end{enumerate}
 	}
 
