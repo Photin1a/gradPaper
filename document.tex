@@ -60,7 +60,7 @@
 
 	Subsequently, Local Trajectory Planning: A safety corridor-based method is introduced, incorporating full vehicle dimensions and using a modified Hybrid A* algorithm for pathfinding, followed by optimal control for refinement. It performs well in tight spaces, averaging 78.2 milliseconds for up to 30 meters.
 
-	Finally, Simulations demonstrate the algorithms' effectiveness across various metrics including safety, smoothness, maneuver count, comfort, and real-time feasibility.
+	Finally, ​​the algorithms’ effectiveness is demonstrated across various metrics including safety, smoothness, maneuver count, comfort, and real-time feasibility through simulations.​
 	}
 
 	\ekeywords{articulated vehicle; motion planning; Minco spline; RRT-Connect; Hybrid A*; safety corridor}
@@ -582,10 +582,16 @@
 			\begin{aligned}
 				\begin{bmatrix}
 					\bm{E}_i &\bm{F}_i
+				\end{bmatrix}\begin{bmatrix}
+					\bm{c}_i\\
+					\bm{c}_{i+1}
 				\end{bmatrix}=
 				\begin{bmatrix}
 					\bm{\beta} ( T_i )& \bm{G}( T_i ) \\
 					0 & -\bm{G}( 0 )
+				\end{bmatrix}\begin{bmatrix}
+					\bm{c}_i\\
+					\bm{c}_{i+1}
 				\end{bmatrix}  =\begin{bmatrix}
 					\bm{q}_i\\
 					0
@@ -1152,9 +1158,9 @@
 		路径上第$k$个点处的走廊约束关于$\bm{\sigma}_k,\theta_k$和$\gamma_k$的梯度由下式给出：
 		\begin{equation}
 			\begin{aligned}
-			\frac{\partial g_{f}^{\mathrm{T}}(k)}{\partial \bm{\sigma} _k}&=\bm{A}_{k}^{\mathrm{T}},\frac{\partial g_{f}^{\mathrm{T}}(k)}{\partial \gamma _k}=0,\frac{\partial g_{f}^{\mathrm{T}}(k)}{\partial \theta _k}=\bm{l}_{f}^{\mathrm{T}}\frac{\partial \bm{R}_{\theta}^{\mathrm{T}}}{\partial \theta _k}\bm{A}_{k}^{\mathrm{T}}\\
-			\frac{\partial g_{r}^{\mathrm{T}}(k)}{\partial \bm{\sigma} _k}&=\bm{A}_{k}^{\mathrm{T}},\frac{\partial g_{r}^{\mathrm{T}}(k)}{\partial \gamma _k}=\bm{l}_{r}^{\mathrm{T}}\frac{\partial \bm{R}_{\theta +\gamma}^{\mathrm{T}}}{\partial \gamma _k}\bm{A}_{k}^{\mathrm{T}}\\
-			\frac{\partial g_{r}^{\mathrm{T}}(k)}{\partial \theta _k}&=\bm{l}_{r}^{\mathrm{T}}\frac{\partial \bm{R}_{\theta +\gamma}^{\mathrm{T}}}{\partial \theta _k}\bm{A}_{k}^{\mathrm{T}}+\bm{l}_{o1}^{\mathrm{T}}\frac{\partial \bm{R}_{\theta}^{\mathrm{T}}}{\partial \theta _k}\bm{A}_{k}^{\mathrm{T}}
+			\frac{\partial \bm{g}_{f}^{\mathrm{T}}(k)}{\partial \bm{\sigma} _k}&=\bm{A}_{k}^{\mathrm{T}},\frac{\partial \bm{g}_{f}^{\mathrm{T}}(k)}{\partial \gamma _k}=0,\frac{\partial \bm{g}_{f}^{\mathrm{T}}(k)}{\partial \theta _k}=\bm{l}_{f}^{\mathrm{T}}\frac{\partial \bm{R}_{\theta}^{\mathrm{T}}}{\partial \theta _k}\bm{A}_{k}^{\mathrm{T}}\\
+			\frac{\partial \bm{g}_{r}^{\mathrm{T}}(k)}{\partial \bm{\sigma} _k}&=\bm{A}_{k}^{\mathrm{T}},\frac{\partial \bm{g}_{r}^{\mathrm{T}}(k)}{\partial \gamma _k}=\bm{l}_{r}^{\mathrm{T}}\frac{\partial \bm{R}_{\theta +\gamma}^{\mathrm{T}}}{\partial \gamma _k}\bm{A}_{k}^{\mathrm{T}}\\
+			\frac{\partial \bm{g}_{r}^{\mathrm{T}}(k)}{\partial \theta _k}&=\bm{l}_{r}^{\mathrm{T}}\frac{\partial \bm{R}_{\theta +\gamma}^{\mathrm{T}}}{\partial \theta _k}\bm{A}_{k}^{\mathrm{T}}+\bm{l}_{o1}^{\mathrm{T}}\frac{\partial \bm{R}_{\theta}^{\mathrm{T}}}{\partial \theta _k}\bm{A}_{k}^{\mathrm{T}}
 			\end{aligned}
 		\end{equation}
 
@@ -1205,18 +1211,18 @@
 				\mathcal{J}\left( \eta \right) =J\left( \bm{\xi} \right) +\mathcal{G}_{kin}+\mathcal{G}_c+\mathcal{G}_b
 			\end{aligned}
 		\end{equation}
-		对应的梯度为：
+		其中，$J(\bm{\xi})$对应的梯度为：
 		\begin{equation}
 			\begin{aligned}
-				\frac{\partial \mathcal{J}}{\partial \bm{\xi} _{jerk}}&=2w_{uj}\cdot \bm{\xi} _{jerk}\\
-				\frac{\partial \mathcal{J}}{\partial \bm{\xi} _{\omega}}&=2w_{u\omega}\cdot \bm{\xi} _{\omega}\\
-				\frac{\partial \mathcal{J}}{\partial \bm{\xi} _{\tau}}&=\Delta t\left[ \bm{\xi} _{\tau} \right]
+				\frac{\partial J}{\partial \bm{\xi} _{jerk}}&=2w_{uj}\cdot \bm{\xi} _{jerk}\\
+				\frac{\partial J}{\partial \bm{\xi} _{\omega}}&=2w_{u\omega}\cdot \bm{\xi} _{\omega}\\
+				\frac{\partial J}{\partial \bm{\xi} _{\tau}}&=w_t\cdot diag(\Delta t^{'}\left[ \bm{\xi} _{\tau} \right])I_{N-1}
 			\end{aligned}
 		\end{equation}
-		在式（\ref{eq:走廊约束代价}）推导出了运动学约束的雅可比矩阵。现在把对时间变量的导数部分进行替换，得到：
+		其中，$diag(\Delta t^{'}\left[ \bm{\xi} _{\tau} \right])$表示以$\Delta t^{'}\left[ \bm{\xi} _{\tau} \right]$为对角线元素的对角阵。在式（\ref{eq:走廊约束代价}）推导出了运动学约束的雅可比矩阵。现在把对时间变量的导数部分进行替换，得到：
 		\begin{equation}
 			\begin{aligned}
-				\bm{\psi} _{i\tau}=\frac{\partial \bm{g}_{i}^{\mathrm{T}}}{\partial \bm{\xi} _{\tau}}=\frac{\partial \bm{g}_{i}^{\mathrm{T}}}{\partial \bm{\xi} _{\Delta t}}\cdot \Delta t\left[ \bm{\xi} _{\tau} \right] 
+				\bm{\psi} _{i\tau}=\frac{\partial \bm{g}_{i}^{\mathrm{T}}}{\partial \bm{\xi} _{\tau}}=diag(\Delta t^{'}\left[ \bm{\xi} _{\tau} \right])\cdot \frac{\partial \bm{g}_{i}^{\mathrm{T}}}{\partial \bm{\xi} _{\Delta t}}
 			\end{aligned}
 		\end{equation}
 		其中，$\mathcal{G}_{kin},\mathcal{G}_c,\mathcal{G}_b$由式（\ref{Gkin}）、式（\ref{eq:走廊约束代价}）和式（\ref{eq:Gb}）提供。
@@ -1248,7 +1254,7 @@
 	通过本章的研究，不仅改进了传统轨迹规划算法以适应铰接车的特殊运动特性，还设计了高效的碰撞检测与轨迹优化方案，为铰接车在复杂环境中的局部路径规划提供了有效的解决方案。
 	
 	\chapter{铰接车运动规划系统仿真}
-	第三章和第四章分别介绍了全局轨迹规划和局部轨迹规划算法，并对两者的理论基础进行了分析。本章将这两个算法集成到自主导航系统中，形成完整的运动规划框架。通过大量仿真验证算法性能，进而展示系统整体的规划能力。
+	第三章和第四章分别介绍了全局轨迹规划和局部轨迹规划算法，并对两者的理论基础进行了分析。本章将这两个算法集成到ROS仿真系统中，通过大量仿真场景验证算法性能，进而展示算法整体的规划能力。
 	
 	表\ref{tab:仿真车体参数}给出了车体的仿真参数设置，仿真中都将使用栅格地图最为环境信息，地图的的分辨率是0.3 m/pix。
 	\begin{table}[!ht]
@@ -1334,7 +1340,7 @@
 	\section{全局规划算法仿真}
 	在本节中，将对全局规划算法进行仿真测试。该算法的理论原理已在第三章中详细推导和分析。为了验证提出的算法的有效性，本文分别在单点到点导航场景和多点导航场景下进行全局规划测试。在这两种仿真场景中，所使用的权重参数保持一致，具体参数值见表 \ref{tab:全局规划仿真参数}。
 	\begin{table}[!ht]
-		\caption{Global Planner Parameters}
+		\caption{全局规划仿真参数}
 		\label{tab:全局规划仿真参数}
 		\centering
 		\begin{tabular}{CLR}
@@ -1349,7 +1355,7 @@
 		\end{tabular}
 	\end{table}
 	
-	表 \ref{tab:全局规划仿真参数} 中可仿真设定的最大曲率为0.1，最小曲率为-0.1。实际上，本文的铰接车辆允许的最大曲率为0.2，即最大铰接角可达30度。然而，为了给后续的局部轨迹优化留出一定的裕量，设置了较为保守的曲率限制。这样做不仅有助于确保全局轨迹的可行性，还能为局部规划器提供足够的空间来进行进一步优化，以满足更严格的运动学和安全约束条件。
+	表 \ref{tab:全局规划仿真参数} 中仿真设定的最大曲率为0.1，最小曲率为-0.1。实际上，本文的铰接车辆允许的最大曲率为0.2，为了给后续的局部轨迹优化留出一定的裕量，设置了较为保守的曲率限制。由于Minco样条基于五次多项式，其对自变量的数值变化较为敏感，尤其在接近航点时易产生振荡，从而导致轨迹违反曲率约束。因此，曲率约束权重$w_k$的选取应以走廊约束权重$w_c$为基准，并提高一个数量级以上。
 
 		\subsection{点到点路径规划仿真}
 		本小节的主要目的是通过仿真验证第三章中点到点场景下的路径规划任务，展示规划算法在穿越不同障碍物下的表现，并评估其生成路径的质量和效率。
@@ -1429,7 +1435,7 @@
 	\section{局部规划算法仿真}
 	在本节中，将对局部规划算法进行仿真测试，重点验证其避障能力。详细的算法理论部分已在第四章中进行了介绍。为了确保仿真的准确性和一致性，使用了通用的车体参数，具体参数值见表 \ref{tab:仿真车体参数}。此外，针对局部规划特有的参数提供了说明，详见表 \ref{tab:局部规划仿真参数}。
 	\begin{table}[!ht]
-		\caption{Global Planner Parameters}
+		\caption{局部规划仿真参数}
 		\label{tab:局部规划仿真参数}
 		\centering
 		\begin{tabular}{CLR}
@@ -1445,7 +1451,7 @@
 			\bottomrule
 		\end{tabular}
 	\end{table}
-	从表 \ref{tab:局部规划仿真参数} 中可以看出，本文在铰接角速度代价、加加速度（舒适度）代价和时间最优代价上设置了相对较小的权重。这主要是因为本次提出的算法本质上是一个运动规划算法，在输入量方面可以稍作放松，同时也不苛求严格的时间最优性。对于运动学约束（平滑性）、走廊约束（安全性）以及边界约束（可行性），设定了非常高的权重，分别为1000。
+	从表 \ref{tab:局部规划仿真参数} 中可以看出，本文在铰接角速度代价、加加速度（舒适度）代价及时间最优代价上设置了相对较小的权重。这主要是因为本文提出的算法本质上是一个运动规划算法，允许对输入量进行适度松弛且不苛求严格时间最优性。而对于需严格满足的三类约束——运动学约束（平滑性）、走廊约束（安全性）与边界约束（可行性），均设定了1000量级的高权重配置。
 
 	为了展示局部规划算法的效果，本文在仿真环境中设置了多种障碍物配置，并记录了算法在不同场景下的表现。如图 \ref{fig:局部规划仿真案例} 所示，展示了局部规划算法在不同场景下的仿真结果。这些场景包括泊车、穿越狭窄区域以及绕过障碍物等典型情况。在图 \ref{fig:局部规划仿真案例}\subref{fig:s1}、\ref{fig:局部规划仿真案例}\subref{fig:s2} 和 \ref{fig:局部规划仿真案例}\subref{fig:s3} 中，蓝色线条代表由算法生成的最终轨迹，浅蓝色区域表示安全走廊。
 	\begin{figure}[H]
@@ -1540,7 +1546,7 @@
 		图\ref{fig:datacebianstate}展示了侧方位泊车场景下的时序数据，涵盖航向角、铰接角、车辆速度及加速度曲线。铰接角曲线显示，在S形轨迹的前半段，铰接角为负值（<0 rad），表明车辆向右转向；后半段铰接角转为正值（>0 rad），表明车辆向左转向，最终在终点处铰接角归零（0 rad），车体完全回正。速度曲线表明，由于泊车过程中未发生转向操作，铰接车在整个过程中保持正向行驶状态，车速始终维持正值。
 
 		\subsection{局部规划算法的性能对比}
-		为了全面地评估本研究提出的局部轨迹规划算法性能，本文将其与文献\cite{9216948}中提出的算法进行了对比分析。为简化叙述过程，本文将该参考文献中的算法称为OBPP算法（Optimization Based Path Planning）。图\ref{fig:Hybrid A*、OBPP算法、本文的局部规划算法对比图}展示了不同算法（Hybrid A*、OBPP算法以及本文提出的局部规划算法）的规划结果。OBPP算法通过构建基于最优控制的规划问题，并采用增广拉格朗日方法处理约束条件。尽管该方法在轨迹优化中表现出有效性，但其引入的大量共态变量显著增加了计算成本。此外，其避障策略依赖于自车结构与障碍物凸包的距离计算，导致环境中障碍物数量的增加会直接引发约束条件的线性增长。
+		为了全面地评估本研究提出的局部轨迹规划算法性能，本文将其与文献\cite{9216948}中提出的算法进行了对比分析。为简化叙述过程，本文将该参考文献中的算法称为OBPP算法（Optimization Based Path Planning）。图\ref{fig:Hybrid A*、OBPP算法、本文的局部规划算法对比图}展示了不同算法（Hybrid A*、OBPP算法以及本文提出的局部规划算法）的规划结果。OBPP算法通过构建基于最优控制的规划问题，并采用增广拉格朗日方法处理约束条件。尽管该方法在轨迹优化中表现出有效性，但其引入的大量协态变量显著增加了计算成本。此外，其避障策略依赖于自车结构与障碍物凸包的距离计算，导致环境中障碍物数量的增加会直接引发约束条件的线性增长。
 		\begin{figure}[H]
 			\centering
 			\subcaptionbox{对比图1\label{fig:局部对比1}}[0.49\textwidth]{\includegraphics[width=0.4\textwidth]{fig/局部对比1.png}}
@@ -1599,7 +1605,7 @@
 
 	（1）由于实验条件的限制，算法尚未应用于真实的铰接式车辆上，因此无法充分评估其在不确定环境下的鲁棒性。未来的研究应致力于将算法部署到实际车辆中，以验证其在真实世界中的性能表现。
 
-	（2）本文提出的全局规划基于样条曲线，要求轨迹的起点和终点航向必须与车辆的实际航向保持一致。尽管这一问题在当前研究中已得到初步解决，但多次仿真的结果显示其鲁棒性仍有待提高。未来的工作需要通过更多的仿真和实验来进一步优化这一方面，确保算法在各种情况下都能稳定可靠地运行。
+	（2）本文提出的全局规划基于样条曲线，使用采样的方式施加曲率约束，在采样点处严格满足曲率约束。但多次仿真发现尽管采样点足够密集，但采样点之间仍然可能会出现曲率骤变的情况，尤其是在航点附近。针对这个问题，未来将致力于在连续域上施加曲率约束。
 
 	尽管本文提出的解决方案在复杂环境中的铰接车路径规划方面取得了一定进展，但在实际应用、实时性和鲁棒性等方面仍需进一步优化和改进。未来的研究将继续致力于这些方面的提升，以期实现更高效、更可靠的路径规划系统。
 																					  

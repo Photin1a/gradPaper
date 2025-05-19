@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  9 APR 2025 13:15
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.2.21)  19 MAY 2025 15:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1928,47 +1928,47 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [27]
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 12.045pt on input line 749.
+(Font)              scaled to size 12.045pt on input line 755.
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 8.0pt on input line 749.
+(Font)              scaled to size 8.0pt on input line 755.
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 6.0pt on input line 749.
+(Font)              scaled to size 6.0pt on input line 755.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 12.045pt on input line 749.
+(Font)              scaled to size 12.045pt on input line 755.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 8.0pt on input line 749.
+(Font)              scaled to size 8.0pt on input line 755.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 6.0pt on input line 749.
+(Font)              scaled to size 6.0pt on input line 755.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 12.045pt on input line 749.
+(Font)              scaled to size 12.045pt on input line 755.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 8.0pt on input line 749.
+(Font)              scaled to size 8.0pt on input line 755.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 6.0pt on input line 749.
+(Font)              scaled to size 6.0pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxmia/b/it' will be
-(Font)              scaled to size 12.045pt on input line 749.
+(Font)              scaled to size 12.045pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxmia/b/it' will be
-(Font)              scaled to size 8.0pt on input line 749.
+(Font)              scaled to size 8.0pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxmia/b/it' will be
-(Font)              scaled to size 6.0pt on input line 749.
+(Font)              scaled to size 6.0pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxsym/b/n' will be
-(Font)              scaled to size 12.045pt on input line 749.
+(Font)              scaled to size 12.045pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxsym/b/n' will be
-(Font)              scaled to size 8.0pt on input line 749.
+(Font)              scaled to size 8.0pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxsym/b/n' will be
-(Font)              scaled to size 6.0pt on input line 749.
+(Font)              scaled to size 6.0pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxsyc/b/n' will be
-(Font)              scaled to size 12.045pt on input line 749.
+(Font)              scaled to size 12.045pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxsyc/b/n' will be
-(Font)              scaled to size 8.0pt on input line 749.
+(Font)              scaled to size 8.0pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxsyc/b/n' will be
-(Font)              scaled to size 6.0pt on input line 749.
+(Font)              scaled to size 6.0pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
-(Font)              scaled to size 12.045pt on input line 749.
+(Font)              scaled to size 12.045pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
-(Font)              scaled to size 8.0pt on input line 749.
+(Font)              scaled to size 8.0pt on input line 755.
 LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
-(Font)              scaled to size 6.0pt on input line 749.
+(Font)              scaled to size 6.0pt on input line 755.
 
 Missing character: There is no ¤ in font cmbsy10!
 Missing character: There is no ¤ in font cmbsy10!
@@ -2018,7 +2018,7 @@ File: fig/hybrid采样.png Graphic file (type bmp)
 File: fig/hybrid采样改进剪枝.png Graphic file (type bmp)
 <fig/hybrid采样改进剪枝.png>
 
-Overfull \hbox (4.37932pt too wide) in paragraph at lines 934--934
+Overfull \hbox (4.37932pt too wide) in paragraph at lines 940--940
  [][] 
  []
 
@@ -2070,33 +2070,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [46]
 第5章
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 1262.
+(Font)              scaled to size 10.95pt on input line 1268.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 1262.
+(Font)              scaled to size 6.1pt on input line 1268.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1262.
+(Font)              scaled to size 10.95pt on input line 1268.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1262.
+(Font)              scaled to size 6.1pt on input line 1268.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1262.
+(Font)              scaled to size 10.95pt on input line 1268.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1262.
+(Font)              scaled to size 6.1pt on input line 1268.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 1262.
+(Font)              scaled to size 10.95pt on input line 1268.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 1262.
+(Font)              scaled to size 6.1pt on input line 1268.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1262.
+(Font)              scaled to size 10.95pt on input line 1268.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1262.
+(Font)              scaled to size 6.1pt on input line 1268.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1262.
+(Font)              scaled to size 10.95pt on input line 1268.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1262.
+(Font)              scaled to size 6.1pt on input line 1268.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1262.
+(Font)              scaled to size 10.95pt on input line 1268.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 1262.
+(Font)              scaled to size 6.1pt on input line 1268.
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/TimesNewRoman(0)/m/n/6.1'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -2290,10 +2290,10 @@ Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 6DFF2759C6BAD47A70C81BD677CD435B;10400.
  ) 
 Here is how much of TeX's memory you used:
- 27763 strings out of 408789
- 566546 string characters out of 5748080
- 974540 words of memory out of 5000000
- 50187 multiletter control sequences out of 15000+600000
+ 27775 strings out of 408789
+ 567322 string characters out of 5748080
+ 974506 words of memory out of 5000000
+ 50199 multiletter control sequences out of 15000+600000
  663296 words of font info for 286 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,23n,145p,3346b,795s stack positions out of 10000i,1000n,20000p,200000b,200000s
